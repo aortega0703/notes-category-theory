@@ -134,4 +134,20 @@ For a natural transformation $\alpha : F \Rightarrow G$ with functors $F, G: C \
   \item Natural isomorphism\\
     if $\forall c\in ob_C.\ \alpha_c$ is an isomorphism, then $\alpha$ is called a natural isomorphism
 \end{itemize}
+
+\section{Product category}
+For a product category $C\times D$ with categories $C,\ D$
+% https://q.uiver.app/?q=WzAsMyxbMSwwLCJDIFxcdGltZXMgRCJdLFswLDEsIkMiXSxbMiwxLCJEIl0sWzAsMSwiZnN0IiwyXSxbMCwyLCJzY24iXV0=
+\[\begin{tikzcd}
+	& {C \times D} \\
+	C && D
+	\arrow["fst"', from=1-2, to=2-1]
+	\arrow["scn", from=1-2, to=2-3]
+\end{tikzcd}\]
+\begin{itemize}
+  \item Object:\\
+    $(c, d) \in ob_{C\times D},\ \forall c \in ob_C, d \in ob_D$
+  \item Morphism:\\
+    $(f,g) : (c,d) \to (c', d'),\ \forall f: c \to c',\ g:d \to d'$ 
+\end{itemize}
 \end{document}
