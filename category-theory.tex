@@ -86,4 +86,52 @@ e.g.
 	\arrow[color={rgb,255:red,92;green,92;blue,214}, shorten <=9pt, shorten >=6pt, dashed, from=0, to=1]
 \end{tikzcd}\]
 
+\section{Natural Transformation}
+For a natural transformation $\alpha : F \Rightarrow G$ with functors $F, G: C \to D$ and categories $C,\ D$
+% https://q.uiver.app/?q=WzAsMixbMCwwLCJDIl0sWzEsMCwiRCJdLFswLDEsIkciLDIseyJjdXJ2ZSI6Mn1dLFswLDEsIkYiLDAseyJjdXJ2ZSI6LTJ9XSxbMywyLCJcXGFscGhhIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dXQ==
+\[\begin{tikzcd}
+	C & D
+	\arrow[""{name=0, anchor=center, inner sep=0}, "G"', curve={height=12pt}, from=1-1, to=1-2]
+	\arrow[""{name=1, anchor=center, inner sep=0}, "F", curve={height=-12pt}, from=1-1, to=1-2]
+	\arrow["\alpha", shorten <=3pt, shorten >=3pt, Rightarrow, from=1, to=0]
+\end{tikzcd}\]
+%
+\begin{itemize}
+  \item $c$-component of $\alpha$, between functor images\\
+    $\alpha_c : F(c) \to G(c),\ \forall c\in ob_C$
+  \item Naturality condition\\
+    $\alpha_d \circ F(f) = G(f) \circ \alpha_c,\ \forall f:c \to d$ in $C$,
+    which is the same as saying the following diagram commutes\footnote{parallel morphisms i.e. those with the same source and target, are equal} 
+    % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihkKSJdLFswLDEsIkcoYykiXSxbMSwxLCJHKGQpIl0sWzAsMiwiXFxhbHBoYV9jIl0sWzEsMywiXFxhbHBoYV9kIl0sWzAsMSwiRihmKSJdLFsyLDMsIkcoZikiLDJdXQ==
+    \[\begin{tikzcd}
+      {F(c)} & {F(d)} \\
+      {G(c)} & {G(d)}
+      \arrow["{\alpha_c}", from=1-1, to=2-1]
+      \arrow["{\alpha_d}", from=1-2, to=2-2]
+      \arrow["{F(f)}", from=1-1, to=1-2]
+      \arrow["{G(f)}"', from=2-1, to=2-2]
+    \end{tikzcd}\]
+    e.g.
+    % https://q.uiver.app/?q=WzAsOCxbMiwxLCIxIl0sWzMsMCwiRihhKSJdLFs0LDAsIkYoYikiXSxbMywyLCJHKGEpIl0sWzQsMiwiRyhiKSJdLFs1LDEsIjYiXSxbMCwxLCJhIl0sWzEsMSwiYiJdLFswLDEsImciXSxbMCwzLCJoIiwyXSxbMSwzLCJcXGFscGhhX2EiXSxbMiw0LCJcXGFscGhhX2IiLDJdLFsxLDIsIkYoZikiXSxbMyw0LCJHKGYpIiwyXSxbMiw1LCJpIl0sWzQsNSwiaiIsMl0sWzYsNywiZiIsMl0sWzYsMSwiIiwyLHsiY3VydmUiOi0yLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNywyLCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNiwzLCIiLDIseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs3LDQsIiIsMix7ImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+    \[\begin{tikzcd}
+      &&& {F(a)} & {F(b)} \\
+      a & b & 1 &&& 6 \\
+      &&& {G(a)} & {G(b)}
+      \arrow["g", from=2-3, to=1-4]
+      \arrow["h"', from=2-3, to=3-4]
+      \arrow["{\alpha_a}", from=1-4, to=3-4]
+      \arrow["{\alpha_b}"', from=1-5, to=3-5]
+      \arrow["{F(f)}", from=1-4, to=1-5]
+      \arrow["{G(f)}"', from=3-4, to=3-5]
+      \arrow["i", from=1-5, to=2-6]
+      \arrow["j"', from=3-5, to=2-6]
+      \arrow["f"', from=2-1, to=2-2]
+      \arrow[color={rgb,255:red,92;green,92;blue,214}, curve={height=-12pt}, dashed, from=2-1, to=1-4]
+      \arrow[color={rgb,255:red,92;green,92;blue,214}, dashed, from=2-2, to=1-5]
+      \arrow[color={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dashed, from=2-1, to=3-4]
+      \arrow[color={rgb,255:red,214;green,92;blue,92}, dashed, from=2-2, to=3-5]
+    \end{tikzcd}\]
+  \item Natural isomorphism\\
+    if $\forall c\in ob_C.\ \alpha_c$ is an isomorphism, then $\alpha$ is called a natural isomorphism
+\end{itemize}
 \end{document}
