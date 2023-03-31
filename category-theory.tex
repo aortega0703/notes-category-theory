@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+
+\usepackage{hyperref} % Hyperlinks to sections of the document
+\usepackage{amsmath, amssymb, amsthm, mathtools} % Math
+\usepackage{tikz-cd} % Commutative diagrams
+\usepackage{quiver} % Easy CD https://q.uiver.app/
+\usepackage[margin=1in]{geometry} % Set margins
+
+\setlength{\parindent}{0pt} % No indentation on new paragraph
+
+\begin{document}
+\tableofcontents
+\section{Category}
+
+For a category $C$
+\begin{itemize}
+  \item Object:\\
+    $ob_C \coloneqq$ collection of objects in $C$ 
+  \item Morphism:\\
+    Arrow between objects\\
+    $hom_C(a, b) \coloneqq$ set of morphisms from $a$ to $b$, $\forall a, b \in ob_C$\\
+    $f: a \to b$ in $C$ means $f \in hom_C(a,c)$ 
+  \item Identity:\\
+    $id_c: c \to c,\ \forall c \in ob_C$
+  \item Composition:\\
+    $g \circ f : a \to c,\ \forall a, b, c \in ob_C, f: a \to b,\ g: b \to c$
+\end{itemize}
+
+s.t. satisfies
+\begin{itemize}
+  \item Unitality:\\
+    $id_b \circ f = f \circ id_a = f,\ \forall a, b \in ob_C, f: a \to b$
+  \item Assosiativity:\\
+    $h \circ (g \circ f) = (h \circ g) \circ f,\ \forall a,b,c\in ob_C, f:a\to b,\ g:b\to c,\ h:c\to d$
+\end{itemize}
+
+e.g.
+\[\begin{tikzcd}
+  a \arrow[out=90, in=180, loop, swap, "id_a", looseness=5]
+    \arrow[r, "f"]
+    \arrow[dr, swap, "g \circ f"]
+  &
+  b \arrow[out=0, in=90, loop, swap, "id_b", looseness=4.5]
+    \arrow[d, "g"]\\
+  &
+  c \arrow[out=-90, in=0, swap, "id_c", looseness=5]
+\end{tikzcd}\]
+
+\end{document}
