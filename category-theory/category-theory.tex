@@ -20,14 +20,14 @@
 \cite{7sketches_compositionality} For a category $C$:
 \begin{itemize}
   \item Object:\\
-    $ob_C \coloneqq$ collection of objects in $C$ 
+    $ob_C \coloneqq$ collection of objects in $C$
   \item Morphism:\\
     Arrow between objects\\
-    $hom_C(a, b) \coloneqq$ set of morphisms from $a$ to $b$, 
+    $hom_C(a, b) \coloneqq$ set of morphisms from $a$ to $b$,
     $\forall a, b \in ob_C$\\
-    $f: a \to b$ in $C$ means $f \in hom_C(a,c)$ 
+    $f: a \to b$ in $C$ means $f \in hom_C(a,c)$
   \item Identity:\\
-    $id_c: c \to c,\ \forall c \in ob_C$
+    $\mathrm{id}_c: c \to c,\ \forall c \in ob_C$
   \item Composition:\\
     $g \circ f : a \to c,\ \forall a, b, c \in ob_C, f: a \to b,\ g: b \to c$
 \end{itemize}
@@ -35,22 +35,22 @@
 s.t. satisfies
 \begin{itemize}
   \item Unitality:\\
-    $id_b \circ f = f \circ id_a = f,\ \forall a, b \in ob_C, f: a \to b$
+    $\mathrm{id}_b \circ f = f \circ \mathrm{id}_a = f,\ \forall a, b \in ob_C, f: a \to b$
   \item Assosiativity:\\
-    $h \circ (g \circ f) = (h \circ g) \circ f,\ 
+    $h \circ (g \circ f) = (h \circ g) \circ f,\
     \forall a,b,c\in ob_C, f:a\to b,\ g:b\to c,\ h:c\to d$
 \end{itemize}
 
 e.g.
 \[\begin{tikzcd}
-  a \arrow[out=90, in=180, loop, swap, "id_a", looseness=5]
+  a \arrow[out=90, in=180, loop, swap, "\mathrm{id}_a", looseness=5]
     \arrow[r, "f"]
     \arrow[dr, swap, "g \circ f"]
   &
-  b \arrow[out=0, in=90, loop, swap, "id_b", looseness=4.5]
+  b \arrow[out=0, in=90, loop, swap, "\mathrm{id}_b", looseness=4.5]
     \arrow[d, "g"]\\
   &
-  c \arrow[out=-90, in=0, swap, "id_c", looseness=5]
+  c \arrow[out=-90, in=0, swap, "\mathrm{id}_c", looseness=5]
 \end{tikzcd}\]
 
 \section{Functor}
@@ -73,7 +73,7 @@ For a functor $F: C \to D$ with $C$ and $D$ categories:
 s.t. preserves
 \begin{itemize}
   \item Identity\\
-    $F(id_c) = id_{F(c)},\ \forall c \in ob_C$
+    $F(\mathrm{id}_c) = \mathrm{id}_{F(c)},\ \forall c \in ob_C$
   \item Composition\\
     $F(g \circ f) = F(g) \circ F(f),
     \ \forall a,b,c \in ob_C, f: a \to b,\ g: b \to c$
@@ -111,9 +111,9 @@ $F, G: C \to D$ and categories $C,\ D$
     $\alpha_c : F(c) \to G(c),\ \forall c\in ob_C$
   \item Naturality condition\\
     $\alpha_d \circ F(f) = G(f) \circ \alpha_c,\ \forall f:c \to d$ in $C$,
-    which is the same as saying the following diagram 
+    which is the same as saying the following diagram
     commutes\footnote{parallel morphisms i.e. those with the same
-    source and target, are equal} 
+    source and target, are equal}
     % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihkKSJdLFswLDEsIkcoYykiXSxbMSwxLCJHKGQpIl0sWzAsMiwiXFxhbHBoYV9jIl0sWzEsMywiXFxhbHBoYV9kIl0sWzAsMSwiRihmKSJdLFsyLDMsIkcoZikiLDJdXQ==
     \[\begin{tikzcd}
       {F(c)} & {F(d)} \\
@@ -144,14 +144,14 @@ $F, G: C \to D$ and categories $C,\ D$
       \arrow[color={rgb,255:red,214;green,92;blue,92}, dashed, from=2-2, to=3-5]
     \end{tikzcd}\]
   \item Natural isomorphism\\
-    if $\forall c\in ob_C.\ \alpha_c$ is an isomorphism, then $\alpha$ is 
+    if $\forall c\in ob_C.\ \alpha_c$ is an isomorphism, then $\alpha$ is
     called a natural isomorphism
 \end{itemize}
 
 \section{Cartesian Product}
 
 \subsection{Between objects}
-\cite{nlab:cartesian_product} 
+\cite{nlab:cartesian_product}
 In a category $C$ the cartesian product of $2$ objects $a,\ b$ is another
 object $a\times b$ with morphisms $\mathrm{fst}: a\times b \to a,
 \ \mathrm{snd}: a\times b \to b$ such that, for any other object $c$ with the
@@ -184,19 +184,20 @@ Consider the following preorder
 	\arrow["a"', from=1-2, to=1-1]
 	\arrow["d", from=2-1, to=2-2]
 \end{tikzcd}\]
-The product candidates for $2\times 4$ are $2$ with $id_2 : 2\to 2$
+The product candidates for $2\times 4$ are $2$ with $\mathrm{id}_2 : 2\to 2$
 and $d\circ c:2\to 4$, $3$ with $e: 3\to 2$ and $c\circ d\circ e: 3\to 4$,
 and $6$ with $e \circ g: 6\to 2$ and $c\circ f$. The product $2\times 4$
-corresponds then to the object $2$.
+corresponds then to the object $2$. The cartesian product in a
+preorder corresponds to the meet operation $\land$ or infimum.
 
 \subsection{Between categories}
-\cite{nlab:product_category} For a product category $C\times D$ with categories 
+\cite{nlab:product_category} For a product category $C\times D$ with categories
 $C,\ D$:
 \begin{itemize}
   \item Object:\\
     $(c, d) \in ob_{C\times D},\ \forall c \in ob_C, d \in ob_D$
   \item Morphism:\\
-    $(f,g) : (c,d) \to (c', d'),\ \forall f: c \to c',\ g:d \to d'$ 
+    $(f,g) : (c,d) \to (c', d'),\ \forall f: c \to c',\ g:d \to d'$
 \end{itemize}
 This operation is the cartesian product in the category of categories Cat
 
@@ -220,10 +221,10 @@ e.g.
 \begin{tikzcd}
 	{(1,a)} & {(1,b)} \\
 	{(2,a)} & {(2,b)}
-	\arrow["{(id_1,g)}", from=1-1, to=1-2]
-	\arrow["{(f,id_a)}"', from=1-1, to=2-1]
-	\arrow["{(id_2,g)}"', from=2-1, to=2-2]
-	\arrow["{(f,id_b)}", from=1-2, to=2-2]
+	\arrow["{(\mathrm{id}_1,g)}", from=1-1, to=1-2]
+	\arrow["{(f,\mathrm{id}_a)}"', from=1-1, to=2-1]
+	\arrow["{(\mathrm{id}_2,g)}"', from=2-1, to=2-2]
+	\arrow["{(f,\mathrm{id}_b)}", from=1-2, to=2-2]
 	\arrow["{(f,g)}"{description}, from=1-1, to=2-2]
 \end{tikzcd}
 \]
@@ -259,8 +260,8 @@ For a pair of left and right adjoints $(L, R)$
 	\arrow["L"', curve={height=12pt}, from=1-2, to=1-1]
 	\arrow["R"', curve={height=12pt}, from=1-1, to=1-2]
 	\arrow[shorten <=3pt, shorten >=3pt, Rightarrow, from=1-2, to=1-1]
-\end{tikzcd} 
-  \text{or} 
+\end{tikzcd}
+  \text{or}
 % https://q.uiver.app/?q=WzAsMixbMCwwLCJEIl0sWzEsMCwiQyJdLFsxLDAsIkwiLDIseyJjdXJ2ZSI6Mn1dLFswLDEsIlIiLDIseyJjdXJ2ZSI6Mn1dLFsyLDMsIiIsMix7ImxldmVsIjoxLCJzdHlsZSI6eyJuYW1lIjoiYWRqdW5jdGlvbiJ9fV1d
   \begin{tikzcd}
 	D & C
@@ -275,8 +276,8 @@ Let $F, G : C^{op} \times D \to Set,
   \item Natural isomorphism between $F$ and $G$\\
     Note the similarity to $f^{-1}(y)=x \iff y=f(x)$
     \begin{itemize}
-      \item $\alpha_{(c', d)} \coloneqq Hom_D(L(c'), d) 
-        \overset{\cong}{\to} Hom_C(c', R(d))$ 
+      \item $\alpha_{(c', d)} \coloneqq Hom_D(L(c'), d)
+        \overset{\cong}{\to} Hom_C(c', R(d))$
       \item $\forall f = (g^{op}, h): (c', d) \to (c, d'),$
         the following commutes
         % https://q.uiver.app/?q=WzAsNCxbMCwwLCJIb21fRChMKGMnKSwgZCkiXSxbMCwxLCJIb21fQyhjJywgUihkKSkiXSxbMiwwLCJIb21fRChMKGMpLGQnKSJdLFsyLDEsIkhvbV9DKGMsUihkJykpIl0sWzAsMSwiXFxhbHBoYV97YycsZH0iLDJdLFsyLDMsIlxcYWxwaGFfe2MsZCd9IiwyXSxbMCwyLCJIb21fRChMKGhee29wfSksIGcpIl0sWzEsMywiSG9tX0MoaF57b3B9LCBSKGcpKSIsMl1d
