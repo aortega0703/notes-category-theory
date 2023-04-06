@@ -1,0 +1,92 @@
+\section{Limits}
+\todo[inline]{Definition of limit}
+
+\subsection{Terminal Objects}
+A terminal object $a$ in a category $C$ is an object such that for every
+$c\in \mathrm{ob}_C$ there exists exactly one arrow $f: c\to a$. If there are
+multiple terminal objects, they are all isomorphic.
+
+e.g.\\
+In the category Set, the terminal objects are the singleton sets, whose only
+incoming arrow from any category is the constant function.
+
+\subsection{Product}
+\subsubsection{Between objects}
+\cite{nlab:cartesian_product}
+In a category $C$ the cartesian product of $2$ objects $a,\ b$ is another
+object $a\times b$ with morphisms $\mathrm{fst}: a\times b \to a,
+\ \mathrm{snd}: a\times b \to b$ such that, for any other object $c$ with the
+same property there exist a unique $f:c \to a\times b$ such that the following
+diagram commutes
+% https://q.uiver.app/?q=WzAsNCxbMSwwLCJhXFx0aW1lcyBiIl0sWzAsMSwiYSJdLFsyLDEsImIiXSxbMSwyLCJjIl0sWzAsMSwiXFxtYXRocm17ZnN0fSIsMl0sWzAsMiwiXFxtYXRocm17c25kfSJdLFszLDAsImYiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMywxLCJnIl0sWzMsMiwiaCIsMl1d
+\[\begin{tikzcd}
+	& {a\times b} \\
+	a && b \\
+	& c
+	\arrow["{\mathrm{fst}}"', from=1-2, to=2-1]
+	\arrow["{\mathrm{snd}}", from=1-2, to=2-3]
+	\arrow["f"', dashed, from=3-2, to=1-2]
+	\arrow["g", from=3-2, to=2-1]
+	\arrow["h"', from=3-2, to=2-3]
+\end{tikzcd}\]
+
+e.g.
+Consider the following preorder
+% https://q.uiver.app/?q=WzAsNixbMSwyLCI2Il0sWzAsMiwiMyJdLFsxLDEsIjUiXSxbMSwwLCI0Il0sWzAsMSwiMiJdLFswLDAsIjEiXSxbMCwxLCJnIl0sWzAsMiwiZiIsMl0sWzIsMywiYyIsMl0sWzEsNCwiZSJdLFs0LDUsImIiXSxbMyw1LCJhIiwyXSxbNCwyLCJkIl1d
+\[\begin{tikzcd}
+	1 & 4 \\
+	2 & 5 \\
+	3 & 6
+	\arrow["g", from=3-2, to=3-1]
+	\arrow["f"', from=3-2, to=2-2]
+	\arrow["c"', from=2-2, to=1-2]
+	\arrow["e", from=3-1, to=2-1]
+	\arrow["b", from=2-1, to=1-1]
+	\arrow["a"', from=1-2, to=1-1]
+	\arrow["d", from=2-1, to=2-2]
+\end{tikzcd}\]
+The product candidates for $2\times 4$ are $2$ with $\mathrm{id}_2 : 2\to 2$
+and $d\circ c:2\to 4$, $3$ with $e: 3\to 2$ and $c\circ d\circ e: 3\to 4$,
+and $6$ with $e \circ g: 6\to 2$ and $c\circ f$. The product $2\times 4$
+corresponds then to the object $2$. The cartesian product in a
+preorder corresponds to the meet operation $\land$ or infimum.
+\cite{7sketches_compositionality}
+
+\subsubsection{Between categories}
+\cite{nlab:product_category} For a product category $C\times D$ with categories
+$C,\ D$:
+\begin{itemize}
+  \item Object:\\
+    $(c, d) \in \mathrm{ob}_{C\times D},\ \forall (c \in \mathrm{ob}_C, d \in \mathrm{ob}_D)$
+  \item Morphism:\\
+    $(f,g) : (c,d) \to (c', d'),\ \forall (f: c \to c',\ g:d \to d')$
+\end{itemize}
+This operation is the cartesian product in the category of categories Cat
+
+e.g.
+\[
+  % https://q.uiver.app/?q=WzAsMixbMCwwLCIxIl0sWzAsMSwiMiJdLFswLDEsImYiLDJdXQ==
+\begin{tikzcd}
+	1 \\
+	2
+	\arrow["f", from=1-1, to=2-1]
+\end{tikzcd}
+\times
+% https://q.uiver.app/?q=WzAsMixbMCwwLCJhIl0sWzAsMSwiYiJdLFswLDEsImciXV0=
+\begin{tikzcd}
+	a \\
+	b
+	\arrow["g", from=1-1, to=2-1]
+\end{tikzcd}
+=
+% https://q.uiver.app/?q=WzAsNCxbMCwwLCIoMSxhKSJdLFsxLDAsIigxLGIpIl0sWzAsMSwiKDIsYSkiXSxbMSwxLCIoMixiKSJdLFswLDEsIihpZF8xLGcpIl0sWzAsMiwiKGYsaWRfYSkiLDJdLFsyLDMsIihpZF8yLGcpIiwyXSxbMSwzLCIoZixpZF9iKSJdLFswLDMsIihmLGcpIiwxXV0=
+\begin{tikzcd}
+	{(1,a)} & {(1,b)} \\
+	{(2,a)} & {(2,b)}
+	\arrow["{(\mathrm{id}_1,g)}", from=1-1, to=1-2]
+	\arrow["{(f,\mathrm{id}_a)}"', from=1-1, to=2-1]
+	\arrow["{(\mathrm{id}_2,g)}"', from=2-1, to=2-2]
+	\arrow["{(f,\mathrm{id}_b)}", from=1-2, to=2-2]
+	\arrow["{(f,g)}"{description}, from=1-1, to=2-2]
+\end{tikzcd}
+\]

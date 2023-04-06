@@ -1,0 +1,100 @@
+\section{Categories}
+
+\subsection{Definition}
+\cite{7sketches_compositionality} For a category $C$:
+\begin{itemize}
+  \item Objects:\\
+    Can be thought of as ``points'' with no internal structure.\\
+    $\mathrm{ob}_C \coloneq$ collection of objects in the category $C$.
+  \item Morphisms:\\
+    They are directed connections between objects\\
+    $\mathrm{hom}_C(a, b) \coloneqq$ collection of morphisms from $a$ to $b$,
+    $\forall(a, b \in \mathrm{ob}_C$)\\
+    $\mathrm{hom}_C \coloneqq$ collection of all morphisms in the category
+    $C$\\
+    $\mathrm{hom}_C \ni f: a \to b$ means $f \in \mathrm{hom}_C(a,c)$
+  \item Identity:\\
+    $\mathrm{hom}_C \ni \mathrm{id}_c: c \to c,\ \forall(c \in \mathrm{ob}_C)$
+  \item Composition:\\
+    $\mathrm{hom}_C \ni g \circ f : a \to c,
+    \ \forall(a, b, c \in \mathrm{ob}_C, f: a \to b,\ g: b \to c)$
+\end{itemize}
+
+s.t. satisfies
+\begin{itemize}
+  \item Unitality:\\
+    $\mathrm{id}_b \circ f = f \circ \mathrm{id}_a = f,\ \forall(a, b \in \mathrm{ob}_C, f: a \to b)$
+  \item Assosiativity:\\
+    $h \circ (g \circ f) = (h \circ g) \circ f,\
+    \forall(a,b,c\in \mathrm{ob}_C, f:a\to b,\ g:b\to c,\ h:c\to d)$
+\end{itemize}
+
+e.g.
+\[\begin{tikzcd}
+  a \arrow[out=90, in=180, loop, swap, "\mathrm{id}_a", looseness=5]
+    \arrow[r, "f"]
+    \arrow[dr, swap, "g \circ f"]
+  &
+  b \arrow[out=0, in=90, loop, swap, "\mathrm{id}_b", looseness=4.5]
+    \arrow[d, "g"]\\
+  &
+  c \arrow[out=-90, in=0, swap, "\mathrm{id}_c", looseness=5]
+\end{tikzcd}\]
+
+\noindent A category $C$ is said to be small if $\mathrm{ob}_C$ and
+$\mathrm{hom}_C$ are proper sets instead of proper classes. A category locally
+small if $\mathrm{hom}_C(a, b)$ is a proper set $\forall a, b\ in ob_C$.
+Otherwise the category is said to be large. \cite{nlab:category}
+\medskip
+
+\noindent\cite{categories_working_mathematician} An arrow is said to be
+\begin{itemize}
+  \item Invertible: when there exists another arrow $g:c \to b$ such that
+    $g\circ f = id_b$ and $f\circ g = id_c$. If such g exists, it is unique, and
+    is written as $g= f^{-1}$. Two objects are isomorphic if there is an
+    invertible arrow (an insomorphism) between them. If two objects $a,\ b$
+    are isomorphic we write $a\cong b$.
+  \item Monic: when it is left cancellable i.e.
+    $f \circ g_1 = f \circ g_2 \implies g_1 = g_2,\ \forall (g_1, g_2:a\to b)$.
+    In Set the monic arrows are the injections (monomorphisms).
+  \item Epic: when it is right cancellable i.e.
+    $g_1 \circ f = g_2 \circ f \implies g_1 = g_2,\ \forall (g_1, g_2: c\to d)$.
+    In Set the epic arrows are the surjections (epimorphisms).
+  \item Idempotent: when $f\circ f = f$. It is said to split when there exists
+    arrows $g$ and $h$ such that $hg = f$ and $gh = id$
+\end{itemize}
+
+\subsection{Important Categories}
+
+\subsubsection{Opposite Category}
+Given a category $C$, the opposite category $C^\mathrm{op}$ is given by keeping
+all of $C$'s objects and reversing its arrows. \cite{nlab:opposite_category}
+$C^\mathrm{op}$:
+\begin{itemize}
+  \item Objects:\\
+    $ob_{C^\mathrm{op}} = ob_C$
+  \item Morphisms:\\
+    $C^{\mathrm{op}} \ni f^{\mathrm{op}} : c' \to c,
+      \ \forall (C \ni f : c \to c')$
+\end{itemize}
+
+\subsubsection{Set}
+Set is the category of all sets with functions as their morphisms.
+It is a large category and also a locally small one. \cite{nlab:set}
+\begin{itemize}
+  \item Objects:\\
+    Every set is an object in Set.
+  \item Morphisms:\\
+    Morphisms in Set are functions between sets.
+\end{itemize}
+
+\subsubsection{Cat}
+Cat is the category of all small categories. It is therefore a large category.
+\cite{nlab:cat}
+\begin{itemize}
+  \item Objects:\\
+    Every small category is an object in Cat.
+  \item Morphisms:\\
+    Morphisms in Cat are functors between categories.
+\end{itemize}
+Cat is a large category.
