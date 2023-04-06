@@ -47,6 +47,7 @@ small if $\mathrm{hom}_C(a, b)$ is a proper set $\forall a, b\ in ob_C$.
 Otherwise the category is said to be large. \cite{nlab:category}
 \medskip
 
+\subsection{Arrow properties}
 \noindent\cite{categories_working_mathematician} An arrow is said to be
 \begin{itemize}
   \item Invertible: when there exists another arrow $g:c \to b$ such that
@@ -66,35 +67,36 @@ Otherwise the category is said to be large. \cite{nlab:category}
 
 \subsection{Important Categories}
 
-\subsubsection{Opposite Category}
-Given a category $C$, the opposite category $C^\mathrm{op}$ is given by keeping
-all of $C$'s objects and reversing its arrows. \cite{nlab:opposite_category}
-$C^\mathrm{op}$:
 \begin{itemize}
-  \item Objects:\\
-    $ob_{C^\mathrm{op}} = ob_C$
-  \item Morphisms:\\
-    $C^{\mathrm{op}} \ni f^{\mathrm{op}} : c' \to c,
-      \ \forall (C \ni f : c \to c')$
-\end{itemize}
+  \item Opposite Category:\\
+    Given a category $C$, the opposite category $C^\mathrm{op}$ is given by
+    keeping all of $C$'s objects and reversing its arrows.
+    \cite{nlab:opposite_category}
+    \begin{itemize}
+      \item Objects:\\
+        $ob_{C^\mathrm{op}} = ob_C$
+      \item Morphisms:\\
+        $C^{\mathrm{op}} \ni f^{\mathrm{op}} : c' \to c,
+          \ \forall (C \ni f : c \to c')$
+    \end{itemize}
 
-\subsubsection{Set}
-Set is the category of all sets with functions as their morphisms.
-It is a large category and also a locally small one. \cite{nlab:set}
-\begin{itemize}
-  \item Objects:\\
-    Every set is an object in Set.
-  \item Morphisms:\\
-    Morphisms in Set are functions between sets.
-\end{itemize}
+  \item Set:\\
+    It is the category of all sets with functions as their morphisms.
+    It is a large category and also a locally small one. \cite{nlab:set}
+    \begin{itemize}
+      \item Objects:\\
+        Every set is an object in Set.
+      \item Morphisms:\\
+        Morphisms in Set are functions between sets.
+    \end{itemize}
 
-\subsubsection{Cat}
-Cat is the category of all small categories. It is therefore a large category.
-\cite{nlab:cat}
-\begin{itemize}
-  \item Objects:\\
-    Every small category is an object in Cat.
-  \item Morphisms:\\
-    Morphisms in Cat are functors between categories.
+  \item Cat:\\
+    It is the category of all small categories. It is therefore a large category.
+    \cite{nlab:cat}
+    \begin{itemize}
+      \item Objects:\\
+        Every small category is an object in Cat.
+      \item Morphisms:\\
+        Morphisms in Cat are functors between categories.
+    \end{itemize}
 \end{itemize}
-Cat is a large category.
