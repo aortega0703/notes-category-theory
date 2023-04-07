@@ -1,18 +1,34 @@
 \section{Limits}
-\todo[inline]{Definition of limit}
+The limit of a functor $F:J\to C$ is the universal cone over $F$. That is, an
+object $\lim F \in \mathrm{ob}_C$, together with a natural transformation
+$\eta: \lim F \Rightarrow F$ such that for any other objects
+$X \in \mathrm{ob}_C$ with natural transformation $\alpha: X \Rightarrow F$,
+there exists a unique arrow $f : X \to \lim F$ such that $\alpha = \eta \circ f$
+\cite{math3ma:limits2}
+% https://q.uiver.app/?q=WzAsMyxbMCwxLCJcXGxpbSBGIl0sWzAsMiwiRiJdLFswLDAsIlgiXSxbMCwxLCJcXGV0YSIsMix7ImxldmVsIjoyfV0sWzIsMCwiZiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDEsIlxcYWxwaGEiLDAseyJjdXJ2ZSI6LTQsImxldmVsIjoyfV1d
+\[\begin{tikzcd}
+	X \\
+	{\lim F} \\
+	F
+	\arrow["\eta"', Rightarrow, from=2-1, to=3-1]
+	\arrow["f"', dotted, from=1-1, to=2-1]
+	\arrow["\alpha", curve={height=-24pt}, Rightarrow, from=1-1, to=3-1]
+\end{tikzcd}\]
 
 \subsection{Terminal Objects}
-A terminal object $a$ in a category $C$ is an object such that for every
-$c\in \mathrm{ob}_C$ there exists exactly one arrow $f: c\to a$. If there are
-multiple terminal objects, they are all isomorphic.
+A terminal object $a$ is the limit of the empty diagram. If there are multiple
+terminal objects, they are all isomorphic.
+It is an object such that for every $c\in \mathrm{ob}_C$ there exists exactly
+one arrow $f: c\to a$.
 
-e.g.\\
-In the category Set, the terminal objects are the singleton sets, whose only
+e.g. In the category Set, the terminal objects are the singleton sets, whose only
 incoming arrow from any category is the constant function.
 
 \subsection{Product}
 \subsubsection*{Between objects}
 \cite{nlab:cartesian_product}
+The product of $n$ objects is the limit of a diagram with $n$ disconnected
+objects. If there are multiple products, they are all isomorphic.
 In a category $C$ the cartesian product of $2$ objects $a,\ b$ is another
 object $a\times b$ with morphisms $\mathrm{fst}: a\times b \to a,
 \ \mathrm{snd}: a\times b \to b$ such that, for any other object $c$ with the
