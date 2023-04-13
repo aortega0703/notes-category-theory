@@ -1,8 +1,8 @@
 \section{Functors}
 
 \subsection{Definition}
-\cite{7sketches_compositionality}
 For a functor $F: C \to D$ with $C$ and $D$ categories:
+\cite{7sketches_compositionality}
 \[\begin{tikzcd}
   C \arrow[r, "F"]
   &
@@ -41,37 +41,60 @@ e.g.
 	\arrow[color={rgb,255:red,92;green,92;blue,214}, shorten <=9pt, shorten >=6pt, dashed, from=0, to=1]
 \end{tikzcd}\]
 
+A functor $F:C\to D$ is said to be:
+\begin{itemize}
+  \item Faithful: \cite{nlab:faithful_functor}\\
+    If for every $x,y\in \mathrm{ob}_C$, the function $F_{x, y}: \mathrm{hom}_C(x, y) \to \mathrm{hom}_D(F(x), F(y))$
+    is injective.
+  \item Full: \cite{nlab:full_functor}\\
+    If for every $x,y\in \mathrm{ob}_C$, the function $F_{x, y}: \mathrm{hom}_C(x, y) \to \mathrm{hom}_D(F(x), F(y))$
+    is surjective.
+  \item Endofunctor: \cite{nlab:endofunctor}\\
+    If $D = C$, i.e, it is a functor from a category into itself.
+  \item Bifunctor: \cite{nlab:bifunctor}\\
+    If $C = A\times B$ for some categories $A$ and $B$, i.e. a fuctor of two
+    variables.
+\end{itemize}
+
 \subsection{Important Functors}
 \begin{itemize}
+  \item Diagonal functor: \cite{nlab:diagonal_functor}\\
+    $\Delta: C\to C\times C$
+    \begin{itemize}
+      \item Object/Morphisms:\\
+        Maps every object/morphism $c$ in $C$ into $(c, c)$
+    \end{itemize}
+
   \item Constant functor: \cite{nlab:constant_functor}\\
-  $\Delta d: C\to D$
-  \begin{itemize}
-    \item Objects:\\
-      Maps every object in $C$ to a fixed object $d\in \mathrm{ob}_D$.
-    \item Morphisms:
-      Maps every morphism in $C$ to $\mathrm{id}_d$.
-  \end{itemize}
+    $\Delta d: C\to D$
+    \begin{itemize}
+      \item Objects:\\
+        Maps every object in $C$ to a fixed object $d\in \mathrm{ob}_D$.
+      \item Morphisms:\\
+        Maps every morphism in $C$ to $\mathrm{id}_d$.
+    \end{itemize}
+
   \item Hom functor: \cite{nlab:hom-functor}\\
-  $\mathrm{Hom}_C : C^{op}\times C \to \mathrm{Set}$
-  \begin{itemize}
-    \item Objects:\\
-      From a pair of objects to a set of morphisms\\
-      $\mathrm{Hom}_C (c', d) = \mathrm{hom}_C (c', d),\ \forall (c', d\in \mathrm{ob}_C)$
-    \item Morphisms:\\
-      From a morphism to a function of morphisms.\\
-      $\mathrm{Hom}_C (f) : \mathrm{hom}_{C^op\times C}(c', d) \to \mathrm{hom}_{C^op\times C}(c, d'),
-      \ \forall (f=(g^{op}, h): (c', d)\to (c, d'))$\\
-      s.t. the following commutes
-    % https://q.uiver.app/?q=WzAsNCxbMCwwLCJjJyJdLFswLDEsImMiXSxbMSwwLCJkIl0sWzEsMSwiZCciXSxbMSwwLCJnIl0sWzIsMywiaCJdLFswLDIsInAiXSxbMSwzLCJxIiwyXV0=
-      \[ (p: c' \to d) \mapsto \left(q = h\circ p\circ g :
-      \begin{tikzcd}
-        {c'} & d \\
-        c & {d'}
-        \arrow["g", from=2-1, to=1-1]
-        \arrow["h", from=1-2, to=2-2]
-        \arrow["p", from=1-1, to=1-2]
-        \arrow["q"', from=2-1, to=2-2]
-      \end{tikzcd}\right)\]
+    $\mathrm{Hom}_C : C^{op}\times C \to \mathrm{Set}$
+    \begin{itemize}
+      \item Objects:\\
+        From a pair of objects to a set of morphisms\\
+        $\mathrm{Hom}_C (c', d) = \mathrm{hom}_C (c', d),\ \forall (c', d\in \mathrm{ob}_C)$
+      \item Morphisms:\\
+        From a morphism to a function of morphisms.\\
+        $\mathrm{Hom}_C (f) : \mathrm{hom}_{C^{op}\times C}(c', d) \to \mathrm{hom}_{C^{op}\times C}(c, d'),
+        \ \forall (f=(g^{op}, h): (c', d)\to (c, d'))$\\
+        s.t. the following commutes
+      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJjJyJdLFswLDEsImMiXSxbMSwwLCJkIl0sWzEsMSwiZCciXSxbMSwwLCJnIl0sWzIsMywiaCJdLFswLDIsInAiXSxbMSwzLCJxIiwyXV0=
+        \[ (p: c' \to d) \mapsto \left(q = h\circ p\circ g :
+        \begin{tikzcd}
+          {c'} & d \\
+          c & {d'}
+          \arrow["g", from=2-1, to=1-1]
+          \arrow["h", from=1-2, to=2-2]
+          \arrow["p", from=1-1, to=1-2]
+          \arrow["q"', from=2-1, to=2-2]
+        \end{tikzcd}\right)\]
   \end{itemize}
 
 \end{itemize}

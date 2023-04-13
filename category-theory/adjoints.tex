@@ -1,18 +1,19 @@
 \section{Adjoint functors}
-\cite{nlab:adjoint_functor}For a pair of left and right adjoints $(L, R)$
+For a pair of left and right adjoints $(L, R)$:
+\cite{nlab:adjoint_functor}
 % https://q.uiver.app/?q=WzAsMixbMCwwLCJEIl0sWzEsMCwiQyJdLFsxLDAsIkwiLDIseyJjdXJ2ZSI6Mn1dLFswLDEsIlIiLDIseyJjdXJ2ZSI6Mn1dLFsxLDAsIiIsMSx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH0sImxldmVsIjoyfV1d
 \[\begin{tikzcd}
 	D & C
-	\arrow["L"', curve={height=12pt}, from=1-2, to=1-1]
-	\arrow["R"', curve={height=12pt}, from=1-1, to=1-2]
+	\arrow["L"', curve={height=18pt}, from=1-2, to=1-1]
+	\arrow["R"', curve={height=18pt}, from=1-1, to=1-2]
 	\arrow[shorten <=3pt, shorten >=3pt, Rightarrow, from=1-2, to=1-1]
 \end{tikzcd}
   \text{or}
 % https://q.uiver.app/?q=WzAsMixbMCwwLCJEIl0sWzEsMCwiQyJdLFsxLDAsIkwiLDIseyJjdXJ2ZSI6Mn1dLFswLDEsIlIiLDIseyJjdXJ2ZSI6Mn1dLFsyLDMsIiIsMix7ImxldmVsIjoxLCJzdHlsZSI6eyJuYW1lIjoiYWRqdW5jdGlvbiJ9fV1d
   \begin{tikzcd}
 	D & C
-	\arrow[""{name=0, anchor=center, inner sep=0}, "L"', curve={height=12pt}, from=1-2, to=1-1]
-	\arrow[""{name=1, anchor=center, inner sep=0}, "R"', curve={height=12pt}, from=1-1, to=1-2]
+	\arrow[""{name=0, anchor=center, inner sep=0}, "L"', curve={height=18pt}, from=1-2, to=1-1]
+	\arrow[""{name=1, anchor=center, inner sep=0}, "R"', curve={height=18pt}, from=1-1, to=1-2]
 	\arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=1]
 \end{tikzcd}\]
 Let $F, G : C^{op} \times D \to \mathrm{Set},

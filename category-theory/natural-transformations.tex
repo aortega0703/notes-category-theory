@@ -1,8 +1,9 @@
 \section{Natural Transformations}
 
 \subsection{Definition}
-\cite{7sketches_compositionality} For a natural transformation $\alpha : F \Rightarrow G$ with functors
-$F, G: C \to D$ and categories $C,\ D$
+For a natural transformation $\alpha : F \Rightarrow G$ with functors
+$F, G: C \to D$ between categories $C,\ D$:
+\cite{7sketches_compositionality}
 % https://q.uiver.app/?q=WzAsMixbMCwwLCJDIl0sWzEsMCwiRCJdLFswLDEsIkciLDIseyJjdXJ2ZSI6Mn1dLFswLDEsIkYiLDAseyJjdXJ2ZSI6LTJ9XSxbMywyLCJcXGFscGhhIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dXQ==
 \[\begin{tikzcd}
 	C & D
@@ -32,7 +33,7 @@ $F, G: C \to D$ and categories $C,\ D$
     % https://q.uiver.app/?q=WzAsOCxbMiwxLCIxIl0sWzMsMCwiRihhKSJdLFs0LDAsIkYoYikiXSxbMywyLCJHKGEpIl0sWzQsMiwiRyhiKSJdLFs1LDEsIjYiXSxbMCwxLCJhIl0sWzEsMSwiYiJdLFswLDEsImciXSxbMCwzLCJoIiwyXSxbMSwzLCJcXGFscGhhX2EiXSxbMiw0LCJcXGFscGhhX2IiLDJdLFsxLDIsIkYoZikiXSxbMyw0LCJHKGYpIiwyXSxbMiw1LCJpIl0sWzQsNSwiaiIsMl0sWzYsNywiZiIsMl0sWzYsMSwiIiwyLHsiY3VydmUiOi0yLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNywyLCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNiwzLCIiLDIseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs3LDQsIiIsMix7ImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
     \[\begin{tikzcd}
       &&& {F(a)} & {F(b)} \\
-      a & b & 1 &&& 6 \\
+      a & b & c &&& d \\
       &&& {G(a)} & {G(b)}
       \arrow["g", from=2-3, to=1-4]
       \arrow["h"', from=2-3, to=3-4]
