@@ -2,7 +2,7 @@
 
 \subsection{Definition}
 For a functor $F: C \to D$ with $C$ and $D$ categories:
-\cite{7sketches_compositionality}
+\parencite{7sketches_compositionality}
 \[\begin{tikzcd}
   C \arrow[r, "F"]
   &
@@ -43,29 +43,29 @@ e.g.
 
 A functor $F:C\to D$ is said to be:
 \begin{itemize}
-  \item Faithful: \cite{nlab:faithful_functor}\\
+  \item Faithful: \parencite{nlab:faithful_functor}\\
     If for every $x,y\in \mathrm{ob}_C$, the function $F_{x, y}: \mathrm{hom}_C(x, y) \to \mathrm{hom}_D(F(x), F(y))$
     is injective.
-  \item Full: \cite{nlab:full_functor}\\
+  \item Full: \parencite{nlab:full_functor}\\
     If for every $x,y\in \mathrm{ob}_C$, the function $F_{x, y}: \mathrm{hom}_C(x, y) \to \mathrm{hom}_D(F(x), F(y))$
     is surjective.
-  \item Endofunctor: \cite{nlab:endofunctor}\\
+  \item Endofunctor: \parencite{nlab:endofunctor}\\
     If $D = C$, i.e, it is a functor from a category into itself.
-  \item Bifunctor: \cite{nlab:bifunctor}\\
+  \item Bifunctor: \parencite{nlab:bifunctor}\\
     If $C = A\times B$ for some categories $A$ and $B$, i.e. a fuctor of two
     variables.
 \end{itemize}
 
 \subsection{Important Functors}
 \begin{itemize}
-  \item Diagonal functor: \cite{nlab:diagonal_functor}\\
+  \item Diagonal functor: \parencite{nlab:diagonal_functor}\\
     $\Delta: C\to C\times C$
     \begin{itemize}
       \item Object/Morphisms:\\
         Maps every object/morphism $c$ in $C$ into $(c, c)$
     \end{itemize}
 
-  \item Constant functor: \cite{nlab:constant_functor}\\
+  \item Constant functor: \parencite{nlab:constant_functor}\\
     $\Delta d: C\to D$
     \begin{itemize}
       \item Objects:\\
@@ -74,7 +74,7 @@ A functor $F:C\to D$ is said to be:
         Maps every morphism in $C$ to $\mathrm{id}_d$.
     \end{itemize}
 
-  \item Hom functor: \cite{nlab:hom-functor}\\
+  \item Hom functor: \parencite{nlab:hom-functor}\\
     $\mathrm{Hom}_C : C^{op}\times C \to \mathrm{Set}$
     \begin{itemize}
       \item Objects:\\

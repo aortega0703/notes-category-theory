@@ -1,6 +1,5 @@
 \section{Adjoint functors}
-For a pair of left and right adjoints $(L, R)$:
-\cite{nlab:adjoint_functor}
+In diagram a pair of left/right adjoints $(L, R)$ is written as:
 % https://q.uiver.app/?q=WzAsMixbMCwwLCJEIl0sWzEsMCwiQyJdLFsxLDAsIkwiLDIseyJjdXJ2ZSI6Mn1dLFswLDEsIlIiLDIseyJjdXJ2ZSI6Mn1dLFsxLDAsIiIsMSx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH0sImxldmVsIjoyfV1d
 \[\begin{tikzcd}
 	D & C
@@ -16,11 +15,26 @@ For a pair of left and right adjoints $(L, R)$:
 	\arrow[""{name=1, anchor=center, inner sep=0}, "R"', curve={height=18pt}, from=1-1, to=1-2]
 	\arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=1]
 \end{tikzcd}\]
-Let $F, G : C^{op} \times D \to \mathrm{Set},
-\ F=\mathrm{Hom}_D(L(\underline{\ \ }), \underline{\ \ }),
-\ G=\mathrm{Hom}_C(\underline{\ \ },R(\underline{\ \ }))$
+Where the double arrow points in the same direction as the left adjoint or the
+turnstile ($\vdash$) points towards the left adjoint.
 
-There is a natural isomorphism between $F$ and $G$
+\subsection{Definition}
+\subsubsection*{As a natural isomorphism of hom-sets}
+For categories $C, D$ and functors $L: C\to D$ and $R: D\to C$, $L$ is said to
+be a left adjoint of $R$ when there is a natural isomorphism between functors:
+\parencite{nlab:adjoint_functor}
+\begin{equation*}
+  \begin{aligned}
+    F&: C^\mathrm{op} \times D \to \mathrm{Set}\\
+    F&=\mathrm{Hom}_D(L(\underline{\ \ }), \underline{\ \ })
+  \end{aligned}
+  \qquad
+  \begin{aligned}
+    G&: C^\mathrm{op} \times D \to \mathrm{Set}\\
+    G&=\mathrm{Hom}_C(\underline{\ \ }, R(\underline{\ \ }))
+  \end{aligned}
+\end{equation*}
+
 \begin{itemize}
   \item $\alpha_{(c', d)} \coloneqq \mathrm{Hom}_D(L(c'), d)
     \overset{\cong}{\to} \mathrm{Hom}_C(c', R(d))$\\
@@ -38,8 +52,11 @@ There is a natural isomorphism between $F$ and $G$
     \end{tikzcd}\]
 \end{itemize}
 
-e.g. Currying\\
-  $(\underline{\ \ } \times Y, \mathrm{hom}_{\mathrm{Set}}(\underline{\ \ }, Y))$
-  is a pair of left/right adjoints\\
-  $\mathrm{hom}_{\mathrm{Set}}(X\times Y, Z) \cong \mathrm{hom}_{\mathrm{Set}}
-    (X, \mathrm{hom}_{\mathrm{Set}}(Y, Z))$
+\subsection{Notable examples}
+\begin{itemize}
+  \item Currying\\
+    $(\underline{\ \ } \times Y, \mathrm{hom}_{\mathrm{Set}}(\underline{\ \ }, Y))$
+    is a pair of left/right adjoints\\
+    $\mathrm{hom}_{\mathrm{Set}}(X\times Y, Z) \cong \mathrm{hom}_{\mathrm{Set}}
+      (X, \mathrm{hom}_{\mathrm{Set}}(Y, Z))$
+\end{itemize}
