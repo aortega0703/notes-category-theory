@@ -127,6 +127,44 @@ An arrow is said to be: \parencite{maclane:working_mathematician}
 \subsection{Important Categories}
 
 \begin{itemize}
+  \item Product Category:\\
+    For categories $C,D$, a product category $C\times D$ consists of:
+    \parencite{awodey:category_theory}
+    \begin{itemize}
+      \item Objects:\\
+        $(c, d) \in \mathrm{ob}_{C\times D},\ \forall (c \in \mathrm{ob}_C, d \in \mathrm{ob}_D)$
+      \item Morphisms:\\
+        $(f,g) : (c,d) \to (c', d'),\ \forall (f: c \to c',\ g:d \to d')$
+    \end{itemize}
+    This operation is the product in the category of categories Cat
+
+    e.g.
+    \[
+      % https://q.uiver.app/?q=WzAsMixbMCwwLCIxIl0sWzAsMSwiMiJdLFswLDEsImYiLDJdXQ==
+    \begin{tikzcd}
+      1 \\
+      2
+      \arrow["f", from=1-1, to=2-1]
+    \end{tikzcd}
+    \times
+    % https://q.uiver.app/?q=WzAsMixbMCwwLCJhIl0sWzAsMSwiYiJdLFswLDEsImciXV0=
+    \begin{tikzcd}
+      a \\
+      b
+      \arrow["g", from=1-1, to=2-1]
+    \end{tikzcd}
+    =
+    % https://q.uiver.app/?q=WzAsNCxbMCwwLCIoMSxhKSJdLFsxLDAsIigxLGIpIl0sWzAsMSwiKDIsYSkiXSxbMSwxLCIoMixiKSJdLFswLDEsIihpZF8xLGcpIl0sWzAsMiwiKGYsaWRfYSkiLDJdLFsyLDMsIihpZF8yLGcpIiwyXSxbMSwzLCIoZixpZF9iKSJdLFswLDMsIihmLGcpIiwxXV0=
+    \begin{tikzcd}
+      {(1,a)} & {(1,b)} \\
+      {(2,a)} & {(2,b)}
+      \arrow["{(\mathrm{id}_1,g)}", from=1-1, to=1-2]
+      \arrow["{(f,\mathrm{id}_a)}"', from=1-1, to=2-1]
+      \arrow["{(\mathrm{id}_2,g)}"', from=2-1, to=2-2]
+      \arrow["{(f,\mathrm{id}_b)}", from=1-2, to=2-2]
+      \arrow["{(f,g)}"{description}, from=1-1, to=2-2]
+    \end{tikzcd}
+    \]
   \item Free Category:\\
     The free category of any directed graph is that which is obtained by using
     vertices as objects, edges as arrows, and adding all necessary identity

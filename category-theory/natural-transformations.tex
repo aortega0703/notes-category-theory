@@ -30,7 +30,7 @@ $F, G: C \to D$ between categories $C,\ D$:
       \arrow["{G(f)}"', from=2-1, to=2-2]
     \end{tikzcd}\]
     e.g.
-    % https://q.uiver.app/?q=WzAsOCxbMiwxLCIxIl0sWzMsMCwiRihhKSJdLFs0LDAsIkYoYikiXSxbMywyLCJHKGEpIl0sWzQsMiwiRyhiKSJdLFs1LDEsIjYiXSxbMCwxLCJhIl0sWzEsMSwiYiJdLFswLDEsImciXSxbMCwzLCJoIiwyXSxbMSwzLCJcXGFscGhhX2EiXSxbMiw0LCJcXGFscGhhX2IiLDJdLFsxLDIsIkYoZikiXSxbMyw0LCJHKGYpIiwyXSxbMiw1LCJpIl0sWzQsNSwiaiIsMl0sWzYsNywiZiIsMl0sWzYsMSwiRiIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzcsMiwiIiwyLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzYsMywiRyIsMix7ImN1cnZlIjoyLCJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzcsNCwiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
+    % https://q.uiver.app/?q=WzAsOCxbMiwxLCIxIl0sWzMsMCwiRihhKSJdLFs0LDAsIkYoYikiXSxbMywyLCJHKGEpIl0sWzQsMiwiRyhiKSJdLFs1LDEsIjYiXSxbMCwxLCJhIl0sWzEsMSwiYiJdLFswLDEsImciXSxbMCwzLCJoIiwyXSxbMSwzLCJcXGFscGhhX2EiXSxbMiw0LCJcXGFscGhhX2IiLDJdLFsxLDIsIkYoZikiXSxbMyw0LCJHKGYpIiwyXSxbMiw1LCJpIl0sWzQsNSwiaiIsMl0sWzYsNywiZiIsMl0sWzYsMSwiRiIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fSxbMjQwLDYwLDYwLDFdXSxbNywyLCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNiwzLCJHIiwyLHsiY3VydmUiOjIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19LFswLDYwLDYwLDFdXSxbNyw0LCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
     \[\begin{tikzcd}
       &&& {F(a)} & {F(b)} \\
       a & b & 1 &&& 6 \\
@@ -44,9 +44,9 @@ $F, G: C \to D$ between categories $C,\ D$:
       \arrow["i", from=1-5, to=2-6]
       \arrow["j"', from=3-5, to=2-6]
       \arrow["f"', from=2-1, to=2-2]
-      \arrow["F", draw={rgb,255:red,92;green,92;blue,214}, curve={height=-12pt}, dotted, from=2-1, to=1-4]
+      \arrow["F", color={rgb,255:red,92;green,92;blue,214}, curve={height=-12pt}, dotted, from=2-1, to=1-4]
       \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-2, to=1-5]
-      \arrow["G"', draw={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=2-1, to=3-4]
+      \arrow["G"', color={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=2-1, to=3-4]
       \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=2-2, to=3-5]
     \end{tikzcd}\]
   \item Natural isomorphism\\
@@ -57,19 +57,21 @@ $F, G: C \to D$ between categories $C,\ D$:
 \subsection{Important Natural Transformations}
 \begin{itemize}
   \item Cone:\\
-    Natural transformation between the constant functor and any other functor.\\
+    For categories $C,D$ and a functor $F: C\to D$, the cone over $F$ is the
+    natural transformation between the constant functor $\Delta d$ for some
+    object in $D$ and $F$.\\
     e.g.
-    % https://q.uiver.app/?q=WzAsOSxbMCwxLCJcXGJ1bGxldCJdLFsyLDMsIlxcYnVsbGV0Il0sWzIsMSwiXFxidWxsZXQiXSxbMCwzLCJcXGJ1bGxldCJdLFs0LDEsIlxcYnVsbGV0Il0sWzYsMywiXFxidWxsZXQiXSxbNiwxLCJcXGJ1bGxldCJdLFs0LDMsIlxcYnVsbGV0Il0sWzUsMCwiYyJdLFswLDgsIlxcRGVsdGEgYyIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzIsOCwiIiwyLHsiY3VydmUiOi0xLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMSw4LCIiLDIseyJjdXJ2ZSI6LTQsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFszLDgsIiIsMix7ImN1cnZlIjotNSwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzAsNCwiIiwyLHsiY3VydmUiOjIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiw2LCIiLDAseyJjdXJ2ZSI6LTIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbOCw0XSxbOCw2XSxbOCw3LCJcXGFscGhhIiwwLHsibGFiZWxfcG9zaXRpb24iOjEwfV0sWzgsNV0sWzAsMl0sWzAsM10sWzMsMV0sWzIsMV0sWzQsN10sWzQsNl0sWzYsNV0sWzcsNV0sWzEsNSwiIiwwLHsiY3VydmUiOi0yLCJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzMsNywiIiwxLHsiY3VydmUiOjIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
+    % https://q.uiver.app/?q=WzAsOSxbMCwxLCJcXGJ1bGxldCJdLFsyLDMsIlxcYnVsbGV0Il0sWzIsMSwiXFxidWxsZXQiXSxbMCwzLCJcXGJ1bGxldCJdLFs0LDEsIlxcYnVsbGV0Il0sWzYsMywiXFxidWxsZXQiXSxbNiwxLCJcXGJ1bGxldCJdLFs0LDMsIlxcYnVsbGV0Il0sWzUsMCwiZCJdLFswLDgsIlxcRGVsdGEgZCIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fSxbMjQwLDYwLDYwLDFdXSxbMiw4LCIiLDIseyJjdXJ2ZSI6LTEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxLDgsIiIsMix7ImN1cnZlIjotNCwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzMsOCwiIiwyLHsiY3VydmUiOi01LCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMCw0LCIiLDEseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDYsIiIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs4LDRdLFs4LDZdLFs4LDcsIlxcYWxwaGEiLDAseyJsYWJlbF9wb3NpdGlvbiI6MTB9XSxbOCw1XSxbMCwyXSxbMCwzXSxbMywxXSxbMiwxXSxbNCw3XSxbNCw2XSxbNiw1XSxbNyw1XSxbMSw1LCIiLDAseyJjdXJ2ZSI6LTIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMyw3LCJGIiwyLHsiY3VydmUiOjIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19LFswLDYwLDYwLDFdXV0=
     \[\begin{tikzcd}
-      &&&&& c \\
+      &&&&& d \\
       \bullet && \bullet && \bullet && \bullet \\
       \\
       \bullet && \bullet && \bullet && \bullet
-      \arrow["{\Delta c}", draw={rgb,255:red,92;green,92;blue,214}, curve={height=-12pt}, dotted, from=2-1, to=1-6]
+      \arrow["{\Delta d}", color={rgb,255:red,92;green,92;blue,214}, curve={height=-12pt}, dotted, from=2-1, to=1-6]
       \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-6pt}, dotted, from=2-3, to=1-6]
       \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-24pt}, dotted, from=4-3, to=1-6]
       \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-30pt}, dotted, from=4-1, to=1-6]
-      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=2-1, to=2-5]
+      \arrow[color={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=2-1, to=2-5]
       \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=2-3, to=2-7]
       \arrow[from=1-6, to=2-5]
       \arrow[from=1-6, to=2-7]
@@ -84,23 +86,25 @@ $F, G: C \to D$ between categories $C,\ D$:
       \arrow[from=2-7, to=4-7]
       \arrow[from=4-5, to=4-7]
       \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=4-3, to=4-7]
-      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=4-1, to=4-5]
+      \arrow["F"', color={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=4-1, to=4-5]
     \end{tikzcd}\]
   \item Cocone:\\
-    Natural transformation between any functor and the constant functor.\\
+    For categories $C,D$ and a functor $F: C\to D$, the cocone under $F$ is the
+    natural transformation between $F$ and the constant functor $\Delta d$ for some
+    object in $D$.\\
     e.g.
-    % https://q.uiver.app/?q=WzAsOSxbMCwwLCJcXGJ1bGxldCJdLFsyLDIsIlxcYnVsbGV0Il0sWzIsMCwiXFxidWxsZXQiXSxbMCwyLCJcXGJ1bGxldCJdLFs0LDAsIlxcYnVsbGV0Il0sWzYsMiwiXFxidWxsZXQiXSxbNiwwLCJcXGJ1bGxldCJdLFs0LDIsIlxcYnVsbGV0Il0sWzUsMywiYyJdLFswLDgsIiIsMCx7ImN1cnZlIjo1LCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiw4LCIiLDIseyJjdXJ2ZSI6NCwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsOCwiIiwyLHsiY3VydmUiOjEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFszLDgsIlxcRGVsdGEgYyIsMix7ImN1cnZlIjoyLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMCw0LCIiLDIseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDYsIiIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs0LDgsIlxcYWxwaGEiLDAseyJsYWJlbF9wb3NpdGlvbiI6OTB9XSxbNiw4XSxbNyw4LCIiLDAseyJsYWJlbF9wb3NpdGlvbiI6MTB9XSxbNSw4XSxbMCwyXSxbMCwzXSxbMywxXSxbMiwxXSxbNCw3XSxbNCw2XSxbNiw1XSxbNyw1XSxbMSw1LCIiLDAseyJjdXJ2ZSI6LTIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMyw3LCIiLDEseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
+    % https://q.uiver.app/?q=WzAsOSxbMCwwLCJcXGJ1bGxldCJdLFsyLDIsIlxcYnVsbGV0Il0sWzIsMCwiXFxidWxsZXQiXSxbMCwyLCJcXGJ1bGxldCJdLFs0LDAsIlxcYnVsbGV0Il0sWzYsMiwiXFxidWxsZXQiXSxbNiwwLCJcXGJ1bGxldCJdLFs0LDIsIlxcYnVsbGV0Il0sWzUsMywiZCJdLFswLDgsIiIsMCx7ImN1cnZlIjo1LCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiw4LCIiLDIseyJjdXJ2ZSI6NCwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsOCwiIiwyLHsiY3VydmUiOjEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFszLDgsIlxcRGVsdGEgZCIsMix7ImN1cnZlIjoyLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19LFsyNDAsNjAsNjAsMV1dLFswLDQsIiIsMix7ImN1cnZlIjoyLCJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzIsNiwiRiIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX0sWzAsNjAsNjAsMV1dLFs0LDgsIlxcYWxwaGEiLDAseyJsYWJlbF9wb3NpdGlvbiI6OTB9XSxbNiw4XSxbNyw4LCIiLDAseyJsYWJlbF9wb3NpdGlvbiI6MTB9XSxbNSw4XSxbMCwyXSxbMCwzXSxbMywxXSxbMiwxXSxbNCw3XSxbNCw2XSxbNiw1XSxbNyw1XSxbMSw1LCIiLDAseyJjdXJ2ZSI6LTIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMyw3LCIiLDEseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
     \[\begin{tikzcd}
       \bullet && \bullet && \bullet && \bullet \\
       \\
       \bullet && \bullet && \bullet && \bullet \\
-      &&&&& c
+      &&&&& d
       \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=30pt}, dotted, from=1-1, to=4-6]
       \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=1-3, to=4-6]
       \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=6pt}, dotted, from=3-3, to=4-6]
-      \arrow["{\Delta c}"', draw={rgb,255:red,92;green,92;blue,214}, curve={height=12pt}, dotted, from=3-1, to=4-6]
+      \arrow["{\Delta d}"', color={rgb,255:red,92;green,92;blue,214}, curve={height=12pt}, dotted, from=3-1, to=4-6]
       \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=1-1, to=1-5]
-      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=1-3, to=1-7]
+      \arrow["F", color={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=1-3, to=1-7]
       \arrow["\alpha"{pos=0.9}, from=1-5, to=4-6]
       \arrow[from=1-7, to=4-6]
       \arrow[from=3-5, to=4-6]
