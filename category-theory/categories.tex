@@ -42,10 +42,25 @@ e.g.
 \end{tikzcd}\]
 
 \noindent A category $C$ is said to be small if $\mathrm{ob}_C$ and
-$\mathrm{hom}_C$ are proper sets instead of proper classes. A category locally
-small if $\mathrm{hom}_C(a, b)$ is a proper set $\forall a, b\ in ob_C$.
-Otherwise the category is said to be large. \parencite{awodey:category_theory}
-\medskip
+$\mathrm{hom}_C$ are proper sets instead of proper classes, otherwise it is said
+to be large. A category is locally small if $\mathrm{hom}_C(a, b)$ is a proper
+set $\forall a, b\ in ob_C$. \parencite{awodey:category_theory}
+
+\subsection{Duality}
+Given a category $C$, its opposite category $C^\mathrm{op}$ is given by keeping
+all of $C$'s objects and reversing its arrows.
+\parencite{maclane:working_mathematician}
+\begin{itemize}
+  \item Objects:\\
+    $ob_{C^\mathrm{op}} = ob_C$
+  \item Morphisms:\\
+    $C^{\mathrm{op}} \ni f^{\mathrm{op}} : c' \to c,
+      \ \forall (C \ni f : c \to c')$
+\end{itemize}
+As the axioms of category theory are self-dual, for any statement $\Sigma$
+that holds for all categories, its dual statement $\Sigma^*$ ($\Sigma$ in
+$C^\mathrm{op}$) must also hold for all categories.
+\parencite{awodey:category_theory}
 
 \subsection{Arrow properties}
 An arrow is said to be: \parencite{maclane:working_mathematician}
@@ -112,18 +127,6 @@ An arrow is said to be: \parencite{maclane:working_mathematician}
 \subsection{Important Categories}
 
 \begin{itemize}
-  \item Opposite Category:\\
-    Given a category $C$, the opposite category $C^\mathrm{op}$ is given by
-    keeping all of $C$'s objects and reversing its arrows.
-    \parencite{maclane:working_mathematician}
-    \begin{itemize}
-      \item Objects:\\
-        $ob_{C^\mathrm{op}} = ob_C$
-      \item Morphisms:\\
-        $C^{\mathrm{op}} \ni f^{\mathrm{op}} : c' \to c,
-          \ \forall (C \ni f : c \to c')$
-    \end{itemize}
-
   \item Free Category:\\
     The free category of any directed graph is that which is obtained by using
     vertices as objects, edges as arrows, and adding all necessary identity
@@ -149,7 +152,7 @@ An arrow is said to be: \parencite{maclane:working_mathematician}
 
   \item Cat:\\
     It is the category of all small categories. It is therefore a large category.
-    \parencite{nlab:cat}
+    \parencite{adamek_herrlich_strecker:joy_cats}
     \begin{itemize}
       \item Objects:\\
         Every small category is an object in Cat.
