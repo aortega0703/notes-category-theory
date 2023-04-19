@@ -66,7 +66,7 @@ $C^\mathrm{op}$) must also hold for all categories.
 An arrow is said to be: \parencite{maclane:working_mathematician}
 \begin{itemize}
   \item Invertible: when there exists another arrow $g:c \to b$ such that
-    $g\circ f = id_b$ and $f\circ g = id_c$. If such g exists, it is unique, and
+    $g\circ f = \mathrm{id}_b$ and $f\circ g = \mathrm{id}_c$. If such g exists, it is unique, and
     is written as $g= f^{-1}$. Two objects are isomorphic if there is an
     invertible arrow (an insomorphism) between them. If two objects $a,\ b$
     are isomorphic we write $a\cong b$.
@@ -75,8 +75,8 @@ An arrow is said to be: \parencite{maclane:working_mathematician}
       a & b
       \arrow["f", shift left=1, from=1-1, to=1-2]
       \arrow["{f^{-1}}", shift left=1, from=1-2, to=1-1]
-      \arrow["id_a"', out=90+45, in=-90-45, looseness=4.5, from=1-1, to=1-1]
-      \arrow["id_b", out=45, in=-45, looseness=4.5, from=1-2, to=1-2]
+      \arrow["\mathrm{id}_a"', out=90+45, in=-90-45, looseness=4.5, from=1-1, to=1-1]
+      \arrow["\mathrm{id}_b", out=45, in=-45, looseness=4.5, from=1-2, to=1-2]
     \end{tikzcd}\]
   \item Monic: when it is left cancellable i.e.
     $f \circ g_1 = f \circ g_2 \implies g_1 = g_2,\ \forall (g_1, g_2:a\to b)$.
