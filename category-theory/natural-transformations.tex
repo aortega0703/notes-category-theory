@@ -30,24 +30,27 @@ $F, G: C \to D$ between categories $C,\ D$:
       \arrow["{G(f)}"', from=2-1, to=2-2]
     \end{tikzcd}\]
     e.g.
-    % https://q.uiver.app/?q=WzAsOCxbMiwxLCIxIl0sWzMsMCwiRihhKSJdLFs0LDAsIkYoYikiXSxbMywyLCJHKGEpIl0sWzQsMiwiRyhiKSJdLFs1LDEsIjYiXSxbMCwxLCJhIl0sWzEsMSwiYiJdLFswLDEsImciXSxbMCwzLCJoIiwyXSxbMSwzLCJcXGFscGhhX2EiXSxbMiw0LCJcXGFscGhhX2IiLDJdLFsxLDIsIkYoZikiXSxbMyw0LCJHKGYpIiwyXSxbMiw1LCJpIl0sWzQsNSwiaiIsMl0sWzYsNywiZiIsMl0sWzYsMSwiRiIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fSxbMjQwLDYwLDYwLDFdXSxbNywyLCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNiwzLCJHIiwyLHsiY3VydmUiOjIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19LFswLDYwLDYwLDFdXSxbNyw0LCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
+    % https://q.uiver.app/?q=WzAsMTAsWzIsMiwiMSJdLFszLDEsIkYoYSkiXSxbNCwxLCJGKGIpIl0sWzMsMywiRyhhKSJdLFs0LDMsIkcoYikiXSxbNSwyLCI2Il0sWzAsMiwiYSJdLFsxLDIsImIiXSxbMSwwLCJDIl0sWzIsMCwiRCJdLFswLDEsImciXSxbMCwzLCJoIiwyXSxbMSwzLCJcXGFscGhhX2EiXSxbMiw0LCJcXGFscGhhX2IiLDJdLFsxLDIsIkYoZikiXSxbMyw0LCJHKGYpIiwyXSxbMiw1LCJpIl0sWzQsNSwiaiIsMl0sWzYsNywiZiJdLFs2LDEsIiIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzcsMiwiIiwyLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzYsMywiIiwyLHsiY3VydmUiOjIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNyw0LCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzgsOSwiRiIsMSx7ImN1cnZlIjotMywiY29sb3VyIjpbMjQwLDYwLDYwXX1dLFs4LDksIkciLDEseyJjdXJ2ZSI6MywiY29sb3VyIjpbMCw2MCw2MF19XV0=
     \[\begin{tikzcd}
+      & C & D \\
       &&& {F(a)} & {F(b)} \\
       a & b & 1 &&& 6 \\
       &&& {G(a)} & {G(b)}
-      \arrow["g", from=2-3, to=1-4]
-      \arrow["h"', from=2-3, to=3-4]
-      \arrow["{\alpha_a}", from=1-4, to=3-4]
-      \arrow["{\alpha_b}"', from=1-5, to=3-5]
-      \arrow["{F(f)}", from=1-4, to=1-5]
-      \arrow["{G(f)}"', from=3-4, to=3-5]
-      \arrow["i", from=1-5, to=2-6]
-      \arrow["j"', from=3-5, to=2-6]
-      \arrow["f"', from=2-1, to=2-2]
-      \arrow["F", color={rgb,255:red,92;green,92;blue,214}, curve={height=-12pt}, dotted, from=2-1, to=1-4]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-2, to=1-5]
-      \arrow["G"', color={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=2-1, to=3-4]
-      \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=2-2, to=3-5]
+      \arrow["g", from=3-3, to=2-4]
+      \arrow["h"', from=3-3, to=4-4]
+      \arrow["{\alpha_a}", from=2-4, to=4-4]
+      \arrow["{\alpha_b}"', from=2-5, to=4-5]
+      \arrow["{F(f)}", from=2-4, to=2-5]
+      \arrow["{G(f)}"', from=4-4, to=4-5]
+      \arrow["i", from=2-5, to=3-6]
+      \arrow["j"', from=4-5, to=3-6]
+      \arrow["f", from=3-1, to=3-2]
+      \arrow[color={rgb,255:red,92;green,92;blue,214}, curve={height=-12pt}, dotted, from=3-1, to=2-4]
+      \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=3-2, to=2-5]
+      \arrow[color={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=3-1, to=4-4]
+      \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=3-2, to=4-5]
+      \arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, curve={height=-18pt}, from=1-2, to=1-3]
+      \arrow["G"{description}, draw={rgb,255:red,214;green,92;blue,92}, curve={height=18pt}, from=1-2, to=1-3]
     \end{tikzcd}\]
   \item Natural isomorphism\\
     if $\forall (c\in \mathrm{ob}_C.\ \alpha_c)$ is an isomorphism, then $\alpha$ is
@@ -61,63 +64,69 @@ $F, G: C \to D$ between categories $C,\ D$:
     natural transformation between the constant functor $\Delta d$ for some
     object in $D$ and $F$.\\
     e.g.
-    % https://q.uiver.app/?q=WzAsOSxbMCwxLCJcXGJ1bGxldCJdLFsyLDMsIlxcYnVsbGV0Il0sWzIsMSwiXFxidWxsZXQiXSxbMCwzLCJcXGJ1bGxldCJdLFs0LDEsIlxcYnVsbGV0Il0sWzYsMywiXFxidWxsZXQiXSxbNiwxLCJcXGJ1bGxldCJdLFs0LDMsIlxcYnVsbGV0Il0sWzUsMCwiZCJdLFswLDgsIlxcRGVsdGEgZCIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fSxbMjQwLDYwLDYwLDFdXSxbMiw4LCIiLDIseyJjdXJ2ZSI6LTEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxLDgsIiIsMix7ImN1cnZlIjotNCwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzMsOCwiIiwyLHsiY3VydmUiOi01LCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMCw0LCIiLDEseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDYsIiIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs4LDRdLFs4LDZdLFs4LDcsIlxcYWxwaGEiLDAseyJsYWJlbF9wb3NpdGlvbiI6MTB9XSxbOCw1XSxbMCwyXSxbMCwzXSxbMywxXSxbMiwxXSxbNCw3XSxbNCw2XSxbNiw1XSxbNyw1XSxbMSw1LCIiLDAseyJjdXJ2ZSI6LTIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMyw3LCJGIiwyLHsiY3VydmUiOjIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19LFswLDYwLDYwLDFdXV0=
+    % https://q.uiver.app/?q=WzAsMTEsWzAsMiwiXFxidWxsZXQiXSxbMiw0LCJcXGJ1bGxldCJdLFsyLDIsIlxcYnVsbGV0Il0sWzAsNCwiXFxidWxsZXQiXSxbMywyLCJcXGJ1bGxldCJdLFs1LDQsIlxcYnVsbGV0Il0sWzUsMiwiXFxidWxsZXQiXSxbMyw0LCJcXGJ1bGxldCJdLFs0LDEsImQiXSxbMiwwLCJDIl0sWzMsMCwiRCJdLFswLDgsIiIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzIsOCwiIiwyLHsiY3VydmUiOi0xLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMSw4LCIiLDIseyJjdXJ2ZSI6LTQsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFszLDgsIiIsMix7ImN1cnZlIjotNSwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzAsNCwiIiwxLHsiY3VydmUiOjIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiw2LCIiLDAseyJjdXJ2ZSI6LTIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbOCw0XSxbOCw2XSxbOCw3LCJcXGFscGhhIiwwLHsibGFiZWxfcG9zaXRpb24iOjEwfV0sWzgsNV0sWzAsMl0sWzAsM10sWzMsMV0sWzIsMV0sWzQsN10sWzQsNl0sWzYsNV0sWzcsNV0sWzEsNSwiIiwwLHsiY3VydmUiOi0yLCJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzMsNywiIiwyLHsiY3VydmUiOjIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbOSwxMCwiXFxEZWx0YSBkIiwxLHsiY3VydmUiOi0zLCJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzksMTAsIkYiLDEseyJjdXJ2ZSI6MywiY29sb3VyIjpbMCw2MCw2MF19XV0=
     \[\begin{tikzcd}
-      &&&&& d \\
-      \bullet && \bullet && \bullet && \bullet \\
+      && C & D \\
+      &&&& d \\
+      \bullet && \bullet & \bullet && \bullet \\
       \\
-      \bullet && \bullet && \bullet && \bullet
-      \arrow["{\Delta d}", color={rgb,255:red,92;green,92;blue,214}, curve={height=-12pt}, dotted, from=2-1, to=1-6]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-6pt}, dotted, from=2-3, to=1-6]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-24pt}, dotted, from=4-3, to=1-6]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-30pt}, dotted, from=4-1, to=1-6]
-      \arrow[color={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=2-1, to=2-5]
-      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=2-3, to=2-7]
-      \arrow[from=1-6, to=2-5]
-      \arrow[from=1-6, to=2-7]
-      \arrow["\alpha"{pos=0.1}, from=1-6, to=4-5]
-      \arrow[from=1-6, to=4-7]
-      \arrow[from=2-1, to=2-3]
-      \arrow[from=2-1, to=4-1]
-      \arrow[from=4-1, to=4-3]
-      \arrow[from=2-3, to=4-3]
-      \arrow[from=2-5, to=4-5]
-      \arrow[from=2-5, to=2-7]
-      \arrow[from=2-7, to=4-7]
-      \arrow[from=4-5, to=4-7]
-      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=4-3, to=4-7]
-      \arrow["F"', color={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=4-1, to=4-5]
+      \bullet && \bullet & \bullet && \bullet
+      \arrow[color={rgb,255:red,92;green,92;blue,214}, curve={height=-12pt}, dotted, from=3-1, to=2-5]
+      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-6pt}, dotted, from=3-3, to=2-5]
+      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-24pt}, dotted, from=5-3, to=2-5]
+      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-30pt}, dotted, from=5-1, to=2-5]
+      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=3-1, to=3-4]
+      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=3-3, to=3-6]
+      \arrow[from=2-5, to=3-4]
+      \arrow[from=2-5, to=3-6]
+      \arrow["\alpha"{pos=0.1}, from=2-5, to=5-4]
+      \arrow[from=2-5, to=5-6]
+      \arrow[from=3-1, to=3-3]
+      \arrow[from=3-1, to=5-1]
+      \arrow[from=5-1, to=5-3]
+      \arrow[from=3-3, to=5-3]
+      \arrow[from=3-4, to=5-4]
+      \arrow[from=3-4, to=3-6]
+      \arrow[from=3-6, to=5-6]
+      \arrow[from=5-4, to=5-6]
+      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=5-3, to=5-6]
+      \arrow[color={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=5-1, to=5-4]
+      \arrow["{\Delta d}"{description}, draw={rgb,255:red,92;green,92;blue,214}, curve={height=-18pt}, from=1-3, to=1-4]
+      \arrow["F"{description}, draw={rgb,255:red,214;green,92;blue,92}, curve={height=18pt}, from=1-3, to=1-4]
     \end{tikzcd}\]
   \item Cocone:\\
     For categories $C,D$ and a functor $F: C\to D$, the cocone under $F$ is the
     natural transformation between $F$ and the constant functor $\Delta d$ for some
     object in $D$.\\
     e.g.
-    % https://q.uiver.app/?q=WzAsOSxbMCwwLCJcXGJ1bGxldCJdLFsyLDIsIlxcYnVsbGV0Il0sWzIsMCwiXFxidWxsZXQiXSxbMCwyLCJcXGJ1bGxldCJdLFs0LDAsIlxcYnVsbGV0Il0sWzYsMiwiXFxidWxsZXQiXSxbNiwwLCJcXGJ1bGxldCJdLFs0LDIsIlxcYnVsbGV0Il0sWzUsMywiZCJdLFswLDgsIiIsMCx7ImN1cnZlIjo1LCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiw4LCIiLDIseyJjdXJ2ZSI6NCwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsOCwiIiwyLHsiY3VydmUiOjEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFszLDgsIlxcRGVsdGEgZCIsMix7ImN1cnZlIjoyLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19LFsyNDAsNjAsNjAsMV1dLFswLDQsIiIsMix7ImN1cnZlIjoyLCJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzIsNiwiRiIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX0sWzAsNjAsNjAsMV1dLFs0LDgsIlxcYWxwaGEiLDAseyJsYWJlbF9wb3NpdGlvbiI6OTB9XSxbNiw4XSxbNyw4LCIiLDAseyJsYWJlbF9wb3NpdGlvbiI6MTB9XSxbNSw4XSxbMCwyXSxbMCwzXSxbMywxXSxbMiwxXSxbNCw3XSxbNCw2XSxbNiw1XSxbNyw1XSxbMSw1LCIiLDAseyJjdXJ2ZSI6LTIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMyw3LCIiLDEseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
+    % https://q.uiver.app/?q=WzAsMTEsWzAsMSwiXFxidWxsZXQiXSxbMiwzLCJcXGJ1bGxldCJdLFsyLDEsIlxcYnVsbGV0Il0sWzAsMywiXFxidWxsZXQiXSxbMywxLCJcXGJ1bGxldCJdLFs1LDMsIlxcYnVsbGV0Il0sWzUsMSwiXFxidWxsZXQiXSxbMywzLCJcXGJ1bGxldCJdLFs0LDQsImQiXSxbMiwwLCJDIl0sWzMsMCwiRCJdLFswLDgsIiIsMCx7ImN1cnZlIjo1LCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiw4LCIiLDIseyJjdXJ2ZSI6NCwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsOCwiIiwyLHsiY3VydmUiOjEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFszLDgsIiIsMix7ImN1cnZlIjoyLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMCw0LCIiLDIseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDYsIiIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs0LDgsIlxcYWxwaGEiLDAseyJsYWJlbF9wb3NpdGlvbiI6OTB9XSxbNiw4XSxbNyw4LCIiLDAseyJsYWJlbF9wb3NpdGlvbiI6MTB9XSxbNSw4XSxbMCwyXSxbMCwzXSxbMywxXSxbMiwxXSxbNCw3XSxbNCw2XSxbNiw1XSxbNyw1XSxbMSw1LCIiLDAseyJjdXJ2ZSI6LTIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMyw3LCIiLDEseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs5LDEwLCJGIiwxLHsiY3VydmUiOi0zLCJjb2xvdXIiOlswLDYwLDYwXX1dLFs5LDEwLCJcXERlbHRhIGQiLDEseyJjdXJ2ZSI6MywiY29sb3VyIjpbMjQwLDYwLDYwXX1dXQ==
     \[\begin{tikzcd}
-      \bullet && \bullet && \bullet && \bullet \\
+      && C & D \\
+      \bullet && \bullet & \bullet && \bullet \\
       \\
-      \bullet && \bullet && \bullet && \bullet \\
-      &&&&& d
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=30pt}, dotted, from=1-1, to=4-6]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=1-3, to=4-6]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=6pt}, dotted, from=3-3, to=4-6]
-      \arrow["{\Delta d}"', color={rgb,255:red,92;green,92;blue,214}, curve={height=12pt}, dotted, from=3-1, to=4-6]
-      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=1-1, to=1-5]
-      \arrow["F", color={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=1-3, to=1-7]
-      \arrow["\alpha"{pos=0.9}, from=1-5, to=4-6]
-      \arrow[from=1-7, to=4-6]
-      \arrow[from=3-5, to=4-6]
-      \arrow[from=3-7, to=4-6]
-      \arrow[from=1-1, to=1-3]
-      \arrow[from=1-1, to=3-1]
-      \arrow[from=3-1, to=3-3]
-      \arrow[from=1-3, to=3-3]
-      \arrow[from=1-5, to=3-5]
-      \arrow[from=1-5, to=1-7]
-      \arrow[from=1-7, to=3-7]
-      \arrow[from=3-5, to=3-7]
-      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=3-3, to=3-7]
-      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=3-1, to=3-5]
+      \bullet && \bullet & \bullet && \bullet \\
+      &&&& d
+      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=30pt}, dotted, from=2-1, to=5-5]
+      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=2-3, to=5-5]
+      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=6pt}, dotted, from=4-3, to=5-5]
+      \arrow[color={rgb,255:red,92;green,92;blue,214}, curve={height=12pt}, dotted, from=4-1, to=5-5]
+      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=2-1, to=2-4]
+      \arrow[color={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=2-3, to=2-6]
+      \arrow["\alpha"{pos=0.9}, from=2-4, to=5-5]
+      \arrow[from=2-6, to=5-5]
+      \arrow[from=4-4, to=5-5]
+      \arrow[from=4-6, to=5-5]
+      \arrow[from=2-1, to=2-3]
+      \arrow[from=2-1, to=4-1]
+      \arrow[from=4-1, to=4-3]
+      \arrow[from=2-3, to=4-3]
+      \arrow[from=2-4, to=4-4]
+      \arrow[from=2-4, to=2-6]
+      \arrow[from=2-6, to=4-6]
+      \arrow[from=4-4, to=4-6]
+      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=4-3, to=4-6]
+      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=4-1, to=4-4]
+      \arrow["F"{description}, draw={rgb,255:red,214;green,92;blue,92}, curve={height=-18pt}, from=1-3, to=1-4]
+      \arrow["{\Delta d}"{description}, draw={rgb,255:red,92;green,92;blue,214}, curve={height=18pt}, from=1-3, to=1-4]
     \end{tikzcd}\]
 \end{itemize}

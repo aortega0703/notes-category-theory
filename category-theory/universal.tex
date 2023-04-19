@@ -9,17 +9,19 @@ $c\in\mathrm{ob}_C$ coupled with a morphism $f: d \to F(c)$ such that for any
 other $c'\in\mathrm{ob}_C$ and $f': d \to F(c')$, there exists a unique
 $h:c\to c'$ such that the following diagram commutes.
 
-% https://q.uiver.app/?q=WzAsNSxbMiwwLCJjIl0sWzIsMSwiYyciXSxbMCwwLCJkIl0sWzEsMCwiRihjKSJdLFsxLDEsIkYoYycpIl0sWzAsMSwiaCIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDQsIkYoaCkiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiw0LCJmJyIsMl0sWzIsMywiZiJdLFswLDMsIiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxLDQsIiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs1LDYsIkYiLDEseyJsYWJlbF9wb3NpdGlvbiI6MjAsInNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0Ijo2MH0sImxldmVsIjoxLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19LFsyNDAsNjAsNjAsMV1dXQ==
+% https://q.uiver.app/?q=WzAsNyxbMCwxLCJjIl0sWzAsMiwiYyciXSxbMiwxLCJkIl0sWzEsMSwiRihjKSJdLFsxLDIsIkYoYycpIl0sWzAsMCwiQyJdLFsxLDAsIkQiXSxbMCwxLCJoIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzMsNCwiRihoKSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDQsImYnIl0sWzIsMywiZiIsMl0sWzAsMywiIiwxLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsNCwiIiwxLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzUsNiwiRiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbNyw4LCIiLDEseyJsYWJlbF9wb3NpdGlvbiI6MjAsInNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0Ijo2MH0sImxldmVsIjoxLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
 \[\begin{tikzcd}
-	d & {F(c)} & c \\
-	& {F(c')} & {c'}
-	\arrow[""{name=0, anchor=center, inner sep=0}, "h", dashed, from=1-3, to=2-3]
-	\arrow[""{name=1, anchor=center, inner sep=0}, "{F(h)}", dashed, from=1-2, to=2-2]
-	\arrow["{f'}"', from=1-1, to=2-2]
-	\arrow["f", from=1-1, to=1-2]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, dotted, from=1-3, to=1-2]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, dotted, from=2-3, to=2-2]
-	\arrow["F"{description, pos=0.3}, color={rgb,255:red,92;green,92;blue,214}, shorten <=7pt, shorten >=25pt, dotted, from=0, to=1]
+	C & D \\
+	c & {F(c)} & d \\
+	{c'} & {F(c')}
+	\arrow[""{name=0, anchor=center, inner sep=0}, "h"', dashed, from=2-1, to=3-1]
+	\arrow[""{name=1, anchor=center, inner sep=0}, "{F(h)}"', dashed, from=2-2, to=3-2]
+	\arrow["{f'}", from=2-3, to=3-2]
+	\arrow["f"', from=2-3, to=2-2]
+	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
+	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=3-1, to=3-2]
+	\arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-1, to=1-2]
+	\arrow[color={rgb,255:red,92;green,92;blue,214}, shorten <=7pt, shorten >=20pt, dotted, from=0, to=1]
 \end{tikzcd}\]
 
 \subsection{Terminal morphisms}
@@ -29,15 +31,17 @@ $c\in\mathrm{ob}_C$ coupled with a morphism $f: F(c) \to d$ such that for any
 other $c'\in\mathrm{ob}_C$ and $f': F(c') \to d$, there exists a unique
 $h:c' \to c$ such that the following diagram commutes.
 
-% https://q.uiver.app/?q=WzAsNSxbMiwwLCJjIl0sWzIsMSwiYyciXSxbMCwwLCJkIl0sWzEsMCwiRihjKSJdLFsxLDEsIkYoYycpIl0sWzEsMCwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs0LDMsIkYoaCkiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCwyLCJmJyJdLFszLDIsImYiLDJdLFswLDMsIiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxLDQsIiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs1LDYsIkYiLDEseyJsYWJlbF9wb3NpdGlvbiI6MzAsInNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0Ijo2MH0sImxldmVsIjoxLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19LFsyNDAsNjAsNjAsMV1dXQ==
+% https://q.uiver.app/?q=WzAsNyxbMCwxLCJjIl0sWzAsMiwiYyciXSxbMiwxLCJkIl0sWzEsMSwiRihjKSJdLFsxLDIsIkYoYycpIl0sWzAsMCwiQyJdLFsxLDAsIkQiXSxbNCwzLCJGKGgpIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMiwiZiciLDJdLFszLDIsImYiXSxbMCwzLCIiLDEseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMSw0LCIiLDEseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMSwwLCJoIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzUsNiwiRiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMTIsNywiIiwxLHsibGFiZWxfcG9zaXRpb24iOjMwLCJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6NjB9LCJsZXZlbCI6MSwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
 \[\begin{tikzcd}
-	d & {F(c)} & c \\
-	& {F(c')} & {c'}
-	\arrow[""{name=0, anchor=center, inner sep=0}, "h"', dashed, from=2-3, to=1-3]
-	\arrow[""{name=1, anchor=center, inner sep=0}, "{F(h)}"', dashed, from=2-2, to=1-2]
-	\arrow["{f'}", from=2-2, to=1-1]
-	\arrow["f"', from=1-2, to=1-1]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, dotted, from=1-3, to=1-2]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, dotted, from=2-3, to=2-2]
-	\arrow["F"{description, pos=0.3}, color={rgb,255:red,92;green,92;blue,214}, shorten <=7pt, shorten >=25pt, dotted, from=0, to=1]
+	C & D \\
+	c & {F(c)} & d \\
+	{c'} & {F(c')}
+	\arrow[""{name=0, anchor=center, inner sep=0}, "{F(h)}", dashed, from=3-2, to=2-2]
+	\arrow["{f'}"', from=3-2, to=2-3]
+	\arrow["f", from=2-2, to=2-3]
+	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
+	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=3-1, to=3-2]
+	\arrow[""{name=1, anchor=center, inner sep=0}, "h", dashed, from=3-1, to=2-1]
+	\arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-1, to=1-2]
+	\arrow[color={rgb,255:red,92;green,92;blue,214}, shorten <=7pt, shorten >=20pt, dotted, from=1, to=0]
 \end{tikzcd}\]
