@@ -1,32 +1,34 @@
 \section{Categories}
 
 \subsection{Definition}
-For a category $C$: \parencite{fong:7sketches}
+A category $C$ is composed of: \parencite{fong:7sketches}
 \begin{itemize}
   \item Objects:\\
     Can be thought of as ``points'' with no internal structure.\\
-    $\mathrm{ob}_C \coloneq$ collection of objects in the category $C$.
+    $\mathrm{ob}_C \coloneq$ collection of objects in the category $C$.\\
+    $c\in C$ means $c\in \mathrm{ob}_C$
   \item Morphisms:\\
     They are directed connections between objects\\
-    $\mathrm{hom}_C(a, b) \coloneqq$ collection of morphisms from $a$ to $b$,
-    $\forall(a, b \in \mathrm{ob}_C$)\\
-    $\mathrm{hom}_C \coloneqq$ collection of all morphisms in the category
-    $C$\\
-    $\mathrm{hom}_C \ni f: a \to b$ means $f \in \mathrm{hom}_C(a,c)$
-  \item Identity:\\
-    $\mathrm{hom}_C \ni \mathrm{id}_c: c \to c,\ \forall(c \in \mathrm{ob}_C)$
-  \item Composition:\\
-    $\mathrm{hom}_C \ni g \circ f : a \to c,
-    \ \forall(a, b, c \in \mathrm{ob}_C, f: a \to b,\ g: b \to c)$
+    $\mathrm{hom}_C(a, b) \coloneqq$ collection of morphisms from $a$ to $b$
+    $(\forall a, b \in C$)\\
+    $\mathrm{hom}_C = \bigcup\limits_{a,b\in C} \mathrm{hom}_C(a,b)$\\
+    $f: a \to b$ means $f \in \mathrm{hom}_C(a,c)$\\
+    $f\in C$ means $f\in\mathrm{hom}_C$
 \end{itemize}
 
-s.t. satisfies
+Such that it satisfies:
 \begin{itemize}
+  \item Identity:\\
+    $C \ni \mathrm{id}_c: c \to c,\ (\forall c \in C)$
+  \item Composition:\\
+    $C \ni g \circ f : a \to c,
+    \ (\forall a, b, c \in C,\ f: a \to b,\ g: b \to c)$
   \item Unitality:\\
-    $\mathrm{id}_b \circ f = f \circ \mathrm{id}_a = f,\ \forall(a, b \in \mathrm{ob}_C, f: a \to b)$
+    $\mathrm{id}_b \circ f = f \circ \mathrm{id}_a = f,
+    \ (\forall a, b \in \mathrm{ob}_C,\ f: a \to b)$
   \item Assosiativity:\\
     $h \circ (g \circ f) = (h \circ g) \circ f,\
-    \forall(a,b,c\in \mathrm{ob}_C, f:a\to b,\ g:b\to c,\ h:c\to d)$
+    (\forall a,b,c\in \mathrm{ob}_C,\ f:a\to b,\ g:b\to c,\ h:c\to d)$
 \end{itemize}
 
 e.g.
@@ -41,31 +43,54 @@ e.g.
   c \arrow[out=-90, in=0, swap, "\mathrm{id}_c", looseness=5]
 \end{tikzcd}\]
 
-\noindent A category $C$ is said to be small if $\mathrm{ob}_C$ and
-$\mathrm{hom}_C$ are proper sets instead of proper classes, otherwise it is said
-to be large. A category is locally small if $\mathrm{hom}_C(a, b)$ is a proper
-set $\forall a, b\ in ob_C$. \parencite{awodey:category_theory}
+\noindent A category $C$ is said to be small
 
 \subsection{Duality}
 Given a category $C$, its opposite category $C^\mathrm{op}$ is given by keeping
-all of $C$'s objects and reversing its arrows.
+all objects in $C$ and reversing its arrows. That is:
 \parencite{maclane:working_mathematician}
 \begin{itemize}
   \item Objects:\\
     $ob_{C^\mathrm{op}} = ob_C$
   \item Morphisms:\\
     $C^{\mathrm{op}} \ni f^{\mathrm{op}} : c' \to c,
-      \ \forall (C \ni f : c \to c')$
+      \ \forall (c, c' \in C, f : c \to c')$
 \end{itemize}
-As the axioms of category theory are self-dual, for any statement $\Sigma$
-that holds for all categories, its dual statement $\Sigma^*$ ($\Sigma$ in
-$C^\mathrm{op}$) must also hold for all categories.
+As the axioms of category theory are self-dual, any statement $\Sigma$
+that holds for all categories implies that its dual statement
+($\Sigma$ in $C^\mathrm{op}$) must also hold for all categories.
 \parencite{awodey:category_theory}
 
-\subsection{Arrow properties}
+\subsection{Category Properties}
+A category is said to be:
+\begin{itemize}
+  \item Small:\\
+    If $\mathrm{ob}_C$ and $\mathrm{hom}_C$ are sets instead of proper classes.
+    \parencite{awodey:category_theory}
+  \item Large:\\
+    If it is not small. \parencite{awodey:category_theory}
+  \item Locally small:\\
+    If $\mathrm{hom}_C(a, b),\ (\forall a, b\ \in C)$ is a proper set.
+    \parencite{awodey:category_theory}
+  \item Free:\\
+    When it has no more contraints (equalities between paths)
+    than are necessary. It can be constructed from an arbitrary graph by adding
+    morphisms as necessary to fulfill identity and composition requirements.
+    \parencite{adamek_herrlich_strecker:joy_cats}
+  \item Thin:\\
+    When every hom-set is empty or a singleton. It can be taken as a preorder.
+    \parencite{adamek_herrlich_strecker:joy_cats} This is the opposite of a
+    free category in the sense that it has every possible constraint.
+  \item Discrete:\\
+    When each of its morphims is an identity.
+    \parencite{adamek_herrlich_strecker:joy_cats}
+\end{itemize}
+
+\subsection{Arrow Properties}
 An arrow is said to be: \parencite{maclane:working_mathematician}
 \begin{itemize}
-  \item Invertible: when there exists another arrow $g:c \to b$ such that
+  \item Invertible:\\
+    When there exists another arrow $g:c \to b$ such that
     $g\circ f = \mathrm{id}_b$ and $f\circ g = \mathrm{id}_c$. If such g exists, it is unique, and
     is written as $g= f^{-1}$. Two objects are isomorphic if there is an
     invertible arrow (an insomorphism) between them. If two objects $a,\ b$
@@ -78,7 +103,8 @@ An arrow is said to be: \parencite{maclane:working_mathematician}
       \arrow["\mathrm{id}_a"', out=90+45, in=-90-45, looseness=4.5, from=1-1, to=1-1]
       \arrow["\mathrm{id}_b", out=45, in=-45, looseness=4.5, from=1-2, to=1-2]
     \end{tikzcd}\]
-  \item Monic: when it is left cancellable i.e.
+  \item Monic:\\
+    When it is left cancellable i.e.
     $f \circ g_1 = f \circ g_2 \implies g_1 = g_2,\ \forall (g_1, g_2:a\to b)$.
     % https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzEsMCwiYiJdLFsyLDAsImMiXSxbMCwxLCJnIiwwLHsiY3VydmUiOi0xfV0sWzAsMSwiZyciLDIseyJjdXJ2ZSI6MX1dLFsxLDIsImYiLDJdXQ==
     \[\begin{tikzcd}
@@ -99,7 +125,8 @@ An arrow is said to be: \parencite{maclane:working_mathematician}
     \[\text{Injective}(f:b\to c)
       \coloneq(\forall g, g':a\to b).(f\circ g = f\circ g' \implies g=g')\]
 
-  \item Epic: when it is right cancellable i.e.
+  \item Epic:\\
+    When it is right cancellable i.e.
     $g_1 \circ f = g_2 \circ f \implies g_1 = g_2,\ \forall (g_1, g_2: c\to d)$.
     % https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzEsMCwiYiJdLFsyLDAsImMiXSxbMSwyLCJnJyIsMix7ImN1cnZlIjoxfV0sWzAsMSwiZiIsMl0sWzEsMiwiZyIsMCx7ImN1cnZlIjotMX1dXQ==
     \[\begin{tikzcd}
@@ -120,21 +147,76 @@ An arrow is said to be: \parencite{maclane:working_mathematician}
     \[\text{Surjective}(f:a\to b)
       \coloneq(\forall g, g':b\to c).(g\circ f = g'\circ f \implies g=g')\]
 
-  \item Idempotent: when $f\circ f = f$. It is said to split when there exists
+  \item Idempotent:\\
+    When $f\circ f = f$. It is said to split when there exists
     arrows $g$ and $h$ such that $hg = f$ and $gh = id$
 \end{itemize}
 
 \subsection{Important Categories}
 
 \begin{itemize}
+  \item Comma Category:\\
+    For categories $A, B, C$ and functors $F:A\to C, G:B\to C$, the comma
+    category $(F\downarrow G)$ consists of:
+    \parencite{adamek_herrlich_strecker:joy_cats}
+    \begin{itemize}
+      \item Objects:\\
+        $(a, f, b) \in (F\downarrow G),
+        \ (\forall a\in A, b\in B, f: F a \to G b)$
+      \item Morphisms:\\
+        $(g, h) : (a, f, b) \to (a', f', b'),
+        \ (\forall g: a \to a',\ h: b\to b')$\\
+        Such that the following diagram commutes:
+        % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGIGEiXSxbMSwwLCJGIGEnIl0sWzAsMSwiR2IiXSxbMSwxLCJHIGInIl0sWzAsMSwiRmciXSxbMiwzLCJHaCIsMl0sWzAsMiwiZiIsMl0sWzEsMywiZiciXV0=
+        \[\begin{tikzcd}
+          {F a} & {F a'} \\
+          Gb & {G b'}
+          \arrow["Fg", from=1-1, to=1-2]
+          \arrow["Gh"', from=2-1, to=2-2]
+          \arrow["f"', from=1-1, to=2-1]
+          \arrow["{f'}", from=1-2, to=2-2]
+        \end{tikzcd}\]
+    \end{itemize}
+
+    e.g.
+    % https://q.uiver.app/?q=WzAsMTEsWzEsMCwiMF9BIl0sWzIsMCwiMV9BIl0sWzEsNCwiMF9CIl0sWzIsNCwiMV9CIl0sWzEsMSwiRigwX0EpIl0sWzIsMSwiRigxX0EpIl0sWzEsMywiRygwX0IpIl0sWzIsMywiRygxX0IpIl0sWzAsMCwiQSJdLFswLDQsIkIiXSxbMCwyLCJDIl0sWzAsMSwiZl9BIl0sWzIsMywiZl9CIiwyXSxbNCw1LCJGKGZfQSkiXSxbNCw2LCJcXGFscGhhIiwyXSxbNSw3LCJcXGJldGEiXSxbNiw3LCJHKGZfQikiLDJdLFswLDQsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxLDUsIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDYsIiIsMCx7ImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMyw3LCIiLDAseyJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzgsMTAsIkYiLDEseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzksMTAsIkciLDEseyJjb2xvdXIiOlswLDYwLDYwXX1dLFsxMSwxMywiIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjEwLCJ0YXJnZXQiOjMwfSwibGV2ZWwiOjEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxMiwxNiwiIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjEwLCJ0YXJnZXQiOjMwfSwibGV2ZWwiOjEsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
+    \begin{equation*}
+      \begin{tikzcd}
+        A & {0_A} & {1_A} \\
+        & {F(0_A)} & {F(1_A)} \\
+        C \\
+        & {G(0_B)} & {G(1_B)} \\
+        B & {0_B} & {1_B}
+        \arrow[""{name=0, anchor=center, inner sep=0}, "{f_A}", from=1-2, to=1-3]
+        \arrow[""{name=1, anchor=center, inner sep=0}, "{f_B}"', from=5-2, to=5-3]
+        \arrow[""{name=2, anchor=center, inner sep=0}, "{F(f_A)}", from=2-2, to=2-3]
+        \arrow["\alpha"', from=2-2, to=4-2]
+        \arrow["\beta", from=2-3, to=4-3]
+        \arrow[""{name=3, anchor=center, inner sep=0}, "{G(f_B)}"', from=4-2, to=4-3]
+        \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-2, to=2-2]
+        \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-3, to=2-3]
+        \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=5-2, to=4-2]
+        \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=5-3, to=4-3]
+        \arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-1, to=3-1]
+        \arrow["G"{description}, draw={rgb,255:red,214;green,92;blue,92}, from=5-1, to=3-1]
+        \arrow[draw={rgb,255:red,92;green,92;blue,214}, shorten <=2pt, shorten >=6pt, dotted, from=0, to=2]
+        \arrow[draw={rgb,255:red,214;green,92;blue,92}, shorten <=2pt, shorten >=6pt, dotted, from=1, to=3]
+      \end{tikzcd}
+      ,\quad (F\downarrow G)\ \ =
+      % https://q.uiver.app/?q=WzAsMixbMCwwLCJcXGJlZ2lue3BtYXRyaXh9MF9BXFxcXFxcYWxwaGFcXFxcMF9CXFxlbmR7cG1hdHJpeH0iXSxbMSwwLCJcXGJlZ2lue3BtYXRyaXh9MV9BXFxcXFxcYmV0YVxcXFwxX0JcXGVuZHtwbWF0cml4fSJdLFswLDEsIihmX0EsZl9CKSJdXQ==
+      \begin{tikzcd}
+        {\begin{pmatrix}0_A\\\alpha\\0_B\end{pmatrix}} & {\begin{pmatrix}1_A\\\beta\\1_B\end{pmatrix}}
+        \arrow["{(f_A,f_B)}", from=1-1, to=1-2]
+      \end{tikzcd}
+    \end{equation*}
   \item Product Category:\\
     For categories $C,D$, a product category $C\times D$ consists of:
     \parencite{awodey:category_theory}
     \begin{itemize}
       \item Objects:\\
-        $(c, d) \in \mathrm{ob}_{C\times D},\ \forall (c \in \mathrm{ob}_C, d \in \mathrm{ob}_D)$
+        $(c, d) \in \mathrm{ob}_{C\times D},\ (\forall c \in \mathrm{ob}_C, d \in \mathrm{ob}_D)$
       \item Morphisms:\\
-        $(f,g) : (c,d) \to (c', d'),\ \forall (f: c \to c',\ g:d \to d')$
+        $(f,g) : (c,d) \to (c', d'),\ (\forall f: c \to c',\ g:d \to d')$
     \end{itemize}
     This operation is the product in the category of categories Cat
 
@@ -165,18 +247,6 @@ An arrow is said to be: \parencite{maclane:working_mathematician}
       \arrow["{(f,g)}"{description}, from=1-1, to=2-2]
     \end{tikzcd}
     \]
-  \item Free Category:\\
-    The free category of any directed graph is that which is obtained by using
-    vertices as objects, edges as arrows, and adding all necessary identity
-    arrows and compositions to fulfill the category requirements. It has no
-    more contraints than are necessary.
-
-  \item Thin Category:\\
-    A thin category is a category where there is an arrow from objects $a$ to
-    $b$ whenever $a \leq b$. This is the opposite of a free category in the
-    sense that every pair of arrows with matching source and targets are
-    identical. It has every possible constraint. Every hom-set is empty or a
-    singleton.
 
   \item Set:\\
     It is the category of all sets with functions as their morphisms.
