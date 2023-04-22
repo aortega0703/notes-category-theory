@@ -1,0 +1,187 @@
+\section{Categories}
+
+\subsection{Definition}
+A category $C$ is composed of: \parencite{fong:7sketches}
+\begin{itemize}
+  \item Objects:\\
+    They can be thought of as ``points'' with no additional structure.\\
+    $\mathrm{ob}_C$ is defined as the collection of objects in the category $C$.
+    For simplicity's sake, $c\in C$ is meant to mean $c\in \mathrm{ob}_C$.
+  \item Morphisms:\\
+    Commonly referred to as arrows, they are directed connections between
+    objects.\\
+    $\mathrm{hom}_C(a, b)$ is called an hom-set and is defined as the collection
+    of morphisms from $a$ to $b$ for all $a,b\in C$. For simplicity's sake, $f:
+    a \to b$ is meant to mean $f \in \mathrm{hom}_C(a,c)$ when talking of a
+    morphism $f$ in a category $C$\\
+    $\mathrm{hom}_C = \bigcup\limits_{a,b\in C} \mathrm{hom}_C(a,b)$
+\end{itemize}
+
+Such that it satisfies:
+\begin{itemize}
+  \item Identity:\\
+    $(\mathrm{id}_c: c \to c) \in C,\ (\forall c \in C)$
+  \item Composition:\\
+    $(g \circ f : a \to c) \in C,
+      \ (\forall a, b, c \in C,\ f: a \to b,\ g:b \to c)$
+  \item Unitality:\\
+    $\mathrm{id}_b \circ f = f \circ \mathrm{id}_a = f,
+      \ (\forall a, b \in C,\ f: a \to b)$
+  \item Associativity:\\
+    $h \circ (g \circ f) = (h \circ g) \circ f,
+      \ (\forall a,b,c\in C,\ f:a\to b,\ g:b\to c,\ h:c\to d)$
+\end{itemize}
+
+e.g.
+\[
+  \begin{tikzcd}
+    a
+    \arrow[out=90, in=180, loop, swap, "\mathrm{id}_a", looseness=5]
+    \arrow[r, "f"]
+    \arrow[dr, swap, "g \circ f"]
+    & b
+    \arrow[out=0, in=90, loop, swap, "\mathrm{id}_b", looseness=4.5]
+    \arrow[d,"g"]\\
+    & c
+    \arrow[out=-90, in=0, swap, "\mathrm{id}_c", looseness=5]
+  \end{tikzcd}
+\]
+
+\subsection{Duality}
+Given a category $C$, its opposite category $C^\mathrm{op}$ is given by keeping
+all objects in $C$ and reversing its arrows. That is:
+\parencite{maclane:working_mathematician}
+\begin{itemize}
+  \item Objects:\\
+    $c\in C^\mathrm{op},\ (\forall c \in C$)
+  \item Morphisms:\\
+    $(f^\mathrm{op} : c' \to c)\in C^\mathrm{op},
+      \ (\forall c, c' \in C,\ f : c \to c')$
+\end{itemize}
+As the axioms of category theory are self-dual, any statement $\Sigma$ that
+holds for all categories implies that its dual statement ($\Sigma$ in
+$C^\mathrm{op}$) must also hold for all categories.
+\parencite{awodey:category_theory}
+
+\subsection{Category Properties}
+
+\subsubsection*{Small/Large Category}
+A category $C$ is said to be small when $\mathrm{ob}_C$ and $\mathrm{hom}_C$ are
+sets instead of proper classes. It is said to be large otherwise.
+\parencite{awodey:category_theory}
+
+\subsubsection*{Locally Small Category}
+A category $C$ is said to be locally small when $\mathrm{hom}_C(a, b)$ is a
+proper set for all $a,b\in C$. \parencite{awodey:category_theory}
+
+\subsubsection*{Free Category}
+A category is said to be free when it has no more
+constraints\footnote{Equalities between paths} than the ones enforced from the
+category axioms. \parencite{adamek_herrlich_strecker:joy_cats} A free category
+can be constructed from an arbitrary graph by adding morphisms as necessary to
+fulfill such axioms.
+
+\subsubsection*{Thin Category}
+A category $C$ is said to be thin when $\mathrm{hom}_C(a, b)$ is either empty or
+a singleton for every $a,b\in C$. \parencite{adamek_herrlich_strecker:joy_cats}
+Every thin category can be seen as a preorder. This is the opposite of a free
+category in the sense that it has every possible constraint.
+
+\subsubsection*{Discrete Category}
+A category $C$ is said to be discrete when $\mathrm{hom}_C$ is conformed
+entirely out of identity morphisms. \parencite{awodey:category_theory} Discrete
+categories are going to be denoted by $\underline{n}$, with $n$ being the number
+of objects in it.
+
+\subsection{Morphism Properties}
+
+\subsubsection*{Isomorphism}
+In a category $C$ with objects $a, b$, a morphism $f: a\to b$ is said to be
+invertible or an isomorphism when there exists another morphism $g:b \to a$ such
+that $g\circ f = \mathrm{id}_b$ and $f\circ g = \mathrm{id}_c$.
+\parencite{maclane:working_mathematician}
+If such $g$ exists, it is unique and often written as $g= f^{-1}$. Two objects
+are said to be isomorphic if there is an isomorphism between them. If two
+objects $a,b$ are isomorphic we write $a\cong b$.
+% https://q.uiver.app/?q=WzAsMixbMCwwLCJhIl0sWzEsMCwiYiJdLFswLDEsImYiLDAseyJvZmZzZXQiOi0xfV0sWzEsMCwiZl57LTF9IiwwLHsib2Zmc2V0IjotMX1dXQ==
+\[
+  \begin{tikzcd} a & b
+    \arrow["f", shift left=1, from=1-1, to=1-2]
+    \arrow["{f^{-1}}", shift left=1, from=1-2, to=1-1]
+    \arrow["\mathrm{id}_a"', out=90+45, in=-90-45, looseness=4.5, from=1-1, to=1-1]
+    \arrow["\mathrm{id}_b", out=45, in=-45, looseness=4.5, from=1-2, to=1-2]
+  \end{tikzcd}
+\]
+In Set the isomorphisms are precisely the bijections.
+
+\subsubsection*{Monomorphism}
+In a category with objects $a, b, c$, a morphism is said to be monic or a
+monomorphism when it is left cancellable i.e. $f \circ g_1 = f \circ g_2
+\implies g_1 = g_2,\ (\forall g_1, g_2:a\to b)$.
+\parencite{maclane:working_mathematician}
+% https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzEsMCwiYiJdLFsyLDAsImMiXSxbMCwxLCJnIiwwLHsiY3VydmUiOi0xfV0sWzAsMSwiZyciLDIseyJjdXJ2ZSI6MX1dLFsxLDIsImYiLDJdXQ==
+\[
+  \begin{tikzcd} a & b & c
+    \arrow["g", shift left=1, from=1-1, to=1-2]
+    \arrow["{g'}"', shift right=1, from=1-1, to=1-2]
+    \arrow["f"', from=1-2, to=1-3]
+  \end{tikzcd}
+\]
+In Set the monomorphisms are precisely the injections.
+Suppose sets $b$ and $c$ with a non-injective function $f$ i.e. for some
+pair of elements $x \neq y$ in $b$, $f(x) = f(y)$. Take a third set $a$ with
+a pair of functions $g, g':a\to b$ that differ only in that one maps an
+element to $x$ and the other one maps the same element to $y$. Now we have
+that $f\circ g = f\circ g'$ completing the test for non-injectivity.
+\[\text{Non-Injective}(f:b\to c) \coloneq(\exists g, g':a\to b).(g \neq g'
+  \land f\circ g = f\circ g')\] Or negating the logic.
+\[\text{Injective}(f:b\to c) \coloneq(\forall g, g':a\to b).(f\circ g =
+  f\circ g' \implies g=g')\]
+
+\subsubsection*{Epimorphism}
+In a category with objects $a, b, c$, a morphism is said to be epic or an
+epimorphism when it is right cancellable i.e. $g_1 \circ f = g_2 \circ f
+\implies g_1 = g_2,\ (\forall g_1, g_2: c\to d)$.
+\parencite{maclane:working_mathematician}
+% https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzEsMCwiYiJdLFsyLDAsImMiXSxbMSwyLCJnJyIsMix7ImN1cnZlIjoxfV0sWzAsMSwiZiIsMl0sWzEsMiwiZyIsMCx7ImN1cnZlIjotMX1dXQ==
+\[
+  \begin{tikzcd} a & b & c
+    \arrow["{g'}"', shift right=1, from=1-2, to=1-3]
+    \arrow["f"', from=1-1, to=1-2]
+    \arrow["g", shift left=1, from=1-2, to=1-3]
+  \end{tikzcd}
+\]
+In Set the epimorphisms are precisely the surjections.
+Suppose sets $a$ and $b$ with a non-surjective function $f$ i.e. for some
+element $y\in b$ there exists no $x\in a$ such that $f(x) = y$. Take a third
+set $c$ with a pair of functions $g, g':b\to c$ that differ only in that
+they map $y$ differently. Now we have $g\circ f = g'\circ f$ completing the
+test for non-surjectivity.
+\[\text{Non-Surjective}(f:a\to b) \coloneq(\exists g, g':b\to c).(g \neq g'
+  \land g\circ f = g'\circ f)\] Or negating the logic.
+\[\text{Surjective}(f:a\to b) \coloneq(\forall g, g':b\to c).(g\circ f =
+  g'\circ f \implies g=g')\]
+
+\subsection{Important Categories}
+
+\begin{itemize}
+  \item Set:\\
+    It is the category of all sets with functions as their morphisms.
+    \parencite{awodey:category_theory}
+    \begin{itemize}
+      \item Objects:\\
+            Every set is an object in Set.
+      \item Morphisms:\\
+            Morphisms in Set are functions between sets.
+    \end{itemize}
+
+  \item Cat:\\
+    It is the category of all small categories.
+    \parencite{adamek_herrlich_strecker:joy_cats}
+    \begin{itemize}
+      \item Objects:\\
+            Every small category is an object in Cat.
+      \item Morphisms:\\
+            Morphisms in Cat are functors between categories.
+    \end{itemize}
+\end{itemize}

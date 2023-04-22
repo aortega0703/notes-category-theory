@@ -1,0 +1,16 @@
+\subsection{Exponential}
+\subsubsection*{As a terminal morphism from a product}
+% https://q.uiver.app/?q=WzAsNyxbMCwxLCJCXkEiXSxbMCwyLCJaIl0sWzEsMSwiQl5BXFx0aW1lcyBBIl0sWzEsMiwiWlxcdGltZXMgQSJdLFsyLDEsIkIiXSxbMCwwLCJDIl0sWzEsMCwiQyJdLFsxLDAsImgiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiw0LCJcXG1hdGhybXtldmFsfSJdLFszLDQsImciLDJdLFswLDIsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxLDMsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFszLDIsImhcXHRpbWVzXFxtYXRocm17aWR9X0EiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSw2LCJcXF9cXHRpbWVzIEEiLDEseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzcsMTIsIiIsMSx7ImxhYmVsX3Bvc2l0aW9uIjozMCwic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjYwfSwibGV2ZWwiOjEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
+\[\begin{tikzcd}
+	C & C \\
+	{B^A} & {B^A\times A} & B \\
+	Z & {Z\times A}
+	\arrow[""{name=0, anchor=center, inner sep=0}, "h", dashed, from=3-1, to=2-1]
+	\arrow["{\mathrm{eval}}", from=2-2, to=2-3]
+	\arrow["g"', from=3-2, to=2-3]
+	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
+	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=3-1, to=3-2]
+	\arrow[""{name=1, anchor=center, inner sep=0}, "{h\times\mathrm{id}_A}", dashed, from=3-2, to=2-2]
+	\arrow["{\_\times A}"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-1, to=1-2]
+	\arrow[draw={rgb,255:red,92;green,92;blue,214}, shorten <=7pt, shorten >=30pt, dotted, from=0, to=1]
+\end{tikzcd}\]

@@ -1,0 +1,118 @@
+\section{Functors}
+
+\subsection{Definition}
+A functor $F: C \to D$ from a category $C$ to a category $D$ consist of a
+mapping of: \parencite{fong:7sketches}
+
+\begin{itemize}
+  \item Object to objects\\
+    $F(c) \in D,\ (\forall c \in C)$
+  \item Morphism to morphisms\\
+    $(F(f): F(c) \to F(c')) \in D,
+      \ (\forall c,c' \in C,\ f : c \to c')$
+\end{itemize}
+
+Such that it preserves:
+\begin{itemize}
+  \item Identity\\
+    $F(\mathrm{id}_c) = \mathrm{id}_{F(c)},
+      \ (\forall c \in C)$
+  \item Composition\\
+    $F(g \circ f) = F(g) \circ F(f),
+      \ (\forall a,b,c \in C,\ f: a \to b,\ g: b \to c)$
+\end{itemize}
+
+e.g.
+% https://q.uiver.app/?q=WzAsNyxbMSwwLCIxIl0sWzEsMSwiYSJdLFsyLDEsImIiXSxbMywxLCJjIl0sWzMsMCwiMiJdLFswLDAsIkMiXSxbMCwxLCJEIl0sWzAsNCwiZiJdLFsxLDIsImciXSxbMiwzLCJoIl0sWzAsMSwiIiwxLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzQsMywiIiwxLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsMywiaCBcXGNpcmMgZyIsMSx7ImN1cnZlIjotM31dLFs1LDYsIkYiLDEseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzcsMTIsIiIsMSx7InNob3J0ZW4iOnsic291cmNlIjozMCwidGFyZ2V0IjoyMH0sImxldmVsIjoxLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
+\[
+  \begin{tikzcd}
+    C & 1 && 2 \\
+    D & a & b & c
+    \arrow[""{name=0, anchor=center, inner sep=0}, "f", from=1-2, to=1-4]
+    \arrow["g", from=2-2, to=2-3]
+    \arrow["h", from=2-3, to=2-4]
+    \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-2, to=2-2]
+    \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-4, to=2-4]
+    \arrow[""{name=1, anchor=center, inner sep=0}, "{h \circ g}"{description}, curve={height=-18pt}, from=2-2, to=2-4]
+    \arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-1, to=2-1]
+    \arrow[color={rgb,255:red,92;green,92;blue,214}, shorten <=3pt, shorten >=2pt, dotted, from=0, to=1]
+  \end{tikzcd}
+\]
+
+\subsection{Functor Properties}
+
+\subsubsection*{Faithful}
+For categories $C, D$, a functor $F:C\to D$ is said to be faithful when for
+every $x,y\in C$, the function $F_{x, y}: \mathrm{hom}_C(x, y) \to
+\mathrm{hom}_D(F(x), F(y))$ is injective. \parencite{awodey:category_theory}
+
+\subsubsection*{Full}
+For categories $C, D$, a functor $F:C\to D$ is said to be full when for every
+$x,y\in C$, the function $F_{x, y}: \mathrm{hom}_C(x, y) \to
+\mathrm{hom}_D(F(x), F(y))$ is surjective.
+\parencite{adamek_herrlich_strecker:joy_cats}
+
+\subsubsection*{Endofunctor}
+For a category $C$, a functor $F:C\to C$ (one from $C$ to itself) is said to be
+an endofunctor. \parencite{adamek_herrlich_strecker:joy_cats}
+
+\subsubsection*{Bifunctor}
+For categories $A, B, C$, a functor $F:A\times B \to C$ (one with $2$
+parameters) is said to be a bifunctor.
+\parencite{maclane:working_mathematician}
+
+\subsection{Important Functors}
+
+\subsubsection*{Diagonal functor}
+$\Delta: C\to C\times C$\\
+Maps every object/morphism $c\in C$ into $(c, c)\in C\times C$.
+\parencite{awodey:category_theory}
+\begin{itemize}
+  \item Objects:\\
+    $\Delta(c) = (c, c),\ (\forall c\in C)$
+  \item Morphisms:\\
+    $\Delta(f) = (f, f),\ (\forall f\in C)$
+\end{itemize}
+
+\subsubsection*{Constant functor}
+$\Delta d: C\to D$\\
+Maps every object in $C$ to a fixed object $d\in D$.
+\parencite{awodey:category_theory}
+\begin{itemize}
+  \item Objects:\\
+    $\Delta d(c) = d,\ (\forall c\in C)$
+  \item Morphisms:\\
+    $\Delta d(f) = \mathrm{id}_d,\ (\forall f\in C)$
+\end{itemize}
+
+\subsubsection*{Hom-functor}
+$\mathrm{Hom}_C : C^{op}\times C \to \mathrm{Set}$\\
+Maps pairs of objects to their corresponding hom-sets.
+\parencite{maclane:working_mathematician}
+\begin{itemize}
+  \item Objects:\\
+    $\mathrm{Hom}_C (c', d) = \mathrm{hom}_C (c', d),
+      \ (\forall c', d\in \mathrm{ob}_C)$
+  \item Morphisms:
+    \[
+      \mathrm{Hom}_C (f) : \left\{
+      \begin{aligned}
+        \mathrm{hom}_{C^{op}\times C}(c', d) &\to
+          \mathrm{hom}_{C^{op}\times C}(c, d')\\
+        p &\mapsto q = h\circ p\circ g
+      \end{aligned}
+      \right.
+      ,\ (\forall f=(g^{op}, h): (c', d)\to (c, d'))
+    \]
+    % https://q.uiver.app/?q=WzAsNCxbMCwwLCJjJyJdLFswLDEsImMiXSxbMSwwLCJkIl0sWzEsMSwiZCciXSxbMSwwLCJnIl0sWzIsMywiaCJdLFswLDIsInAiXSxbMSwzLCJxIiwyXV0=
+    \[
+      \begin{tikzcd}
+      {c'} & d \\
+      c & {d'}
+      \arrow["g", from=2-1, to=1-1]
+      \arrow["h", from=1-2, to=2-2]
+      \arrow["p", from=1-1, to=1-2]
+      \arrow["q"', from=2-1, to=2-2]
+      \end{tikzcd}
+    \]
+\end{itemize}
