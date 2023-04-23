@@ -1,0 +1,19 @@
+\subsection{Cone Category}
+For categories $C, D$ and a functor $F:C\to D$, the cone category
+$\mathrm{Cone}(F)$ consists of: \parencite{fong_spivak:7sketches}
+
+\begin{itemize}
+  \item Objects:\\
+    $(d, d_*) \in \mathrm{Cone}(F)$, for every cone over $F$.
+  \item Morphisms:\\
+    $\big(f: (d, d_*) \to (d', d'_*) \big) \in \mathrm{Cone}(F)$, for every
+    $(f:d\to d')\in D$ such that for every $c\in C$ the following commutes:
+    % https://q.uiver.app/?q=WzAsMyxbMCwwLCJkIl0sWzEsMCwiZCciXSxbMSwxLCJGKGMpIl0sWzAsMiwiZF9jIiwyXSxbMSwyLCJkJ19jIl0sWzAsMSwiZiJdXQ==
+    \[\begin{tikzcd}
+      d & {d'} \\
+      & {F(c)}
+      \arrow["{d_c}"', from=1-1, to=2-2]
+      \arrow["{d'_c}", from=1-2, to=2-2]
+      \arrow["f", from=1-1, to=1-2]
+    \end{tikzcd}\]
+\end{itemize}

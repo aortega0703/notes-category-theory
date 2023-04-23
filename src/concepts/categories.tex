@@ -3,19 +3,19 @@
 \subsection{Definition}
 A category can be thought of as a way to formalize certain structure, not caring
 about the nature of the objects at hand but of the relationships between them.\\
-A category $C$ is composed of: \parencite{fong:7sketches}
+A category $C$ is composed of: \parencite{fong_spivak:7sketches}
 \begin{itemize}
   \item Objects:\\
-    They can be thought of as ``points'' with no additional structure.\\
-    $\mathrm{ob}_C$ is defined as the collection of objects in the category $C$.
-    For simplicity's sake, $c\in C$ is meant to mean $c\in \mathrm{ob}_C$.
+    $\mathrm{ob}_C$: it is the collection of all objects in the category $C$.
+    For simplicity's sake, $c\in C$ is meant to be read as $c\in
+    \mathrm{ob}_C$.\\
+    Objects can be thought of as ``points'' with no additional structure.
   \item Morphisms:\\
-    Commonly referred to as arrows, they are directed connections between
-    objects.\\
-    $\mathrm{hom}_C(a, b)$ is called an hom-set and is defined as the collection
-    of morphisms from $a$ to $b$ for all $a,b\in C$. For simplicity's sake, $f:
-    a \to b$ is meant to mean $f \in \mathrm{hom}_C(a,c)$ when talking of a
-    morphism $f$ in a category $C$\\
+    $\mathrm{hom}_C(a, b)$: referred to as an hom-set, it is the collection of
+    all morphisms from $a$ to $b$ with $a,b\in C$. For simplicity's sake, $(f: a
+    \to b) \in C$ is meant to be read as $f \in \mathrm{hom}_C(a,c)$\\
+    The terms morphism and arrows are used interchangeably. They are directed
+    connections between objects.\\
     $\mathrm{hom}_C = \bigcup\limits_{a,b\in C} \mathrm{hom}_C(a,b)$
 \end{itemize}
 
@@ -35,19 +35,14 @@ Such that it satisfies:
 \end{itemize}
 
 e.g.
-\[
-  \begin{tikzcd}
-    a
-    \arrow[out=90, in=180, loop, swap, "\mathrm{id}_a", looseness=5]
-    \arrow[r, "f"]
-    \arrow[dr, swap, "g \circ f"]
-    & b
-    \arrow[out=0, in=90, loop, swap, "\mathrm{id}_b", looseness=4.5]
-    \arrow[d,"g"]\\
-    & c
-    \arrow[out=-90, in=0, swap, "\mathrm{id}_c", looseness=5]
-  \end{tikzcd}
-\]
+% https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzEsMCwiYiJdLFsxLDEsImMiXSxbMCwxLCJmIl0sWzEsMiwiZyJdLFswLDIsImdcXGNpcmMgZiIsMl1d
+\[\begin{tikzcd}
+	a & b \\
+	& c
+	\arrow["f", from=1-1, to=1-2]
+	\arrow["g", from=1-2, to=2-2]
+	\arrow["{g\circ f}"', from=1-1, to=2-2]
+\end{tikzcd}\]
 
 \subsection{Duality}
 Given a category $C$, its opposite category $C^\mathrm{op}$ is given by keeping

@@ -1,37 +1,37 @@
 \subsection{Cone}
 Consider arbitrary categories $C,D$ and a functor $F:C\to D$. A cone over the
 diagram (functor) $F$ consists of an object $d\in D$ and a family of morphisms
-$\alpha_c: d \to F(c)$ for each $c\in C$ such that for each $(f:c\to c')\in C,\
+$\big(d_c: d \to F(c)\big)_{c\in C}$ such that for each $(f:c\to c')\in C,\
 (\forall c,c'\in C)$ the following commutes:
 \parencite{awodey:category_theory}
-% https://q.uiver.app/?q=WzAsMyxbMCwwLCJkIl0sWzAsMSwiRihjKSJdLFsxLDEsIkYoYycpIl0sWzAsMiwiXFxhbHBoYV97Yyd9Il0sWzAsMSwiXFxhbHBoYV9jIiwyXSxbMSwyLCJGKGYpIiwyXV0=
+% https://q.uiver.app/?q=WzAsMyxbMCwwLCJkIl0sWzAsMSwiRihjKSJdLFsxLDEsIkYoYycpIl0sWzAsMiwiZF97Yyd9Il0sWzAsMSwiZF9jIiwyXSxbMSwyLCJGKGYpIiwyXV0=
 \[\begin{tikzcd}
 	d \\
 	{F(c)} & {F(c')}
-	\arrow["{\alpha_{c'}}", from=1-1, to=2-2]
-	\arrow["{\alpha_c}"', from=1-1, to=2-1]
+	\arrow["{d_{c'}}", from=1-1, to=2-2]
+	\arrow["{d_c}"', from=1-1, to=2-1]
 	\arrow["{F(f)}"', from=2-1, to=2-2]
 \end{tikzcd}\]
 
 e.g.
-% https://q.uiver.app/?q=WzAsOSxbMCwxLCJcXGJ1bGxldCJdLFsxLDIsIlxcYnVsbGV0Il0sWzIsMSwiXFxidWxsZXQiXSxbMywxLCJcXGJ1bGxldCJdLFs1LDEsIlxcYnVsbGV0Il0sWzQsMiwiXFxidWxsZXQiXSxbNCwwLCJkIl0sWzIsMCwiQyJdLFszLDAsIkQiXSxbMCwzLCIiLDEseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzIsNCwiIiwwLHsiY3VydmUiOi0yLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNiwzXSxbNiw0XSxbNiw1LCJcXGFscGhhIiwwLHsibGFiZWxfcG9zaXRpb24iOjEwfV0sWzAsMl0sWzIsMV0sWzMsNV0sWzMsNF0sWzcsOCwiRiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMCwxXSxbNCw1XSxbMSw1LCIiLDEseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
+% https://q.uiver.app/?q=WzAsOSxbMCwxLCJhIl0sWzEsMiwiYyJdLFsyLDEsImIiXSxbMywxLCJGKGEpIl0sWzUsMSwiRihiKSJdLFs0LDIsIkYoYykiXSxbNCwwLCJkIl0sWzIsMCwiQyJdLFszLDAsIkQiXSxbMCwzLCIiLDEseyJjdXJ2ZSI6NCwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzIsNCwiIiwwLHsiY3VydmUiOi00LCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNiwzLCJkX2EiLDJdLFs2LDQsImRfYiJdLFs2LDUsImRfYyIsMCx7ImxhYmVsX3Bvc2l0aW9uIjoxMH1dLFswLDIsImYiXSxbMiwxLCJoIl0sWzMsNSwiRihnKSIsMl0sWzMsNCwiRihmKSJdLFs3LDgsIkYiLDEseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzAsMSwiZyIsMl0sWzQsNSwiRihoKSJdLFsxLDUsIiIsMSx7ImN1cnZlIjo0LCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
 \[\begin{tikzcd}
 	&& C & D & d \\
-	\bullet && \bullet & \bullet && \bullet \\
-	& \bullet &&& \bullet
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=12pt}, dotted, from=2-1, to=2-4]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-12pt}, dotted, from=2-3, to=2-6]
-	\arrow[from=1-5, to=2-4]
-	\arrow[from=1-5, to=2-6]
-	\arrow["\alpha"{pos=0.1}, from=1-5, to=3-5]
-	\arrow[from=2-1, to=2-3]
-	\arrow[from=2-3, to=3-2]
-	\arrow[from=2-4, to=3-5]
-	\arrow[from=2-4, to=2-6]
+	a && b & {F(a)} && {F(b)} \\
+	& c &&& {F(c)}
+	\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=2-1, to=2-4]
+	\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-24pt}, dotted, from=2-3, to=2-6]
+	\arrow["{d_a}"', from=1-5, to=2-4]
+	\arrow["{d_b}", from=1-5, to=2-6]
+	\arrow["{d_c}"{pos=0.1}, from=1-5, to=3-5]
+	\arrow["f", from=2-1, to=2-3]
+	\arrow["h", from=2-3, to=3-2]
+	\arrow["{F(g)}"', from=2-4, to=3-5]
+	\arrow["{F(f)}", from=2-4, to=2-6]
 	\arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-3, to=1-4]
-	\arrow[from=2-1, to=3-2]
-	\arrow[from=2-6, to=3-5]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=12pt}, dotted, from=3-2, to=3-5]
+	\arrow["g"', from=2-1, to=3-2]
+	\arrow["{F(h)}", from=2-6, to=3-5]
+	\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=3-2, to=3-5]
 \end{tikzcd}\]
 
 \subsubsection*{As a natural transformation from the constant functor}

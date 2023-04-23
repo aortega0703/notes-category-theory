@@ -4,16 +4,16 @@ object $a\times b$ with morphisms $\mathrm{fst}: a\times b \to a,
 \ \mathrm{snd}: a\times b \to b$ such that, for any other object $c$ with the
 same property there exist a unique $f:c \to a\times b$ such that the following
 diagram commutes \parencite{awodey:category_theory}
-% https://q.uiver.app/?q=WzAsNCxbMSwwLCJhXFx0aW1lcyBiIl0sWzAsMSwiYSJdLFsyLDEsImIiXSxbMSwyLCJjIl0sWzAsMSwiXFxtYXRocm17ZnN0fSIsMl0sWzAsMiwiXFxtYXRocm17c25kfSJdLFszLDAsImYiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMywxLCJnIl0sWzMsMiwiaCIsMl1d
+% https://q.uiver.app/?q=WzAsNCxbMSwyLCJhXFx0aW1lcyBiIl0sWzAsMSwiYSJdLFsyLDEsImIiXSxbMSwwLCJjIl0sWzAsMSwiXFxtYXRocm17ZnN0fSJdLFswLDIsIlxcbWF0aHJte3NuZH0iLDJdLFszLDAsImYiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMywxLCJnIiwyXSxbMywyLCJoIl1d
 \[\begin{tikzcd}
-	& {a\times b} \\
+	& c \\
 	a && b \\
-	& c
-	\arrow["{\mathrm{fst}}"', from=1-2, to=2-1]
-	\arrow["{\mathrm{snd}}", from=1-2, to=2-3]
-	\arrow["f"', dashed, from=3-2, to=1-2]
-	\arrow["g", from=3-2, to=2-1]
-	\arrow["h"', from=3-2, to=2-3]
+	& {a\times b}
+	\arrow["{\mathrm{fst}}", from=3-2, to=2-1]
+	\arrow["{\mathrm{snd}}"', from=3-2, to=2-3]
+	\arrow["f"', dashed, from=1-2, to=3-2]
+	\arrow["g"', from=1-2, to=2-1]
+	\arrow["h", from=1-2, to=2-3]
 \end{tikzcd}\]
 
 e.g.
@@ -36,7 +36,7 @@ and $d\circ c:2\to 4$, $3$ with $e: 3\to 2$ and $c\circ d\circ e: 3\to 4$,
 and $6$ with $e \circ g: 6\to 2$ and $c\circ f$. The product $2\times 4$
 corresponds then to the object $2$. The product in a preorder corresponds to the
 meet operation $\land$ or infimum.
-\parencite{fong:7sketches}
+\parencite{fong_spivak:7sketches}
 
 \subsubsection*{As a terminal morphism from the diagonal functor}
 % https://q.uiver.app/?q=WzAsNyxbMiwxLCIoYSxiKSJdLFsxLDEsIlxcRGVsdGEoYVxcdGltZXMgYikiXSxbMSwyLCJcXERlbHRhKGMnKSJdLFswLDIsImMnIl0sWzAsMSwiYVxcdGltZXMgYiJdLFswLDAsIkMiXSxbMSwwLCJDXFx0aW1lcyBDIl0sWzEsMCwiKFxcbWF0aHJte2ZzdH0sXFxtYXRocm17c25kfSkiXSxbMiwwLCJmJyIsMl0sWzIsMSwiXFxEZWx0YShoKSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDQsImgiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCwxLCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMywyLCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNSw2LCJcXERlbHRhIiwxLHsiY29sb3VyIjpbMjQwLDYwLDYwXX1dLFsxMCw5LCIiLDEseyJsYWJlbF9wb3NpdGlvbiI6MzAsInNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0Ijo1MH0sImxldmVsIjoxLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
@@ -55,24 +55,24 @@ meet operation $\land$ or infimum.
 \end{tikzcd}\]
 
 \subsubsection*{As the limit of a discrete diagram}
-% https://q.uiver.app/?q=WzAsOCxbMSwyLCIyIl0sWzAsMiwiMSJdLFszLDEsImFcXHRpbWVzIGIiXSxbMiwyLCJhIl0sWzQsMiwiYiJdLFszLDMsImMiXSxbMSwwLCJcXHVuZGVybGluZXsyfSJdLFszLDAsIkMiXSxbMSwzLCIiLDEseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMTIwLDYwLDQwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzAsNCwiIiwyLHsiY3VydmUiOjIsImNvbG91ciI6WzEyMCw2MCw0MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDMsIlxcbWF0aHJte2ZzdH0iLDFdLFsyLDQsIlxcbWF0aHJte3NuZH0iLDFdLFsxLDIsIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFswLDIsIiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs1LDIsImgiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSwzLCJcXGFscGhhX2EiLDFdLFs1LDQsIlxcYWxwaGFfYiIsMV0sWzEsNSwiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFswLDUsIiIsMix7ImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNiw3LCJKIiwxLHsiY29sb3VyIjpbMTIwLDYwLDQwXX1dLFs2LDcsIlxcRGVsdGEgYyIsMSx7ImN1cnZlIjo0LCJjb2xvdXIiOlswLDYwLDYwXX1dLFs2LDcsIlxcRGVsdGEoYVxcdGltZXMgYikiLDEseyJjdXJ2ZSI6LTQsImNvbG91ciI6WzI0MCw2MCw2MF19XV0=
+% https://q.uiver.app/?q=WzAsOCxbMSwyLCIxIl0sWzAsMiwiMCJdLFszLDMsImFcXHRpbWVzIGIiXSxbMiwyLCJhIl0sWzQsMiwiYiJdLFszLDEsImMiXSxbMSwwLCJcXHVuZGVybGluZXsyfSJdLFszLDAsIkMiXSxbMSwzLCIiLDEseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMTIwLDYwLDQwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzAsNCwiIiwyLHsiY3VydmUiOjIsImNvbG91ciI6WzEyMCw2MCw0MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDMsIlxcbWF0aHJte2ZzdH0iLDFdLFsyLDQsIlxcbWF0aHJte3NuZH0iLDFdLFsxLDIsIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFswLDIsIiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs1LDIsImgiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSwzLCJcXGFscGhhX2EiLDFdLFs1LDQsIlxcYWxwaGFfYiIsMV0sWzEsNSwiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFswLDUsIiIsMix7ImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNiw3LCJKIiwxLHsiY29sb3VyIjpbMTIwLDYwLDQwXX1dLFs2LDcsIlxcRGVsdGEgYyIsMSx7ImN1cnZlIjotNCwiY29sb3VyIjpbMCw2MCw2MF19XSxbNiw3LCJcXERlbHRhKGFcXHRpbWVzIGIpIiwxLHsiY3VydmUiOjQsImNvbG91ciI6WzI0MCw2MCw2MF19XV0=
 \[\begin{tikzcd}
 	& {\underline{2}} && C \\
-	&&& {a\times b} \\
-	1 & 2 & a && b \\
-	&&& c
+	&&& c \\
+	0 & 1 & a && b \\
+	&&& {a\times b}
 	\arrow[draw={rgb,255:red,41;green,163;blue,41}, curve={height=12pt}, dotted, from=3-1, to=3-3]
 	\arrow[draw={rgb,255:red,41;green,163;blue,41}, curve={height=12pt}, dotted, from=3-2, to=3-5]
-	\arrow["{\mathrm{fst}}"{description}, from=2-4, to=3-3]
-	\arrow["{\mathrm{snd}}"{description}, from=2-4, to=3-5]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=3-1, to=2-4]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=3-2, to=2-4]
-	\arrow["h"{description}, dashed, from=4-4, to=2-4]
-	\arrow["{\alpha_a}"{description}, from=4-4, to=3-3]
-	\arrow["{\alpha_b}"{description}, from=4-4, to=3-5]
-	\arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=3-1, to=4-4]
-	\arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=3-2, to=4-4]
+	\arrow["{\mathrm{fst}}"{description}, from=4-4, to=3-3]
+	\arrow["{\mathrm{snd}}"{description}, from=4-4, to=3-5]
+	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=3-1, to=4-4]
+	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=3-2, to=4-4]
+	\arrow["h"{description}, dashed, from=2-4, to=4-4]
+	\arrow["{\alpha_a}"{description}, from=2-4, to=3-3]
+	\arrow["{\alpha_b}"{description}, from=2-4, to=3-5]
+	\arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=3-1, to=2-4]
+	\arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=3-2, to=2-4]
 	\arrow["J"{description}, draw={rgb,255:red,41;green,163;blue,41}, from=1-2, to=1-4]
-	\arrow["{\Delta c}"{description}, draw={rgb,255:red,214;green,92;blue,92}, curve={height=24pt}, from=1-2, to=1-4]
-	\arrow["{\Delta(a\times b)}"{description}, draw={rgb,255:red,92;green,92;blue,214}, curve={height=-24pt}, from=1-2, to=1-4]
+	\arrow["{\Delta c}"{description}, draw={rgb,255:red,214;green,92;blue,92}, curve={height=-24pt}, from=1-2, to=1-4]
+	\arrow["{\Delta(a\times b)}"{description}, draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, from=1-2, to=1-4]
 \end{tikzcd}\]
