@@ -23,6 +23,11 @@ there exists a unique $h:c\to c'$ such that the following diagram commutes.
 	\arrow[color={rgb,255:red,92;green,92;blue,214}, shorten <=7pt, shorten >=20pt, dotted, from=0, to=1]
 \end{tikzcd}\]
 
+\subsubsection*{Uniqueness up to isomorphism}
+An initial morphism can be viewed as an initial object in the comma category
+$(\Delta_d\downarrow F)$, and initial objects are unique up to isomorphism.
+Therefore, initial morphisms are unique up to isomorphism.
+
 \subsubsection*{As the initial object of a comma category}
 Consider categories $C, D$ with a functor $F: C\to D$, together with the
 discrete category $\underline{1}$ with a single element $\bullet$ and a constant
@@ -62,11 +67,6 @@ that for any other object $(\bullet, f', c')$ there exists a unique morphism
 $h:c \to c'$ such that the previous diagram commutes. This is precisely an
 initial morphism from $d$ to $F$.
 
-\subsubsection*{Uniqueness up to isomorphism}
-An initial morphism can be viewed as an initial object in the comma category
-$(\Delta_d\downarrow F)$, and initial objects are unique up to isomorphism.
-Therefore, initial morphisms are unique up to isomorphism.
-
 \subsection{Terminal morphisms}
 For categories $C,D$, a terminal morphism or a universal morphism from a functor
 $F: C \to D$ into an object $d\in D$ consists of an object $c\in C$ coupled with
@@ -87,6 +87,11 @@ d$, there exists a unique $h:c' \to c$ such that the following diagram commutes.
 	\arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-1, to=1-2]
 	\arrow[color={rgb,255:red,92;green,92;blue,214}, shorten <=7pt, shorten >=20pt, dotted, from=1, to=0]
 \end{tikzcd}\]
+
+\subsubsection*{Uniqueness up to isomorphism}
+A terminal morphism can be viewed as a terminal object in the comma category
+$(F\downarrow \Delta_d)$, and terminal objects are unique up to isomorphism.
+Therefore, terminal morphisms are unique up to isomorphism.
 
 \subsubsection*{As the terminal object of a comma category}
 Consider categories $C, D$ with a functor $F: C\to D$, together with the
@@ -126,8 +131,3 @@ A terminal object of $(F\downarrow \Delta_d)$ is an object $(c, f, \bullet)$
 such that for any other object $(c', f', \bullet)$ there exists a unique
 morphism $h:c' \to c$ such that the previous diagram commutes. This is precisely
 a terminal morphism from $F$ to $d$.
-
-\subsubsection*{Uniqueness up to isomorphism}
-A terminal morphism can be viewed as a terminal object in the comma category
-$(F\downarrow \Delta_d)$, and terminal objects are unique up to isomorphism.
-Therefore, terminal morphisms are unique up to isomorphism.
