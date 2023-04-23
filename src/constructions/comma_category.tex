@@ -5,20 +5,20 @@ category $(F\downarrow G)$ consists of:
 \begin{itemize}
   \item Objects:\\
     $(a, f, b) \in (F\downarrow G),
-      \ (\forall a\in A, b\in B, f: F a \to G b)$
+      \ (\forall a\in A,\ b\in B,\ f: F a \to G b)$
   \item Morphisms:\\
     $(g, h) : (a, f, b) \to (a', f', b'),
       \ (\forall g: a \to a',\ h: b\to b')$\\
     Such that the following diagram commutes:
-    % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGIGEiXSxbMSwwLCJGIGEnIl0sWzAsMSwiR2IiXSxbMSwxLCJHIGInIl0sWzAsMSwiRmciXSxbMiwzLCJHaCIsMl0sWzAsMiwiZiIsMl0sWzEsMywiZiciXV0=
+    % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGEpIl0sWzEsMCwiRihhJykiXSxbMCwxLCJHKGIpIl0sWzEsMSwiRyhiJykiXSxbMCwxLCJGKGcpIl0sWzIsMywiRyhoKSIsMl0sWzAsMiwiZiIsMl0sWzEsMywiZiciXV0=
     \[\begin{tikzcd}
-        {F a} & {F a'} \\
-        Gb & {G b'}
-        \arrow["Fg", from=1-1, to=1-2]
-        \arrow["Gh"', from=2-1, to=2-2]
-        \arrow["f"', from=1-1, to=2-1]
-        \arrow["{f'}", from=1-2, to=2-2]
-      \end{tikzcd}\]
+      {F(a)} & {F(a')} \\
+      {G(b)} & {G(b')}
+      \arrow["{F(g)}", from=1-1, to=1-2]
+      \arrow["{G(h)}"', from=2-1, to=2-2]
+      \arrow["f"', from=1-1, to=2-1]
+      \arrow["{f'}", from=1-2, to=2-2]
+    \end{tikzcd}\]
 \end{itemize}
 
 e.g.
@@ -42,8 +42,8 @@ e.g.
     \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=5-3, to=4-3]
     \arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-1, to=3-1]
     \arrow["G"{description}, draw={rgb,255:red,214;green,92;blue,92}, from=5-1, to=3-1]
-    \arrow[draw={rgb,255:red,92;green,92;blue,214}, shorten <=2pt, shorten >=6pt, dotted, from=0, to=2]
-    \arrow[draw={rgb,255:red,214;green,92;blue,92}, shorten <=2pt, shorten >=6pt, dotted, from=1, to=3]
+    \arrow[draw={rgb,255:red,92;green,92;blue,214}, shorten <=2pt, shorten >=15pt, dotted, from=0, to=2]
+    \arrow[draw={rgb,255:red,214;green,92;blue,92}, shorten <=2pt, shorten >=15pt, dotted, from=1, to=3]
   \end{tikzcd}
   ,\quad (F\downarrow G)\ \ =
   % https://q.uiver.app/?q=WzAsMixbMCwwLCJcXGJlZ2lue3BtYXRyaXh9MF9BXFxcXFxcYWxwaGFcXFxcMF9CXFxlbmR7cG1hdHJpeH0iXSxbMSwwLCJcXGJlZ2lue3BtYXRyaXh9MV9BXFxcXFxcYmV0YVxcXFwxX0JcXGVuZHtwbWF0cml4fSJdLFswLDEsIihmX0EsZl9CKSJdXQ==

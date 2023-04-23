@@ -1,25 +1,17 @@
 \section{Natural Transformations}
 
 \subsection{Definition}
-For a natural transformation $\alpha : F \Rightarrow G$ with functors
-$F, G: C \to D$ between categories $C,\ D$:
-\parencite{fong:7sketches}
-% https://q.uiver.app/?q=WzAsMixbMCwwLCJDIl0sWzEsMCwiRCJdLFswLDEsIkciLDIseyJjdXJ2ZSI6Mn1dLFswLDEsIkYiLDAseyJjdXJ2ZSI6LTJ9XSxbMywyLCJcXGFscGhhIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dXQ==
-\[\begin{tikzcd}
-	C & D
-	\arrow[""{name=0, anchor=center, inner sep=0}, "G"', curve={height=12pt}, from=1-1, to=1-2]
-	\arrow[""{name=1, anchor=center, inner sep=0}, "F", curve={height=-12pt}, from=1-1, to=1-2]
-	\arrow["\alpha", shorten <=3pt, shorten >=3pt, Rightarrow, from=1, to=0]
-\end{tikzcd}\]
-%
+A natural transformation $\alpha : F \Rightarrow G$ from a functor $F:C \to D$
+to a functor $G: C \to D$ consists of: \parencite{fong:7sketches}
+
 \begin{itemize}
-  \item $c$-component of $\alpha$, between functor images\\
-    $\alpha_c : F(c) \to G(c),\ \forall (c\in \mathrm{ob}_C)$
-  \item Naturality condition\\
-    $\alpha_d \circ F(f) = G(f) \circ \alpha_c,\ \forall (f:c \to d$ in $C$),
-    which is the same as saying the following diagram
-    commutes\footnote{parallel morphisms i.e. those with the same
-    source and target, are equal}
+  \item $c$-Components\\
+    $(\alpha_c : F(c) \to G(c)) \in D,\ (\forall c\in \mathrm{ob}_C)$\\
+    If every $c$-component is an isomorphism the natural transformation is then
+    called a natural isomorphism.
+  \item Naturality Condition\\
+    The following diagram commutes\footnote{Parallel morphisms i.e. those with
+    the same source and target, are equal}
     % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihkKSJdLFswLDEsIkcoYykiXSxbMSwxLCJHKGQpIl0sWzAsMiwiXFxhbHBoYV9jIl0sWzEsMywiXFxhbHBoYV9kIl0sWzAsMSwiRihmKSJdLFsyLDMsIkcoZikiLDJdXQ==
     \[\begin{tikzcd}
       {F(c)} & {F(d)} \\
@@ -30,103 +22,56 @@ $F, G: C \to D$ between categories $C,\ D$:
       \arrow["{G(f)}"', from=2-1, to=2-2]
     \end{tikzcd}\]
     e.g.
-    % https://q.uiver.app/?q=WzAsMTAsWzIsMiwiMSJdLFszLDEsIkYoYSkiXSxbNCwxLCJGKGIpIl0sWzMsMywiRyhhKSJdLFs0LDMsIkcoYikiXSxbNSwyLCI2Il0sWzAsMiwiYSJdLFsxLDIsImIiXSxbMSwwLCJDIl0sWzIsMCwiRCJdLFswLDEsImciXSxbMCwzLCJoIiwyXSxbMSwzLCJcXGFscGhhX2EiXSxbMiw0LCJcXGFscGhhX2IiLDJdLFsxLDIsIkYoZikiXSxbMyw0LCJHKGYpIiwyXSxbMiw1LCJpIl0sWzQsNSwiaiIsMl0sWzYsNywiZiJdLFs2LDEsIiIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzcsMiwiIiwyLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzYsMywiIiwyLHsiY3VydmUiOjIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNyw0LCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzgsOSwiRiIsMSx7ImN1cnZlIjotMywiY29sb3VyIjpbMjQwLDYwLDYwXX1dLFs4LDksIkciLDEseyJjdXJ2ZSI6MywiY29sb3VyIjpbMCw2MCw2MF19XV0=
+    % https://q.uiver.app/?q=WzAsMTAsWzIsMSwiMSJdLFszLDEsIkYoYSkiXSxbNCwxLCJGKGIpIl0sWzMsMiwiRyhhKSJdLFs0LDIsIkcoYikiXSxbNSwxLCI2Il0sWzAsMSwiYSJdLFsxLDEsImIiXSxbMSwwLCJDIl0sWzIsMCwiRCJdLFswLDEsImciXSxbMCwzLCJoIiwyXSxbMSwzLCJcXGFscGhhX2EiXSxbMiw0LCJcXGFscGhhX2IiLDJdLFsxLDIsIkYoZikiXSxbMyw0LCJHKGYpIiwyXSxbMiw1LCJpIl0sWzQsNSwiaiIsMl0sWzYsNywiZiJdLFs2LDEsIiIsMCx7ImN1cnZlIjotMywiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzcsMiwiIiwyLHsiY3VydmUiOi0zLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNiwzLCIiLDIseyJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzcsNCwiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs4LDksIkYiLDEseyJjdXJ2ZSI6LTMsImNvbG91ciI6WzI0MCw2MCw2MF19XSxbOCw5LCJHIiwxLHsiY3VydmUiOjMsImNvbG91ciI6WzAsNjAsNjBdfV1d
     \[\begin{tikzcd}
       & C & D \\
-      &&& {F(a)} & {F(b)} \\
-      a & b & 1 &&& 6 \\
+      a & b & 1 & {F(a)} & {F(b)} & 6 \\
       &&& {G(a)} & {G(b)}
-      \arrow["g", from=3-3, to=2-4]
-      \arrow["h"', from=3-3, to=4-4]
-      \arrow["{\alpha_a}", from=2-4, to=4-4]
-      \arrow["{\alpha_b}"', from=2-5, to=4-5]
+      \arrow["g", from=2-3, to=2-4]
+      \arrow["h"', from=2-3, to=3-4]
+      \arrow["{\alpha_a}", from=2-4, to=3-4]
+      \arrow["{\alpha_b}"', from=2-5, to=3-5]
       \arrow["{F(f)}", from=2-4, to=2-5]
-      \arrow["{G(f)}"', from=4-4, to=4-5]
-      \arrow["i", from=2-5, to=3-6]
-      \arrow["j"', from=4-5, to=3-6]
-      \arrow["f", from=3-1, to=3-2]
-      \arrow[color={rgb,255:red,92;green,92;blue,214}, curve={height=-12pt}, dotted, from=3-1, to=2-4]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=3-2, to=2-5]
-      \arrow[color={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=3-1, to=4-4]
-      \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=3-2, to=4-5]
+      \arrow["{G(f)}"', from=3-4, to=3-5]
+      \arrow["i", from=2-5, to=2-6]
+      \arrow["j"', from=3-5, to=2-6]
+      \arrow["f", from=2-1, to=2-2]
+      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-18pt}, dotted, from=2-1, to=2-4]
+      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-18pt}, dotted, from=2-2, to=2-5]
+      \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=2-1, to=3-4]
+      \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=2-2, to=3-5]
       \arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, curve={height=-18pt}, from=1-2, to=1-3]
       \arrow["G"{description}, draw={rgb,255:red,214;green,92;blue,92}, curve={height=18pt}, from=1-2, to=1-3]
     \end{tikzcd}\]
-  \item Natural isomorphism\\
-    if $\forall (c\in \mathrm{ob}_C.\ \alpha_c)$ is an isomorphism, then $\alpha$ is
-    called a natural isomorphism
 \end{itemize}
 
 \subsection{Important Natural Transformations}
-\begin{itemize}
-  \item Cone:\\
-    For categories $C,D$ and a functor $F: C\to D$, the cone over $F$ is the
-    natural transformation between the constant functor $\Delta d$ for some
-    object in $D$ and $F$.\\
-    e.g.
-    % https://q.uiver.app/?q=WzAsMTEsWzAsMiwiXFxidWxsZXQiXSxbMiw0LCJcXGJ1bGxldCJdLFsyLDIsIlxcYnVsbGV0Il0sWzAsNCwiXFxidWxsZXQiXSxbMywyLCJcXGJ1bGxldCJdLFs1LDQsIlxcYnVsbGV0Il0sWzUsMiwiXFxidWxsZXQiXSxbMyw0LCJcXGJ1bGxldCJdLFs0LDEsImQiXSxbMiwwLCJDIl0sWzMsMCwiRCJdLFswLDgsIiIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzIsOCwiIiwyLHsiY3VydmUiOi0xLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMSw4LCIiLDIseyJjdXJ2ZSI6LTQsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFszLDgsIiIsMix7ImN1cnZlIjotNSwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzAsNCwiIiwxLHsiY3VydmUiOjIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiw2LCIiLDAseyJjdXJ2ZSI6LTIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbOCw0XSxbOCw2XSxbOCw3LCJcXGFscGhhIiwwLHsibGFiZWxfcG9zaXRpb24iOjEwfV0sWzgsNV0sWzAsMl0sWzAsM10sWzMsMV0sWzIsMV0sWzQsN10sWzQsNl0sWzYsNV0sWzcsNV0sWzEsNSwiIiwwLHsiY3VydmUiOi0yLCJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzMsNywiIiwyLHsiY3VydmUiOjIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbOSwxMCwiXFxEZWx0YSBkIiwxLHsiY3VydmUiOi0zLCJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzksMTAsIkYiLDEseyJjdXJ2ZSI6MywiY29sb3VyIjpbMCw2MCw2MF19XV0=
-    \[\begin{tikzcd}
-      && C & D \\
-      &&&& d \\
-      \bullet && \bullet & \bullet && \bullet \\
-      \\
-      \bullet && \bullet & \bullet && \bullet
-      \arrow[color={rgb,255:red,92;green,92;blue,214}, curve={height=-12pt}, dotted, from=3-1, to=2-5]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-6pt}, dotted, from=3-3, to=2-5]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-24pt}, dotted, from=5-3, to=2-5]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-30pt}, dotted, from=5-1, to=2-5]
-      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=3-1, to=3-4]
-      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=3-3, to=3-6]
-      \arrow[from=2-5, to=3-4]
-      \arrow[from=2-5, to=3-6]
-      \arrow["\alpha"{pos=0.1}, from=2-5, to=5-4]
-      \arrow[from=2-5, to=5-6]
-      \arrow[from=3-1, to=3-3]
-      \arrow[from=3-1, to=5-1]
-      \arrow[from=5-1, to=5-3]
-      \arrow[from=3-3, to=5-3]
-      \arrow[from=3-4, to=5-4]
-      \arrow[from=3-4, to=3-6]
-      \arrow[from=3-6, to=5-6]
-      \arrow[from=5-4, to=5-6]
-      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=5-3, to=5-6]
-      \arrow[color={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=5-1, to=5-4]
-      \arrow["{\Delta d}"{description}, draw={rgb,255:red,92;green,92;blue,214}, curve={height=-18pt}, from=1-3, to=1-4]
-      \arrow["F"{description}, draw={rgb,255:red,214;green,92;blue,92}, curve={height=18pt}, from=1-3, to=1-4]
-    \end{tikzcd}\]
-  \item Cocone:\\
-    For categories $C,D$ and a functor $F: C\to D$, the cocone under $F$ is the
-    natural transformation between $F$ and the constant functor $\Delta d$ for some
-    object in $D$.\\
-    e.g.
-    % https://q.uiver.app/?q=WzAsMTEsWzAsMSwiXFxidWxsZXQiXSxbMiwzLCJcXGJ1bGxldCJdLFsyLDEsIlxcYnVsbGV0Il0sWzAsMywiXFxidWxsZXQiXSxbMywxLCJcXGJ1bGxldCJdLFs1LDMsIlxcYnVsbGV0Il0sWzUsMSwiXFxidWxsZXQiXSxbMywzLCJcXGJ1bGxldCJdLFs0LDQsImQiXSxbMiwwLCJDIl0sWzMsMCwiRCJdLFswLDgsIiIsMCx7ImN1cnZlIjo1LCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiw4LCIiLDIseyJjdXJ2ZSI6NCwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsOCwiIiwyLHsiY3VydmUiOjEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFszLDgsIiIsMix7ImN1cnZlIjoyLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMCw0LCIiLDIseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDYsIiIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs0LDgsIlxcYWxwaGEiLDAseyJsYWJlbF9wb3NpdGlvbiI6OTB9XSxbNiw4XSxbNyw4LCIiLDAseyJsYWJlbF9wb3NpdGlvbiI6MTB9XSxbNSw4XSxbMCwyXSxbMCwzXSxbMywxXSxbMiwxXSxbNCw3XSxbNCw2XSxbNiw1XSxbNyw1XSxbMSw1LCIiLDAseyJjdXJ2ZSI6LTIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMyw3LCIiLDEseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs5LDEwLCJGIiwxLHsiY3VydmUiOi0zLCJjb2xvdXIiOlswLDYwLDYwXX1dLFs5LDEwLCJcXERlbHRhIGQiLDEseyJjdXJ2ZSI6MywiY29sb3VyIjpbMjQwLDYwLDYwXX1dXQ==
-    \[\begin{tikzcd}
-      && C & D \\
-      \bullet && \bullet & \bullet && \bullet \\
-      \\
-      \bullet && \bullet & \bullet && \bullet \\
-      &&&& d
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=30pt}, dotted, from=2-1, to=5-5]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=2-3, to=5-5]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=6pt}, dotted, from=4-3, to=5-5]
-      \arrow[color={rgb,255:red,92;green,92;blue,214}, curve={height=12pt}, dotted, from=4-1, to=5-5]
-      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=2-1, to=2-4]
-      \arrow[color={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=2-3, to=2-6]
-      \arrow["\alpha"{pos=0.9}, from=2-4, to=5-5]
-      \arrow[from=2-6, to=5-5]
-      \arrow[from=4-4, to=5-5]
-      \arrow[from=4-6, to=5-5]
-      \arrow[from=2-1, to=2-3]
-      \arrow[from=2-1, to=4-1]
-      \arrow[from=4-1, to=4-3]
-      \arrow[from=2-3, to=4-3]
-      \arrow[from=2-4, to=4-4]
-      \arrow[from=2-4, to=2-6]
-      \arrow[from=2-6, to=4-6]
-      \arrow[from=4-4, to=4-6]
-      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=4-3, to=4-6]
-      \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=4-1, to=4-4]
-      \arrow["F"{description}, draw={rgb,255:red,214;green,92;blue,92}, curve={height=-18pt}, from=1-3, to=1-4]
-      \arrow["{\Delta d}"{description}, draw={rgb,255:red,92;green,92;blue,214}, curve={height=18pt}, from=1-3, to=1-4]
-    \end{tikzcd}\]
-\end{itemize}
+\subsubsection*{Cone}
+For categories $C,D$ and a functor $F: C\to D$, the cone over $F$ is the natural
+transformation $\alpha: \Delta_d \Rightarrow F$ for some object
+$d\in D$.
+\cite{milewski:category_theory_programmers}\\
+e.g.
+% https://q.uiver.app/?q=WzAsOSxbMCwxLCJcXGJ1bGxldCJdLFsxLDIsIlxcYnVsbGV0Il0sWzIsMSwiXFxidWxsZXQiXSxbMywxLCJcXGJ1bGxldCJdLFs1LDEsIlxcYnVsbGV0Il0sWzQsMiwiXFxidWxsZXQiXSxbNCwwLCJkIl0sWzIsMCwiQyJdLFszLDAsIkQiXSxbMCw2LCIiLDAseyJjdXJ2ZSI6LTIsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDYsIiIsMix7ImN1cnZlIjotMSwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsNiwiIiwyLHsiY3VydmUiOi00LCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMCwzLCIiLDEseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDQsIiIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs2LDNdLFs2LDRdLFs2LDUsIlxcYWxwaGEiLDAseyJsYWJlbF9wb3NpdGlvbiI6MTB9XSxbMCwyXSxbMiwxXSxbMyw1XSxbMyw0XSxbNyw4LCJcXERlbHRhIGQiLDEseyJjdXJ2ZSI6LTMsImNvbG91ciI6WzI0MCw2MCw2MF19XSxbNyw4LCJGIiwxLHsiY3VydmUiOjMsImNvbG91ciI6WzAsNjAsNjBdfV0sWzAsMV0sWzQsNV0sWzEsNSwiIiwxLHsiY3VydmUiOjIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
+\[\begin{tikzcd}
+  && C & D & d \\
+  \bullet && \bullet & \bullet && \bullet \\
+  & \bullet &&& \bullet
+  \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-12pt}, dotted, from=2-1, to=1-5]
+  \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-6pt}, dotted, from=2-3, to=1-5]
+  \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-24pt}, dotted, from=3-2, to=1-5]
+  \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=2-1, to=2-4]
+  \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=2-3, to=2-6]
+  \arrow[from=1-5, to=2-4]
+  \arrow[from=1-5, to=2-6]
+  \arrow["\alpha"{pos=0.1}, from=1-5, to=3-5]
+  \arrow[from=2-1, to=2-3]
+  \arrow[from=2-3, to=3-2]
+  \arrow[from=2-4, to=3-5]
+  \arrow[from=2-4, to=2-6]
+  \arrow["{\Delta d}"{description}, draw={rgb,255:red,92;green,92;blue,214}, curve={height=-18pt}, from=1-3, to=1-4]
+  \arrow["F"{description}, draw={rgb,255:red,214;green,92;blue,92}, curve={height=18pt}, from=1-3, to=1-4]
+  \arrow[from=2-1, to=3-2]
+  \arrow[from=2-6, to=3-5]
+  \arrow[color={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=3-2, to=3-5]
+\end{tikzcd}\]

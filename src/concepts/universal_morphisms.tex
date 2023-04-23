@@ -1,4 +1,4 @@
-\section{Universals}
+\section{Universal Morphisms}
 A universal morphism is either an initial or terminal morphism.
 \parencite{maclane:working_mathematician}
 
@@ -24,6 +24,9 @@ $h:c\to c'$ such that the following diagram commutes.
 	\arrow[color={rgb,255:red,92;green,92;blue,214}, shorten <=7pt, shorten >=20pt, dotted, from=0, to=1]
 \end{tikzcd}\]
 
+\subsubsection*{As the initial object of a comma category}
+
+
 \subsection{Terminal morphisms}
 For categories $C,D$, a terminal morphism or a universal morphism from a functor
 $F: C \to D$ into an object $d\in\mathrm{ob}_D$ consists of an object
@@ -45,3 +48,46 @@ $h:c' \to c$ such that the following diagram commutes.
 	\arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-1, to=1-2]
 	\arrow[color={rgb,255:red,92;green,92;blue,214}, shorten <=7pt, shorten >=20pt, dotted, from=1, to=0]
 \end{tikzcd}\]
+
+\subsubsection*{As the terminal object of a comma category}
+Consider categories $C, D$ with a functor $F: C\to D$, together with the
+discrete category $\underline{1}$ with a single element $\bullet$ and a constant
+funtor $\Delta_d: \underline{1} \to D$. The comma category $(F\downarrow
+\Delta_d)$ consists of:
+\begin{itemize}
+	\item Objects:\\
+		$(c, f, \bullet)\in (F\downarrow \Delta_d)
+			,\ (\forall c\in C,\ f: F(c)\to d)$
+	\item Morphisms:\\
+		$\big((h, \mathrm{id}_\bullet):
+			(c', f', \bullet) \to (c, f, \bullet)\big) \in (F\downarrow \Delta_d),$\\
+		\phantom{$\qquad$}$(\forall c,c'\in C,\ h:c'\to c,\ f:F(c)\to d,\ f':F(c')\to d)$\\
+		Such that the following commutes:
+		% https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMnKSJdLFsxLDAsIkYoYykiXSxbMCwxLCJkIl0sWzEsMSwiZCJdLFswLDEsIkYoaCkiXSxbMiwzLCJcXG1hdGhybXtpZH1fZCIsMl0sWzAsMiwiZiciLDJdLFsxLDMsImYiXV0=
+		\[\begin{tikzcd}
+			{F(c')} & {F(c)} \\
+			d & d
+			\arrow["{F(h)}", from=1-1, to=1-2]
+			\arrow["{\mathrm{id}_d}"', from=2-1, to=2-2]
+			\arrow["{f'}"', from=1-1, to=2-1]
+			\arrow["f", from=1-2, to=2-2]
+		\end{tikzcd}
+		=
+		% https://q.uiver.app/?q=WzAsMyxbMCwxLCJGKGMnKSJdLFswLDAsIkYoYykiXSxbMSwwLCJkIl0sWzAsMSwiRihoKSJdLFswLDIsImYnIiwyXSxbMSwyLCJmIl1d
+		\begin{tikzcd}
+			{F(c)} & d \\
+			{F(c')}
+			\arrow["{F(h)}", from=2-1, to=1-1]
+			\arrow["{f'}"', from=2-1, to=1-2]
+			\arrow["f", from=1-1, to=1-2]
+		\end{tikzcd}\]
+\end{itemize}
+A terminal object of $(F\downarrow \Delta_d)$ is an object $(c, f, \bullet)$
+such that for any other object $(c', f', \bullet)$ there exists a unique
+morphism $h:c' \to c$ such that the previous diagram commutes. This coincides
+with the definition of a terminal morphism from $F$ to $d$.
+
+\subsubsection*{Uniqueness up to isomorphism}
+A terminal morphism can be viewed as a terminal object in the comma category
+$(F\downarrow \Delta_d)$, and terminal objects are unique up to isomorphism.
+Therefore, terminal morphisms are unique up to isomorphism.
