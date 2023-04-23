@@ -44,34 +44,3 @@ to a functor $G: C \to D$ consists of: \parencite{fong:7sketches}
       \arrow["G"{description}, draw={rgb,255:red,214;green,92;blue,92}, curve={height=18pt}, from=1-2, to=1-3]
     \end{tikzcd}\]
 \end{itemize}
-
-\subsection{Important Natural Transformations}
-\subsubsection*{Cone}
-For categories $C,D$ and a functor $F: C\to D$, the cone over $F$ is the natural
-transformation $\alpha: \Delta_d \Rightarrow F$ for some object
-$d\in D$.
-\cite{milewski:category_theory_programmers}\\
-e.g.
-% https://q.uiver.app/?q=WzAsOSxbMCwxLCJcXGJ1bGxldCJdLFsxLDIsIlxcYnVsbGV0Il0sWzIsMSwiXFxidWxsZXQiXSxbMywxLCJcXGJ1bGxldCJdLFs1LDEsIlxcYnVsbGV0Il0sWzQsMiwiXFxidWxsZXQiXSxbNCwwLCJkIl0sWzIsMCwiQyJdLFszLDAsIkQiXSxbMCw2LCIiLDAseyJjdXJ2ZSI6LTIsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDYsIiIsMix7ImN1cnZlIjotMSwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsNiwiIiwyLHsiY3VydmUiOi00LCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMCwzLCIiLDEseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDQsIiIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs2LDNdLFs2LDRdLFs2LDUsIlxcYWxwaGEiLDAseyJsYWJlbF9wb3NpdGlvbiI6MTB9XSxbMCwyXSxbMiwxXSxbMyw1XSxbMyw0XSxbNyw4LCJcXERlbHRhIGQiLDEseyJjdXJ2ZSI6LTMsImNvbG91ciI6WzI0MCw2MCw2MF19XSxbNyw4LCJGIiwxLHsiY3VydmUiOjMsImNvbG91ciI6WzAsNjAsNjBdfV0sWzAsMV0sWzQsNV0sWzEsNSwiIiwxLHsiY3VydmUiOjIsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
-\[\begin{tikzcd}
-  && C & D & d \\
-  \bullet && \bullet & \bullet && \bullet \\
-  & \bullet &&& \bullet
-  \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-12pt}, dotted, from=2-1, to=1-5]
-  \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-6pt}, dotted, from=2-3, to=1-5]
-  \arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-24pt}, dotted, from=3-2, to=1-5]
-  \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=2-1, to=2-4]
-  \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=-12pt}, dotted, from=2-3, to=2-6]
-  \arrow[from=1-5, to=2-4]
-  \arrow[from=1-5, to=2-6]
-  \arrow["\alpha"{pos=0.1}, from=1-5, to=3-5]
-  \arrow[from=2-1, to=2-3]
-  \arrow[from=2-3, to=3-2]
-  \arrow[from=2-4, to=3-5]
-  \arrow[from=2-4, to=2-6]
-  \arrow["{\Delta d}"{description}, draw={rgb,255:red,92;green,92;blue,214}, curve={height=-18pt}, from=1-3, to=1-4]
-  \arrow["F"{description}, draw={rgb,255:red,214;green,92;blue,92}, curve={height=18pt}, from=1-3, to=1-4]
-  \arrow[from=2-1, to=3-2]
-  \arrow[from=2-6, to=3-5]
-  \arrow[color={rgb,255:red,214;green,92;blue,92}, curve={height=12pt}, dotted, from=3-2, to=3-5]
-\end{tikzcd}\]
