@@ -14,32 +14,3 @@ $c\in C$: \parencite{leinster:basic_category_theory}
 	\arrow["{\beta_c}", from=1-1, to=2-2]
 	\arrow["f"', dashed, from=1-1, to=2-1]
 \end{tikzcd}\]
-
-\subsubsection*{As the terminal object of the cone category}
-
-
-
-
-
-
-
-
-
-
-
-The limit of a functor $F:J\to C$ is the universal cone over $F$. That is, an
-object $\lim F \in \mathrm{ob}_C$, together with a natural transformation
-$\eta: \Delta_{\lim F} \Rightarrow F$ such that for any other objects
-$X \in \mathrm{ob}_C$ with natural transformation $\alpha: \Delta X \Rightarrow F$,
-there exists a unique arrow $f : X \to \lim F$ such that $\alpha = \eta \circ f$
-\parencite{math3ma:limits2}
-% https://q.uiver.app/?q=WzAsMyxbMCwxLCJcXGxpbSBGIl0sWzAsMiwiRiJdLFswLDAsIlgiXSxbMCwxLCJcXGV0YSIsMix7ImxldmVsIjoyfV0sWzIsMCwiZiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDEsIlxcYWxwaGEiLDAseyJjdXJ2ZSI6LTQsImxldmVsIjoyfV1d
-\[\begin{tikzcd}
-	X \\
-	{\lim F} \\
-	F
-	\arrow["\eta"', Rightarrow, from=2-1, to=3-1]
-	\arrow["f"', dotted, from=1-1, to=2-1]
-	\arrow["\alpha", curve={height=-30pt}, Rightarrow, from=1-1, to=3-1]
-\end{tikzcd}\]
-
