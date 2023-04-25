@@ -13,16 +13,17 @@ A category $C$ is composed of: \parencite{fong_spivak:7sketches}
   \item Morphisms:\\
     $\mathrm{hom}_C(a, b)$: referred to as an hom-set, it is the collection of
     all morphisms from $a$ to $b$ with $a,b\in C$. For simplicity's sake, $(f: a
-    \to b) \in C$ is meant to be read as $f \in \mathrm{hom}_C(a,c)$\\
-    The terms morphism and arrows are used interchangeably. They are directed
-    connections between objects.\\
+    \to b) \in C$ is meant to be read as $f \in \mathrm{hom}_C(a,c)$. The terms
+    morphism and arrows are used interchangeably. They are directed connections
+    between objects.\\
     $\mathrm{hom}_C = \bigcup\limits_{a,b\in C} \mathrm{hom}_C(a,b)$
 \end{itemize}
 
 Such that it satisfies:
 \begin{itemize}
   \item Identity:\\
-    $(\mathrm{id}_c: c \to c) \in C,\ (\forall c \in C)$
+    $(\mathrm{id}_c: c \to c) \in C,\ (\forall c \in C)$. Usually not drawn for
+    simplicity's sake.
   \item Composition:\\
     $(g \circ f : a \to c) \in C,
       \ (\forall a, b, c \in C,\ f: a \to b,\ g:b \to c)$
@@ -35,13 +36,15 @@ Such that it satisfies:
 \end{itemize}
 
 e.g.
-% https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzEsMCwiYiJdLFsxLDEsImMiXSxbMCwxLCJmIl0sWzEsMiwiZyJdLFswLDIsImdcXGNpcmMgZiIsMl1d
+% https://q.uiver.app/?q=WzAsNCxbMCwwLCJhIl0sWzEsMCwiYiJdLFsyLDAsImMiXSxbMywwLCJkIl0sWzAsMSwiZiJdLFswLDIsImdcXGNpcmMgZiIsMCx7ImN1cnZlIjotNH1dLFsyLDMsImgiXSxbMSwyLCJnIl0sWzEsMywiaFxcY2lyYyBnIiwwLHsiY3VydmUiOi00fV0sWzAsMywiaFxcY2lyYyBnXFxjaXJjIGYiLDIseyJjdXJ2ZSI6NH1dXQ==
 \[\begin{tikzcd}
-	a & b \\
-	& c
+	a & b & c & d
 	\arrow["f", from=1-1, to=1-2]
-	\arrow["g", from=1-2, to=2-2]
-	\arrow["{g\circ f}"', from=1-1, to=2-2]
+	\arrow["{g\circ f}", curve={height=-24pt}, from=1-1, to=1-3]
+	\arrow["h", from=1-3, to=1-4]
+	\arrow["g", from=1-2, to=1-3]
+	\arrow["{h\circ g}", curve={height=-24pt}, from=1-2, to=1-4]
+	\arrow["{h\circ g\circ f}"', curve={height=24pt}, from=1-1, to=1-4]
 \end{tikzcd}\]
 
 \subsection{Duality}
@@ -85,8 +88,8 @@ Every thin category can be seen as a preorder. This is the opposite of a free
 category in the sense that it has every possible constraint.
 
 \subsubsection*{Discrete Category}
-A category $C$ is said to be discrete when $\mathrm{hom}_C$ is conformed
-entirely out of identity morphisms. \parencite{awodey:category_theory} Discrete
+A category $C$ is said to be discrete when $\mathrm{hom}_C$ is composed entirely
+out of identity morphisms. \parencite{awodey:category_theory} Discrete
 categories are going to be denoted by $\underline{n}$, with $n$ being the number
 of objects in it.
 
@@ -116,7 +119,8 @@ In a category with objects $a, b, c$, a morphism is said to be monic or a
 monomorphism when it is left cancellable i.e. $f \circ g_1 = f \circ g_2
 \implies g_1 = g_2,\ (\forall g_1, g_2:a\to b)$.
 \parencite{maclane:working_mathematician}\\
-$f:b\rightarrowtail c$ will be used to denote monomorphisms.
+$f:b\rightarrowtail c$ will be used to denote monomorphisms. It is equivalent to
+say that $f^\mathrm{op}\in C^\mathrm{op}$ is an epimorphism.
 % https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzEsMCwiYiJdLFsyLDAsImMiXSxbMCwxLCJnIiwwLHsiY3VydmUiOi0yfV0sWzAsMSwiZyciLDIseyJjdXJ2ZSI6Mn1dLFsxLDIsImYiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV1d
 \[\begin{tikzcd}
 	a & b & c
@@ -140,7 +144,7 @@ In a category with objects $a, b, c$, a morphism is said to be epic or an
 epimorphism when it is right cancellable i.e. $g_1 \circ f = g_2 \circ f
 \implies g_1 = g_2,\ (\forall g_1, g_2: c\to d)$.
 \parencite{maclane:working_mathematician}\\
-$f:a\twoheadrightarrow b$ will be used to denote epimorphisms.
+$f:a\twoheadrightarrow b$ will be used to denote epimorphisms. It is equivalent to say that $f^\mathrm{op}\in C^\mathrm{op}$ is a monomorphism.
 % https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzEsMCwiYiJdLFsyLDAsImMiXSxbMSwyLCJnJyIsMix7ImN1cnZlIjoyfV0sWzAsMSwiZiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsxLDIsImciLDAseyJjdXJ2ZSI6LTJ9XV0=
 \[\begin{tikzcd}
 	a & b & c
@@ -161,24 +165,23 @@ test for non-surjectivity.
 
 \subsection{Important Categories}
 
+\subsubsection*{Set}
+It is the category of all sets, composed by: \parencite{awodey:category_theory}
 \begin{itemize}
-  \item Set:\\
-    It is the category of all sets with functions as their morphisms.
-    \parencite{awodey:category_theory}
-    \begin{itemize}
-      \item Objects:\\
-            Every set is an object in Set.
-      \item Morphisms:\\
-            Morphisms in Set are functions between sets.
-    \end{itemize}
+  \item Objects:\\
+        Every set.
+  \item Morphisms:\\
+        Functions between sets.
+\end{itemize}
 
-  \item Cat:\\
-    It is the category of all small categories.
-    \parencite{adamek_herrlich_strecker:joy_cats}
-    \begin{itemize}
-      \item Objects:\\
-            Every small category is an object in Cat.
-      \item Morphisms:\\
-            Morphisms in Cat are functors between categories.
-    \end{itemize}
+\subsubsection*{Cat}
+It is the category of all small categories, composed by:
+\parencite{adamek_herrlich_strecker:joy_cats}
+\begin{itemize}
+  \item Objects:\\
+        Every small category.
+  \item Morphisms:\\
+        Functors between categories.
+  \item 2-Morphisms:\\
+        Natural transformations between functors.
 \end{itemize}
