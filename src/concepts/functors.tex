@@ -41,6 +41,28 @@ e.g.
   \end{tikzcd}
 \]
 
+\subsection{Identity}
+For a category $C$ there exists an identity functor $\mathrm{id}_C: C \to C$
+that consists of maps of: \parencite{adamek_herrlich_strecker:joy_cats}
+\begin{itemize}
+  \item Objects:\\
+    $\mathrm{id}_C(c) = c \in C,\ (\forall c\in C)$
+  \item Morphisms:\\
+    $\mathrm{id}_C(f): c\to c' = f \in C,\ (\forall c, c'\in C,\ f:c\to c')$
+\end{itemize}
+
+\subsection{Composition}
+For categories $A,B,C$ and functors $F:A\to B$ and $G:B\to C$ the composite
+functor $G\circ F$ consists of maps of:
+\parencite{leinster:basic_category_theory}
+\begin{itemize}
+  \item Objects:\\
+    $(G\circ F)(a) = G(F(a)) \in C,\ (\forall a\in A)$
+  \item Morphisms:\\
+    $(G\circ F)(f): (G\circ F)(a) \to (G\circ F)(a') = G(F(f)) \in C,\ (\forall
+      a, a'\in A,\ f:a\to a')$
+\end{itemize}
+
 \subsection{Functor Properties}
 
 \subsubsection*{Faithful}
@@ -64,31 +86,37 @@ parameters) is said to be a bifunctor.
 \parencite{maclane:working_mathematician}
 
 \subsection{As morphisms between categories}
-For functors to be considered as morphisms between categories they must satisty:
+In Cat functors are morphisms between categories, therefore functor composition
+must satisty:
 
-\subsubsection*{Identity}
-For a category $C$ there exists an identity functor $\mathrm{id}_C: C \to C$
-that consists of maps of:
-\begin{itemize}
-  \item Objects:\\
-    $\mathrm{id}_C(c) = c \in C,\ (\forall c\in C)$
-  \item Morphisms:\\
-    $\mathrm{id}_C(f): c\to c' = f \in C,\ (\forall c, c'\in C,\ f:c\to c')$
-\end{itemize}
+\subsubsection*{Unitality}
+For categories $C,D$ and a functor $F:C\to D$ consider its composition with the
+identity with either $c\in \mathrm{ob}_C$ or $c\in \mathrm{hom}_C$:
+\begin{equation*}
+  \begin{aligned}
+    (\mathrm{id}_D \circ F)(c)
+      &= \mathrm{id}_D (F (c))\\
+      &= F (c)
+  \end{aligned}
+  \quad
+  \begin{aligned}
+    (F \circ \mathrm{id}_C)(c)
+      &= F(\mathrm{id}_C(c))\\
+      &= F (c)
+  \end{aligned}
+\end{equation*}
+Therefore $\mathrm{id}_D \circ F = F \circ \mathrm{id}_C = F$.
 
-\subsubsection*{Composition}
-For categories $A,B,C$ and functors $F:A\to B$ and $G:B\to C$ the composite
-functor $G\circ F$ consists of maps of:
-\begin{itemize}
-  \item Objects:\\
-    $(G\circ F)(a) = G(F(a)) \in C,\ (\forall a\in A)$
-  \item Morphisms:\\
-    $(G\circ F)(f): (G\circ F)(a) \to (G\circ F)(a') = G(F(f)) \in C,\ (\forall
-      a, a'\in A,\ f:a\to a')$
-\end{itemize}
-
-\subsubsection*{Unitality and Associativity}
-For categories $C,D$ a functor $F:C\to D$ consists of two different functions,
-one from $\mathrm{ob}_C$ to $\mathrm{ob}_D$ and one from $\mathrm{hom}_C$ to
-$\mathrm{hom}_D$. As function composition fulfills unitality and associativity
-then so does functor composition
+\subsubsection*{Associativity}
+For categories $A,B,C,D$ and functos $F:A\to B, G:B\to C, H:C\to D$ consider
+their composition with either $c\in \mathrm{ob}_C$ or $c\in \mathrm{hom}_C$:
+\begin{equation*}
+  \begin{aligned}
+    ((H \circ G) \circ F) (c)
+      &= (H\circ G) (F (c))\\
+      &= H(G(F(c)))\\
+      &= H((G\circ F)(c))\\
+      &= (H\circ(G\circ F)) (c)
+  \end{aligned}
+\end{equation*}
+Therefore $H\circ(G\circ F) = (H \circ G) \circ F$.
