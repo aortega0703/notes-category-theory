@@ -95,7 +95,7 @@ H$ consists of: \parencite{leinster:basic_category_theory}
 
     The naturality conditions of $\alpha$ and $\beta$ imply the naturality
     condition of $\beta \circ \alpha$ (in blue):
-    \begin{equation*}
+    \[
       \begin{aligned}
         \beta_{c'}\circ\alpha_{c'}\circ F(f)
         &= \beta_{c'}\circ G(f) \circ\alpha_c
@@ -103,15 +103,15 @@ H$ consists of: \parencite{leinster:basic_category_theory}
         &= H(f)\circ \beta_c \circ \alpha_c
           ,\quad\text{(naturality condition of $\beta$)}
       \end{aligned}
-    \end{equation*}
+    \]
 \end{itemize}
 
 \subsubsection*{Unitality of Vertical Composition}
 For categories $C,D$, functors $F,G:C\to D$, a natural tranformation $\alpha:
-F\Rightarrow G$ and $c\in C$, consider its composition with the identity natural
-transformations:
+F\Rightarrow G$ and $c\in C$, consider its vertical composition with the
+identity natural transformations:
 
-\begin{equation*}
+\[
   \begin{aligned}
     (\alpha \circ \id_F)_C
     &= \alpha_c \circ (\id_F)_c\\
@@ -125,16 +125,16 @@ transformations:
     &= \id_{G(c)} \circ \alpha_c\\
     &= \alpha_c
   \end{aligned}
-\end{equation*}
+\]
 
 Therefore $\alpha \circ \id_F = \id_G \circ \alpha = \alpha$.
 
 \subsubsection*{Associativity of Vertical Composition}
 For categories $C,D$, functors $F,G,H,I:C\to D$, natural tranformations $\alpha:
 F\Rightarrow G, \beta: G\Rightarrow H, \gamma:H\Rightarrow I$ and $c\in C$,
-consider their composition:
+consider their vertical composition:
 
-\begin{equation*}
+\[
   \begin{aligned}
     ((\gamma \circ \beta) \circ \alpha)_c
     &= (\gamma \circ \beta)_c \circ \alpha_c\\
@@ -144,7 +144,7 @@ consider their composition:
     &= \gamma_c \circ (\beta \circ \alpha)_c\\
     &= (\gamma \circ (\beta \circ \alpha))_c\\
   \end{aligned}
-\end{equation*}
+\]
 
 Therefore $(\gamma \circ \beta) \circ \alpha = \gamma \circ (\beta \circ
 \alpha)$
@@ -157,11 +157,12 @@ composition $\beta * \alpha: (G\circ F) \to (G' \circ F')$ consists of:
 
 \begin{itemize}
   \item $c$-Components:\\
-    $(\beta * \alpha)_c : (G\circ F) \to (G' \circ F') = G'(\alpha_c) \circ
-    \beta_{F(c)}\in C$\\
+    $(\beta * \alpha)_c : (G\circ F) \to (G' \circ F') =\beta_{F'(c)} \circ
+    G(\alpha_c)\in C$\\
     \phantom{$(\beta * \alpha)_c : (G\circ F) \to (G' \circ F')$}
-    $=\beta_{F'(c)} \circ G(\alpha_c)\in C$\\
-    This definition is motivated by the following diagram, where the equality of both definitions is given by the naturality condition of $\beta$.
+    $= G'(\alpha_c) \circ \beta_{F(c)}\in C$\\
+    This definition is motivated by the following diagram, where the equality of
+    both definitions is given by the naturality condition of $\beta$.
 
     % https://q.uiver.app/?q=WzAsMTAsWzAsMCwiQSJdLFswLDIsImMiXSxbMSwwLCJCIl0sWzIsMCwiQyJdLFsxLDEsIkYoYykiXSxbMSwzLCJGJyhjKSJdLFsyLDIsIihHXFxjaXJjIEYpKGMpIl0sWzMsMSwiKEcnXFxjaXJjIEYpKGMpIl0sWzIsNCwiKEdcXGNpcmMgRicpKGMpIl0sWzMsMywiKEcnXFxjaXJjIEYnKShjKSJdLFswLDIsIkYiLDAseyJjdXJ2ZSI6LTIsImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMCwyLCJGJyIsMix7ImN1cnZlIjoyLCJjb2xvdXIiOlswLDYwLDYwXX1dLFsyLDMsIkciLDAseyJjdXJ2ZSI6LTIsImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMiwzLCJHJyIsMix7ImN1cnZlIjoyLCJjb2xvdXIiOlswLDYwLDYwXX1dLFsxLDQsIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxLDUsIiIsMix7ImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNCw1LCJcXGFscGhhX2MiXSxbNCw2LCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNCw3LCIiLDAseyJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzUsOCwiIiwwLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzUsOSwiIiwwLHsiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs2LDcsIlxcYmV0YV97RihjKX0iXSxbOCw5LCJcXGJldGFfe0YnKGMpfSIsMl0sWzcsOSwiRycoXFxhbHBoYV9jKSJdLFs2LDgsIkcoXFxhbHBoYV9jKSJdLFs2LDksIlxcYmV0YSpcXGFscGhhIl0sWzEyLDEzLCJcXGJldGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV0sWzEwLDExLCJcXGFscGhhIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dXQ==
     \[\begin{tikzcd}
@@ -216,7 +217,8 @@ composition $\beta * \alpha: (G\circ F) \to (G' \circ F')$ consists of:
     \end{tikzcd}\]
     The naturality conditions of $\alpha$ and $\beta$ imply the naturality
     condition of $\beta * \alpha$ (in blue):
-    \begin{equation*}
+
+    \[
       \begin{aligned}
         (G'\circ F')(f) \circ (\beta * \alpha)_c
         &= (G'\circ F')(f) \circ G'(\alpha_c)\circ\beta_{F(c)}
@@ -228,5 +230,29 @@ composition $\beta * \alpha: (G\circ F) \to (G' \circ F')$ consists of:
         &= (\beta * \alpha)_{c'}\circ (G \circ F)(f)
           ,\quad\text{(definition of $(\beta * \alpha)_{c'}$)}
       \end{aligned}
-    \end{equation*}
+    \]
 \end{itemize}
+
+\subsubsection*{Unitality of Horizontal Composition}
+For categories $C,D$, functors $F,G:C\to D$, a natural tranformation $\alpha:
+F\Rightarrow G$ and $c\in C$, consider its horizontal composition with the
+identity natural transformation of the identity functor:
+
+\[
+  \begin{aligned}[t]
+    (\alpha * \id_{\id_C})_c
+    &= \alpha_{\id_C(c)} \circ F((\id_{\id_C})_c)\\
+    &= \alpha_{c} \circ F(\id_{\id_C(c)})\\
+    &= \alpha_{c} \circ F(\id_{c})\\
+    &= \alpha_{c} \circ \id_{F(c)}\\
+    &= \alpha_{c}
+  \end{aligned}
+  \quad
+  \begin{aligned}[t]
+    (\id_{\id_D} * \alpha)_c
+    &= (\id_{\id_D})_{G(c)} \circ \id_D(\alpha_c)\\
+    &= \id_{\id_D(G(c))} \circ \alpha_c\\
+    &= \id_{G(c)} \circ \alpha_c\\
+    &= \alpha_c
+  \end{aligned}
+\]
