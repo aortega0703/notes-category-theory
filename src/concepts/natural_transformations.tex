@@ -6,7 +6,7 @@ to a functor $G: C \to D$ consists of: \parencite{fong_spivak:7sketches}
 
 \begin{itemize}
   \item $c$-Components:\\
-    $(\alpha_c : F(c) \to G(c)) \in D,\ (\forall c\in \mathrm{ob}_C)$\\
+    $(\alpha_c : F(c) \to G(c)) \in D,\ (\forall c\in \ob_C)$\\
     If every $c$-component is an isomorphism the natural transformation is then
     called a natural isomorphism.
   \item Naturality Condition:\\
@@ -48,20 +48,20 @@ to a functor $G: C \to D$ consists of: \parencite{fong_spivak:7sketches}
 
 \subsection{Identity}
 For any categories $C,D$ with a functor $F:C\to D$, there exists a natural
-transformation $\mathrm{id}_F: F\Rightarrow F$ which consists of:
+transformation $\id_F: F\Rightarrow F$ which consists of:
 \parencite{leinster:basic_category_theory}
 \begin{itemize}
   \item $c$-Components:\\
-    $(\mathrm{id}_F)_c: F(c) \to F(c) = \mathrm{id}_{F(c)},\ (\forall c\in C)$
+    $(\id_F)_c: F(c) \to F(c) = \id_{F(c)},\ (\forall c\in C)$
   \item Naturality Condition:
     % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJGKGMpIl0sWzEsMSwiRihjJykiXSxbMCwxLCJGKGYpIl0sWzAsMiwiXFxtYXRocm17aWR9X3tGKGMpfSIsMl0sWzIsMywiRihmKSIsMl0sWzEsMywiXFxtYXRocm17aWR9X3tGKGMpfSJdXQ==
     \[\begin{tikzcd}
       {F(c)} & {F(c')} \\
       {F(c)} & {F(c')}
       \arrow["{F(f)}", from=1-1, to=1-2]
-      \arrow["{\mathrm{id}_{F(c)}}"', from=1-1, to=2-1]
+      \arrow["{\id_{F(c)}}"', from=1-1, to=2-1]
       \arrow["{F(f)}"', from=2-1, to=2-2]
-      \arrow["{\mathrm{id}_{F(c)}}", from=1-2, to=2-2]
+      \arrow["{\id_{F(c)}}", from=1-2, to=2-2]
     \end{tikzcd}\]
     Which commutes for all $c,c'\in C$ and $(f:c\to c')\in C$ by using
     unitality of $D$.

@@ -12,15 +12,15 @@ from it to every other set, that being the empty function.
 Consider a category with a pair of terminal objects $c$ and $c'$. By being
 terminal there exists a unique morphism from any object into $c$ and $c'$,
 particularly, there exists unique morphisms $f: c' \to c$, $g: c \to c'$ between
-themselves and $\mathrm{id}_c: c\to c$, $\mathrm{id}_c: c\to c$ to themselves.
+themselves and $\id_c: c\to c$, $\id_c: c\to c$ to themselves.
 Then the compositions $f\circ g:c\to c$ and $g\circ f:c' \to c'$ must coincide
 with the identity morphisms, making $f,g$ an isomorphism between $c$ and $c'$.
 % https://q.uiver.app/?q=WzAsNCxbMCwwLCJjIl0sWzAsMSwiYyJdLFsxLDAsImMnIl0sWzEsMSwiYyciXSxbMSwwLCJcXG1hdGhybXtpZH1fYyIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDIsImYiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiwzLCJcXG1hdGhybXtpZH1fe2MnfSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDEsImciLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
 \[\begin{tikzcd}
 	c & {c'} \\
 	c & {c'}
-	\arrow["{\mathrm{id}_c}", dashed, from=2-1, to=1-1]
+	\arrow["{\id_c}", dashed, from=2-1, to=1-1]
 	\arrow["f", dashed, from=1-1, to=1-2]
-	\arrow["{\mathrm{id}_{c'}}", dashed, from=1-2, to=2-2]
+	\arrow["{\id_{c'}}", dashed, from=1-2, to=2-2]
 	\arrow["g", dashed, from=2-2, to=2-1]
 \end{tikzcd}\]

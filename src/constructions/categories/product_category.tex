@@ -4,7 +4,7 @@ For categories $C,D$, a product category $C\times D$ consists of:
 \begin{itemize}
   \item Objects:\\
     $(c, d) \in (C\times D)
-      ,\ (\forall c \in \mathrm{ob}_C, d \in \mathrm{ob}_D)$
+      ,\ (\forall c \in \ob_C, d \in \ob_D)$
   \item Morphisms:\\
     $\big((f,g) : (c,d) \to (c', d')\big)\in(C\times D)
       ,\ (\forall f: c \to c',\ g:d \to d')$
@@ -31,10 +31,10 @@ e.g.
   \begin{tikzcd}
     {(1,a)} & {(1,b)} \\
     {(2,a)} & {(2,b)}
-    \arrow["{(\mathrm{id}_1,g)}", from=1-1, to=1-2]
-    \arrow["{(f,\mathrm{id}_a)}"', from=1-1, to=2-1]
-    \arrow["{(\mathrm{id}_2,g)}"', from=2-1, to=2-2]
-    \arrow["{(f,\mathrm{id}_b)}", from=1-2, to=2-2]
+    \arrow["{(\id_1,g)}", from=1-1, to=1-2]
+    \arrow["{(f,\id_a)}"', from=1-1, to=2-1]
+    \arrow["{(\id_2,g)}"', from=2-1, to=2-2]
+    \arrow["{(f,\id_b)}", from=1-2, to=2-2]
     \arrow["{(f,g)}"{description}, from=1-1, to=2-2]
   \end{tikzcd}
 \]

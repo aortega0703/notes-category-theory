@@ -1,16 +1,16 @@
 \subsection*{Hom-functor}
-For a category $C$, the hom-functor $\mathrm{Hom}_C : C^{op}\times C \to
+For a category $C$, the hom-functor $\Hom_C : C^{op}\times C \to
 \mathrm{Set}$ consists of maps of: \parencite{maclane:working_mathematician}
 \begin{itemize}
   \item Objects:\\
-    $\mathrm{Hom}_C (c', d) = \mathrm{hom}_C (c', d),
-      \ (\forall c', d\in \mathrm{ob}_C)$
+    $\Hom_C (c', d) = \hom_C (c', d),
+      \ (\forall c', d\in \ob_C)$
   \item Morphisms:
     \[
-      \mathrm{Hom}_C (f) : \left\{
+      \Hom_C (f) : \left\{
       \begin{aligned}
-        \mathrm{hom}_{C^{op}\times C}(c', d) &\to
-          \mathrm{hom}_{C^{op}\times C}(c, d')\\
+        \hom_{C^{op}\times C}(c', d) &\to
+          \hom_{C^{op}\times C}(c, d')\\
         p &\mapsto q = h\circ p\circ g
       \end{aligned}
       \right.

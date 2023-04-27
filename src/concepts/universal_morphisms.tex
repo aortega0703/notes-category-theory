@@ -38,7 +38,7 @@ F)$ consists of:
 		$(\bullet, f, c)\in (\Delta_d\downarrow F)
 			,\ (\forall c\in C,\ f: d\ to F(c))$
 	\item Morphisms:\\
-		$\big((\mathrm{id}_\bullet, h): (\bullet, f, c) \to (\bullet, f', c')\big)
+		$\big((\id_\bullet, h): (\bullet, f, c) \to (\bullet, f', c')\big)
 			\in (\Delta_d\downarrow F),$\\
 		\phantom{$\qquad$}
 		$(\forall c,c'\in C,\ h:c\to c',\ f:d\to F(c),\ f':d\to F(c'))$\\
@@ -48,7 +48,7 @@ F)$ consists of:
 			{F(c)} & {F(c')} \\
 			d & d
 			\arrow["{F(h)}", from=1-1, to=1-2]
-			\arrow["{\mathrm{id}_d}"', from=2-1, to=2-2]
+			\arrow["{\id_d}"', from=2-1, to=2-2]
 			\arrow["f"', from=1-1, to=2-1]
 			\arrow["{f'}", from=1-2, to=2-2]
 		\end{tikzcd}
@@ -103,7 +103,7 @@ funtor $\Delta_d: \underline{1} \to D$. The comma category $(F\downarrow
 		$(c, f, \bullet)\in (F\downarrow \Delta_d)
 			,\ (\forall c\in C,\ f: F(c)\to d)$
 	\item Morphisms:\\
-		$\big((h, \mathrm{id}_\bullet): (c', f', \bullet) \to (c, f, \bullet)\big)
+		$\big((h, \id_\bullet): (c', f', \bullet) \to (c, f, \bullet)\big)
 			\in (F\downarrow \Delta_d),$\\
 		\phantom{$\qquad$}
 		$(\forall c,c'\in C,\ h:c'\to c,\ f:F(c)\to d,\ f':F(c')\to d)$\\
@@ -113,7 +113,7 @@ funtor $\Delta_d: \underline{1} \to D$. The comma category $(F\downarrow
 			{F(c')} & {F(c)} \\
 			d & d
 			\arrow["{F(h)}", from=1-1, to=1-2]
-			\arrow["{\mathrm{id}_d}"', from=2-1, to=2-2]
+			\arrow["{\id_d}"', from=2-1, to=2-2]
 			\arrow["{f'}"', from=1-1, to=2-1]
 			\arrow["f", from=1-2, to=2-2]
 		\end{tikzcd}

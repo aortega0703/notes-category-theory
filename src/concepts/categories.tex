@@ -6,29 +6,29 @@ about the nature of the objects at hand but of the relationships between them.\\
 A category $C$ is composed of: \parencite{fong_spivak:7sketches}
 \begin{itemize}
   \item Objects:\\
-    $\mathrm{ob}_C$: it is the collection of all objects in the category $C$.
+    $\ob_C$: it is the collection of all objects in the category $C$.
     For simplicity's sake, $c\in C$ is meant to be read as $c\in
-    \mathrm{ob}_C$.\\
+    \ob_C$.\\
     Objects can be thought of as ``points'' with no additional structure.
   \item Morphisms:\\
-    $\mathrm{hom}_C(a, b)$: referred to as an hom-set, it is the collection of
+    $\hom_C(a, b)$: referred to as an hom-set, it is the collection of
     all morphisms from $a$ to $b$ with $a,b\in C$. For simplicity's sake, $(f: a
-    \to b) \in C$ is meant to be read as $f \in \mathrm{hom}_C(a,c)$. The terms
+    \to b) \in C$ is meant to be read as $f \in \hom_C(a,c)$. The terms
     morphism and arrows are used interchangeably. They are directed connections
     between objects.\\
-    $\mathrm{hom}_C = \bigcup\limits_{a,b\in C} \mathrm{hom}_C(a,b)$
+    $\hom_C = \bigcup\limits_{a,b\in C} \hom_C(a,b)$
 \end{itemize}
 
 Such that it satisfies:
 \begin{itemize}
   \item Identity:\\
-    $(\mathrm{id}_c: c \to c) \in C,\ (\forall c \in C)$. Usually not drawn for
+    $(\id_c: c \to c) \in C,\ (\forall c \in C)$. Usually not drawn for
     simplicity's sake.
   \item Composition:\\
     $(g \circ f : a \to c) \in C,
       \ (\forall a, b, c \in C,\ f: a \to b,\ g:b \to c)$
   \item Unitality:\\
-    $\mathrm{id}_b \circ f = f \circ \mathrm{id}_a = f,
+    $\id_b \circ f = f \circ \id_a = f,
       \ (\forall a, b \in C,\ f: a \to b)$
   \item Associativity:\\
     $h \circ (g \circ f) = (h \circ g) \circ f, \ (\forall a,b,c\in C,\ f:a\to
@@ -49,30 +49,30 @@ e.g.
 \end{tikzcd}\]
 
 \subsection{Duality}
-Given a category $C$, its opposite category $C^\mathrm{op}$ is given by keeping
+Given a category $C$, its opposite category $C^\op$ is given by keeping
 all objects in $C$ and reversing its arrows. That is:
 \parencite{maclane:working_mathematician}
 \begin{itemize}
   \item Objects:\\
-    $c\in C^\mathrm{op},\ (\forall c \in C$)
+    $c\in C^\op,\ (\forall c \in C$)
   \item Morphisms:\\
-    $(f^\mathrm{op} : c' \to c)\in C^\mathrm{op},
+    $(f^\op : c' \to c)\in C^\op,
       \ (\forall c, c' \in C,\ f : c \to c')$
 \end{itemize}
 As the axioms of category theory are self-dual, any statement $\Sigma$ that
 holds for all categories implies that its dual statement ($\Sigma$ in
-$C^\mathrm{op}$) must also hold for all categories.
+$C^\op$) must also hold for all categories.
 \parencite{awodey:category_theory}
 
 \subsection{Category Properties}
 
 \subsubsection*{Small/Large Category}
-A category $C$ is said to be small when $\mathrm{ob}_C$ and $\mathrm{hom}_C$ are
+A category $C$ is said to be small when $\ob_C$ and $\hom_C$ are
 sets instead of proper classes. It is said to be large otherwise.
 \parencite{awodey:category_theory}
 
 \subsubsection*{Locally Small Category}
-A category $C$ is said to be locally small when $\mathrm{hom}_C(a, b)$ is a
+A category $C$ is said to be locally small when $\hom_C(a, b)$ is a
 proper set for all $a,b\in C$. \parencite{awodey:category_theory}
 
 \subsubsection*{Free Category}
@@ -83,13 +83,13 @@ can be constructed from an arbitrary graph by adding morphisms as necessary to
 fulfill such axioms.
 
 \subsubsection*{Thin Category}
-A category $C$ is said to be thin when $\mathrm{hom}_C(a, b)$ is either empty or
+A category $C$ is said to be thin when $\hom_C(a, b)$ is either empty or
 a singleton for every $a,b\in C$. \parencite{adamek_herrlich_strecker:joy_cats}
 Every thin category can be seen as a preorder. This is the opposite of a free
 category in the sense that it has every possible constraint.
 
 \subsubsection*{Discrete Category}
-A category $C$ is said to be discrete when $\mathrm{hom}_C$ is composed entirely
+A category $C$ is said to be discrete when $\hom_C$ is composed entirely
 out of identity morphisms. \parencite{awodey:category_theory} Discrete
 categories are going to be denoted by $\underline{n}$, with $n$ being the number
 of objects in it.
@@ -99,7 +99,7 @@ of objects in it.
 \subsubsection*{Isomorphism}
 In a category $C$ with objects $a, b$, a morphism $f: a\to b$ is said to be
 invertible or an isomorphism when there exists another morphism $g:b \to a$ such
-that $g\circ f = \mathrm{id}_b$ and $f\circ g = \mathrm{id}_c$.
+that $g\circ f = \id_b$ and $f\circ g = \id_c$.
 \parencite{maclane:working_mathematician}
 If such $g$ exists, it is unique and often written as $g= f^{-1}$. Two objects
 are said to be isomorphic if there is an isomorphism between them. If two
@@ -110,8 +110,8 @@ objects $a,b$ are isomorphic we write $a\cong b$.
 	a & b
 	\arrow["f", shift left=1, from=1-1, to=1-2]
 	\arrow["{f^{-1}}", from=2-2, to=2-1]
-	\arrow["{\mathrm{id}_a}", from=2-1, to=1-1]
-	\arrow["{\mathrm{id}_b}", from=1-2, to=2-2]
+	\arrow["{\id_a}", from=2-1, to=1-1]
+	\arrow["{\id_b}", from=1-2, to=2-2]
 \end{tikzcd}\]
 e.g. In Set the isomorphisms are precisely the bijections.
 
@@ -121,7 +121,7 @@ monomorphism when it is left cancellable i.e. $f \circ g_1 = f \circ g_2
 \implies g_1 = g_2,\ (\forall g_1, g_2:a\to b)$.
 \parencite{maclane:working_mathematician}\\
 $f:b\rightarrowtail c$ will be used to denote monomorphisms. It is equivalent to
-say that $f^\mathrm{op}\in C^\mathrm{op}$ is an epimorphism.
+say that $f^\op\in C^\op$ is an epimorphism.
 % https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzEsMCwiYiJdLFsyLDAsImMiXSxbMCwxLCJnIiwwLHsiY3VydmUiOi0yfV0sWzAsMSwiZyciLDIseyJjdXJ2ZSI6Mn1dLFsxLDIsImYiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV1d
 \[\begin{tikzcd}
 	a & b & c
@@ -145,7 +145,7 @@ In a category with objects $a, b, c$, a morphism is said to be epic or an
 epimorphism when it is right cancellable i.e. $g_1 \circ f = g_2 \circ f
 \implies g_1 = g_2,\ (\forall g_1, g_2: c\to d)$.
 \parencite{maclane:working_mathematician}\\
-$f:a\twoheadrightarrow b$ will be used to denote epimorphisms. It is equivalent to say that $f^\mathrm{op}\in C^\mathrm{op}$ is a monomorphism.
+$f:a\twoheadrightarrow b$ will be used to denote epimorphisms. It is equivalent to say that $f^\op\in C^\op$ is a monomorphism.
 % https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzEsMCwiYiJdLFsyLDAsImMiXSxbMSwyLCJnJyIsMix7ImN1cnZlIjoyfV0sWzAsMSwiZiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsxLDIsImciLDAseyJjdXJ2ZSI6LTJ9XV0=
 \[\begin{tikzcd}
 	a & b & c

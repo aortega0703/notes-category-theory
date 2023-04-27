@@ -17,7 +17,7 @@ categories, or a way to identify one category inside another. A functor $F: C
 Such that it preserves:
 \begin{itemize}
   \item Identity\\
-    $F(\mathrm{id}_c) = \mathrm{id}_{F(c)},
+    $F(\id_c) = \id_{F(c)},
       \ (\forall c \in C)$
   \item Composition\\
     $F(g \circ f) = F(g) \circ F(f),
@@ -42,13 +42,13 @@ e.g.
 \]
 
 \subsection{Identity}
-For a category $C$ there exists an identity functor $\mathrm{id}_C: C \to C$
+For a category $C$ there exists an identity functor $\id_C: C \to C$
 that consists of maps of: \parencite{adamek_herrlich_strecker:joy_cats}
 \begin{itemize}
   \item Objects:\\
-    $\mathrm{id}_C(c) = c \in C,\ (\forall c\in C)$
+    $\id_C(c) = c \in C,\ (\forall c\in C)$
   \item Morphisms:\\
-    $\mathrm{id}_C(f): c\to c' = f \in C,\ (\forall c, c'\in C,\ f:c\to c')$
+    $\id_C(f): c\to c' = f \in C,\ (\forall c, c'\in C,\ f:c\to c')$
 \end{itemize}
 
 \subsection{Composition}
@@ -67,13 +67,13 @@ functor $G\circ F$ consists of maps of:
 
 \subsubsection*{Faithful}
 For categories $C, D$, a functor $F:C\to D$ is said to be faithful when for
-every $x,y\in C$, the function $F_{x, y}: \mathrm{hom}_C(x, y) \to
-\mathrm{hom}_D(F(x), F(y))$ is injective. \parencite{awodey:category_theory}
+every $x,y\in C$, the function $F_{x, y}: \hom_C(x, y) \to
+\hom_D(F(x), F(y))$ is injective. \parencite{awodey:category_theory}
 
 \subsubsection*{Full}
 For categories $C, D$, a functor $F:C\to D$ is said to be full when for every
-$x,y\in C$, the function $F_{x, y}: \mathrm{hom}_C(x, y) \to
-\mathrm{hom}_D(F(x), F(y))$ is surjective.
+$x,y\in C$, the function $F_{x, y}: \hom_C(x, y) \to
+\hom_D(F(x), F(y))$ is surjective.
 \parencite{adamek_herrlich_strecker:joy_cats}
 
 \subsubsection*{Endofunctor}
@@ -91,25 +91,25 @@ must satisty:
 
 \subsubsection*{Unitality}
 For categories $C,D$ and a functor $F:C\to D$ consider its composition with the
-identity with either $c\in \mathrm{ob}_C$ or $c\in \mathrm{hom}_C$:
+identity with either $c\in \ob_C$ or $c\in \hom_C$:
 \begin{equation*}
   \begin{aligned}
-    (\mathrm{id}_D \circ F)(c)
-      &= \mathrm{id}_D (F (c))\\
+    (\id_D \circ F)(c)
+      &= \id_D (F (c))\\
       &= F (c)
   \end{aligned}
   \quad
   \begin{aligned}
-    (F \circ \mathrm{id}_C)(c)
-      &= F(\mathrm{id}_C(c))\\
+    (F \circ \id_C)(c)
+      &= F(\id_C(c))\\
       &= F (c)
   \end{aligned}
 \end{equation*}
-Therefore $\mathrm{id}_D \circ F = F \circ \mathrm{id}_C = F$.
+Therefore $\id_D \circ F = F \circ \id_C = F$.
 
 \subsubsection*{Associativity}
 For categories $A,B,C,D$ and functos $F:A\to B, G:B\to C, H:C\to D$ consider
-their composition with either $c\in \mathrm{ob}_C$ or $c\in \mathrm{hom}_C$:
+their composition with either $c\in \ob_C$ or $c\in \hom_C$:
 \begin{equation*}
   \begin{aligned}
     ((H \circ G) \circ F) (c)
