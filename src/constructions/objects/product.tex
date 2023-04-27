@@ -4,6 +4,7 @@ b)\in C$ with morphisms $\mathrm{fst}: a\times b \to a, \ \mathrm{snd}: a\times
 b \to b$ such that, for any other object $c$ with the same property there exist
 a unique $f:c \to a\times b$ such that the following diagram commutes:
 \parencite{awodey:category_theory}
+
 % https://q.uiver.app/?q=WzAsNCxbMSwyLCJhXFx0aW1lcyBiIl0sWzAsMSwiYSJdLFsyLDEsImIiXSxbMSwwLCJjIl0sWzAsMSwiXFxtYXRocm17ZnN0fSJdLFswLDIsIlxcbWF0aHJte3NuZH0iLDJdLFszLDAsImYiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMywxLCJnIiwyXSxbMywyLCJoIl1d
 \[\begin{tikzcd}
 	& c \\
@@ -16,8 +17,7 @@ a unique $f:c \to a\times b$ such that the following diagram commutes:
 	\arrow["h", from=1-2, to=2-3]
 \end{tikzcd}\]
 
-e.g.
-Consider the following preorder:
+e.g. Consider the following preorder:
 % https://q.uiver.app/?q=WzAsNixbMSwyLCI2Il0sWzAsMiwiMyJdLFsxLDEsIjUiXSxbMSwwLCI0Il0sWzAsMSwiMiJdLFswLDAsIjEiXSxbMCwxLCJnIl0sWzAsMiwiZiIsMl0sWzIsMywiYyIsMl0sWzEsNCwiZSJdLFs0LDUsImIiXSxbMyw1LCJhIiwyXSxbNCwyLCJkIl1d
 \[\begin{tikzcd}
 	1 & 4 \\
@@ -31,6 +31,7 @@ Consider the following preorder:
 	\arrow["a"', from=1-2, to=1-1]
 	\arrow["d", from=2-1, to=2-2]
 \end{tikzcd}\]
+
 The product candidates for $2\times 4$ are $2$ with $\id_2 : 2\to 2$
 and $d\circ c:2\to 4$, $3$ with $e: 3\to 2$ and $c\circ d\circ e: 3\to 4$,
 and $6$ with $e \circ g: 6\to 2$ and $c\circ f$. The product $2\times 4$

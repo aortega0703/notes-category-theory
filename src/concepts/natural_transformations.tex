@@ -67,8 +67,7 @@ transformation $\id_F: F\Rightarrow F$ which consists of:
     unitality of $D$.
 \end{itemize}
 
-\subsection{Composition}
-\subsubsection*{Vertical Composition}
+\subsection{Vertical Composition}
 For categories $C,D$ with functors $F,G,H:C\to D$ and natural transformations
 $\alpha:F\to G,\ \beta:G\to H$, the vertical composition $\beta\circ \alpha:F\to
 H$ consists of: \parencite{leinster:basic_category_theory}
@@ -93,6 +92,7 @@ H$ consists of: \parencite{leinster:basic_category_theory}
       \arrow["{(\beta\circ\alpha)_c}"', draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, from=1-1, to=3-1]
       \arrow["{(\beta\circ\alpha)_{c'}}", draw={rgb,255:red,92;green,92;blue,214}, curve={height=-24pt}, from=1-2, to=3-2]
     \end{tikzcd}\]
+
     The naturality conditions of $\alpha$ and $\beta$ imply the naturality
     condition of $\beta \circ \alpha$ (in blue):
     \begin{equation*}
@@ -106,7 +106,50 @@ H$ consists of: \parencite{leinster:basic_category_theory}
     \end{equation*}
 \end{itemize}
 
-\subsubsection*{Horizontal Composition}
+\subsubsection*{Unitality of Vertical Composition}
+For categories $C,D$, functors $F,G:C\to D$, a natural tranformation $\alpha:
+F\Rightarrow G$ and $c\in C$, consider its composition with the identity natural
+transformations:
+
+\begin{equation*}
+  \begin{aligned}
+    (\alpha \circ \id_F)_C
+    &= \alpha_c \circ (\id_F)_c\\
+    &= \alpha_c \circ \id_{F(c)}\\
+    &= \alpha_c
+  \end{aligned}
+  \quad
+  \begin{aligned}
+    (\id_G \circ \alpha)_c
+    &= (\id_G)_c \circ \alpha_c\\
+    &= \id_{G(c)} \circ \alpha_c\\
+    &= \alpha_c
+  \end{aligned}
+\end{equation*}
+
+Therefore $\alpha \circ \id_F = \id_G \circ \alpha = \alpha$.
+
+\subsubsection*{Associativity of Vertical Composition}
+For categories $C,D$, functors $F,G,H,I:C\to D$, natural tranformations $\alpha:
+F\Rightarrow G, \beta: G\Rightarrow H, \gamma:H\Rightarrow I$ and $c\in C$,
+consider their composition:
+
+\begin{equation*}
+  \begin{aligned}
+    ((\gamma \circ \beta) \circ \alpha)_c
+    &= (\gamma \circ \beta)_c \circ \alpha_c\\
+    &= (\gamma_c \circ \beta_c) \circ \alpha_c\\
+    &= \gamma_c \circ (\beta_c \circ \alpha_c)
+      ,\quad\text{(associativity of morphisms)}\\
+    &= \gamma_c \circ (\beta \circ \alpha)_c\\
+    &= (\gamma \circ (\beta \circ \alpha))_c\\
+  \end{aligned}
+\end{equation*}
+
+Therefore $(\gamma \circ \beta) \circ \alpha = \gamma \circ (\beta \circ
+\alpha)$
+
+\subsection{Horizontal Composition}
 For categories $A,B,C$, functors $F,F':A\to B$ and $G,G':B\to C$, and natural
 transformations $\alpha: F\Rightarrow F'$ and $\beta:G\to G'$, the horizontal
 composition $\beta * \alpha: (G\circ F) \to (G' \circ F')$ consists of:
@@ -119,6 +162,7 @@ composition $\beta * \alpha: (G\circ F) \to (G' \circ F')$ consists of:
     \phantom{$(\beta * \alpha)_c : (G\circ F) \to (G' \circ F')$}
     $=\beta_{F'(c)} \circ G(\alpha_c)\in C$\\
     This definition is motivated by the following diagram, where the equality of both definitions is given by the naturality condition of $\beta$.
+
     % https://q.uiver.app/?q=WzAsMTAsWzAsMCwiQSJdLFswLDIsImMiXSxbMSwwLCJCIl0sWzIsMCwiQyJdLFsxLDEsIkYoYykiXSxbMSwzLCJGJyhjKSJdLFsyLDIsIihHXFxjaXJjIEYpKGMpIl0sWzMsMSwiKEcnXFxjaXJjIEYpKGMpIl0sWzIsNCwiKEdcXGNpcmMgRicpKGMpIl0sWzMsMywiKEcnXFxjaXJjIEYnKShjKSJdLFswLDIsIkYiLDAseyJjdXJ2ZSI6LTIsImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMCwyLCJGJyIsMix7ImN1cnZlIjoyLCJjb2xvdXIiOlswLDYwLDYwXX1dLFsyLDMsIkciLDAseyJjdXJ2ZSI6LTIsImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMiwzLCJHJyIsMix7ImN1cnZlIjoyLCJjb2xvdXIiOlswLDYwLDYwXX1dLFsxLDQsIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxLDUsIiIsMix7ImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNCw1LCJcXGFscGhhX2MiXSxbNCw2LCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNCw3LCIiLDAseyJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzUsOCwiIiwwLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzUsOSwiIiwwLHsiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs2LDcsIlxcYmV0YV97RihjKX0iXSxbOCw5LCJcXGJldGFfe0YnKGMpfSIsMl0sWzcsOSwiRycoXFxhbHBoYV9jKSJdLFs2LDgsIkcoXFxhbHBoYV9jKSJdLFs2LDksIlxcYmV0YSpcXGFscGhhIl0sWzEyLDEzLCJcXGJldGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV0sWzEwLDExLCJcXGFscGhhIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dXQ==
     \[\begin{tikzcd}
       A & B & C \\

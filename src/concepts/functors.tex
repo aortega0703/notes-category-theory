@@ -63,6 +63,38 @@ functor $G\circ F$ consists of maps of:
       a, a'\in A,\ f:a\to a')$
 \end{itemize}
 
+\subsubsection*{Unitality of Composition}
+For categories $C,D$, a functor $F:C\to D$ and either $c\in \ob_C$ or $c\in
+\hom_C$, consider the composition of $F$ with the identity functors:
+\begin{equation*}
+  \begin{aligned}
+    (F \circ \id_C)(c)
+      &= F(\id_C(c))\\
+      &= F (c)
+  \end{aligned}
+  \quad
+  \begin{aligned}
+    (\id_D \circ F)(c)
+      &= \id_D (F (c))\\
+      &= F (c)
+  \end{aligned}
+\end{equation*}
+Therefore $F \circ \id_C = \id_D \circ F = F$.
+
+\subsubsection*{Associativity of Composition}
+For categories $A,B,C,D$, functos $F:A\to B, G:B\to C, H:C\to D$ and either
+$c\in \ob_C$ or $c\in \hom_C$, consider their composition:
+\begin{equation*}
+  \begin{aligned}
+    ((H \circ G) \circ F) (c)
+      &= (H\circ G) (F (c))\\
+      &= H(G(F(c)))\\
+      &= H((G\circ F)(c))\\
+      &= (H\circ(G\circ F)) (c)
+  \end{aligned}
+\end{equation*}
+Therefore $(H \circ G) \circ F = H\circ(G\circ F)$.
+
 \subsection{Functor Properties}
 
 \subsubsection*{Faithful}
@@ -84,39 +116,3 @@ an endofunctor. \parencite{adamek_herrlich_strecker:joy_cats}
 For categories $A, B, C$, a functor $F:A\times B \to C$ (one with $2$
 parameters) is said to be a bifunctor.
 \parencite{maclane:working_mathematician}
-
-\subsection{As morphisms between categories}
-In Cat functors are morphisms between categories, therefore functor composition
-must satisty:
-
-\subsubsection*{Unitality}
-For categories $C,D$ and a functor $F:C\to D$ consider its composition with the
-identity with either $c\in \ob_C$ or $c\in \hom_C$:
-\begin{equation*}
-  \begin{aligned}
-    (\id_D \circ F)(c)
-      &= \id_D (F (c))\\
-      &= F (c)
-  \end{aligned}
-  \quad
-  \begin{aligned}
-    (F \circ \id_C)(c)
-      &= F(\id_C(c))\\
-      &= F (c)
-  \end{aligned}
-\end{equation*}
-Therefore $\id_D \circ F = F \circ \id_C = F$.
-
-\subsubsection*{Associativity}
-For categories $A,B,C,D$ and functos $F:A\to B, G:B\to C, H:C\to D$ consider
-their composition with either $c\in \ob_C$ or $c\in \hom_C$:
-\begin{equation*}
-  \begin{aligned}
-    ((H \circ G) \circ F) (c)
-      &= (H\circ G) (F (c))\\
-      &= H(G(F(c)))\\
-      &= H((G\circ F)(c))\\
-      &= (H\circ(G\circ F)) (c)
-  \end{aligned}
-\end{equation*}
-Therefore $H\circ(G\circ F) = (H \circ G) \circ F$.
