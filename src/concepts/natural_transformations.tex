@@ -327,5 +327,41 @@ composition $\beta * \alpha: (G\circ F) \to (G' \circ F')$ consists of:
     \end{aligned}
   \]
 \end{proof}
+
+\paragraph*{Whiskering:}
+For categories $A,B,C$, functors $F,F':A\to B$, $G,G':B\to C$, and natural
+transformations $\alpha:F\Rightarrow F'$, $\beta:G\Rightarrow G'$ and $a\in A$,
+consider the following horizontal compositions with functor identities:
+
+\[
+  % https://q.uiver.app/?q=WzAsNCxbMCwwLCIoR1xcY2lyYyBGKShhKSJdLFsxLDEsIihHJ1xcY2lyYyBGKShhKSJdLFsxLDAsIihHJ1xcY2lyYyBGKShhKSJdLFswLDEsIihHXFxjaXJjIEYpKGEpIl0sWzAsMiwiXFxiZXRhX3tGKGEpfSJdLFswLDMsIkcoXFxpZF97RihhKX0pIiwyXSxbMCwxLCJcXGJldGEqXFxpZF9GIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzMsMSwiXFxiZXRhX3tGKGEpfSIsMl0sWzIsMSwiRycoXFxpZF97RihhKX0pIl1d&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
+  \begin{tikzcd}
+    {(G\circ F)(a)} & {(G'\circ F)(a)} \\
+    {(G\circ F)(a)} & {(G'\circ F)(a)}
+    \arrow["{\beta_{F(a)}}", from=1-1, to=1-2]
+    \arrow["{G(\id_{F(a)})}"', from=1-1, to=2-1]
+    \arrow["{\beta*\id_F}"{description}, dotted, from=1-1, to=2-2]
+    \arrow["{\beta_{F(a)}}"', from=2-1, to=2-2]
+    \arrow["{G'(\id_{F(a)})}", from=1-2, to=2-2]
+  \end{tikzcd}
+  \quad
+  % https://q.uiver.app/?q=WzAsNCxbMCwwLCIoR1xcY2lyYyBGKShhKSJdLFsxLDEsIihHXFxjaXJjIEYnKShhKSJdLFsxLDAsIihHXFxjaXJjIEYpKGEpIl0sWzAsMSwiKEdcXGNpcmMgRicpKGEpIl0sWzAsMiwiKFxcaWRfRylfe0YoYSl9Il0sWzIsMSwiRyhcXGFscGhhX2EpIl0sWzAsMywiRyhcXGFscGhhX2EpIiwyXSxbMywxLCIoXFxpZF9HKV97RihhKX0iLDJdLFswLDEsIlxcaWRfRyAqIFxcYWxwaGEiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
+  \begin{tikzcd}
+    {(G\circ F)(a)} & {(G\circ F)(a)} \\
+    {(G\circ F')(a)} & {(G\circ F')(a)}
+    \arrow["{(\id_G)_{F(a)}}", from=1-1, to=1-2]
+    \arrow["{G(\alpha_a)}", from=1-2, to=2-2]
+    \arrow["{G(\alpha_a)}"', from=1-1, to=2-1]
+    \arrow["{(\id_G)_{F(a)}}"', from=2-1, to=2-2]
+    \arrow["{\id_G * \alpha}"{description}, dotted, from=1-1, to=2-2]
+  \end{tikzcd}
+\]
+
+Whiskering is an operation between functors and natural transformations defined
+as:
+\[
+  \begin{aligned}
+    (\beta F)_a &\coloneqq (\beta * \id_F)_a = \beta_{F(a)}\\
+    (G \alpha)_a &\coloneqq (\id_G*\alpha)_a = G(\alpha_c)
   \end{aligned}
 \]
