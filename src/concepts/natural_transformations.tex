@@ -221,14 +221,12 @@ composition $\beta * \alpha: (G\circ F) \to (G' \circ F')$ consists of:
     \[
       \begin{aligned}
         (G'\circ F')(f) \circ (\beta * \alpha)_c
-        &= (G'\circ F')(f) \circ G'(\alpha_c)\circ\beta_{F(c)}
-          ,\quad\text{(definition of $(\beta * \alpha)_c$)}\\
+        &= (G'\circ F')(f) \circ G'(\alpha_c)\circ\beta_{F(c)}\\
         &= G'(\alpha_{c'}) \circ (G' \circ F)(f) \circ \beta_{F(c)}
           ,\quad\text{(naturality condition of $\alpha$)}\\
         &= G'(\alpha_{c'}) \circ \beta_{F(c')} \circ (G \circ F)(f)
           ,\quad\text{(naturality condition of $\beta$)}\\
         &= (\beta * \alpha)_{c'}\circ (G \circ F)(f)
-          ,\quad\text{(definition of $(\beta * \alpha)_{c'}$)}
       \end{aligned}
     \]
 \end{itemize}
@@ -254,5 +252,28 @@ identity natural transformation of the identity functor:
     &= \id_{\id_D(G(c))} \circ \alpha_c\\
     &= \id_{G(c)} \circ \alpha_c\\
     &= \alpha_c
+  \end{aligned}
+\]
+
+Therefore $\alpha * \id_{\id_C} = \id_{\id_D} * \alpha = \alpha$.
+
+\subsubsection*{Associativity of Horizontal Composition}
+For categories $A,B,C,D$, functos $F,F': A\to B$, $G,G':B\to C$, $H,H':C\to D$,
+natural transformations $\alpha:F\Rightarrow F'$, $\beta:G\Rightarrow G'$,
+$\gamma: H\Rightarrow H'$ and $a\in A$, consider their horizontal composition:
+\[
+  \begin{aligned}
+    ((\gamma * \beta) * \alpha)_a
+    &= (\gamma * \beta)_{F'(a)} \circ (H\circ G)(\alpha_a)\\
+    &= \left(\gamma_{(G'\circ F')(a)}\circ H(\beta_{F'(a)})\right)
+    \circ (H\circ G)(\alpha_a)\\
+    &= \gamma_{(G'\circ F')(a)} \circ
+    \left(H(\beta_{F'(a)}) \circ (H\circ G)(\alpha_a)\right)
+    ,\quad\text{(associativity of $\circ$)}\\
+    &= \gamma_{(G'\circ F')(a)}\circ
+    H\left((\beta_{F'(a)}) \circ G(\alpha_a)\right)
+    ,\quad\text{(preservation of $\circ$ over $H$)}\\
+    &= \gamma_{(G'\circ F')(a)} \circ H( (\beta *\alpha)_a)\\
+    &= \gamma * (\beta * \alpha)_a
   \end{aligned}
 \]
