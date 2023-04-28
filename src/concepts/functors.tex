@@ -42,8 +42,9 @@ e.g.
 \]
 
 \subsection{Identity}
-For a category $C$ there exists an identity functor $\id_C: C \to C$
-that consists of maps of: \parencite{adamek_herrlich_strecker:joy_cats}
+For a category $C$ there exists an identity functor $\id_C: C \to C$ which
+trivially preserves identity and composition. It consists of maps of:
+\parencite{adamek_herrlich_strecker:joy_cats}
 \begin{itemize}
   \item Objects:\\
     $\id_C(c) = c \in C,\ (\forall c\in C)$
@@ -63,37 +64,47 @@ functor $G\circ F$ consists of maps of:
       a, a'\in A,\ f:a\to a')$
 \end{itemize}
 
-\subsubsection*{Unitality of Composition}
-For categories $C,D$, a functor $F:C\to D$ and either $c\in \ob_C$ or $c\in
-\hom_C$, consider the composition of $F$ with the identity functors:
-\[
-  \begin{aligned}
-    (F \circ \id_C)(c)
-      &= F(\id_C(c))\\
-      &= F (c)
-  \end{aligned}
-  \quad
-  \begin{aligned}
-    (\id_D \circ F)(c)
-      &= \id_D (F (c))\\
-      &= F (c)
-  \end{aligned}
-\]
-Therefore $F \circ \id_C = \id_D \circ F = F$.
+\begin{theorem}[Unitality of Composition]
+  \[F \circ \id_C = \id_D \circ F = F\]
 
-\subsubsection*{Associativity of Composition}
-For categories $A,B,C,D$, functos $F:A\to B, G:B\to C, H:C\to D$ and either
-$c\in \ob_C$ or $c\in \hom_C$, consider their composition:
-\[
-  \begin{aligned}
-    ((H \circ G) \circ F) (c)
-      &= (H\circ G) (F (c))\\
-      &= H(G(F(c)))\\
-      &= H((G\circ F)(c))\\
-      &= (H\circ(G\circ F)) (c)
-  \end{aligned}
-\]
-Therefore $(H \circ G) \circ F = H\circ(G\circ F)$.
+  Holds for categories $C,D$ and a functor $F:C\to D$
+\end{theorem}
+
+\begin{proof}
+  Let either $c\in \ob_C$ or $c\in \hom_C$, then:
+  \[
+    \begin{aligned}
+      (F \circ \id_C)(c)
+        &= F(\id_C(c))\\
+        &= F (c)
+    \end{aligned}
+    \quad
+    \begin{aligned}
+      (\id_D \circ F)(c)
+        &= \id_D (F (c))\\
+        &= F (c)
+    \end{aligned}
+  \]
+\end{proof}
+
+\begin{theorem}[Associativity of Composition]
+  \[(H \circ G) \circ F = H\circ(G\circ F)\]
+
+  Holds for categories $A,B,C,D$, functos $F:A\to B, G:B\to C, H:C\to D$.
+\end{theorem}
+
+\begin{proof}
+  Let either $c\in \ob_C$ or $c\in \hom_C$, then:
+  \[
+    \begin{aligned}
+      ((H \circ G) \circ F) (c)
+        &= (H\circ G) (F (c))\\
+        &= H(G(F(c)))\\
+        &= H((G\circ F)(c))\\
+        &= (H\circ(G\circ F)) (c)
+    \end{aligned}
+  \]
+\end{proof}
 
 \subsection{Functor Properties}
 
