@@ -1,64 +1,68 @@
 \section{Categories}
+A category can be thought of as a way to formalize the presence of certain
+structure, only caring about the underlying relationships.
 
-\subsection{Definition}
-A category can be thought of as a way to formalize certain structure, not caring
-about the nature of the objects at hand but of the relationships between them.\\
-A category $C$ is composed of: \parencite{fong_spivak:7sketches}
-\begin{itemize}
-  \item Objects:\\
-    $\ob_C$: it is the collection of all objects in the category $C$.
-    For simplicity's sake, $c\in C$ is meant to be read as $c\in
-    \ob_C$.\\
-    Objects can be thought of as ``points'' with no additional structure.
-  \item Morphisms:\\
-    $\hom_C(a, b)$: referred to as an hom-set, it is the collection of
-    all morphisms from $a$ to $b$ with $a,b\in C$. For simplicity's sake, $(f: a
-    \to b) \in C$ is meant to be read as $f \in \hom_C(a,c)$. The terms
-    morphism and arrows are used interchangeably. They are directed connections
-    between objects.\\
-    $\hom_C = \bigcup\limits_{a,b\in C} \hom_C(a,b)$
-\end{itemize}
+\begin{definition}[Category]
+  A category $C$ is composed of: \parencite{fong_spivak:7sketches}
+  \begin{itemize}
+    \item Objects:\\
+      $\ob_C$: the collection of objects.
+    \item Morphisms\footnote{Also referred to as arrows.}:\\
+      $\hom_C(a, b),\ (\forall a, b \in \ob_C)$: the collection of all morphisms from $a$ to $b$.\\
+      $\hom_C = \bigcup\limits_{a,b\in C} \hom_C(a,b)$
+  \end{itemize}
 
-Such that it satisfies:
-\begin{itemize}
-  \item Identity:\\
-    $(\id_c: c \to c) \in C,\ (\forall c \in C)$. Usually not drawn for
-    simplicity's sake.
-  \item Composition:\\
-    $(g \circ f : a \to c) \in C,
-      \ (\forall a, b, c \in C,\ f: a \to b,\ g:b \to c)$
-  \item Unitality:\\
-    $f \circ \id_a = \id_b \circ f = f,
-      \ (\forall a, b \in C,\ f: a \to b)$
-  \item Associativity:\\
-    $(h \circ g) \circ f = h \circ (g \circ f), \ (\forall a,b,c\in C,\ f:a\to
-      b,\ g:b\to c,\ h:c\to d)$. Parenthesis will often be omitted to mean
-      either of the two.
-\end{itemize}
+  Such that the following are satisfied:
+  \begin{itemize}
+    \item Identity:\\
+      $(\id_c: c \to c) \in C,\ (\forall c \in C)$
+    \item Composition:\\
+      $(g \circ f : a \to c) \in C,
+        \ (\forall a, b, c \in C,\ f: a \to b,\ g:b \to c)$
+    \item Unitality:\\
+      $f \circ \id_a = \id_b \circ f = f,
+        \ (\forall a, b \in C,\ f: a \to b)$
+    \item Associativity:\\
+      $(h \circ g) \circ f = h \circ (g \circ f), \ (\forall a,b,c\in C,\ f:a\to
+        b,\ g:b\to c,\ h:c\to d)$
+  \end{itemize}
+\end{definition}
 
-e.g.
-% https://q.uiver.app/?q=WzAsNCxbMCwwLCJhIl0sWzEsMCwiYiJdLFsyLDAsImMiXSxbMywwLCJkIl0sWzAsMSwiZiJdLFswLDIsImdcXGNpcmMgZiIsMCx7ImN1cnZlIjotNH1dLFsyLDMsImgiXSxbMSwyLCJnIl0sWzEsMywiaFxcY2lyYyBnIiwwLHsiY3VydmUiOi00fV0sWzAsMywiaFxcY2lyYyBnXFxjaXJjIGYiLDIseyJjdXJ2ZSI6NH1dXQ==
-\[\begin{tikzcd}
-	a & b & c & d
-	\arrow["f", from=1-1, to=1-2]
-	\arrow["{g\circ f}", curve={height=-24pt}, from=1-1, to=1-3]
-	\arrow["h", from=1-3, to=1-4]
-	\arrow["g", from=1-2, to=1-3]
-	\arrow["{h\circ g}", curve={height=-24pt}, from=1-2, to=1-4]
-	\arrow["{h\circ g\circ f}"', curve={height=24pt}, from=1-1, to=1-4]
-\end{tikzcd}\]
+\begin{remark}
+  For simplicity's sake, the following conventions are usually followed:
+  \begin{itemize}
+    \item $c\in C$ to mean $c\in\ob_C$.
+    \item $(f: c\to c')\in C$ to mean $f\in \hom_C(c, c')$.
+    \item Identities are not drawn.
+    \item Omission of parenthesis when associativity holds.
+  \end{itemize}
+\end{remark}
 
-\subsection{Duality}
-Given a category $C$, its opposite category $C^\op$ is given by keeping
-all objects in $C$ and reversing its arrows. That is:
-\parencite{maclane:working_mathematician}
-\begin{itemize}
-  \item Objects:\\
-    $c\in C^\op,\ (\forall c \in C$)
-  \item Morphisms:\\
-    $(f^\op : c' \to c)\in C^\op,
-      \ (\forall c, c' \in C,\ f : c \to c')$
-\end{itemize}
+\begin{example}
+  % https://q.uiver.app/?q=WzAsNCxbMCwwLCJhIl0sWzEsMCwiYiJdLFsyLDAsImMiXSxbMywwLCJkIl0sWzAsMSwiZiJdLFswLDIsImdcXGNpcmMgZiIsMCx7ImN1cnZlIjotNH1dLFsyLDMsImgiXSxbMSwyLCJnIl0sWzEsMywiaFxcY2lyYyBnIiwwLHsiY3VydmUiOi00fV0sWzAsMywiaFxcY2lyYyBnXFxjaXJjIGYiLDIseyJjdXJ2ZSI6NH1dXQ==
+  \[\begin{tikzcd}
+    a & b & c & d
+    \arrow["f", from=1-1, to=1-2]
+    \arrow["{g\circ f}", curve={height=-24pt}, from=1-1, to=1-3]
+    \arrow["h", from=1-3, to=1-4]
+    \arrow["g", from=1-2, to=1-3]
+    \arrow["{h\circ g}", curve={height=-24pt}, from=1-2, to=1-4]
+    \arrow["{h\circ g\circ f}"', curve={height=24pt}, from=1-1, to=1-4]
+  \end{tikzcd}\]
+\end{example}
+
+\begin{definition}[Opposite category]
+  Given a category $C$, its opposite category $C^\op$ is given by keeping all
+  objects in $C$ and reversing its arrows. i.e.
+  \parencite{awodey:category_theory}
+  \begin{itemize}
+    \item Objects:\\
+      $c\in C^\op,\ (\forall c \in C$)
+    \item Morphisms:\\
+      $(f^\op : c' \to c)\in C^\op,
+        \ (\forall c, c' \in C,\ f : c \to c')$
+  \end{itemize}
+\end{definition}
 As the axioms of category theory are self-dual, any statement $\Sigma$ that
 holds for all categories implies that its dual statement ($\Sigma$ in
 $C^\op$) must also hold for all categories.

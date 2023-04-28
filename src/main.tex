@@ -1,17 +1,19 @@
 \documentclass[12pt]{article}
 
 \usepackage{hyperref} % Hyperlinks to sections of the document
-\usepackage{amsmath, amssymb, amsthm, mathtools} % Math
-\newtheorem{theorem}{Theorem}[section]
+\usepackage{amsmath, amssymb, mathtools} % Math
+\usepackage{framed} % Boxes around stuff
+\usepackage[framed, thmmarks]{ntheorem} % Theorems
+\input{theorem_envs.tex}
+
 \usepackage{tikz-cd} % Commutative diagrams
 \usepackage{silence} % Disable warnings
-\WarningFilter{latex}{You have requested package}% Disable warnings starting with "You have..."
-\usepackage{../quiver} % Easy commutative diagrams https://q.uiver.app/
+\WarningFilter{latex}{You have requested package} % no warnings starting with...
+\usepackage{quiver} % Easy commutative diagrams https://q.uiver.app/
 \usepackage[margin=1in]{geometry} % Set margins
 %\usepackage[textsize=tiny]{todonotes} Margin notes of pendings
 \usepackage[style=authoryear]{biblatex} % References
 \bibliography{references.bib} % References file
-
 
 \input{macros.tex}
 
