@@ -1,9 +1,9 @@
 \documentclass[a4paper]{article}
 
 \usepackage{hyperref} % Hyperlinks to sections of the document
-\usepackage{amsmath, amssymb, mathtools} % Math
+\usepackage{amsmath, amsthm, amssymb, mathtools} % Math
+\renewcommand\qedsymbol{$\blacksquare$}
 \usepackage{mdframed} % Boxes around stuff
-\usepackage[thmmarks]{ntheorem} % Theorems
 \input{theorem_envs.tex}
 \usepackage{tikz-cd} % Commutative diagrams
 \tikzcdset{scale cd/.style={every label/.append style={scale=#1},

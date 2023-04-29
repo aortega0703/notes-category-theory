@@ -1,36 +1,22 @@
-% theorem
-\theoremstyle{break}
-\theoremheaderfont{\normalfont\bfseries}
-\theorembodyfont{\itshape}
-\theoremseparator{:}
-\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
 
-% definition
-\theoremstyle{break}
-\theoremheaderfont{\normalfont\bfseries}
-\theorembodyfont{\upshape}
-\theoremseparator{:}
-\newmdtheoremenv{definition}{Definition}[section]
+\newenvironment{subproof}[1][\proofname]{%
+  \renewcommand{\qedsymbol}{$\square$}%
+  \begin{proof}[#1]%
+}{%
+  \end{proof}%
+}
 
-% example
-\theoremstyle{nonumberplain}
-\theoremheaderfont{\upshape}
-\theorembodyfont{\upshape}
-\theoremseparator{}
-\newtheorem{example}{e.g.}
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newmdtheoremenv[
+  hidealllines=true,
+  leftline=true,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+  innertopmargin=0pt,
+]{definition}{Definition}
 
-% remark
-\theoremstyle{nonumberplain}
-\theoremheaderfont{\itshape}
-\theorembodyfont{\upshape}
-\theoremseparator{.}
-\newtheorem{remark}{Remark}
-
-% proof
-\theoremstyle{nonumberplain}
-\theoremheaderfont{\itshape}
-\theorembodyfont{\upshape}
-\theoremseparator{.}
-\theoremsymbol{\ensuremath{\square}}
-\theorempostskip{-1.5\topsep}
-\newtheorem{proof}{Proof}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
