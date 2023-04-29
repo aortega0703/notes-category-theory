@@ -1,0 +1,54 @@
+\subsection{Set}
+\begin{definition}[Set]
+  Set is the category of all sets, composed by:
+  \parencite{awodey:category_theory}
+  \begin{itemize}
+    \item Objects:\\
+      $\ob_{\mathrm{Set}}$: The collection of all sets.
+    \item Morphisms:\\
+      $\hom_{\mathrm{Set}}(c, c')$: The set of all functions between sets $c$ and
+      $c'$.
+  \end{itemize}
+\end{definition}
+
+\begin{definition}[Injective Function]
+  For sets $A,B$, a function $f:A\to B$ is said to be injective if the following
+  holds:
+  \[f(a)=f(b) \implies a=b,\ (\forall a\in A,\ b\in B)\]
+\end{definition}
+
+\begin{definition}[Surjective Function]
+  For sets $A,B$, a function $f:A\to B$ is said to be surjective if the
+  following holds:
+  \[(\forall b\in B)(\exists a\in A).(f(a)=b)\]
+\end{definition}
+
+\begin{definition}[Bijective Function]
+  A function is said to be bijective if it is both injective and surjective
+\end{definition}
+
+\begin{theorem}[Invertible arrow implies]
+
+\end{theorem}
+
+\begin{theorem}[Isomorphisms in Set]
+  In the category Set an arrow is an isomorphism if and only if it is
+  bijective.
+
+  \begin{proof}
+    The proof consists of two parts:
+    \begin{description}
+      \item[$(\implies)$] For sets $A,B$ consider a isomorphism $f:A\to B$ with
+        its respective inverse being $f^{-1}: A\to B$. Consider some $b\in B$
+        and let $a = f^{-1}(b)$, then:
+        \[
+          \begin{aligned}
+            a &= f^{-1}(b)\\
+            f(a) &= (f\circ f^{-1})(b)\\
+            &= b
+          \end{aligned}
+        \]
+      \item[$(\impliedby)$]
+    \end{description}
+  \end{proof}
+\end{theorem}

@@ -1,45 +1,43 @@
 \section{Functors}
-
-\subsection{Definition}
 A functor can be thought of as an structure preserving transformation between
-categories, or a way to identify one category inside another. A functor $F: C
-\to D$ from a category $C$ to a category $D$ consist of a mapping of:
-\parencite{fong_spivak:7sketches}
+categories, or a way to identify one category inside another.
 
-\begin{itemize}
-  \item Object to objects\\
-    $F(c) \in D,\ (\forall c \in C)$
-  \item Morphism to morphisms\\
-    $(F(f): F(c) \to F(c')) \in D,
-      \ (\forall c,c' \in C,\ f : c \to c')$
-\end{itemize}
+\begin{definition}[Functor]
+  For categories $C,D$, a functor $F: C \to D$ consist of mappings of:
+  \parencite{fong_spivak:7sketches}
+  \begin{itemize}
+    \item Object to objects:\\
+      $F(c) \in D,\ (\forall c \in C)$
+    \item Morphism to morphisms:\\
+      $(F(f): F(c) \to F(c')) \in D,
+        \ (\forall c,c' \in C,\ f : c \to c')$
+  \end{itemize}
+  Such that it preserves:
+  \begin{itemize}
+    \item Identity\\
+      $F(\id_c) = \id_{F(c)},
+        \ (\forall c \in C)$
+    \item Composition\\
+      $F(g \circ f) = F(g) \circ F(f),
+        \ (\forall a,b,c \in C,\ f: a \to b,\ g: b \to c)$
+  \end{itemize}
+\end{definition}
 
-Such that it preserves:
-\begin{itemize}
-  \item Identity\\
-    $F(\id_c) = \id_{F(c)},
-      \ (\forall c \in C)$
-  \item Composition\\
-    $F(g \circ f) = F(g) \circ F(f),
-      \ (\forall a,b,c \in C,\ f: a \to b,\ g: b \to c)$
-\end{itemize}
-
-e.g.
-% https://q.uiver.app/?q=WzAsNyxbMSwwLCIxIl0sWzEsMSwiYSJdLFsyLDEsImIiXSxbMywxLCJjIl0sWzMsMCwiMiJdLFswLDAsIkMiXSxbMCwxLCJEIl0sWzAsNCwiZiJdLFsxLDIsImciXSxbMiwzLCJoIl0sWzAsMSwiIiwxLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzQsMywiIiwxLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsMywiaCBcXGNpcmMgZyIsMSx7ImN1cnZlIjotM31dLFs1LDYsIkYiLDEseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzcsMTIsIiIsMSx7InNob3J0ZW4iOnsic291cmNlIjozMCwidGFyZ2V0IjoyMH0sImxldmVsIjoxLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
-\[
-  \begin{tikzcd}
-    C & 1 && 2 \\
-    D & a & b & c
-    \arrow[""{name=0, anchor=center, inner sep=0}, "f", from=1-2, to=1-4]
-    \arrow["g", from=2-2, to=2-3]
-    \arrow["h", from=2-3, to=2-4]
-    \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-2, to=2-2]
-    \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-4, to=2-4]
-    \arrow[""{name=1, anchor=center, inner sep=0}, "{h \circ g}"{description}, curve={height=-18pt}, from=2-2, to=2-4]
-    \arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-1, to=2-1]
-    \arrow[color={rgb,255:red,92;green,92;blue,214}, shorten <=3pt, shorten >=2pt, dotted, from=0, to=1]
-  \end{tikzcd}
-\]
+\begin{example}
+  % https://q.uiver.app/?q=WzAsNSxbMCwwLCIxIl0sWzAsMiwiYSJdLFsxLDIsImIiXSxbMiwyLCJjIl0sWzIsMCwiMiJdLFswLDQsImYiXSxbMSwyLCJnIl0sWzIsMywiaCJdLFswLDEsIkYiLDEseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNCwzLCJGIiwxLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsMywiaCBcXGNpcmMgZyIsMSx7ImN1cnZlIjotM31dLFs1LDEwLCJGIiwxLHsic2hvcnRlbiI6eyJzb3VyY2UiOjEwLCJ0YXJnZXQiOjIwfSwibGV2ZWwiOjEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
+  \[\begin{tikzcd}
+    1 && 2 \\
+    \\
+    a & b & c
+    \arrow[""{name=0, anchor=center, inner sep=0}, "f", from=1-1, to=1-3]
+    \arrow["g", from=3-1, to=3-2]
+    \arrow["h", from=3-2, to=3-3]
+    \arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=3-1]
+    \arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-3, to=3-3]
+    \arrow[""{name=1, anchor=center, inner sep=0}, "{h \circ g}"{description}, curve={height=-18pt}, from=3-1, to=3-3]
+    \arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, shorten <=3pt, shorten >=6pt, dotted, from=0, to=1]
+  \end{tikzcd}\]
+\end{example}
 
 \subsection{Identity}
 For a category $C$ there exists an identity functor $\id_C: C \to C$ which
@@ -53,19 +51,21 @@ trivially preserves identity and composition. It consists of maps of:
 \end{itemize}
 
 \subsection{Composition}
-For categories $A,B,C$ and functors $F:A\to B$ and $G:B\to C$ the composite
-functor $G\circ F$ consists of maps of:
-\parencite{leinster:basic_category_theory}
-\begin{itemize}
-  \item Objects:\\
-    $(G\circ F)(a) = G(F(a)) \in C,\ (\forall a\in A)$
-  \item Morphisms:\\
-    $(G\circ F)(f): (G\circ F)(a) \to (G\circ F)(a') = G(F(f)) \in C,\ (\forall
-      a, a'\in A,\ f:a\to a')$
-\end{itemize}
+\begin{definition}[Composition of Functors]
+  For categories $A,B,C$ and functors $F:A\to B$ and $G:B\to C$ the composite
+  functor $G\circ F$ consists of maps of:
+  \parencite{leinster:basic_category_theory}
+  \begin{itemize}
+    \item Objects:\\
+      $(G\circ F)(a) = G(F(a)) \in C,\ (\forall a\in A)$
+    \item Morphisms:\\
+      $(G\circ F)(f): (G\circ F)(a) \to (G\circ F)(a') = G(F(f)) \in C,\ (\forall
+        a, a'\in A,\ f:a\to a')$
+  \end{itemize}
+\end{definition}
 
-\begin{theorem}[Unitality]
-  For categories $C,D$ and a functor $F:C\to D$:
+\begin{theorem}[Unitality of Composition of Functors]
+  For categories $\mathcal{C},\mathcal{D}$ and a functor $F:C\to D$ the following holds:
   \[F \circ \id_C = \id_D \circ F = F\]
 
   \begin{proof}

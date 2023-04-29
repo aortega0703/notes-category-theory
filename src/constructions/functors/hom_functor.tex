@@ -7,14 +7,15 @@ For a category $C$, the hom-functor $\Hom_C : C^{op}\times C \to
       \ (\forall c', d\in \ob_C)$
   \item Morphisms:
     \[
-      \Hom_C (f) : \left\{
-      \begin{aligned}
-        \hom_{C^{op}\times C}(c', d) &\to
-          \hom_{C^{op}\times C}(c, d')\\
-        p &\mapsto q = h\circ p\circ g
-      \end{aligned}
-      \right.
-      ,\ (\forall f=(g^{op}, h): (c', d)\to (c, d'))
+      \Hom_C (f) :
+      \begin{cases}
+        \hfil(\forall f=(g^{op}, h): (c', d)\to (c, d'))\\
+        \begin{aligned}
+          \hom_{C^{op}\times C}(c', d) &\to
+            \hom_{C^{op}\times C}(c, d')\\
+          p &\mapsto q = h\circ p\circ g
+        \end{aligned}
+      \end{cases}
     \]
     % https://q.uiver.app/?q=WzAsNCxbMCwwLCJjJyJdLFswLDEsImMiXSxbMSwwLCJkIl0sWzEsMSwiZCciXSxbMSwwLCJnIl0sWzIsMywiaCJdLFswLDIsInAiXSxbMSwzLCJxIiwyXV0=
     \[

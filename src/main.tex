@@ -1,19 +1,21 @@
-\documentclass[12pt]{article}
+\documentclass[a4paper]{article}
 
 \usepackage{hyperref} % Hyperlinks to sections of the document
 \usepackage{amsmath, amssymb, mathtools} % Math
-\usepackage{framed} % Boxes around stuff
-\usepackage[framed, thmmarks]{ntheorem} % Theorems
+\usepackage{mdframed} % Boxes around stuff
+\usepackage[thmmarks]{ntheorem} % Theorems
 \input{theorem_envs.tex}
-
 \usepackage{tikz-cd} % Commutative diagrams
-\usepackage{silence} % Disable warnings
-\WarningFilter{latex}{You have requested package} % no warnings starting with...
+\tikzcdset{scale cd/.style={every label/.append style={scale=#1},
+    cells={nodes={scale=#1}}}}
 \usepackage{quiver} % Easy commutative diagrams https://q.uiver.app/
-\usepackage[margin=1in]{geometry} % Set margins
+%\usepackage[margin=1in]{geometry} % Set margins
 %\usepackage[textsize=tiny]{todonotes} Margin notes of pendings
 \usepackage[style=authoryear]{biblatex} % References
 \bibliography{references.bib} % References file
+\usepackage{xcolor} % Colors text
+\usepackage{microtype} % Magic agains overfull boxes
+\usepackage{adjustbox} % Resizes things
 
 \input{macros.tex}
 
