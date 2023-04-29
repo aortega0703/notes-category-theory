@@ -105,24 +105,45 @@ of objects in it.
 
 \subsection{Morphism Properties}
 
-\subsubsection*{Isomorphism}
-In a category $C$ with objects $a, b$, a morphism $f: a\to b$ is said to be
-invertible or an isomorphism when there exists another morphism $g:b \to a$ such
-that $g\circ f = \id_b$ and $f\circ g = \id_c$.
-\parencite{maclane:working_mathematician}
-If such $g$ exists, it is unique and often written as $g= f^{-1}$. Two objects
-are said to be isomorphic if there is an isomorphism between them. If two
-objects $a,b$ are isomorphic we write $a\cong b$.
+\begin{definition}[Isomorphism]
+  A morphism $f: c\to c'$ is said to be invertible or an isomorphism when there
+  exists an inverse morphism $f^{-1}:c'\to c$ such that $f^{-1}\circ f =
+  \id_{c'}$ and $f\circ f^{-1} = \id_c$.
+  \parencite{maclane:working_mathematician} i.e. the following diagram
+  commutes:\footnote{Parallel morphisms i.e. those with the same domain and
+  codomain, are equal}
+  % https://q.uiver.app/?q=WzAsNCxbMCwwLCJjIl0sWzEsMCwiYyciXSxbMCwxLCJjIl0sWzEsMSwiYyciXSxbMCwxLCJmIiwwLHsib2Zmc2V0IjotMX1dLFszLDIsImZeey0xfSJdLFsyLDAsIlxcbWF0aHJte2lkfV9jIl0sWzEsMywiXFxtYXRocm17aWR9X3tjJ30iXV0=
+  \[\begin{tikzcd}
+    c & {c'} \\
+    c & {c'}
+    \arrow["f", shift left=1, from=1-1, to=1-2]
+    \arrow["{f^{-1}}", from=2-2, to=2-1]
+    \arrow["{\mathrm{id}_c}", from=2-1, to=1-1]
+    \arrow["{\mathrm{id}_{c'}}", from=1-2, to=2-2]
+  \end{tikzcd}\]
+\end{definition}
 
-% https://q.uiver.app/?q=WzAsNCxbMCwwLCJhIl0sWzEsMCwiYiJdLFswLDEsImEiXSxbMSwxLCJiIl0sWzAsMSwiZiIsMCx7Im9mZnNldCI6LTF9XSxbMywyLCJmXnstMX0iXSxbMiwwLCJcXG1hdGhybXtpZH1fYSJdLFsxLDMsIlxcbWF0aHJte2lkfV9iIl1d
-\[\begin{tikzcd}
-	a & b \\
-	a & b
-	\arrow["f", shift left=1, from=1-1, to=1-2]
-	\arrow["{f^{-1}}", from=2-2, to=2-1]
-	\arrow["{\id_a}", from=2-1, to=1-1]
-	\arrow["{\id_b}", from=1-2, to=2-2]
-\end{tikzcd}\]
+\begin{remark}
+  Two objects are said to be isomorphic (written $a\cong b$) if there exists is
+  an isomorphism between them.
+\end{remark}
+
+\begin{theorem}[Uniqueness of Inverse]
+  If $f: c\to c'$ is an isomorphism, then it has a unique inverse $f^{-1}:c'\to
+  c$:
+
+  \begin{proof}
+    Consider two inverses of $f$, $f^{-1}_1$ and $f^{-1}_2$, then:
+    \[
+      \begin{aligned}
+        \id_c &= \id_c\\
+        f\circ f^{-1}_1 &= f\circ f^{-1}_2\\
+        f^{-1}_1 \circ f \circ f^{-1}_1 &= f^{-1}_1 \circ f \circ f^{-1}_2\\
+        f^{-1}_1 &= f^{-1}_2
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
 
 \begin{definition}[Monomorphisms]
   A morphism $f:c\to c'$ is said to be monic or a monomorphism when it is left
@@ -185,7 +206,11 @@ objects $a,b$ are isomorphic we write $a\cong b$.
 \end{definition}
 
 \begin{remark}
-  $f:a\epi b$ $\epi$will be used to denote epimorphisms.
+  $f:a\epi b$ will be used to denote epimorphisms.
+\end{remark}
+
+\begin{remark}
+  Monomorphism and epimorphism are dual concepts
 \end{remark}
 
 \begin{theorem}[Isomorphism implies Epimorphism]
