@@ -141,10 +141,10 @@ objects $a,b$ are isomorphic we write $a\cong b$.
 \end{definition}
 
 \begin{remark}
-  $f:b\rightarrowtail c$ will be used to denote monomorphisms.
+  $f:b\mono c$ will be used to denote monomorphisms.
 \end{remark}
 
-\begin{theorem}[Isomorphism Implies Monomorphisms]
+\begin{theorem}[Isomorphism implies Monomorphisms]
   If $f:c\to c'$ is an isomorphism, then it is a monomorphism.
 
   \begin{proof}
@@ -168,6 +168,50 @@ objects $a,b$ are isomorphic we write $a\cong b$.
   \end{proof}
 \end{theorem}
 
+\begin{definition}[Epimorphism]
+  A morphism $f:c\to c'$ is said to be epic or an epimorphism when it is right
+  cancellable \parencite{maclane:working_mathematician} i.e. when for any
+  configuration of objects and morphisms:
+  % https://q.uiver.app/?q=WzAsMyxbMCwwLCJjIl0sWzEsMCwiYyciXSxbMiwwLCJ4Il0sWzEsMiwiaCIsMix7ImN1cnZlIjozfV0sWzAsMSwiZiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsxLDIsImciLDAseyJjdXJ2ZSI6LTN9XV0=
+  \[\begin{tikzcd}
+    c & {c'} & x
+    \arrow["h"', curve={height=18pt}, from=1-2, to=1-3]
+    \arrow["f", two heads, from=1-1, to=1-2]
+    \arrow["g", curve={height=-18pt}, from=1-2, to=1-3]
+  \end{tikzcd}\]
+
+  The following holds:
+  \[g \circ f = h \circ f \implies g = h\]
+\end{definition}
+
+\begin{remark}
+  $f:a\epi b$ $\epi$will be used to denote epimorphisms.
+\end{remark}
+
+\begin{theorem}[Isomorphism implies Epimorphism]
+  If $f:c\to c'$ is an isomorphism, then it is an epimorphism.
+
+  \begin{proof}
+    Consider the configuration of objects and morphisms:
+    % https://q.uiver.app/?q=WzAsMyxbMCwwLCJjIl0sWzEsMCwiYyciXSxbMiwwLCJ4Il0sWzAsMSwiZiIsMCx7ImN1cnZlIjotM31dLFsxLDAsImZeey0xfSIsMCx7ImN1cnZlIjotM31dLFsxLDIsImciLDAseyJjdXJ2ZSI6LTN9XSxbMSwyLCJoIiwyLHsiY3VydmUiOjN9XV0=
+    \[\begin{tikzcd}
+      c & {c'} & x
+      \arrow["f", curve={height=-18pt}, from=1-1, to=1-2]
+      \arrow["{f^{-1}}", curve={height=-18pt}, from=1-2, to=1-1]
+      \arrow["g", curve={height=-18pt}, from=1-2, to=1-3]
+      \arrow["h"', curve={height=18pt}, from=1-2, to=1-3]
+    \end{tikzcd}\]
+
+    Suppose that $g \circ f = h \circ f$, then:
+    \[
+      \begin{aligned}
+        g \circ f &= h \circ f\\
+        g \circ f \circ f^{-1} &= h \circ f \circ f^{-1}\\
+        g &= h
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
 e.g. In Set the monomorphisms are precisely the injections.
 Suppose sets $b$ and $c$ with a non-injective function $f$ i.e. for some
 pair of elements $x \neq y$ in $b$, $f(x) = f(y)$. Take a third set $a$ with
@@ -178,21 +222,6 @@ that $f\circ g = f\circ g'$ completing the test for non-injectivity.
   \land f\circ g = f\circ g')\] Or negating the logic.
 \[\text{Injective}(f:b\to c) \coloneq(\forall g, g':a\to b).(f\circ g =
   f\circ g' \implies g=g')\]
-
-\subsubsection*{Epimorphism}
-In a category with objects $a, b, c$, a morphism is said to be epic or an
-epimorphism when it is right cancellable i.e. $g_1 \circ f = g_2 \circ f
-\implies g_1 = g_2,\ (\forall g_1, g_2: c\to d)$.
-\parencite{maclane:working_mathematician}\\
-$f:a\twoheadrightarrow b$ will be used to denote epimorphisms. It is equivalent to say that $f^\op\in C^\op$ is a monomorphism.
-
-% https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzEsMCwiYiJdLFsyLDAsImMiXSxbMSwyLCJnJyIsMix7ImN1cnZlIjoyfV0sWzAsMSwiZiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsxLDIsImciLDAseyJjdXJ2ZSI6LTJ9XV0=
-\[\begin{tikzcd}
-	a & b & c
-	\arrow["{g'}"', curve={height=12pt}, from=1-2, to=1-3]
-	\arrow["f", two heads, from=1-1, to=1-2]
-	\arrow["g", curve={height=-12pt}, from=1-2, to=1-3]
-\end{tikzcd}\]
 
 e.g. In Set the epimorphisms are precisely the surjections.
 Suppose sets $a$ and $b$ with a non-surjective function $f$ i.e. for some
