@@ -237,24 +237,3 @@ of objects in it.
     \]
   \end{proof}
 \end{theorem}
-e.g. In Set the monomorphisms are precisely the injections.
-Suppose sets $b$ and $c$ with a non-injective function $f$ i.e. for some
-pair of elements $x \neq y$ in $b$, $f(x) = f(y)$. Take a third set $a$ with
-a pair of functions $g, g':a\to b$ that differ only in that one maps an
-element to $x$ and the other one maps the same element to $y$. Now we have
-that $f\circ g = f\circ g'$ completing the test for non-injectivity.
-\[\text{Non-Injective}(f:b\to c) \coloneq(\exists g, g':a\to b).(g \neq g'
-  \land f\circ g = f\circ g')\] Or negating the logic.
-\[\text{Injective}(f:b\to c) \coloneq(\forall g, g':a\to b).(f\circ g =
-  f\circ g' \implies g=g')\]
-
-e.g. In Set the epimorphisms are precisely the surjections.
-Suppose sets $a$ and $b$ with a non-surjective function $f$ i.e. for some
-element $y\in b$ there exists no $x\in a$ such that $f(x) = y$. Take a third
-set $c$ with a pair of functions $g, g':b\to c$ that differ only in that
-they map $y$ differently. Now we have $g\circ f = g'\circ f$ completing the
-test for non-surjectivity.
-\[\text{Non-Surjective}(f:a\to b) \coloneq(\exists g, g':b\to c).(g \neq g'
-  \land g\circ f = g'\circ f)\] Or negating the logic.
-\[\text{Surjective}(f:a\to b) \coloneq(\forall g, g':b\to c).(g\circ f =
-  g'\circ f \implies g=g')\]

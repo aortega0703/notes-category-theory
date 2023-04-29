@@ -27,8 +27,50 @@
   A function is said to be bijective if it is both injective and surjective
 \end{definition}
 
-\begin{theorem}[Invertible arrow implies]
+\begin{theorem}[Monomorphisms in Set]
+  In Set a morphism is mono if and only if it is injective.
 
+  \begin{proof}
+    The proof consists of two parts:
+    \begin{description}
+      \item[$(\implies)$] Consider a non-injective function $f:A\to B$, i.e.
+        there exists a pair of different elements $a,a'\in A$ such that
+        $f(a)=f(a')$. Additionally, $f$ cannot be a monomorphism as it would
+        imply that $a=a'$, then:
+        \[\text{Non-injective} \implies \text{Non-monic}\]
+        Or by contrapositive:
+        \[\text{Monic} \implies \text{Injective}\]
+      \item[$(\impliedby)$] Consider a non-injective function $f:A\to B$, i.e.
+        there exists a pair of different elements $a,a'\in A$ such that
+        $f(a)=f(a')$. Let $X$ be another set with a pair of functions $g,
+        h:X\to A$ that differ only in that for some $x\in X$, $g(x)=a'$ and
+        $h(x)=a$ so that $f\circ g = f\circ h$, then:
+        \[\text{Non-Injective}(f:B\to C):\ (\exists X)(\exists g,h:X\to
+        B).(g \neq h \land f\circ g = f\circ h)\] Then by negating the logic:
+        \[\text{Injective}(f:B\to C):\ (\forall X)(\forall g, h:X\to B).(f\circ
+        g = f\circ h \implies g=h)\]
+    \end{description}
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[Epimorphisms in Set]
+  In Set a morphism is epi if and only if it is surjective.
+
+  \begin{proof}
+    The proof consists of two parts:
+    \begin{description}
+      \item[$(\implies)$] TODO
+      \item[$(\impliedby)$] Consider a non-surjective function $f:A\to B$, i.e.
+        for some $b\in B$ there exists no $a\in A$ such that $f(a) = b$. Let $X$
+        be another set with a pair of functions $g, h:B\to X$ that differ only
+        in how they map such $b$ so that $g\circ f = h\circ f$, then:
+        \[\text{Non-Surjective}(f:a\to b):\ (\exists g, g':b\to c).(g \neq
+        g' \land g\circ f = g'\circ f)\]
+        Or negating the logic:
+        \[\text{Surjective}(f:a\to b):\ (\forall g, g':b\to c).(g\circ f =
+          g'\circ f \implies g=g')\]
+    \end{description}
+  \end{proof}
 \end{theorem}
 
 \begin{theorem}[Isomorphisms in Set]
