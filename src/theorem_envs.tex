@@ -1,15 +1,7 @@
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
 
-\newenvironment{subproof}[1][\proofname]{%
-  \renewcommand{\qedsymbol}{$\square$}%
-  \begin{proof}[#1]%
-}{%
-  \end{proof}%
-}
-
 \theoremstyle{definition}
-\newtheorem{example}{Example}
 \newmdtheoremenv[
   hidealllines=true,
   leftline=true,
@@ -19,4 +11,5 @@
 ]{definition}{Definition}
 
 \theoremstyle{remark}
+\newtheorem*{example}{e.g}
 \newtheorem*{remark}{Remark}

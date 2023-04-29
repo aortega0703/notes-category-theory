@@ -22,8 +22,8 @@
 
   \begin{proof}
     The proof consists of two parts:
-    \begin{subproof}[$(\implies)$]
-      Consider a non-injective function $f:A\to B$, i.e.
+    \begin{description}
+      \item[$(\implies)$] Consider a non-injective function $f:A\to B$, i.e.
         there exists a pair of different elements $x,y\in A$ such that
         $f(x)=f(y)$. Let:
         \[
@@ -46,21 +46,19 @@
         \]
         Furthermore, $f$ cannot bet monic as it would imply $\bar{x} = \bar{y}$.
         Then by contrapositive, if $f$ is monic then it is injective.
-    \end{subproof}
-    \begin{subproof}[$(\impliedby)$]
-      Consider an injective function $f:A\to B$. Let $X$ be another set with a
-      pair of distinct functions $g, h:X\to A$.
-      \[
-        \begin{aligned}
-          (\exists x\in X)(g(x) &\neq h(x))\\
-          (\exists x\in X)((f\circ g)(x) &\neq (f\circ h)(x))
-          ,\quad\text{by injectivity of $f$}\\
-          f\circ g &\neq f\circ h
-        \end{aligned}
-      \]
-      Then by contrapositive, $f\circ g = f\circ h \implies g = h$, implying
-      that $f$ is monic.
-    \end{subproof}
+      \item Consider an injective function $f:A\to B$. Let $X$ be another set
+        with a pair of distinct functions $g, h:X\to A$.
+        \[
+          \begin{aligned}
+            (\exists x\in X)(g(x) &\neq h(x))\\
+            (\exists x\in X)((f\circ g)(x) &\neq (f\circ h)(x))
+            ,\quad\text{by injectivity of $f$}\\
+            f\circ g &\neq f\circ h
+          \end{aligned}
+        \]
+        Then by contrapositive, $f\circ g = f\circ h \implies g = h$, implying
+        that $f$ is monic.
+    \end{description}
   \end{proof}
 \end{theorem}
 
@@ -75,68 +73,49 @@
 
   \begin{proof}
     The proof consists of two parts:
-    \begin{subproof}[$(\implies)$]
-      Consider a non-surjective function $f:A\to B$, i.e. for some $x\in B$
-      there exists no $a\in A$ such that $f(a) = x$. Let:
-      \[
-        \begin{aligned}[t]
-          g:B &\to B \cup \{B\}\\
-          b &\mapsto b
-        \end{aligned}
-        \quad
-        \begin{aligned}[t]
-          h:B &\to B \cup \{B\}\\
-          b &\mapsto
-          \begin{cases}
-            \begin{aligned}
-              B &\text{ if } b = x\\
-              b &\text{ otherwise}
-            \end{aligned}
-          \end{cases}
-        \end{aligned}
-      \]
-      Note that $g(b) = h(b)$ for $b\neq x$, particularly, as $f(a)\neq b$ for
-      any $a$ then $(g\circ f)(a) = (h\circ f)(a)$ i.e. $g\circ f = h\circ f$.
-      Furthermore, $f$ cannot be epic since that would imply $g=f$.
-      Then by contrapositive, if $f$ is epic then it is a surjection.
-    \end{subproof}
-
-    \begin{subproof}[$(\impliedby)$]
-      Consider a surjective function $f:A\to B$. Let $X$ be a set with two
-      distinct functions $g, h: B \to X$.
-      \[
-        \begin{aligned}
-          (\exists b\in B)(g(b) &\neq h(b))\\
-          (\exists a\in A)((g\circ f)(a) &\neq (h\circ f)(a))
-          ,\quad\text{(by surjectivity of $f$)}\\
-          g\circ f &\neq h\circ f
-        \end{aligned}
-      \]
-      Then, by contrapositive $g\circ f = h\circ f \implies g=h$, implying
-      that $f$ is epic.
-    \end{subproof}
-  \end{proof}
-\end{theorem}
-
-\begin{theorem}[Epimorphisms in Set]
-  In Set a morphism is epi if and only if it is surjective.
-
-  \begin{proof}
-    The proof consists of two parts:
     \begin{description}
-      \item[$(\implies)$] TODO
-      \item[$(\impliedby)$] Consider a non-surjective function $f:A\to B$, i.e.
-        for some $b\in B$ there exists no $a\in A$ such that $f(a) = b$. Let $X$
-        be another set with a pair of functions $g, h:B\to X$ that differ only
-        in how they map such $b$ so that $g\circ f = h\circ f$, then:
-        \[\text{Non-Surjective}(f:a\to b):\ (\exists g, g':b\to c).(g \neq
-        g' \land g\circ f = g'\circ f)\]
-        Or negating the logic:
-        \[\text{Surjective}(f:a\to b):\ (\forall g, g':b\to c).(g\circ f =
-          g'\circ f \implies g=g')\]
+      \item[$(\implies)$] Consider a non-surjective function $f:A\to B$, i.e.
+        for some $x\in B$ there exists no $a\in A$ such that $f(a) = x$. Let:
+        \[
+          \begin{aligned}[t]
+            g:B &\to B \cup \{B\}\\
+            b &\mapsto b
+          \end{aligned}
+          \quad
+          \begin{aligned}[t]
+            h:B &\to B \cup \{B\}\\
+            b &\mapsto
+            \begin{cases}
+              \begin{aligned}
+                B &\text{ if } b = x\\
+                b &\text{ otherwise}
+              \end{aligned}
+            \end{cases}
+          \end{aligned}
+        \]
+        Note that $g(b) = h(b)$ for $b\neq x$, particularly, as $f(a)\neq b$ for
+        any $a$ then $(g\circ f)(a) = (h\circ f)(a)$ i.e. $g\circ f = h\circ f$.
+        Furthermore, $f$ cannot be epic since that would imply $g=f$. Then by
+        contrapositive, if $f$ is epic then it is a surjection.
+      \item[$(\impliedby)$] Consider a surjective function $f:A\to B$. Let $X$
+        be a set with two distinct functions $g, h: B \to X$.
+        \[
+          \begin{aligned}
+            (\exists b\in B)(g(b) &\neq h(b))\\
+            (\exists a\in A)((g\circ f)(a) &\neq (h\circ f)(a))
+            ,\quad\text{(by surjectivity of $f$)}\\
+            g\circ f &\neq h\circ f
+          \end{aligned}
+        \]
+        Then, by contrapositive $g\circ f = h\circ f \implies g=h$, implying
+        that $f$ is epic.
     \end{description}
   \end{proof}
 \end{theorem}
+
+\begin{definition}[Bijective Function]
+  A function is said to be bijective if it is both injective and surjective
+\end{definition}
 
 \begin{theorem}[Isomorphisms in Set]
   In the category Set an arrow is an isomorphism if and only if it is
@@ -144,18 +123,37 @@
 
   \begin{proof}
     The proof consists of two parts:
+
     \begin{description}
-      \item[$(\implies)$] For sets $A,B$ consider a isomorphism $f:A\to B$ with
-        its respective inverse being $f^{-1}: A\to B$. Consider some $b\in B$
-        and let $a = f^{-1}(b)$, then:
+      \item[$(\implies)$] By Qusing Theorems \ref{thm:iso_then_mono},
+        \ref{thm:iso_then_epi}, \ref{thm:mono_iff_inj}, and
+        \ref{thm:epi_iff_sur} we get that any isomorphism is also a bijective
+        function.
+      \item[$(\impliedby)$] Consider a bijection $f:A\to B$. Then define
+        $f^{-1}$ as follows. Since $f$ is injective, every $f(a)\in B$ has a
+        unique pre-image $a\in A$, then let $(f^{-1}\circ f)(a) = a$. This
+        implies that the range of $f^{-1}$ is precisely the domain of $f$ and
+        its domain, the range of $f$. Since $f$ is surjective, its range is
+        equal to its codomain, making $f:B\to A$. Let $a\in A$ and $b=f(a)$,
+        which by definition implies $f^{-1}(b)=a$, then:
         \[
           \begin{aligned}
-            a &= f^{-1}(b)\\
-            f(a) &= (f\circ f^{-1})(b)\\
-            &= b
+            (f^{-1}\circ f)(a)
+            = f^{-1}(b)\\
+            &= a\\
+            f^{-1}\circ f &= \id_A
           \end{aligned}
         \]
-      \item[$(\impliedby)$]
+        Similarly, let $b\in B$ and $a=f^{-1}(b)$, which by definition implies
+        $f(a)=b$, then:
+        \[
+          \begin{aligned}
+            (f\circ f^{-1})(b)
+            &= f(a)\\
+            &= b\\
+            (f\circ f^{-1}) &= \id_B
+          \end{aligned}
+        \]\qedhere
     \end{description}
   \end{proof}
 \end{theorem}
