@@ -17,6 +17,53 @@
   \[f(a)=f(b) \implies a=b,\ (\forall a\in A,\ b\in B)\]
 \end{definition}
 
+\begin{theorem}[Monomorphisms in Set]\label{thm:mono_iff_inj}
+  In Set a morphism is monic if and only if it is injective.
+
+  \begin{proof}
+    The proof consists of two parts:
+    \begin{subproof}[$(\implies)$]
+      Consider a non-injective function $f:A\to B$, i.e.
+        there exists a pair of different elements $x,y\in A$ such that
+        $f(x)=f(y)$. Let:
+        \[
+          \begin{aligned}
+            \bar{x} : \{\bullet\} &\to A\\
+            \bullet &\mapsto x
+          \end{aligned}
+          \quad
+          \begin{aligned}
+            \bar{y} : \{\bullet\} &\to A\\
+            \bullet &\mapsto y
+          \end{aligned}
+        \]
+        \[
+          \begin{aligned}
+            f(x) &= f(y)\\
+            (f\circ\bar{x})(\bullet) &= (f\circ\bar{y})(\bullet)\\
+            (f\circ\bar{x}) &= (f\circ\bar{y})
+          \end{aligned}
+        \]
+        Furthermore, $f$ cannot bet monic as it would imply $\bar{x} = \bar{y}$.
+        Then by contrapositive, if $f$ is monic then it is injective.
+    \end{subproof}
+    \begin{subproof}[$(\impliedby)$]
+      Consider an injective function $f:A\to B$. Let $X$ be another set with a
+      pair of distinct functions $g, h:X\to A$.
+      \[
+        \begin{aligned}
+          (\exists x\in X)(g(x) &\neq h(x))\\
+          (\exists x\in X)((f\circ g)(x) &\neq (f\circ h)(x))
+          ,\quad\text{by injectivity of $f$}\\
+          f\circ g &\neq f\circ h
+        \end{aligned}
+      \]
+      Then by contrapositive, $f\circ g = f\circ h \implies g = h$, implying
+      that $f$ is monic.
+    \end{subproof}
+  \end{proof}
+\end{theorem}
+
 \begin{definition}[Surjective Function]
   For sets $A,B$, a function $f:A\to B$ is said to be surjective if the
   following holds:
