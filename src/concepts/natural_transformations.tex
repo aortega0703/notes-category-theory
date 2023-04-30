@@ -44,30 +44,30 @@
   \end{tikzcd}\]
 \end{example}
 
-\subsection{Identity}
-For any categories $C,D$ with a functor $F:C\to D$, there exists a natural
-transformation $\id_F: F\Rightarrow F$ which consists of:
-\parencite{leinster:basic_category_theory}
-\begin{itemize}
-  \item $c$-Components:\\
-    $(\id_F)_c: F(c) \to F(c) = \id_{F(c)},\ (\forall c\in C)$
-  \item Naturality Condition:
-    The following diagram commutes:
-    % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJGKGMpIl0sWzEsMSwiRihjJykiXSxbMCwxLCJGKGYpIl0sWzAsMiwiXFxtYXRocm17aWR9X3tGKGMpfSIsMl0sWzIsMywiRihmKSIsMl0sWzEsMywiXFxtYXRocm17aWR9X3tGKGMpfSJdXQ==
-    \[\begin{tikzcd}
-      {F(c)} & {F(c')} \\
-      {F(c)} & {F(c')}
-      \arrow["{F(f)}", from=1-1, to=1-2]
-      \arrow["{\id_{F(c)}}"', from=1-1, to=2-1]
-      \arrow["{F(f)}"', from=2-1, to=2-2]
-      \arrow["{\id_{F(c)}}", from=1-2, to=2-2]
-    \end{tikzcd}\]
-    \begin{proof}
-      By using unitality of $\id_{F(c)}$.
-    \end{proof}
-\end{itemize}
-
 \subsection{Composition}
+\begin{definition}[Identity Natural Transformation]
+  For any categories $C,D$ with a functor $F:C\to D$, there exists a natural
+  transformation $\id_F: F\Rightarrow F$ which consists of:
+  \parencite{leinster:basic_category_theory}
+  \begin{itemize}
+    \item $c$-Components:\\
+      $(\id_F)_c: F(c) \to F(c) = \id_{F(c)},\ (\forall c\in C)$
+    \item Naturality Condition:
+      The following diagram commutes:
+      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJGKGMpIl0sWzEsMSwiRihjJykiXSxbMCwxLCJGKGYpIl0sWzAsMiwiXFxtYXRocm17aWR9X3tGKGMpfSIsMl0sWzIsMywiRihmKSIsMl0sWzEsMywiXFxtYXRocm17aWR9X3tGKGMpfSJdXQ==
+      \[\begin{tikzcd}
+        {F(c)} & {F(c')} \\
+        {F(c)} & {F(c')}
+        \arrow["{F(f)}", from=1-1, to=1-2]
+        \arrow["{\id_{F(c)}}"', from=1-1, to=2-1]
+        \arrow["{F(f)}"', from=2-1, to=2-2]
+        \arrow["{\id_{F(c)}}", from=1-2, to=2-2]
+      \end{tikzcd}\]
+      \begin{proof}
+        By using unitality of $\id_{F(c)}$.
+      \end{proof}
+  \end{itemize}
+\end{definition}
 
 \subsubsection{Vertical Composition}
 For categories $C,D$ with functors $F,G,H:C\to D$ and natural transformations
@@ -110,7 +110,7 @@ H$ consists of: \parencite{leinster:basic_category_theory}
     \end{proof}
 \end{itemize}
 
-\begin{theorem}[Unitality]
+\begin{theorem}[Unitality of Natural Transformations]
   For a configuration of categories, functors, and natural transformations:
   % https://q.uiver.app/?q=WzAsMixbMCwwLCJDIl0sWzIsMCwiRCJdLFswLDEsIkYiLDAseyJjdXJ2ZSI6LTN9XSxbMCwxLCJHIiwxLHsiY3VydmUiOjN9XSxbMiwzLCJcXGFscGhhIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
   \[\begin{tikzcd}
@@ -142,9 +142,7 @@ H$ consists of: \parencite{leinster:basic_category_theory}
   \end{proof}
 \end{theorem}
 
-
-
-\begin{theorem}[Associativity]
+\begin{theorem}[Associativity of Natural Transformations]
   For a configuration of categories, functors, and natural transformations:
   % https://q.uiver.app/?q=WzAsMixbMCwwLCJDIl0sWzIsMCwiRCJdLFswLDEsIkYiLDAseyJjdXJ2ZSI6LTV9XSxbMCwxLCJJIiwyLHsiY3VydmUiOjV9XSxbMCwxLCJHIiwxLHsiY3VydmUiOi0yfV0sWzAsMSwiSCIsMSx7ImN1cnZlIjoyfV0sWzIsNCwiXFxhbHBoYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNCw1LCJcXGJldGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV0sWzUsMywiXFxnYW1tYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XV0=&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
   \[\begin{tikzcd}

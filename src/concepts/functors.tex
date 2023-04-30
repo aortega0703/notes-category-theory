@@ -39,17 +39,6 @@ categories, or a way to identify one category inside another.
   \end{tikzcd}\]
 \end{example}
 
-\subsection{Identity}
-For a category $C$ there exists an identity functor $\id_C: C \to C$ which
-trivially preserves identity and composition. It consists of maps of:
-\parencite{adamek_herrlich_strecker:joy_cats}
-\begin{itemize}
-  \item Objects:\\
-    $\id_C(c) = c \in C,\ (\forall c\in C)$
-  \item Morphisms:\\
-    $\id_C(f): c\to c' = f \in C,\ (\forall c, c'\in C,\ f:c\to c')$
-\end{itemize}
-
 \subsection{Composition}
 \begin{definition}[Composition of Functors]
   For categories $A,B,C$ and functors $F:A\to B$ and $G:B\to C$ the composite
@@ -61,6 +50,18 @@ trivially preserves identity and composition. It consists of maps of:
     \item Morphisms:\\
       $(G\circ F)(f): (G\circ F)(a) \to (G\circ F)(a') = G(F(f)) \in C,\ (\forall
         a, a'\in A,\ f:a\to a')$
+  \end{itemize}
+\end{definition}
+
+\begin{definition}[Identity Functor]
+  For a category $C$ there exists an identity functor $\id_C: C \to C$ which
+  trivially preserves identity and composition. It consists of maps of:
+  \parencite{adamek_herrlich_strecker:joy_cats}
+  \begin{itemize}
+    \item Objects:\\
+      $\id_C(c) = c \in C,\ (\forall c\in C)$
+    \item Morphisms:\\
+      $\id_C(f): c\to c' = f \in C,\ (\forall c, c'\in C,\ f:c\to c')$
   \end{itemize}
 \end{definition}
 
