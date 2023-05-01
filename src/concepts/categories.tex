@@ -11,7 +11,7 @@ structure, only caring about the underlying relationships.
       $\hom_C(c, c'),\ (\forall c, c' \in \ob_C)$: the collection of all
       morphisms from $c$ to $c'$ where $c$ is called the domain and $c'$ the
       codomain.\\
-      $\hom_C = \bigcup\limits_{a,b\in C} \hom_C(a,b)$
+      $\hom_C \coloneqq \bigcup\limits_{a,b\in C} \hom_C(a,b)$
   \end{itemize}
 
   Such that the following are satisfied:
@@ -19,14 +19,14 @@ structure, only caring about the underlying relationships.
     \item Composition:\\
       $(g \circ f : a \to c) \in C,
         \ (\forall a, b, c \in C,\ f: a \to b,\ g:b \to c)$
-    \item Associativity:\\
-      $(h \circ g) \circ f = h \circ (g \circ f), \ (\forall a,b,c\in C,\ f:a\to
-        b,\ g:b\to c,\ h:c\to d)$
     \item Identity:\\
       $(\id_c: c \to c) \in C,\ (\forall c \in C)$
     \item Unitality:\\
       $f \circ \id_a = \id_b \circ f = f,
         \ (\forall a, b \in C,\ f: a \to b)$
+    \item Associativity:\\
+      $(h \circ g) \circ f = h \circ (g \circ f), \ (\forall a,b,c\in C,\ f:a\to
+        b,\ g:b\to c,\ h:c\to d)$
   \end{itemize}
 \end{definition}
 
@@ -75,33 +75,39 @@ structure, only caring about the underlying relationships.
 
 \subsection{Category Properties}
 
-\subsubsection*{Small/Large Category}
-A category $C$ is said to be small when $\ob_C$ and $\hom_C$ are
-sets instead of proper classes. It is said to be large otherwise.
-\parencite{awodey:category_theory}
+\begin{definition}[Small/Large Category]
+  A category $C$ is said to be small when $\ob_C$ and $\hom_C$ are sets instead
+  of proper classes. It is said to be large otherwise.
+  \parencite{awodey:category_theory}
+\end{definition}
 
-\subsubsection*{Locally Small Category}
-A category $C$ is said to be locally small when $\hom_C(a, b)$ is a
-proper set for all $a,b\in C$. \parencite{awodey:category_theory}
+\begin{definition}[Locally Small Category]
+  A category $C$ is said to be locally small when $\hom_C(c, c')$ is a proper
+  set for all $c,c'\in C$. \parencite{awodey:category_theory}
+\end{definition}
 
-\subsubsection*{Free Category}
-A category is said to be free when it has no more constraints
-\footnote{Equalities between paths} than the ones enforced from the category
-axioms. \parencite{adamek_herrlich_strecker:joy_cats} A free category can be
-constructed from an arbitrary graph by adding morphisms as necessary to fulfill
-such axioms.
+\begin{definition}[Free Category]
+  A category is said to be free when it has no more constraints
+  \footnote{Equalities between paths} than the ones enforced from the category
+  axioms. \parencite{adamek_herrlich_strecker:joy_cats} A free category can be
+  constructed from an arbitrary graph by adding morphisms as necessary to
+  fulfill such axioms.
+\end{definition}
 
-\subsubsection*{Thin Category}
-A category $C$ is said to be thin when $\hom_C(a, b)$ is either empty or
-a singleton for every $a,b\in C$. \parencite{adamek_herrlich_strecker:joy_cats}
-Every thin category can be seen as a preorder. This is the opposite of a free
-category in the sense that it has every possible constraint.
+\begin{definition}[Thin Category]
+  A category $C$ is said to be thin when $\hom_C(a, b)$ is either empty or
+  a singleton for every $a,b\in C$.
+  \parencite{adamek_herrlich_strecker:joy_cats} Every thin category can be seen
+  as a preorder. This is the opposite of a free category in the sense that it
+  has every possible constraint.
+\end{definition}
 
-\subsubsection*{Discrete Category}
-A category $C$ is said to be discrete when $\hom_C$ is composed entirely
-out of identity morphisms. \parencite{awodey:category_theory} Discrete
-categories are going to be denoted by $\underline{n}$, with $n$ being the number
-of objects in it.
+\begin{definition}
+  A category $C$ is said to be discrete when $\hom_C$ is composed entirely
+  out of identity morphisms. \parencite{awodey:category_theory} Discrete
+  categories are going to be denoted by $\underline{n}$, with $n$ being the
+  number of objects in it.
+\end{definition}
 
 \subsection{Morphism Properties}
 
