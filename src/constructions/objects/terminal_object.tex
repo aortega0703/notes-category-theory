@@ -1,8 +1,24 @@
 \subsection{Terminal Object}
 
-For a category $C$, an object $1$ is said to be terminal when there exists a
-unique morphism $f: c\to 1$ for every object $c\in C$.
-\parencite{awodey:category_theory}
+\begin{definition}[Terminal Object]
+  For a category $C$, an object $1$ is said to be terminal when there exists a
+  unique morphism $f: c\to 1$ for every object $c\in C$.
+  \parencite{awodey:category_theory}
+\end{definition}
+
+\begin{theorem}[Isomorphism of Terminal Objects]\label{thm:term_obj_iso} If
+  there are multiple terminal objects in a category, then they are all
+  isomorphic.
+
+  \begin{proof}
+    Consider two terminal objects $c$ and $c'$ in the same category. By their
+    terminality there exists a unique morphism into themselves from themselves,
+    the identity morphism. Additionally the exists two unique morphisms $f:c\to
+    c'$ and $g:c' \to c$ between them. Their compositions $g\circ f:c\to c$ and
+    $f\circ g:c'\to c'$ must then be equal to their respective identities
+    $\id_c$ and $\id_{c'}$ coinciding with the definition of isomorphism.
+  \end{proof}
+\end{theorem}
 
 e.g. In Set, the singleton set is a terminal object. From every other set
 there exists a unique function into the singleton set, that being the constant
