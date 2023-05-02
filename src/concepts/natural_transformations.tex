@@ -51,7 +51,7 @@
   \parencite{leinster:basic_category_theory}
   \begin{itemize}
     \item $c$-Components:\\
-      $(\id_F)_c: F(c) \to F(c) = \id_{F(c)},\ (\forall c\in C)$
+      $(\id_F)_c = \id_{F(c)}: F(c) \to F(c),\ (\forall c\in C)$
     \item Naturality Condition:\\
       The following diagram commutes:
       % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJGKGMpIl0sWzEsMSwiRihjJykiXSxbMCwxLCJGKGYpIl0sWzAsMiwiXFxtYXRocm17aWR9X3tGKGMpfSIsMl0sWzIsMywiRihmKSIsMl0sWzEsMywiXFxtYXRocm17aWR9X3tGKGMnKX0iXV0=
@@ -70,13 +70,8 @@
   The naturality condition of the identity functor holds.
 
   \begin{proof}
-    \begin{equation*}
-      \begin{aligned}
-        F(f) &= F(f)\\
-        F(f) \circ \id_{F(c)} &= \id_{F(c')} \circ F(f)
-        ,\quad\text{(by unitality)}
-      \end{aligned}
-    \end{equation*}
+    By unitality it follows that $F(f) \circ \id_{F(c)} = \id_{F(c')} \circ
+    F(f)$.
   \end{proof}
 \end{theorem}
 
@@ -97,7 +92,7 @@
   \parencite{leinster:basic_category_theory}
   \begin{itemize}
     \item $c$-Components:\\
-      $(\beta\circ\alpha)_c: F(c) \to H(c) = \beta_c \circ \alpha_c,\ (\forall
+      $(\beta\circ\alpha)_c = \beta_c \circ \alpha_c: F(c) \to H(c),\ (\forall
       c\in C)$
     \item Naturality Condition:\\
       The following diagram commutes:
@@ -130,9 +125,9 @@
       \arrow["{\beta_{c'}}", from=2-2, to=3-2]
     \end{tikzcd}\]
 
-    Given the naturality of $\alpha$ and $\beta$ each of the subsquares
-    commutes, therefore taking either exterior path is the same implying the
-    naturality of $\beta \circ \alpha$.
+    Given the naturality of $\alpha$ and $\beta$ each of the subsquares of the
+    previous diagram commutes, therefore taking either exterior path is the same
+    implying the naturality of $\beta \circ \alpha$.
   \end{proof}
 \end{theorem}
 
@@ -213,9 +208,9 @@
     \item $c$-Components:
       \[
         \begin{aligned}
-          (\beta * \alpha)_c : (G\circ F) \to (G' \circ F')
-          &=\beta_{F'(c)} \circ G(\alpha_c)\in C\\
-          &= G'(\alpha_c) \circ \beta_{F(c)}\in C
+          (\beta * \alpha)_c
+          &=\beta_{F'(c)} \circ G(\alpha_c) : (G\circ F) \to (G' \circ F')\\
+          &= G'(\alpha_c) \circ \beta_{F(c)}
         \end{aligned}
       \]
     \item Naturality Condition:
@@ -303,16 +298,8 @@
 \end{theorem}
 
 \begin{theorem}[Unitality of Horizontal Composition]
-  For a configuration of categories, functors, and natural transformations:
-  % https://q.uiver.app/?q=WzAsMixbMCwwLCJDIl0sWzIsMCwiRCJdLFswLDEsIkYiLDAseyJjdXJ2ZSI6LTN9XSxbMCwxLCJHIiwxLHsiY3VydmUiOjN9XSxbMiwzLCJcXGFscGhhIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
-  \[\begin{tikzcd}
-    C && D
-    \arrow[""{name=0, anchor=center, inner sep=0}, "F", curve={height=-18pt}, from=1-1, to=1-3]
-    \arrow[""{name=1, anchor=center, inner sep=0}, "G"{description}, curve={height=18pt}, from=1-1, to=1-3]
-    \arrow["\alpha", shorten <=5pt, shorten >=5pt, Rightarrow, from=0, to=1]
-  \end{tikzcd}\]
-
-  The following holds:
+  For categories $C,D$, functors $F, G:C\to D$ and a natural transformations
+  $\alpha:F\Rightarrow G$, the following holds:
   \[\alpha * \id_{\id_C} = \id_{\id_D} * \alpha = \alpha\]
 
   \begin{proof}

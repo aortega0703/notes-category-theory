@@ -1,133 +1,146 @@
 \section{Universal Morphisms}
-A universal morphism is either an initial or terminal morphism.
-\parencite{maclane:working_mathematician}
 
-\subsection{Initial morphisms}
-For categories $C,D$, an initial morphism or a universal morphism from an object
-$d\in D$ to a functor $F:C\to D$ consists of an object $c\in C$ coupled with a
-morphism $f: d\to F(c)$ such that for any other $c'\in C$ and $f': d \to F(c')$,
-there exists a unique $h:c\to c'$ such that the following diagram commutes.
+\begin{definition}[Initial Morphism]
+	For categories $C,D$, an initial morphism or a universal morphism from an
+	object $d\in D$ to a functor $F:C\to D$ consists of an object $c\in C$ coupled
+	with a morphism $f: d\to F(c)$ such that for any other $c'\in C$ and $f': d
+	\to F(c')$, there exists a unique $h:c\to c'$ such that the following diagram
+	commutes:
+	% https://q.uiver.app/?q=WzAsNSxbMCwwLCJjIl0sWzAsMSwiYyciXSxbMiwwLCJkIl0sWzEsMCwiRihjKSJdLFsxLDEsIkYoYycpIl0sWzAsMSwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDQsIkYoaCkiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiw0LCJmJyJdLFsyLDMsImYiLDJdLFswLDMsIiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxLDQsIiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs1LDYsIiIsMSx7ImxhYmVsX3Bvc2l0aW9uIjoyMCwic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjYwfSwibGV2ZWwiOjEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
+	\[\begin{tikzcd}
+		c & {F(c)} & d \\
+		{c'} & {F(c')}
+		\arrow[""{name=0, anchor=center, inner sep=0}, "h"', dashed, from=1-1, to=2-1]
+		\arrow[""{name=1, anchor=center, inner sep=0}, "{F(h)}"', dashed, from=1-2, to=2-2]
+		\arrow["{f'}", from=1-3, to=2-2]
+		\arrow["f"', from=1-3, to=1-2]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, shorten <=7pt, shorten >=20pt, dotted, from=0, to=1]
+	\end{tikzcd}\]
+\end{definition}
 
-% https://q.uiver.app/?q=WzAsNyxbMCwxLCJjIl0sWzAsMiwiYyciXSxbMiwxLCJkIl0sWzEsMSwiRihjKSJdLFsxLDIsIkYoYycpIl0sWzAsMCwiQyJdLFsxLDAsIkQiXSxbMCwxLCJoIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzMsNCwiRihoKSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDQsImYnIl0sWzIsMywiZiIsMl0sWzAsMywiIiwxLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsNCwiIiwxLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzUsNiwiRiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbNyw4LCIiLDEseyJsYWJlbF9wb3NpdGlvbiI6MjAsInNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0Ijo2MH0sImxldmVsIjoxLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
-\[\begin{tikzcd}
-	C & D \\
-	c & {F(c)} & d \\
-	{c'} & {F(c')}
-	\arrow[""{name=0, anchor=center, inner sep=0}, "h"', dashed, from=2-1, to=3-1]
-	\arrow[""{name=1, anchor=center, inner sep=0}, "{F(h)}"', dashed, from=2-2, to=3-2]
-	\arrow["{f'}", from=2-3, to=3-2]
-	\arrow["f"', from=2-3, to=2-2]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=3-1, to=3-2]
-	\arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-1, to=1-2]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, shorten <=7pt, shorten >=20pt, dotted, from=0, to=1]
-\end{tikzcd}\]
+\begin{theorem}[Uniqueness up to Isomorphism of Initial Morphisms]
+	For categories $C,D$, an object $d\in D$, and a functor $F:C\to D$, if there
+	are mulpliple initial morphisms from $d$ to $F$ then they are all isomophic.
 
-\subsubsection*{Uniqueness up to isomorphism}
-An initial morphism can be viewed as an initial object in the comma category
-$(\Delta_d\downarrow F)$, and initial objects are unique up to isomorphism.
-Therefore, initial morphisms are unique up to isomorphism.
-
-\subsubsection*{As the initial object of a comma category}
-Consider categories $C, D$ with a functor $F: C\to D$, together with the
-discrete category $\underline{1}$ with a single element $\bullet$ and a constant
-funtor $\Delta_d: \underline{1} \to D$. The comma category $(\Delta_d\downarrow
-F)$ consists of:
-\begin{itemize}
-	\item Objects:\\
-		$(\bullet, f, c)\in (\Delta_d\downarrow F)
-			,\ (\forall c\in C,\ f: d\ to F(c))$
-	\item Morphisms:\\
-		$\big((\id_\bullet, h): (\bullet, f, c) \to (\bullet, f', c')\big)
-			\in (\Delta_d\downarrow F),$\\
-		\phantom{$\qquad$}
-		$(\forall c,c'\in C,\ h:c\to c',\ f:d\to F(c),\ f':d\to F(c'))$\\
-		Such that the following commutes:
-		% https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJkIl0sWzEsMSwiZCJdLFswLDEsIkYoaCkiXSxbMiwzLCJcXG1hdGhybXtpZH1fZCIsMl0sWzAsMiwiZiIsMl0sWzEsMywiZiciXV0=
+	\begin{proof}
+		For a configuration of categories and functors:
+		% https://q.uiver.app/?q=WzAsMyxbMiwwLCJDIl0sWzEsMCwiRCJdLFswLDAsIlxcdW5kZXJsaW5lezF9Il0sWzAsMSwiRiJdLFsyLDEsIlxcRGVsdGFfZCIsMl1d
 		\[\begin{tikzcd}
-			{F(c)} & {F(c')} \\
-			d & d
-			\arrow["{F(h)}", from=1-1, to=1-2]
-			\arrow["{\id_d}"', from=2-1, to=2-2]
-			\arrow["f"', from=1-1, to=2-1]
-			\arrow["{f'}", from=1-2, to=2-2]
-		\end{tikzcd}
-		=
-		% https://q.uiver.app/?q=WzAsMyxbMCwwLCJGKGMpIl0sWzAsMSwiRihjJykiXSxbMSwwLCJkIl0sWzAsMSwiRihoKSIsMl0sWzEsMiwiZiciLDJdLFswLDIsImYiXV0=
-		\begin{tikzcd}
-			{F(c)} & d \\
-			{F(c')}
-			\arrow["{F(h)}"', from=1-1, to=2-1]
-			\arrow["{f'}"', from=2-1, to=1-2]
-			\arrow["f", from=1-1, to=1-2]
+			{\underline{1}} & D & C
+			\arrow["F", from=1-3, to=1-2]
+			\arrow["{\Delta_d}"', from=1-1, to=1-2]
 		\end{tikzcd}\]
-\end{itemize}
-An initial object of $(\Delta_d\downarrow F)$ is an object $(\bullet,f,c)$ such
-that for any other object $(\bullet, f', c')$ there exists a unique morphism
-$h:c \to c'$ such that the previous diagram commutes. This is precisely an
-initial morphism from $d$ to $F$.
 
-\subsection{Terminal morphisms}
-For categories $C,D$, a terminal morphism or a universal morphism from a functor
-$F: C \to D$ into an object $d\in D$ consists of an object $c\in C$ coupled with
-a morphism $f: F(c) \to d$ such that for any other $c'\in C$ and $f': F(c') \to
-d$, there exists a unique $h:c' \to c$ such that the following diagram commutes.
+		The comma category $(\Delta_d\downarrow F)$ consists of:
+		\begin{itemize}
+			\item Objects:\\
+				$(0, f, c)\in (\Delta_d\downarrow F) ,\ (\forall c\in C,\ f: d\to
+					F(c))$
+			\item Morphisms:\\
+				$(\forall c,c'\in C,\ h:c\to c',\ f:d\to F(c),\ f':d\to F(c'))$\\
+				\phantom{$\qquad$}
+				$\big((\id_0, h): (0, f, c) \to (0, f', c')\big) \in
+					(\Delta_d\downarrow F),$\\
+				Such that the following commutes:
+				% https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJkIl0sWzEsMSwiZCJdLFswLDEsIkYoaCkiXSxbMiwzLCJcXG1hdGhybXtpZH1fZCIsMl0sWzIsMCwiZiJdLFszLDEsImYnIiwyXV0=
+				\[\begin{tikzcd}
+					{F(c)} & {F(c')} \\
+					d & d
+					\arrow["{F(h)}", from=1-1, to=1-2]
+					\arrow["{\mathrm{id}_d}"', from=2-1, to=2-2]
+					\arrow["f", from=2-1, to=1-1]
+					\arrow["{f'}"', from=2-2, to=1-2]
+				\end{tikzcd}
+				=
+				% https://q.uiver.app/?q=WzAsMyxbMCwwLCJGKGMpIl0sWzAsMSwiRihjJykiXSxbMSwwLCJkIl0sWzAsMSwiRihoKSIsMl0sWzIsMSwiZiciXSxbMiwwLCJmIiwyXV0=
+				\begin{tikzcd}
+					{F(c)} & d \\
+					{F(c')}
+					\arrow["{F(h)}"', from=1-1, to=2-1]
+					\arrow["{f'}", from=1-2, to=2-1]
+					\arrow["f"', from=1-2, to=1-1]
+				\end{tikzcd}\]
+		\end{itemize}
+		An initial object of $(\Delta_d\downarrow F)$ is an object $(0,f,c)$ such
+		that for any other object $(0, f', c')$ there exists a unique morphism $h:c
+		\to c'$ such that the previous diagram commutes. This is precisely an
+		initial morphism from $d$ to $F$. Finally, by Theorem \ref{thm:initial_iso}
+		they are unique up to isomorphism.
+	\end{proof}
+\end{theorem}
 
-% https://q.uiver.app/?q=WzAsNyxbMCwxLCJjIl0sWzAsMiwiYyciXSxbMiwxLCJkIl0sWzEsMSwiRihjKSJdLFsxLDIsIkYoYycpIl0sWzAsMCwiQyJdLFsxLDAsIkQiXSxbNCwzLCJGKGgpIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMiwiZiciLDJdLFszLDIsImYiXSxbMCwzLCIiLDEseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMSw0LCIiLDEseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMSwwLCJoIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzUsNiwiRiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMTIsNywiIiwxLHsibGFiZWxfcG9zaXRpb24iOjMwLCJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6NjB9LCJsZXZlbCI6MSwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
-\[\begin{tikzcd}
-	C & D \\
-	c & {F(c)} & d \\
-	{c'} & {F(c')}
-	\arrow[""{name=0, anchor=center, inner sep=0}, "{F(h)}", dashed, from=3-2, to=2-2]
-	\arrow["{f'}"', from=3-2, to=2-3]
-	\arrow["f", from=2-2, to=2-3]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=3-1, to=3-2]
-	\arrow[""{name=1, anchor=center, inner sep=0}, "h", dashed, from=3-1, to=2-1]
-	\arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-1, to=1-2]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, shorten <=7pt, shorten >=20pt, dotted, from=1, to=0]
-\end{tikzcd}\]
+\begin{definition}[Terminal Morphism]
+	For categories $C,D$, a terminal morphism or a universal morphism from a
+	functor $F: C \to D$ into an object $d\in D$ consists of an object $c\in C$
+	coupled with a morphism $f: F(c) \to d$ such that for any other $c'\in C$ and
+	$f': F(c') \to d$, there exists a unique $h:c' \to c$ such that the following
+	diagram commutes:
+	% https://q.uiver.app/?q=WzAsNSxbMCwwLCJjIl0sWzAsMSwiYyciXSxbMiwwLCJkIl0sWzEsMCwiRihjKSJdLFsxLDEsIkYoYycpIl0sWzQsMywiRihoKSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs0LDIsImYnIiwyXSxbMywyLCJmIl0sWzAsMywiIiwxLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsNCwiIiwxLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsMCwiaCIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxMCw1LCIiLDEseyJsYWJlbF9wb3NpdGlvbiI6MzAsInNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0Ijo2MH0sImxldmVsIjoxLCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
+	\[\begin{tikzcd} c & {F(c)} & d \\
+		{c'} & {F(c')}
+		\arrow[""{name=0, anchor=center, inner sep=0}, "{F(h)}", dashed, from=2-2, to=1-2]
+		\arrow["{f'}"', from=2-2, to=1-3]
+		\arrow["f", from=1-2, to=1-3]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
+		\arrow[""{name=1, anchor=center, inner sep=0}, "h", dashed, from=2-1, to=1-1]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, shorten <=7pt, shorten >=20pt, dotted, from=1, to=0]
+	\end{tikzcd}\]
+\end{definition}
 
-\subsubsection*{Uniqueness up to isomorphism}
-A terminal morphism can be viewed as a terminal object in the comma category
-$(F\downarrow \Delta_d)$, and terminal objects are unique up to isomorphism.
-Therefore, terminal morphisms are unique up to isomorphism.
+\begin{theorem}[Uniqueness up to Isomorphism of Terminal Morphisms]
+	For categories $C,D$, an object $d\in D$, and a functor $F:C\to D$, if there
+	are mulpliple initial morphisms from $d$ to $F$ then they are all isomophic.
 
-\subsubsection*{As the terminal object of a comma category}
-Consider categories $C, D$ with a functor $F: C\to D$, together with the
-discrete category $\underline{1}$ with a single element $\bullet$ and a constant
-funtor $\Delta_d: \underline{1} \to D$. The comma category $(F\downarrow
-\Delta_d)$ consists of:
-\begin{itemize}
-	\item Objects:\\
-		$(c, f, \bullet)\in (F\downarrow \Delta_d)
-			,\ (\forall c\in C,\ f: F(c)\to d)$
-	\item Morphisms:\\
-		$\big((h, \id_\bullet): (c', f', \bullet) \to (c, f, \bullet)\big)
-			\in (F\downarrow \Delta_d),$\\
-		\phantom{$\qquad$}
-		$(\forall c,c'\in C,\ h:c'\to c,\ f:F(c)\to d,\ f':F(c')\to d)$\\
-		Such that the following commutes:
-		% https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMnKSJdLFsxLDAsIkYoYykiXSxbMCwxLCJkIl0sWzEsMSwiZCJdLFswLDEsIkYoaCkiXSxbMiwzLCJcXG1hdGhybXtpZH1fZCIsMl0sWzAsMiwiZiciLDJdLFsxLDMsImYiXV0=
+	\begin{proof}
+		For a configuration of categories and functors:
+		% https://q.uiver.app/?q=WzAsMyxbMCwwLCJDIl0sWzEsMCwiRCJdLFsyLDAsIlxcdW5kZXJsaW5lezF9Il0sWzAsMSwiRiJdLFsyLDEsIlxcRGVsdGFfZCIsMl1d
 		\[\begin{tikzcd}
-			{F(c')} & {F(c)} \\
-			d & d
-			\arrow["{F(h)}", from=1-1, to=1-2]
-			\arrow["{\id_d}"', from=2-1, to=2-2]
-			\arrow["{f'}"', from=1-1, to=2-1]
-			\arrow["f", from=1-2, to=2-2]
-		\end{tikzcd}
-		=
-		% https://q.uiver.app/?q=WzAsMyxbMCwxLCJGKGMnKSJdLFswLDAsIkYoYykiXSxbMSwwLCJkIl0sWzAsMSwiRihoKSJdLFswLDIsImYnIiwyXSxbMSwyLCJmIl1d
-		\begin{tikzcd}
-			{F(c)} & d \\
-			{F(c')}
-			\arrow["{F(h)}", from=2-1, to=1-1]
-			\arrow["{f'}"', from=2-1, to=1-2]
-			\arrow["f", from=1-1, to=1-2]
+			C & D & {\underline{1}}
+			\arrow["F", from=1-1, to=1-2]
+			\arrow["{\Delta_d}"', from=1-3, to=1-2]
 		\end{tikzcd}\]
-\end{itemize}
-A terminal object of $(F\downarrow \Delta_d)$ is an object $(c, f, \bullet)$
-such that for any other object $(c', f', \bullet)$ there exists a unique
-morphism $h:c' \to c$ such that the previous diagram commutes. This is precisely
-a terminal morphism from $F$ to $d$.
+
+		The comma category $(F \downarrow \Delta_d)$ consists of:
+		\begin{itemize}
+			\item Objects:\\
+				$(c, f, 0)\in (F \downarrow \Delta_d) ,\ (\forall c\in C,\ f: F(c)\to
+				d)$
+			\item Morphisms:\\
+				$(\forall c,c'\in C,\ h:c'\to c,\ f:F(c)\to d,\ f':F(c')\to d)$\\
+				\phantom{$\qquad$}
+				$\big((h, \id_0): (c', f', 0) \to (c, f, 0)\big)$\\
+				Such that the following commutes:
+				% https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMnKSJdLFsxLDAsIkYoYykiXSxbMCwxLCJkIl0sWzEsMSwiZCJdLFswLDEsIkYoaCkiXSxbMiwzLCJcXG1hdGhybXtpZH1fZCIsMl0sWzAsMiwiZiIsMl0sWzEsMywiZiciXV0=
+				\[\begin{tikzcd}
+					{F(c')} & {F(c)} \\
+					d & d
+					\arrow["{F(h)}", from=1-1, to=1-2]
+					\arrow["{\mathrm{id}_d}"', from=2-1, to=2-2]
+					\arrow["f"', from=1-1, to=2-1]
+					\arrow["{f'}", from=1-2, to=2-2]
+				\end{tikzcd}
+				=
+				% https://q.uiver.app/?q=WzAsMyxbMCwwLCJGKGMpIl0sWzAsMSwiRihjJykiXSxbMSwwLCJkIl0sWzEsMCwiRihoKSJdLFsxLDIsImYnIiwyXSxbMCwyLCJmIl1d
+				\begin{tikzcd}
+					{F(c)} & d \\
+					{F(c')}
+					\arrow["{F(h)}", from=2-1, to=1-1]
+					\arrow["{f'}"', from=2-1, to=1-2]
+					\arrow["f", from=1-1, to=1-2]
+				\end{tikzcd}\]
+		\end{itemize}
+		A terminal object of $(F\downarrow \Delta_d)$ is an object $(c,f,0)$ such
+		that for any other object $(c', f', 0)$ there exists a unique morphism $h:c'
+		\to c$ such that the previous diagram commutes. This is precisely a terminal
+		morphism from $F$ to $d$. Finally, by Theorem \ref{thm:terminal_iso} they
+		are unique up to isomorphism.
+	\end{proof}
+\end{theorem}
+
+\begin{definition}
+	A universal morphism is either an initial or terminal morphism.
+	\parencite{maclane:working_mathematician}
+\end{definition}

@@ -55,7 +55,7 @@ structure, only caring about the underlying relationships.
 
 \begin{definition}[Opposite category]
   For a category $C$, its opposite category $C^\op$ is given by keeping all
-  objects in $C$ and reversing its arrows. i.e.
+  objects in $C$ and reversing its arrows. i.e. it is composed of:
   \parencite{awodey:category_theory}
   \begin{itemize}
     \item Objects:\\
@@ -82,8 +82,8 @@ structure, only caring about the underlying relationships.
 \end{definition}
 
 \begin{definition}[Locally Small Category]
-  A category $C$ is said to be locally small when $\hom_C(c, c')$ is a proper
-  set for all $c,c'\in C$. \parencite{awodey:category_theory}
+  A category $C$ is said to be locally small when $\hom_C(c, c')$ is a set for
+  all $c,c'\in C$. \parencite{awodey:category_theory}
 \end{definition}
 
 \begin{definition}[Free Category]
@@ -113,10 +113,10 @@ structure, only caring about the underlying relationships.
 \begin{definition}[Isomorphism]
   A morphism $f: c\to c'$ is said to be invertible or an isomorphism when there
   exists an inverse morphism $f^{-1}:c'\to c$ such that $f^{-1}\circ f =
-  \id_{c'}$ and $f\circ f^{-1} = \id_c$.
+  \id_{c}$ and $f\circ f^{-1} = \id_{c'}$.
   \parencite{maclane:working_mathematician} i.e. the following diagram
   commutes:\footnote{Parallel morphisms i.e. those with the same domain and
-  codomain, are equal}
+  codomain, are equal.}
   % https://q.uiver.app/?q=WzAsNCxbMCwwLCJjIl0sWzEsMCwiYyciXSxbMCwxLCJjIl0sWzEsMSwiYyciXSxbMCwxLCJmIiwwLHsib2Zmc2V0IjotMX1dLFszLDIsImZeey0xfSJdLFsyLDAsIlxcbWF0aHJte2lkfV9jIl0sWzEsMywiXFxtYXRocm17aWR9X3tjJ30iXV0=
   \[\begin{tikzcd}
     c & {c'} \\
