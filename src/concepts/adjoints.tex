@@ -1,111 +1,112 @@
 \section{Adjoint functors}
-In diagram a pair of left/right adjoints $(L, R)$ is written as:
 
-% https://q.uiver.app/?q=WzAsMixbMCwwLCJEIl0sWzEsMCwiQyJdLFsxLDAsIkwiLDIseyJjdXJ2ZSI6Mn1dLFswLDEsIlIiLDIseyJjdXJ2ZSI6Mn1dLFsxLDAsIiIsMSx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH0sImxldmVsIjoyfV1d
-\[\begin{tikzcd}
-	D & C
-	\arrow["L"', curve={height=18pt}, from=1-2, to=1-1]
-	\arrow["R"', curve={height=18pt}, from=1-1, to=1-2]
-	\arrow[shorten <=3pt, shorten >=3pt, Rightarrow, from=1-2, to=1-1]
-\end{tikzcd}
-  \text{or}
-% https://q.uiver.app/?q=WzAsMixbMCwwLCJEIl0sWzEsMCwiQyJdLFsxLDAsIkwiLDIseyJjdXJ2ZSI6Mn1dLFswLDEsIlIiLDIseyJjdXJ2ZSI6Mn1dLFsyLDMsIiIsMix7ImxldmVsIjoxLCJzdHlsZSI6eyJuYW1lIjoiYWRqdW5jdGlvbiJ9fV1d
+\begin{definition}[Adjoint Functors]
+  For categories $C, D$ and functors $L: C\to D$ and $R: D\to C$, the pair ($L$,
+  $R$) is said to be a left/right adjoint of eachother when there is a natural
+  isomorphism between functors: \parencite{fong_spivak:7sketches}
+  \[
+    \begin{aligned}
+      F&: C^\op \times D \to \mathrm{Set}\\
+      F&=\Hom_D(L(\underline{\ \ }), \underline{\ \ })
+    \end{aligned}
+    \qquad
+    \begin{aligned}
+      G&: C^\op \times D \to \mathrm{Set}\\
+      G&=\Hom_C(\underline{\ \ }, R(\underline{\ \ }))
+    \end{aligned}
+  \]
+
+  % https://q.uiver.app/?q=WzAsNCxbMSwwLCJkIl0sWzAsMCwiTChkKSJdLFswLDEsImMiXSxbMSwxLCJSKGMpIl0sWzAsM10sWzEsMl0sWzAsMSwiIiwxLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzIsMywiIiwxLHsiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
+  \[\begin{tikzcd}
+    {L(d)} & d \\
+    c & {R(c)}
+    \arrow[from=1-2, to=2-2]
+    \arrow[from=1-1, to=2-1]
+    \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-2, to=1-1]
+    \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=2-1, to=2-2]
+  \end{tikzcd}\]
+
+  \begin{itemize}
+    \item $(c', d)$-Components:\\
+      $\alpha_{(c', d)} \coloneqq \Hom_D(L(c'), d)
+      \overset{\cong}{\to} \Hom_C(c', R(d))$\\
+      Note the similarity to $f^{-1}(y)=x \iff y=f(x)$
+    \item Naturality Condition:\\
+      $\forall (f = (g^{op}, h): (c', d) \to (c, d')),$
+      the following commutes
+      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJIb21fRChMKGMnKSwgZCkiXSxbMCwxLCJIb21fQyhjJywgUihkKSkiXSxbMiwwLCJIb21fRChMKGMpLGQnKSJdLFsyLDEsIkhvbV9DKGMsUihkJykpIl0sWzAsMSwiXFxhbHBoYV97YycsZH0iLDJdLFsyLDMsIlxcYWxwaGFfe2MsZCd9IiwyXSxbMCwyLCJIb21fRChMKGhee29wfSksIGcpIl0sWzEsMywiSG9tX0MoaF57b3B9LCBSKGcpKSIsMl1d
+      \[\begin{tikzcd}
+        {\Hom_D(L(c'), d)} && {\Hom_D(L(c),d')} \\
+        {\Hom_C(c', R(d))} && {\Hom_C(c,R(d'))}
+        \arrow["{\alpha_{c',d}}"', from=1-1, to=2-1]
+        \arrow["{\alpha_{c,d'}}"', from=1-3, to=2-3]
+        \arrow["{\Hom_D(L(h^{op}), g)}", from=1-1, to=1-3]
+        \arrow["{\Hom_C(h^{op}, R(g))}"', from=2-1, to=2-3]
+      \end{tikzcd}\]
+  \end{itemize}
+\end{definition}
+
+\begin{remark}
+  In diagram a pair of left/right adjoints $(L, R)$ is written as:
+  % https://q.uiver.app/?q=WzAsMixbMCwwLCJEIl0sWzEsMCwiQyJdLFsxLDAsIkwiLDIseyJjdXJ2ZSI6Mn1dLFswLDEsIlIiLDIseyJjdXJ2ZSI6Mn1dLFsxLDAsIiIsMSx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH0sImxldmVsIjoyfV1d
+  \[\begin{tikzcd}
+    D & C
+    \arrow["L"', curve={height=18pt}, from=1-2, to=1-1]
+    \arrow["R"', curve={height=18pt}, from=1-1, to=1-2]
+    \arrow[shorten <=3pt, shorten >=3pt, Rightarrow, from=1-2, to=1-1]
+  \end{tikzcd}
+    \text{or}
+  % https://q.uiver.app/?q=WzAsMixbMCwwLCJEIl0sWzEsMCwiQyJdLFsxLDAsIkwiLDIseyJjdXJ2ZSI6Mn1dLFswLDEsIlIiLDIseyJjdXJ2ZSI6Mn1dLFsyLDMsIiIsMix7ImxldmVsIjoxLCJzdHlsZSI6eyJuYW1lIjoiYWRqdW5jdGlvbiJ9fV1d
+    \begin{tikzcd}
+    D & C
+    \arrow[""{name=0, anchor=center, inner sep=0}, "L"', curve={height=18pt}, from=1-2, to=1-1]
+    \arrow[""{name=1, anchor=center, inner sep=0}, "R"', curve={height=18pt}, from=1-1, to=1-2]
+    \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=1]
+  \end{tikzcd}\]
+
+  Where the double arrow points in the same direction as the left adjoint or the
+  turnstile ($\vdash$) points towards the left adjoint.
+\end{remark}
+
+\begin{definition}[Adjoint Functors]
+  For categories $C,D$ and functors $L: C\to D$ and $R: D\to C$, $L$ is said to
+  be a left adjoint of $R$ when there exists a unit ($\eta$) and counit
+  ($\varepsilon$)
+
+  \[
+    \begin{aligned}
+      \eta&:\\
+      \varepsilon&:
+    \end{aligned}
+    \ \begin{aligned}
+      \id_C\ \ &\Rightarrow R \circ L\\
+      L \circ R &\Rightarrow\ \ \id_D
+    \end{aligned}
+  \]
+  Such that the triangular identities are satisfied (the following diagrams
+  commute)
+
+  % https://q.uiver.app/?q=WzAsMyxbMCwwLCJMIl0sWzAsMSwiTFxcY2lyYyBSXFxjaXJjIEwiXSxbMSwxLCJMIl0sWzAsMSwiXFxtYXRocm17aWR9X0xcXGNpcmNcXGV0YSIsMl0sWzEsMiwiXFx2YXJlcHNpbG9uXFxjaXJjIFxcbWF0aHJte2lkfV9MIiwyXSxbMCwyLCJcXG1hdGhybXtpZH1fTCJdXQ==
+  \[\begin{tikzcd} L \\
+    {L\circ R\circ L} & L
+    \arrow["{\id_L\circ\eta}"', from=1-1, to=2-1]
+    \arrow["{\varepsilon\circ \id_L}"', from=2-1, to=2-2]
+    \arrow["{\id_L}", from=1-1, to=2-2]
+  \end{tikzcd}
+  % https://q.uiver.app/?q=WzAsMyxbMCwwLCJSIl0sWzEsMCwiUlxcY2lyYyBMXFxjaXJjIFIiXSxbMSwxLCJSIl0sWzAsMSwiXFxldGFcXGNpcmNcXG1hdGhybXtpZH1fUiJdLFsxLDIsIlxcbWF0aHJte2lkfV9SIFxcY2lyYyBcXHZhcmVwc2lsb24iXSxbMCwyLCJcXG1hdGhybXtpZH1fUiIsMl1d
   \begin{tikzcd}
-	D & C
-	\arrow[""{name=0, anchor=center, inner sep=0}, "L"', curve={height=18pt}, from=1-2, to=1-1]
-	\arrow[""{name=1, anchor=center, inner sep=0}, "R"', curve={height=18pt}, from=1-1, to=1-2]
-	\arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=1]
-\end{tikzcd}\]
-
-Where the double arrow points in the same direction as the left adjoint or the
-turnstile ($\vdash$) points towards the left adjoint.
-
-\subsection{Definition}
-\subsubsection*{As a natural isomorphism of hom-sets}
-For categories $C, D$ and functors $L: C\to D$ and $R: D\to C$, $L$ is said to
-be a left adjoint of $R$ when there is a natural isomorphism between functors:
-\parencite{fong_spivak:7sketches}
-\[
-  \begin{aligned}
-    F&: C^\op \times D \to \mathrm{Set}\\
-    F&=\Hom_D(L(\underline{\ \ }), \underline{\ \ })
-  \end{aligned}
-  \qquad
-  \begin{aligned}
-    G&: C^\op \times D \to \mathrm{Set}\\
-    G&=\Hom_C(\underline{\ \ }, R(\underline{\ \ }))
-  \end{aligned}
-\]
-
-% https://q.uiver.app/?q=WzAsNixbMSwxLCJkIl0sWzAsMSwiTChkKSJdLFswLDIsImMiXSxbMSwyLCJSKGMpIl0sWzAsMCwiQyJdLFsxLDAsIkQiXSxbMCwzXSxbMSwyXSxbMCwxLCIiLDEseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiwzLCIiLDEseyJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzUsNCwiTCIsMSx7ImN1cnZlIjozLCJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzQsNSwiUiAiLDEseyJjdXJ2ZSI6MywiY29sb3VyIjpbMCw2MCw2MF19XSxbMTAsMTEsIiIsMSx7ImxldmVsIjoxLCJzdHlsZSI6eyJuYW1lIjoiYWRqdW5jdGlvbiJ9fV1d
-\[\begin{tikzcd}
-	C & D \\
-	{L(d)} & d \\
-	c & {R(c)}
-	\arrow[from=2-2, to=3-2]
-	\arrow[from=2-1, to=3-1]
-	\arrow[color={rgb,255:red,92;green,92;blue,214}, dotted, from=2-2, to=2-1]
-	\arrow[color={rgb,255:red,214;green,92;blue,92}, dotted, from=3-1, to=3-2]
-	\arrow[""{name=0, anchor=center, inner sep=0}, "L"{description}, draw={rgb,255:red,92;green,92;blue,214}, curve={height=18pt}, from=1-2, to=1-1]
-	\arrow[""{name=1, anchor=center, inner sep=0}, "{R }"{description}, draw={rgb,255:red,214;green,92;blue,92}, curve={height=18pt}, from=1-1, to=1-2]
-	\arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=1]
-\end{tikzcd}\]
-
-\begin{itemize}
-  \item $\alpha_{(c', d)} \coloneqq \Hom_D(L(c'), d)
-    \overset{\cong}{\to} \Hom_C(c', R(d))$\\
-    Note the similarity to $f^{-1}(y)=x \iff y=f(x)$
-  \item $\forall (f = (g^{op}, h): (c', d) \to (c, d')),$
-    the following commutes
-    % https://q.uiver.app/?q=WzAsNCxbMCwwLCJIb21fRChMKGMnKSwgZCkiXSxbMCwxLCJIb21fQyhjJywgUihkKSkiXSxbMiwwLCJIb21fRChMKGMpLGQnKSJdLFsyLDEsIkhvbV9DKGMsUihkJykpIl0sWzAsMSwiXFxhbHBoYV97YycsZH0iLDJdLFsyLDMsIlxcYWxwaGFfe2MsZCd9IiwyXSxbMCwyLCJIb21fRChMKGhee29wfSksIGcpIl0sWzEsMywiSG9tX0MoaF57b3B9LCBSKGcpKSIsMl1d
-    \[\begin{tikzcd}
-      {\Hom_D(L(c'), d)} && {\Hom_D(L(c),d')} \\
-      {\Hom_C(c', R(d))} && {\Hom_C(c,R(d'))}
-      \arrow["{\alpha_{c',d}}"', from=1-1, to=2-1]
-      \arrow["{\alpha_{c,d'}}"', from=1-3, to=2-3]
-      \arrow["{\Hom_D(L(h^{op}), g)}", from=1-1, to=1-3]
-      \arrow["{\Hom_C(h^{op}, R(g))}"', from=2-1, to=2-3]
-    \end{tikzcd}\]
-\end{itemize}
-
-\subsubsection*{As the existence of a unit and counit}
-For categories $C,D$ and functors $L: C\to D$ and $R: D\to C$, $L$ is said to
-be a left adjoint of $R$ when there exists a unit ($\eta$) and counit
-($\varepsilon$)
-
-\[
-  \begin{aligned}
-    \eta&:\\
-    \varepsilon&:
-  \end{aligned}
-  \ \begin{aligned}
-    \id_C\ \ &\Rightarrow R \circ L\\
-    L \circ R &\Rightarrow\ \ \id_D
-  \end{aligned}
-\]
-Such that the triangular identities are satisfied (the following diagrams commute)
-
-% https://q.uiver.app/?q=WzAsMyxbMCwwLCJMIl0sWzAsMSwiTFxcY2lyYyBSXFxjaXJjIEwiXSxbMSwxLCJMIl0sWzAsMSwiXFxtYXRocm17aWR9X0xcXGNpcmNcXGV0YSIsMl0sWzEsMiwiXFx2YXJlcHNpbG9uXFxjaXJjIFxcbWF0aHJte2lkfV9MIiwyXSxbMCwyLCJcXG1hdGhybXtpZH1fTCJdXQ==
-\[\begin{tikzcd}
-	L \\
-	{L\circ R\circ L} & L
-	\arrow["{\id_L\circ\eta}"', from=1-1, to=2-1]
-	\arrow["{\varepsilon\circ \id_L}"', from=2-1, to=2-2]
-	\arrow["{\id_L}", from=1-1, to=2-2]
-\end{tikzcd}
-% https://q.uiver.app/?q=WzAsMyxbMCwwLCJSIl0sWzEsMCwiUlxcY2lyYyBMXFxjaXJjIFIiXSxbMSwxLCJSIl0sWzAsMSwiXFxldGFcXGNpcmNcXG1hdGhybXtpZH1fUiJdLFsxLDIsIlxcbWF0aHJte2lkfV9SIFxcY2lyYyBcXHZhcmVwc2lsb24iXSxbMCwyLCJcXG1hdGhybXtpZH1fUiIsMl1d
-\begin{tikzcd}
-	R & {R\circ L\circ R} \\
-	& R
-	\arrow["{\eta\circ\id_R}", from=1-1, to=1-2]
-	\arrow["{\id_R \circ \varepsilon}", from=1-2, to=2-2]
-	\arrow["{\id_R}"', from=1-1, to=2-2]
-\end{tikzcd}\]
+    R & {R\circ L\circ R} \\
+    & R
+    \arrow["{\eta\circ\id_R}", from=1-1, to=1-2]
+    \arrow["{\id_R \circ \varepsilon}", from=1-2, to=2-2]
+    \arrow["{\id_R}"', from=1-1, to=2-2]
+  \end{tikzcd}\]
+\end{definition}
 
 \subsection{Notable examples}
 \begin{itemize}
   \item Coproduct $\dashv$ Diagonal $\dashv$ Product $\dashv$ Exponential
-    \parencite{maclane_moerdijk:sheaves_geometry_logic}
+    \parencite{lane_moerdijk:sheaves_geometry_logic}
     % https://q.uiver.app/?q=WzAsMixbMCwwLCJDIl0sWzAsMiwiQ1xcdGltZXMgQyJdLFsxLDAsIisiLDEseyJjdXJ2ZSI6LTV9XSxbMCwxLCJcXERlbHRhIiwxLHsiY3VydmUiOjJ9XSxbMSwwLCJcXHRpbWVzIiwxLHsiY3VydmUiOjJ9XSxbMCwxLCJcXHJpZ2h0YXJyb3ciLDEseyJjdXJ2ZSI6LTV9XSxbMyw0LCIiLDEseyJsZXZlbCI6MSwic3R5bGUiOnsibmFtZSI6ImFkanVuY3Rpb24ifX1dLFs0LDUsIiIsMSx7ImxldmVsIjoxLCJzdHlsZSI6eyJuYW1lIjoiYWRqdW5jdGlvbiJ9fV0sWzIsMywiIiwxLHsibGV2ZWwiOjEsInN0eWxlIjp7Im5hbWUiOiJhZGp1bmN0aW9uIn19XV0=
     \[\begin{tikzcd}
       C \\

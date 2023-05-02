@@ -1,17 +1,19 @@
 \section{Limits}
 
-\subsection{Definition}
-The limit of a functor $F:C\to D$ is a cone with vertex $d\in D$ and morphisms
-$\big(\alpha_c: d \to F(c)\big)_{c\in C}$ such that for any other cone with
-vertex $d'\in D$ and morphisms $\big(\beta_c: d' \to F(c)\big)_{c\in C}$ there
-exists a unique map $f:d'\to d$ such that the following diagram commutes for all
-$c\in C$: \parencite{leinster:basic_category_theory}
+\begin{definition}[Limit]
+	The limit of a functor $F:C\to D$ is a cone with vertex $d\in D$ and morphisms
+	$\big(\alpha_c: d \to F(c)\big)_{c\in C}$ such that for any other cone with
+	vertex $d'\in D$ and morphisms $\big(\beta_c: d' \to F(c)\big)_{c\in C}$ there
+	exists a unique map $f:d'\to d$ such that the following diagram commutes for
+	all $c\in C$: \parencite{leinster:basic_category_theory}
 
-% https://q.uiver.app/?q=WzAsMyxbMCwxLCJkIl0sWzAsMCwiZCciXSxbMSwxLCJGKGMpIl0sWzAsMiwiXFxhbHBoYV9jIiwyXSxbMSwyLCJcXGJldGFfYyJdLFsxLDAsImYiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
-\[\begin{tikzcd}
-	{d'} \\
-	d & {F(c)}
-	\arrow["{\alpha_c}"', from=2-1, to=2-2]
-	\arrow["{\beta_c}", from=1-1, to=2-2]
-	\arrow["f"', dashed, from=1-1, to=2-1]
-\end{tikzcd}\]
+	% https://q.uiver.app/?q=WzAsMyxbMCwxLCJkIl0sWzAsMCwiZCciXSxbMSwxLCJGKGMpIl0sWzAsMiwiXFxhbHBoYV9jIiwyXSxbMSwyLCJcXGJldGFfYyJdLFsxLDAsImYiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+	\[\begin{tikzcd}
+		{d'} \\
+		d & {F(c)}
+		\arrow["{\alpha_c}"', from=2-1, to=2-2]
+		\arrow["{\beta_c}", from=1-1, to=2-2]
+		\arrow["f"', dashed, from=1-1, to=2-1]
+	\end{tikzcd}\]
+\end{definition}
+
