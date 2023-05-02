@@ -6,9 +6,9 @@
   \parencite{fong_spivak:7sketches}
   \begin{itemize}
     \item $c$-Components:\\
-      $(\alpha_c : F(c) \to G(c)) \in D,\ (\forall c\in \ob_C)$\\
-      If every $c$-component is an isomorphism the natural transformation is then
-      called a natural isomorphism.
+      $\big(\alpha_c : F(c) \to G(c)\big) \in D,\ (\forall c\in \ob_C)$\\
+      If every $c$-component is an isomorphism the natural transformation is
+      then called a natural isomorphism.
     \item Naturality Condition:\\
       The following diagram must commute for all $c,c'\in C$ and $(f:c\to
       c')\in C$:
@@ -52,75 +52,92 @@
   \begin{itemize}
     \item $c$-Components:\\
       $(\id_F)_c: F(c) \to F(c) = \id_{F(c)},\ (\forall c\in C)$
-    \item Naturality Condition:
+    \item Naturality Condition:\\
       The following diagram commutes:
-      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJGKGMpIl0sWzEsMSwiRihjJykiXSxbMCwxLCJGKGYpIl0sWzAsMiwiXFxtYXRocm17aWR9X3tGKGMpfSIsMl0sWzIsMywiRihmKSIsMl0sWzEsMywiXFxtYXRocm17aWR9X3tGKGMpfSJdXQ==
+      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJGKGMpIl0sWzEsMSwiRihjJykiXSxbMCwxLCJGKGYpIl0sWzAsMiwiXFxtYXRocm17aWR9X3tGKGMpfSIsMl0sWzIsMywiRihmKSIsMl0sWzEsMywiXFxtYXRocm17aWR9X3tGKGMnKX0iXV0=
       \[\begin{tikzcd}
         {F(c)} & {F(c')} \\
         {F(c)} & {F(c')}
         \arrow["{F(f)}", from=1-1, to=1-2]
-        \arrow["{\id_{F(c)}}"', from=1-1, to=2-1]
+        \arrow["{\mathrm{id}_{F(c)}}"', from=1-1, to=2-1]
         \arrow["{F(f)}"', from=2-1, to=2-2]
-        \arrow["{\id_{F(c)}}", from=1-2, to=2-2]
+        \arrow["{\mathrm{id}_{F(c')}}", from=1-2, to=2-2]
       \end{tikzcd}\]
-      \begin{proof}
-        By using unitality of $\id_{F(c)}$.
-      \end{proof}
   \end{itemize}
 \end{definition}
 
+\begin{theorem}[Naturality of Identity Functor]
+  The naturality condition of the identity functor holds.
+
+  \begin{proof}
+    \begin{equation*}
+      \begin{aligned}
+        F(f) &= F(f)\\
+        F(f) \circ \id_{F(c)} &= \id_{F(c')} \circ F(f)
+        ,\quad\text{(by unitality)}
+      \end{aligned}
+    \end{equation*}
+  \end{proof}
+\end{theorem}
+
 \subsubsection{Vertical Composition}
-For categories $C,D$ with functors $F,G,H:C\to D$ and natural transformations
-$\alpha:F\to G,\ \beta:G\to H$, the vertical composition $\beta\circ \alpha:F\to
-H$ consists of: \parencite{leinster:basic_category_theory}
-
-\begin{itemize}
-  \item $c$-Components:\\
-    $(\beta\circ\alpha)_c: F(c) \to H(c) = \beta_c \circ \alpha_c,\ (\forall
-    c\in C)$
-  \item Naturality Condition:\\
-    The following diagram commutes:
-    % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJIKGMpIl0sWzEsMSwiSChjJykiXSxbMCwxLCJGKGYpIl0sWzIsMywiSChmKSIsMl0sWzAsMiwiKFxcYmV0YVxcY2lyY1xcYWxwaGEpX2MiLDJdLFsxLDMsIihcXGJldGEnXFxjaXJjXFxhbHBoYScpX2MiXV0=
-    \[\begin{tikzcd}
-      {F(c)} & {F(c')} \\
-      {H(c)} & {H(c')}
-      \arrow["{F(f)}", from=1-1, to=1-2]
-      \arrow["{H(f)}"', from=2-1, to=2-2]
-      \arrow["{(\beta\circ\alpha)_c}"', from=1-1, to=2-1]
-      \arrow["{(\beta'\circ\alpha')_c}", from=1-2, to=2-2]
-    \end{tikzcd}\]
-    \begin{proof}
-      % https://q.uiver.app/?q=WzAsNixbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJHKGMpIl0sWzAsMiwiSChjKSJdLFsxLDEsIkcoYycpIl0sWzEsMiwiSChjJykiXSxbMCwxLCJGKGYpIl0sWzIsNCwiRyhmKSJdLFszLDUsIkgoZikiLDJdLFswLDIsIlxcYWxwaGFfYyIsMl0sWzIsMywiXFxiZXRhX2MiLDJdLFsxLDQsIlxcYWxwaGFfe2MnfSJdLFs0LDUsIlxcYmV0YV97Yyd9Il1d
-      \[\begin{tikzcd}
-        {F(c)} & {F(c')} \\
-        {G(c)} & {G(c')} \\
-        {H(c)} & {H(c')}
-        \arrow["{F(f)}", from=1-1, to=1-2]
-        \arrow["{G(f)}", from=2-1, to=2-2]
-        \arrow["{H(f)}"', from=3-1, to=3-2]
-        \arrow["{\alpha_c}"', from=1-1, to=2-1]
-        \arrow["{\beta_c}"', from=2-1, to=3-1]
-        \arrow["{\alpha_{c'}}", from=1-2, to=2-2]
-        \arrow["{\beta_{c'}}", from=2-2, to=3-2]
-      \end{tikzcd}\]
-
-      Given the naturality of $\alpha$ and $\beta$ each of the subsquares
-      commutes, therefore taking either exterior path is the same implying the
-      naturality of $\beta \circ \alpha$.
-    \end{proof}
-\end{itemize}
-
-\begin{theorem}[Unitality of Natural Transformations]
+\begin{definition}[Vertical Composition]
   For a configuration of categories, functors, and natural transformations:
-  % https://q.uiver.app/?q=WzAsMixbMCwwLCJDIl0sWzIsMCwiRCJdLFswLDEsIkYiLDAseyJjdXJ2ZSI6LTN9XSxbMCwxLCJHIiwxLHsiY3VydmUiOjN9XSxbMiwzLCJcXGFscGhhIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
+  % https://q.uiver.app/?q=WzAsMixbMCwwLCJDIl0sWzEsMCwiRCJdLFswLDEsIkYiLDAseyJjdXJ2ZSI6LTR9XSxbMCwxLCJIIiwyLHsiY3VydmUiOjR9XSxbMCwxLCJHIiwxXSxbMiw0LCJcXGFscGhhIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dLFs0LDMsIlxcYmV0YSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XV0=
   \[\begin{tikzcd}
-    C && D
-    \arrow[""{name=0, anchor=center, inner sep=0}, "F", curve={height=-18pt}, from=1-1, to=1-3]
-    \arrow[""{name=1, anchor=center, inner sep=0}, "G"{description}, curve={height=18pt}, from=1-1, to=1-3]
-    \arrow["\alpha", shorten <=5pt, shorten >=5pt, Rightarrow, from=0, to=1]
+    C & D
+    \arrow[""{name=0, anchor=center, inner sep=0}, "F", curve={height=-24pt}, from=1-1, to=1-2]
+    \arrow[""{name=1, anchor=center, inner sep=0}, "H"', curve={height=24pt}, from=1-1, to=1-2]
+    \arrow[""{name=2, anchor=center, inner sep=0}, "G"{description}, from=1-1, to=1-2]
+    \arrow["\alpha", shorten <=3pt, shorten >=3pt, Rightarrow, from=0, to=2]
+    \arrow["\beta", shorten <=3pt, shorten >=3pt, Rightarrow, from=2, to=1]
   \end{tikzcd}\]
 
-  The following holds:
+  The vertical composition $\beta\circ \alpha:F\to H$ consists of:
+  \parencite{leinster:basic_category_theory}
+  \begin{itemize}
+    \item $c$-Components:\\
+      $(\beta\circ\alpha)_c: F(c) \to H(c) = \beta_c \circ \alpha_c,\ (\forall
+      c\in C)$
+    \item Naturality Condition:\\
+      The following diagram commutes:
+      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJIKGMpIl0sWzEsMSwiSChjJykiXSxbMCwxLCJGKGYpIl0sWzIsMywiSChmKSIsMl0sWzAsMiwiKFxcYmV0YVxcY2lyY1xcYWxwaGEpX2MiLDJdLFsxLDMsIihcXGJldGEnXFxjaXJjXFxhbHBoYScpX2MiXV0=
+      \[\begin{tikzcd}
+        {F(c)} & {F(c')} \\
+        {H(c)} & {H(c')}
+        \arrow["{F(f)}", from=1-1, to=1-2]
+        \arrow["{H(f)}"', from=2-1, to=2-2]
+        \arrow["{(\beta\circ\alpha)_c}"', from=1-1, to=2-1]
+        \arrow["{(\beta'\circ\alpha')_c}", from=1-2, to=2-2]
+      \end{tikzcd}\]
+  \end{itemize}
+\end{definition}
+
+\begin{theorem}[Naturality of Vertical Composition]
+  The naturality condition of vertical composition holds.
+  \begin{proof}
+    % https://q.uiver.app/?q=WzAsNixbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJHKGMpIl0sWzAsMiwiSChjKSJdLFsxLDEsIkcoYycpIl0sWzEsMiwiSChjJykiXSxbMCwxLCJGKGYpIl0sWzIsNCwiRyhmKSJdLFszLDUsIkgoZikiLDJdLFswLDIsIlxcYWxwaGFfYyIsMl0sWzIsMywiXFxiZXRhX2MiLDJdLFsxLDQsIlxcYWxwaGFfe2MnfSJdLFs0LDUsIlxcYmV0YV97Yyd9Il1d
+    \[\begin{tikzcd}
+      {F(c)} & {F(c')} \\
+      {G(c)} & {G(c')} \\
+      {H(c)} & {H(c')}
+      \arrow["{F(f)}", from=1-1, to=1-2]
+      \arrow["{G(f)}", from=2-1, to=2-2]
+      \arrow["{H(f)}"', from=3-1, to=3-2]
+      \arrow["{\alpha_c}"', from=1-1, to=2-1]
+      \arrow["{\beta_c}"', from=2-1, to=3-1]
+      \arrow["{\alpha_{c'}}", from=1-2, to=2-2]
+      \arrow["{\beta_{c'}}", from=2-2, to=3-2]
+    \end{tikzcd}\]
+
+    Given the naturality of $\alpha$ and $\beta$ each of the subsquares
+    commutes, therefore taking either exterior path is the same implying the
+    naturality of $\beta \circ \alpha$.
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[Unitality of Vertical Composition]
+  For categories $C,D$, functors $F,G:C\to D$ and a natural transformation $\alpha:F\to G$, the following holds:
   \[\alpha \circ \id_F = \id_G \circ \alpha = \alpha\]
 
   \begin{proof}
@@ -142,7 +159,7 @@ H$ consists of: \parencite{leinster:basic_category_theory}
   \end{proof}
 \end{theorem}
 
-\begin{theorem}[Associativity of Natural Transformations]
+\begin{theorem}[Associativity of Vertical Composition]
   For a configuration of categories, functors, and natural transformations:
   % https://q.uiver.app/?q=WzAsMixbMCwwLCJDIl0sWzIsMCwiRCJdLFswLDEsIkYiLDAseyJjdXJ2ZSI6LTV9XSxbMCwxLCJJIiwyLHsiY3VydmUiOjV9XSxbMCwxLCJHIiwxLHsiY3VydmUiOi0yfV0sWzAsMSwiSCIsMSx7ImN1cnZlIjoyfV0sWzIsNCwiXFxhbHBoYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNCw1LCJcXGJldGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV0sWzUsMywiXFxnYW1tYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XV0=&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
   \[\begin{tikzcd}
@@ -176,7 +193,7 @@ H$ consists of: \parencite{leinster:basic_category_theory}
 
 \subsubsection{Horizontal Composition}
 
-\begin{definition}[Horizontal Composition of Natural Transformations]
+\begin{definition}[Horizontal Composition]
   For a configuration of categories, functors, and natural transformations:
   % https://q.uiver.app/?q=WzAsMyxbMCwwLCJBIl0sWzIsMCwiQiJdLFs0LDAsIkMiXSxbMCwxLCJGIiwwLHsiY3VydmUiOi00fV0sWzAsMSwiRiciLDEseyJjdXJ2ZSI6NH1dLFsxLDIsIkciLDEseyJjdXJ2ZSI6LTR9XSxbMSwyLCJHJyIsMSx7ImN1cnZlIjo0fV0sWzMsNCwiXFxhbHBoYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNSw2LCJcXGJldGEiLDEseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV1d&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
   \[\begin{tikzcd}
@@ -192,76 +209,99 @@ H$ consists of: \parencite{leinster:basic_category_theory}
   The horizontal composition $\beta * \alpha: (G\circ F) \to (G' \circ F')$
   consists of: \parencite{leinster:basic_category_theory}
   \begin{itemize}
-    \item $c$-Components:\\
-      $(\beta * \alpha)_c : (G\circ F) \to (G' \circ F') =\beta_{F'(c)} \circ
-      G(\alpha_c)\in C$\\
-      \phantom{$(\beta * \alpha)_c : (G\circ F) \to (G' \circ F')$}
-      $= G'(\alpha_c) \circ \beta_{F(c)}\in C$\\
-      This definition is motivated by the following diagram, where the equality of
-      both definitions is given by the naturality condition of $\beta$.
-
-      % https://q.uiver.app/?q=WzAsNyxbMCwwLCJjIl0sWzEsMCwiRihjKSJdLFsxLDIsIkYnKGMpIl0sWzIsMSwiKEdcXGNpcmMgRikoYykiXSxbMywwLCIoRydcXGNpcmMgRikoYykiXSxbMiwzLCIoR1xcY2lyYyBGJykoYykiXSxbMywyLCIoRydcXGNpcmMgRicpKGMpIl0sWzAsMSwiIiwwLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzAsMiwiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxLDIsIlxcYWxwaGFfYyJdLFsxLDMsIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxLDQsIiIsMCx7ImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiw1LCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiw2LCIiLDAseyJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzMsNCwiXFxiZXRhX3tGKGMpfSJdLFs1LDYsIlxcYmV0YV97RicoYyl9IiwyXSxbNCw2LCJHJyhcXGFscGhhX2MpIl0sWzMsNSwiRyhcXGFscGhhX2MpIl0sWzMsNiwiXFxiZXRhKlxcYWxwaGEiXV0=
-      \[\begin{tikzcd}
-        c & {F(c)} && {(G'\circ F)(c)} \\
-        && {(G\circ F)(c)} \\
-        & {F'(c)} && {(G'\circ F')(c)} \\
-        && {(G\circ F')(c)}
-        \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
-        \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=1-1, to=3-2]
-        \arrow["{\alpha_c}", from=1-2, to=3-2]
-        \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-2, to=2-3]
-        \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=1-2, to=1-4]
-        \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=3-2, to=4-3]
-        \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=3-2, to=3-4]
-        \arrow["{\beta_{F(c)}}", from=2-3, to=1-4]
-        \arrow["{\beta_{F'(c)}}"', from=4-3, to=3-4]
-        \arrow["{G'(\alpha_c)}", from=1-4, to=3-4]
-        \arrow["{G(\alpha_c)}", from=2-3, to=4-3]
-        \arrow["{\beta*\alpha}", from=2-3, to=3-4]
-      \end{tikzcd}\]
-    \item Naturality Condition:
-      % https://q.uiver.app/?q=WzAsOCxbMSwwLCIoR1xcY2lyYyBGKShjKSJdLFszLDAsIihHJ1xcY2lyYyBGKShjKSJdLFsxLDIsIihHXFxjaXJjIEYnKShjKSJdLFszLDIsIihHJ1xcY2lyYyBGJykoYykiXSxbMiw0LCIoRydcXGNpcmMgRikoYycpIl0sWzAsNCwiKEdcXGNpcmMgRikoYycpIl0sWzAsNiwiKEdcXGNpcmMgRicpKGMnKSJdLFsyLDYsIihHJ1xcY2lyYyBGJykoYycpIl0sWzAsMiwiRyhcXGFscGhhX2MpIiwxXSxbMiwzLCJcXGJldGFfe0YnKGMpfSIsMV0sWzAsMSwiXFxiZXRhX3tGKGMpfSIsMV0sWzEsMywiRycoXFxhbHBoYV9jKSIsMV0sWzAsNSwiKEdcXGNpcmMgRikoZikiLDEseyJsYWJlbF9wb3NpdGlvbiI6NjAsImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMiw2LCIoR1xcY2lyYyBGJykoZikiLDEseyJsYWJlbF9wb3NpdGlvbiI6MzB9XSxbMSw0LCIoRydcXGNpcmMgRikoZikiLDEseyJsYWJlbF9wb3NpdGlvbiI6NzB9XSxbMyw3LCIoRydcXGNpcmMgRicpKGYpIiwxLHsibGFiZWxfcG9zaXRpb24iOjQwLCJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzUsNCwiXFxiZXRhX3tGKGMnKX0iLDFdLFs0LDcsIkcnKFxcYWxwaGFfe2MnfSkiLDFdLFs1LDYsIkcoXFxhbHBoYV97Yyd9KSIsMV0sWzYsNywiXFxiZXRhX3tGJyhjKX0iLDFdLFswLDMsIihcXGJldGEgKlxcYWxwaGEpX2MiLDEseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzUsNywiKFxcYmV0YSAqXFxhbHBoYSlfe2MnfSIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF19XV0=
-      \[\begin{tikzcd}[scale cd=0.9]
-        & {(G\circ F)(c)} && {(G'\circ F)(c)} \\
-        \\
-        & {(G\circ F')(c)} && {(G'\circ F')(c)} \\
-        \\
-        {(G\circ F)(c')} && {(G'\circ F)(c')} \\
-        \\
-        {(G\circ F')(c')} && {(G'\circ F')(c')}
-        \arrow["{G(\alpha_c)}"{description}, from=1-2, to=3-2]
-        \arrow["{\beta_{F'(c)}}"{description}, from=3-2, to=3-4]
-        \arrow["{\beta_{F(c)}}"{description}, from=1-2, to=1-4]
-        \arrow["{G'(\alpha_c)}"{description}, from=1-4, to=3-4]
-        \arrow["{(G\circ F)(f)}"{description, pos=0.6}, draw={rgb,255:red,92;green,92;blue,214}, from=1-2, to=5-1]
-        \arrow["{(G\circ F')(f)}"{description, pos=0.3}, from=3-2, to=7-1]
-        \arrow["{(G'\circ F)(f)}"{description, pos=0.7}, from=1-4, to=5-3]
-        \arrow["{(G'\circ F')(f)}"{description, pos=0.4}, draw={rgb,255:red,92;green,92;blue,214}, from=3-4, to=7-3]
-        \arrow["{\beta_{F(c')}}"{description}, from=5-1, to=5-3]
-        \arrow["{G'(\alpha_{c'})}"{description}, from=5-3, to=7-3]
-        \arrow["{G(\alpha_{c'})}"{description}, from=5-1, to=7-1]
-        \arrow["{\beta_{F'(c)}}"{description}, from=7-1, to=7-3]
-        \arrow["{(\beta *\alpha)_c}"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-2, to=3-4]
-        \arrow["{(\beta *\alpha)_{c'}}"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=5-1, to=7-3]
-      \end{tikzcd}\]
-      The naturality conditions of $\alpha$ and $\beta$ imply the naturality
-      condition of $\beta * \alpha$ (in blue):
-
+    \item $c$-Components:
       \[
         \begin{aligned}
-          &(G'\circ F')(f) \circ (\beta * \alpha)_c\\
-          =& (G'\circ F')(f) \circ G'(\alpha_c)\circ\beta_{F(c)}\\
-          =& G'(\alpha_{c'}) \circ (G' \circ F)(f) \circ \beta_{F(c)}
-            ,\quad\text{(naturality of $\alpha$)}\\
-          =& G'(\alpha_{c'}) \circ \beta_{F(c')} \circ (G \circ F)(f)
-            ,\quad\text{(naturality of $\beta$)}\\
-          =& (\beta * \alpha)_{c'}\circ (G \circ F)(f)
+          (\beta * \alpha)_c : (G\circ F) \to (G' \circ F')
+          &=\beta_{F'(c)} \circ G(\alpha_c)\in C\\
+          &= G'(\alpha_c) \circ \beta_{F(c)}\in C
         \end{aligned}
       \]
+    \item Naturality Condition:
+      The following diagram commutes:
+      % https://q.uiver.app/?q=WzAsNCxbMCwwLCIoR1xcY2lyYyBGKShjKSJdLFswLDIsIihHJ1xcY2lyYyBGJykoYykiXSxbMiwwLCIoR1xcY2lyYyBGKShjJykiXSxbMiwyLCIoRydcXGNpcmMgRicpKGMnKSJdLFswLDIsIihHXFxjaXJjIEYpKGYpIl0sWzEsMywiKEcnXFxjaXJjIEYnKShmKSIsMl0sWzAsMSwiKFxcYmV0YSAqXFxhbHBoYSlfYyIsMV0sWzIsMywiKFxcYmV0YSAqXFxhbHBoYSlfe2MnfSIsMV1d
+      \[\begin{tikzcd}
+        {(G\circ F)(c)} && {(G\circ F)(c')} \\
+        \\
+        {(G'\circ F')(c)} && {(G'\circ F')(c')}
+        \arrow["{(G\circ F)(f)}", from=1-1, to=1-3]
+        \arrow["{(G'\circ F')(f)}"', from=3-1, to=3-3]
+        \arrow["{(\beta *\alpha)_c}"{description}, from=1-1, to=3-1]
+        \arrow["{(\beta *\alpha)_{c'}}"{description}, from=1-3, to=3-3]
+      \end{tikzcd}\]
   \end{itemize}
 \end{definition}
 
-\begin{theorem}[Unitality]
+\begin{remark}
+  The definition of the $c$-components for horizontal composition is motivated
+  by the following diagram, where the equality of both definitions is given by
+  the naturality condition of $\beta$.
+
+  % https://q.uiver.app/?q=WzAsNyxbMCwwLCJjIl0sWzEsMCwiRihjKSJdLFsxLDIsIkYnKGMpIl0sWzIsMSwiKEdcXGNpcmMgRikoYykiXSxbMywwLCIoRydcXGNpcmMgRikoYykiXSxbMiwzLCIoR1xcY2lyYyBGJykoYykiXSxbMywyLCIoRydcXGNpcmMgRicpKGMpIl0sWzAsMSwiIiwwLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzAsMiwiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxLDIsIlxcYWxwaGFfYyJdLFsxLDMsIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxLDQsIiIsMCx7ImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiw1LCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMiw2LCIiLDAseyJjb2xvdXIiOlswLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzMsNCwiXFxiZXRhX3tGKGMpfSJdLFs1LDYsIlxcYmV0YV97RicoYyl9IiwyXSxbNCw2LCJHJyhcXGFscGhhX2MpIl0sWzMsNSwiRyhcXGFscGhhX2MpIl0sWzMsNiwiXFxiZXRhKlxcYWxwaGEiXV0=
+  \[\begin{tikzcd}
+    c & {F(c)} && {(G'\circ F)(c)} \\
+    && {(G\circ F)(c)} \\
+    & {F'(c)} && {(G'\circ F')(c)} \\
+    && {(G\circ F')(c)}
+    \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
+    \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=1-1, to=3-2]
+    \arrow["{\alpha_c}", from=1-2, to=3-2]
+    \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-2, to=2-3]
+    \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=1-2, to=1-4]
+    \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=3-2, to=4-3]
+    \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=3-2, to=3-4]
+    \arrow["{\beta_{F(c)}}", from=2-3, to=1-4]
+    \arrow["{\beta_{F'(c)}}"', from=4-3, to=3-4]
+    \arrow["{G'(\alpha_c)}", from=1-4, to=3-4]
+    \arrow["{G(\alpha_c)}", from=2-3, to=4-3]
+    \arrow["{\beta*\alpha}", from=2-3, to=3-4]
+  \end{tikzcd}\]
+\end{remark}
+
+\begin{theorem}[Naturality of Horizontal Composition]
+  The naturality condition of horizontal composition (in \textcolor{blue}{blue})
+  holds.
+
+  \begin{proof}
+    % https://q.uiver.app/?q=WzAsOCxbMSwwLCIoR1xcY2lyYyBGKShjKSJdLFszLDAsIihHJ1xcY2lyYyBGKShjKSJdLFsxLDIsIihHXFxjaXJjIEYnKShjKSJdLFszLDIsIihHJ1xcY2lyYyBGJykoYykiXSxbMiw0LCIoRydcXGNpcmMgRikoYycpIl0sWzAsNCwiKEdcXGNpcmMgRikoYycpIl0sWzAsNiwiKEdcXGNpcmMgRicpKGMnKSJdLFsyLDYsIihHJ1xcY2lyYyBGJykoYycpIl0sWzAsMiwiRyhcXGFscGhhX2MpIiwxXSxbMiwzLCJcXGJldGFfe0YnKGMpfSIsMV0sWzAsMSwiXFxiZXRhX3tGKGMpfSIsMV0sWzEsMywiRycoXFxhbHBoYV9jKSIsMV0sWzAsNSwiKEdcXGNpcmMgRikoZikiLDEseyJsYWJlbF9wb3NpdGlvbiI6NjAsImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMiw2LCIoR1xcY2lyYyBGJykoZikiLDEseyJsYWJlbF9wb3NpdGlvbiI6MzB9XSxbMSw0LCIoRydcXGNpcmMgRikoZikiLDEseyJsYWJlbF9wb3NpdGlvbiI6NzB9XSxbMyw3LCIoRydcXGNpcmMgRicpKGYpIiwxLHsibGFiZWxfcG9zaXRpb24iOjQwLCJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzUsNCwiXFxiZXRhX3tGKGMnKX0iLDFdLFs0LDcsIkcnKFxcYWxwaGFfe2MnfSkiLDFdLFs1LDYsIkcoXFxhbHBoYV97Yyd9KSIsMV0sWzYsNywiXFxiZXRhX3tGJyhjKX0iLDFdLFswLDMsIihcXGJldGEgKlxcYWxwaGEpX2MiLDEseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzUsNywiKFxcYmV0YSAqXFxhbHBoYSlfe2MnfSIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF19XV0=
+    \[\begin{tikzcd}[scale cd=0.9]
+      & {(G\circ F)(c)} && {(G'\circ F)(c)} \\
+      \\
+      & {(G\circ F')(c)} && {(G'\circ F')(c)} \\
+      \\
+      {(G\circ F)(c')} && {(G'\circ F)(c')} \\
+      \\
+      {(G\circ F')(c')} && {(G'\circ F')(c')}
+      \arrow["{G(\alpha_c)}"{description}, from=1-2, to=3-2]
+      \arrow["{\beta_{F'(c)}}"{description}, from=3-2, to=3-4]
+      \arrow["{\beta_{F(c)}}"{description}, from=1-2, to=1-4]
+      \arrow["{G'(\alpha_c)}"{description}, from=1-4, to=3-4]
+      \arrow["{(G\circ F)(f)}"{description, pos=0.6}, draw={rgb,255:red,92;green,92;blue,214}, from=1-2, to=5-1]
+      \arrow["{(G\circ F')(f)}"{description, pos=0.3}, from=3-2, to=7-1]
+      \arrow["{(G'\circ F)(f)}"{description, pos=0.7}, from=1-4, to=5-3]
+      \arrow["{(G'\circ F')(f)}"{description, pos=0.4}, draw={rgb,255:red,92;green,92;blue,214}, from=3-4, to=7-3]
+      \arrow["{\beta_{F(c')}}"{description}, from=5-1, to=5-3]
+      \arrow["{G'(\alpha_{c'})}"{description}, from=5-3, to=7-3]
+      \arrow["{G(\alpha_{c'})}"{description}, from=5-1, to=7-1]
+      \arrow["{\beta_{F'(c)}}"{description}, from=7-1, to=7-3]
+      \arrow["{(\beta *\alpha)_c}"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-2, to=3-4]
+      \arrow["{(\beta *\alpha)_{c'}}"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=5-1, to=7-3]
+    \end{tikzcd}\]
+    \[
+    \begin{aligned}
+      &(G'\circ F')(f) \circ (\beta * \alpha)_c\\
+      =& (G'\circ F')(f) \circ G'(\alpha_c)\circ\beta_{F(c)}\\
+      =& G'(\alpha_{c'}) \circ (G' \circ F)(f) \circ \beta_{F(c)}
+        ,\quad\text{(naturality of $\alpha$)}\\
+      =& G'(\alpha_{c'}) \circ \beta_{F(c')} \circ (G \circ F)(f)
+        ,\quad\text{(naturality of $\beta$)}\\
+      =& (\beta * \alpha)_{c'}\circ (G \circ F)(f)
+    \end{aligned}
+  \]
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[Unitality of Horizontal Composition]
   For a configuration of categories, functors, and natural transformations:
   % https://q.uiver.app/?q=WzAsMixbMCwwLCJDIl0sWzIsMCwiRCJdLFswLDEsIkYiLDAseyJjdXJ2ZSI6LTN9XSxbMCwxLCJHIiwxLHsiY3VydmUiOjN9XSxbMiwzLCJcXGFscGhhIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
   \[\begin{tikzcd}
@@ -296,7 +336,7 @@ H$ consists of: \parencite{leinster:basic_category_theory}
   \end{proof}
 \end{theorem}
 
-\begin{theorem}[Associativity]
+\begin{theorem}[Associativity of Horizontal Composition]
   For a configuration of categories, functors, and natural transformations:
   % https://q.uiver.app/?q=WzAsNCxbNCwwLCJDIl0sWzIsMCwiQiJdLFswLDAsIkEiXSxbNiwwLCJEIl0sWzEsMCwiRyIsMCx7ImN1cnZlIjotNH1dLFsxLDAsIkcnIiwyLHsiY3VydmUiOjR9XSxbMiwxLCJGIiwwLHsiY3VydmUiOi00fV0sWzIsMSwiRiciLDIseyJjdXJ2ZSI6NH1dLFswLDMsIkgiLDAseyJjdXJ2ZSI6LTR9XSxbMCwzLCJIJyIsMix7ImN1cnZlIjo0fV0sWzYsNywiXFxhbHBoYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNCw1LCJcXGJldGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV0sWzgsOSwiXFxnYW1tYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XV0=&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
   \[\begin{tikzcd}
@@ -335,7 +375,29 @@ H$ consists of: \parencite{leinster:basic_category_theory}
   \end{proof}
 \end{theorem}
 
-\paragraph*{Whiskering:}
+\begin{definition}[Whiskering]
+  For a configuration of categories, functors, and natural transformations:
+  % https://q.uiver.app/?q=WzAsMyxbMCwwLCJBIl0sWzEsMCwiQiJdLFsyLDAsIkMiXSxbMCwxLCJGIiwwLHsiY3VydmUiOi00fV0sWzAsMSwiRiciLDIseyJjdXJ2ZSI6NH1dLFsxLDIsIkciLDAseyJjdXJ2ZSI6LTR9XSxbMSwyLCJHJyIsMix7ImN1cnZlIjo0fV0sWzMsNCwiXFxhbHBoYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNSw2LCJcXGJldGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV1d
+  \[\begin{tikzcd}
+    A & B & C
+    \arrow[""{name=0, anchor=center, inner sep=0}, "F", curve={height=-24pt}, from=1-1, to=1-2]
+    \arrow[""{name=1, anchor=center, inner sep=0}, "{F'}"', curve={height=24pt}, from=1-1, to=1-2]
+    \arrow[""{name=2, anchor=center, inner sep=0}, "G", curve={height=-24pt}, from=1-2, to=1-3]
+    \arrow[""{name=3, anchor=center, inner sep=0}, "{G'}"', curve={height=24pt}, from=1-2, to=1-3]
+    \arrow["\alpha", shorten <=6pt, shorten >=6pt, Rightarrow, from=0, to=1]
+    \arrow["\beta", shorten <=6pt, shorten >=6pt, Rightarrow, from=2, to=3]
+  \end{tikzcd}\]
+
+  Whiskering is an operation between functors and natural transformations
+  defined as:
+  \[
+    \begin{aligned}
+      (\beta F)_a &\coloneqq (\beta * \id_F)_a = \beta_{F(a)}\\
+      (G \alpha)_a &\coloneqq (\id_G*\alpha)_a = G(\alpha_c)
+    \end{aligned}
+  \]
+  Consider the following horizontal compositions with functor identities:
+\end{definition}
 For categories $A,B,C$, functors $F,F':A\to B$, $G,G':B\to C$, and natural
 transformations $\alpha:F\Rightarrow F'$, $\beta:G\Rightarrow G'$ and $a\in A$,
 consider the following horizontal compositions with functor identities:
