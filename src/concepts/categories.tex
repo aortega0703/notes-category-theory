@@ -16,11 +16,11 @@ structure, only caring about the underlying relationships.
 
   Such that the following are satisfied:
   \begin{itemize}
+    \item Identity:\\
+      $(\id_c: c \to c) \in C,\ (\forall c \in C)$
     \item Composition:\\
       $(g \circ f : a \to c) \in C,
         \ (\forall a, b, c \in C,\ f: a \to b,\ g:b \to c)$
-    \item Identity:\\
-      $(\id_c: c \to c) \in C,\ (\forall c \in C)$
     \item Unitality:\\
       $f \circ \id_a = \id_b \circ f = f,
         \ (\forall a, b \in C,\ f: a \to b)$
@@ -102,11 +102,10 @@ structure, only caring about the underlying relationships.
   has every possible constraint.
 \end{definition}
 
-\begin{definition}
+\begin{definition}[Discrete Category]
   A category $C$ is said to be discrete when $\hom_C$ is composed entirely
   out of identity morphisms. \parencite{awodey:category_theory} Discrete
-  categories are going to be denoted by $\underline{n}$, with $n$ being the
-  number of objects in it.
+  categories are going to be denoted by $\underline{n}$, with $n=|\ob_C|$.
 \end{definition}
 
 \subsection{Morphism Properties}

@@ -1,15 +1,26 @@
 \theoremstyle{plain}
+\theorembodyfont{\itshape}
+\theoremheaderfont{\normalfont\bfseries}
+\theoremseparator{}
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[theorem]
+\newtheorem{lemma}{Lemma}[theorem]
+\newtheorem{corollary}{Corollary}[theorem]
 
-\theoremstyle{definition}
+\theorembodyfont{\upshape}
 \newmdtheoremenv[
   hidealllines=true,
   leftline=true,
   innerleftmargin=10pt,
-  innerrightmargin=10pt,
+  innerrightmargin=0pt,
   innertopmargin=0pt,
+  innerbottommargin=0pt
 ]{definition}{Definition}[section]
 
-\theoremstyle{remark}
-\newtheorem*{example}{e.g}
-\newtheorem*{remark}{Remark}
+\theoremstyle{nonumberplain}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+\theoremheaderfont{\scshape}
+\theorembodyfont{\normalfont}
+\theoremsymbol{\ensuremath{\square}}
+\newtheorem{proof}{Proof}

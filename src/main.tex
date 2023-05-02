@@ -1,8 +1,11 @@
 \documentclass[a4paper]{article}
 
 \usepackage{hyperref} % Hyperlinks to sections of the document
-\usepackage{amsmath, amsthm, amssymb, mathtools} % Math
-\usepackage{mdframed} % Boxes around stuff
+\usepackage{amsmath, amssymb, mathtools} % Math
+\usepackage{framed}
+\usepackage[framed, thmmarks]{ntheorem}
+\usepackage{mdframed} % Boxes definitions
+%\usepackage{thmtools} % List of definitions/theorems
 \input{theorem_envs.tex}
 \usepackage{tikz-cd} % Commutative diagrams
 \tikzcdset{scale cd/.style={every label/.append style={scale=#1},
@@ -18,13 +21,21 @@
 
 \input{macros.tex}
 
+\title{Notes on Category Theory}
+
+\author{Andrés Felipe Ortega Montoya}
+
 \begin{document}
 
+\maketitle
 \tableofcontents
 
 \input{concepts.tex}
 
 \input{constructions.tex}
+
+%\listoftheorems[title={List of Definitions},ignoreall,show={definition}]
+%\listoftheorems[title={List of Theorems}, ignoreall,show={theorem}]
 
 \printbibliography
 %\listoftodos
