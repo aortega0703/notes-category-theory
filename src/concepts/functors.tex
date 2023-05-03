@@ -2,7 +2,7 @@
 A functor can be thought of as an structure preserving transformation between
 categories, or a way to identify one category inside another.
 
-\begin{definition}[Functor]
+\begin{definition}[Functor\index{Functor}]
   For categories $C,D$, a functor $F: C \to D$ consist of mappings of:
   \parencite{fong_spivak:7sketches}
   \begin{itemize}
@@ -40,7 +40,7 @@ categories, or a way to identify one category inside another.
 \end{example}
 
 \subsection{Composition}
-\begin{definition}[Identity Functor]
+\begin{definition}[Identity Functor\index{Identity Functor}]
   For a category $C$ there exists an identity functor $\id_C: C \to C$ which
   consists of maps of:
   \parencite{adamek_herrlich_strecker:joy_cats}
@@ -77,7 +77,7 @@ categories, or a way to identify one category inside another.
   \end{proof}
 \end{theorem}
 
-\begin{definition}[Composition of Functors]
+\begin{definition}[Composition of Functors\index{Composition of Functors}]
   For categories $A,B,C$ and functors $F:A\to B$ and $G:B\to C$, the composite
   functor $G\circ F$ consists of maps of:
   \parencite{leinster:basic_category_theory}
@@ -177,24 +177,24 @@ categories, or a way to identify one category inside another.
 
 \subsection{Functor Properties}
 
-\begin{definition}[Faithful Functor]
+\begin{definition}[Faithful Functor\index{Faithful Functor}]
   For categories $C, D$, a functor $F:C\to D$ is said to be faithful when for
   every $x,y\in C$, the function $F_{x, y}: \hom_C(x, y) \to \hom_D(F(x), F(y))$
   is injective. \parencite{awodey:category_theory}
 \end{definition}
 
-\begin{definition}[Full Functor]
+\begin{definition}[Full Functor\index{Full Functor}]
   For categories $C, D$, a functor $F:C\to D$ is said to be full when for every
   $x,y\in C$, the function $F_{x, y}: \hom_C(x, y) \to \hom_D(F(x), F(y))$ is
   surjective. \parencite{adamek_herrlich_strecker:joy_cats}
 \end{definition}
 
-\begin{definition}[Endofunctor]
+\begin{definition}[Endofunctor\index{Endofunctor}]
   For a category $C$, a functor $F:C\to C$ (one from $C$ to itself) is said to
   be an endofunctor. \parencite{adamek_herrlich_strecker:joy_cats}
 \end{definition}
 
-\begin{definition}[Bifunctor]
+\begin{definition}[Bifunctor\index{Bifunctor}]
   For categories $A, B, C$, a functor $F:A\times B \to C$ (one with $2$
   parameters) is said to be a bifunctor.
   \parencite{lane:working_mathematician}

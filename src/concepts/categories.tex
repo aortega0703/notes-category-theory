@@ -2,7 +2,7 @@
 A category can be thought of as a way to formalize the presence of certain
 structure, only caring about the underlying relationships.
 
-\begin{definition}[Category]
+\begin{definition}[Category\index{Category}]
   A category $C$ is composed of: \parencite{fong_spivak:7sketches}
   \begin{itemize}
     \item Objects:\\
@@ -53,7 +53,7 @@ structure, only caring about the underlying relationships.
   \end{tikzcd}\]
 \end{example}
 
-\begin{definition}[Opposite category]
+\begin{definition}[Opposite category\index{Opposite category}]
   For a category $C$, its opposite category $C^\op$ is given by keeping all
   objects in $C$ and reversing its arrows. i.e. it is composed of:
   \parencite{awodey:category_theory}
@@ -75,18 +75,18 @@ structure, only caring about the underlying relationships.
 
 \subsection{Category Properties}
 
-\begin{definition}[Small/Large Category]
+\begin{definition}[Small/Large Category\index{Small/Large Category}]
   A category $C$ is said to be small when $\ob_C$ and $\hom_C$ are sets instead
   of proper classes. It is said to be large otherwise.
   \parencite{awodey:category_theory}
 \end{definition}
 
-\begin{definition}[Locally Small Category]
+\begin{definition}[Locally Small Category\index{Locally Small Category}]
   A category $C$ is said to be locally small when $\hom_C(c, c')$ is a set for
   all $c,c'\in C$. \parencite{awodey:category_theory}
 \end{definition}
 
-\begin{definition}[Free Category]
+\begin{definition}[Free Category\index{Free Category}]
   A category is said to be free when it has no more constraints
   \footnote{Equalities between paths} than the ones enforced from the category
   axioms. \parencite{adamek_herrlich_strecker:joy_cats} A free category can be
@@ -94,7 +94,7 @@ structure, only caring about the underlying relationships.
   fulfill such axioms.
 \end{definition}
 
-\begin{definition}[Thin Category]
+\begin{definition}[Thin Category\index{Thin Category}]
   A category $C$ is said to be thin when $\hom_C(a, b)$ is either empty or
   a singleton for every $a,b\in C$.
   \parencite{adamek_herrlich_strecker:joy_cats} Every thin category can be seen
@@ -102,7 +102,7 @@ structure, only caring about the underlying relationships.
   has every possible constraint.
 \end{definition}
 
-\begin{definition}[Discrete Category]
+\begin{definition}[Discrete Category\index{Discrete Category}]
   A category $C$ is said to be discrete when $\hom_C$ is composed entirely
   out of identity morphisms. \parencite{awodey:category_theory} Discrete
   categories are going to be denoted by $\underline{n}$, with $n=|\ob_C|$.
@@ -110,7 +110,7 @@ structure, only caring about the underlying relationships.
 
 \subsection{Morphism Properties}
 
-\begin{definition}[Isomorphism]
+\begin{definition}[Isomorphism\index{Isomorphism}]
   A morphism $f: c\to c'$ is said to be invertible or an isomorphism when there
   exists an inverse morphism $f^{-1}:c'\to c$ such that $f^{-1}\circ f =
   \id_{c}$ and $f\circ f^{-1} = \id_{c'}$.
@@ -150,7 +150,7 @@ structure, only caring about the underlying relationships.
   \end{proof}
 \end{theorem}
 
-\begin{definition}[Monomorphisms]
+\begin{definition}[Monomorphisms\index{Monomorphisms}]
   A morphism $f:c\to c'$ is said to be monic or a monomorphism when it is left
   cancellable \parencite{lane:working_mathematician} i.e. when for any
   configuration of objects and morphisms:
@@ -194,7 +194,7 @@ structure, only caring about the underlying relationships.
   \end{proof}
 \end{theorem}
 
-\begin{definition}[Epimorphism]
+\begin{definition}[Epimorphism\index{Epimorphism}]
   A morphism $f:c\to c'$ is said to be epic or an epimorphism when it is right
   cancellable \parencite{lane:working_mathematician} i.e. when for any
   configuration of objects and morphisms:

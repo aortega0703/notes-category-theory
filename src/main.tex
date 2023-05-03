@@ -1,7 +1,5 @@
 \documentclass[a4paper, draft]{article}
 
-\usepackage{hyperref} % Hyperlinks to sections of the document
-\hypersetup{final} % Set up links even in draft mode
 \usepackage{amsmath, amssymb, mathtools} % Math
 \usepackage{framed}
 \usepackage[framed, thmmarks]{ntheorem}
@@ -19,13 +17,16 @@
 \usepackage{xcolor} % Colors text
 \usepackage{microtype} % Magic agains overfull boxes
 \usepackage{adjustbox} % Resizes things
+\usepackage{imakeidx}
+\usepackage{hyperref} % Hyperlinks to sections of the document
+\hypersetup{final} % Set up links even in draft mode
 
 \input{macros.tex}
 
 \title{Notes on Category Theory}
 \author{Andrés Felipe Ortega Montoya}
 \date{}
-
+\makeindex[title=Index of Definitions, intoc]
 \begin{document}
 
 \maketitle
@@ -35,9 +36,7 @@
 
 \input{constructions.tex}
 
-%\listoftheorems[title={List of Definitions},ignoreall,show={definition}]
-%\listoftheorems[title={List of Theorems}, ignoreall,show={theorem}]
-
+\printindex
 \printbibliography
 %\listoftodos
 \end{document}
