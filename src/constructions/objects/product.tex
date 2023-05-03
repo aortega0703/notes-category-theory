@@ -1,7 +1,7 @@
 \subsection{Product}
 The product of a pair of objects, if it exists, is another object such that it
 represents the cartesian product of both of them.
-\begin{definition}[Product\index{Product}]\label{def:product_limit}
+\begin{definition}[Product\index{Product}]\label{def:product}
 	For a category $C$ and a discrete category $I$, the functor $F:I\to C$ is an
 	$I$-indexed family of objects $(c_i)_{i\in I}$ in $C$. A product $\prod_{i\in
 	I} c_i$ is the limit of such a functor $F$.
@@ -26,17 +26,19 @@ represents the cartesian product of both of them.
 	\end{tikzcd}\]
 \end{remark}
 
-\subsubsection*{As a terminal morphism from the diagonal functor}
-% https://q.uiver.app/?q=WzAsNSxbMiwwLCIoYSxiKSJdLFsxLDAsIlxcRGVsdGEoYVxcdGltZXMgYikiXSxbMSwxLCJcXERlbHRhKGMnKSJdLFswLDEsImMnIl0sWzAsMCwiYVxcdGltZXMgYiJdLFsxLDAsIihcXG1hdGhybXtmc3R9LFxcbWF0aHJte3NuZH0pIl0sWzIsMCwiZiciLDJdLFsyLDEsIlxcRGVsdGEoaCkiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMyw0LCJoIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMSwiIiwyLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzMsMiwiIiwyLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzgsNywiIiwxLHsibGFiZWxfcG9zaXRpb24iOjMwLCJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6NTB9LCJsZXZlbCI6MSwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
-\[\begin{tikzcd}
-	{a\times b} & {\Delta(a\times b)} & {(a,b)} \\
-	{c'} & {\Delta(c')}
-	\arrow["{(\mathrm{fst},\mathrm{snd})}", from=1-2, to=1-3]
-	\arrow["{f'}"', from=2-2, to=1-3]
-	\arrow[""{name=0, anchor=center, inner sep=0}, "{\Delta(h)}", dashed, from=2-2, to=1-2]
-	\arrow[""{name=1, anchor=center, inner sep=0}, "h", dashed, from=2-1, to=1-1]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, shorten <=8pt, shorten >=20pt, dotted, from=1, to=0]
-\end{tikzcd}\]
-\todo{Complete definition}
+\begin{remark}
+	For the binary case, Definition \ref{def:product} can be expresed as a
+	terminal morphism from the (binary) diagonal functor to $(a, b)$:
+	% https://q.uiver.app/?q=WzAsNSxbMiwwLCIoYSxiKSJdLFsxLDAsIlxcRGVsdGEoYVxcdGltZXMgYikiXSxbMSwxLCJcXERlbHRhKGMpIl0sWzAsMSwiYyJdLFswLDAsImFcXHRpbWVzIGIiXSxbMSwwLCIoXFxtYXRocm17ZnN0fSxcXG1hdGhybXtzbmR9KSJdLFsyLDAsImYnIiwyXSxbMiwxLCJcXERlbHRhKGgpIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzMsNCwiaCIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs0LDEsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFszLDIsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs4LDcsIiIsMSx7ImxhYmVsX3Bvc2l0aW9uIjozMCwic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjUwfSwibGV2ZWwiOjEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
+	\[\begin{tikzcd}[ampersand replacement=\&]
+		{a\times b} \& {\Delta(a\times b)} \& {(a,b)} \\
+		c \& {\Delta(c)}
+		\arrow["{(\mathrm{fst},\mathrm{snd})}", from=1-2, to=1-3]
+		\arrow["{f'}"', from=2-2, to=1-3]
+		\arrow[""{name=0, anchor=center, inner sep=0}, "{\Delta(h)}", dashed, from=2-2, to=1-2]
+		\arrow[""{name=1, anchor=center, inner sep=0}, "h", dashed, from=2-1, to=1-1]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, shorten <=8pt, shorten >=20pt, dotted, from=1, to=0]
+	\end{tikzcd}\]
+\end{remark}
