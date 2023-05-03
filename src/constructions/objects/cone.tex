@@ -37,35 +37,8 @@
 	\end{tikzcd}\]
 \end{example}
 
-\begin{definition}[Cone\index{Cone}]\label{def:cone_nat_transformation}
-	For categories $C$, $D$, a functor $F:C\to D$, and an object $d\in D$, the natural transformation $\alpha: \Delta_d \Rightarrow F$ is a cone over $F$ with apex on $d$.
-\end{definition}
-
-\begin{theorem}[Equivalence of Cone Definitions]
-	Definitions \ref{def:cone} and \ref{def:cone_nat_transformation} of cones are
-	equivalent.
-	\begin{proof}
-		The components of $\alpha$, namely $\big(\alpha_c: d \to F(c)\big)_{c\in C}$
-		provides the family of morphisms of the cone, while the naturality condition
-		satisfies the necessary commuting diagram for all $(f:c\to c')\in C,\
-		(\forall c,c'\in C)$:
-
-		% https://q.uiver.app/?q=WzAsNCxbMCwwLCJkIl0sWzEsMCwiZCJdLFswLDEsIkYoYykiXSxbMSwxLCJGKGMnKSJdLFswLDEsIlxcbWF0aHJte2lkfV9kIl0sWzAsMiwiXFxhbHBoYV9jIiwyXSxbMSwzLCJcXGFscGhhX3tjJ30iXSxbMiwzLCJGKGYpIiwyXV0=
-		\[\begin{tikzcd} d & d \\
-			{F(c)} & {F(c')}
-			\arrow["{\id_d}", from=1-1, to=1-2]
-			\arrow["{\alpha_c}"', from=1-1, to=2-1]
-			\arrow["{\alpha_{c'}}", from=1-2, to=2-2]
-			\arrow["{F(f)}"', from=2-1, to=2-2]
-		\end{tikzcd}
-		=
-		% https://q.uiver.app/?q=WzAsMyxbMCwwLCJkIl0sWzAsMSwiRihjKSJdLFsxLDEsIkYoYycpIl0sWzAsMiwiXFxhbHBoYV97Yyd9Il0sWzAsMSwiXFxhbHBoYV9jIiwyXSxbMSwyLCJGKGYpIiwyXV0=
-		\begin{tikzcd}
-			d \\
-			{F(c)} & {F(c')}
-			\arrow["{\alpha_{c'}}", from=1-1, to=2-2]
-			\arrow["{\alpha_c}"', from=1-1, to=2-1]
-			\arrow["{F(f)}"', from=2-1, to=2-2]
-		\end{tikzcd}\]
-	\end{proof}
-\end{theorem}
+\begin{remark}
+	Definition \ref{def:cone} can be expressed simply as a natural transformation
+	$\alpha: \Delta_d \Rightarrow F$ from the constant functor, where $d$ is the
+	apex of the cone.
+\end{remark}
