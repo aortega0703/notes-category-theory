@@ -1,24 +1,29 @@
 \subsection{Product}
 
-\begin{definition}[Product\index{Product}]
-	In a category $C$, the product of $2$ objects $a,b$ is another object
-	$(a\times b)\in C$ with morphisms $\mathrm{fst}: a\times b \to a, \
-	\mathrm{snd}: a\times b \to b$ such that, for any other object $c$ with the
-	same property there exist a unique $f:c \to a\times b$ such that the following
-	diagram commutes:
-	\parencite{awodey:category_theory}
-
-	% https://q.uiver.app/?q=WzAsNCxbMSwyLCJhXFx0aW1lcyBiIl0sWzAsMSwiYSJdLFsyLDEsImIiXSxbMSwwLCJjIl0sWzAsMSwiXFxtYXRocm17ZnN0fSJdLFswLDIsIlxcbWF0aHJte3NuZH0iLDJdLFszLDAsImYiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMywxLCJnIiwyXSxbMywyLCJoIl1d
-	\[\begin{tikzcd} & c \\
-		a && b \\
-		& {a\times b}
-		\arrow["{\mathrm{fst}}", from=3-2, to=2-1]
-		\arrow["{\mathrm{snd}}"', from=3-2, to=2-3]
-		\arrow["f"', dashed, from=1-2, to=3-2]
-		\arrow["g"', from=1-2, to=2-1]
-		\arrow["h", from=1-2, to=2-3]
-	\end{tikzcd}\]
+\begin{definition}[Product\index{Product}]\label{def:product_limit}
+	For a category $C$ and a discrete category $I$, the functor $F:I\to C$ is an
+	$I$-indexed family of objects $(c_i)_{i\in I}$ in $C$. A product $\prod_{i\in
+	I} c_i$ is the limit of such a functor $F$.
+	\parencite{leinster:basic_category_theory}
 \end{definition}
+
+\begin{remark}
+	In the case where $I=\underline{2}$ the product of objects $a$ and $b$ is
+	denoted $a\times b$ and the resulting diagram (which must commute for all $c$)
+	is as follows:
+	% https://q.uiver.app/?q=WzAsNixbMywxLCJhXFx0aW1lcyBiIl0sWzIsMSwiYSJdLFs0LDEsImIiXSxbMywwLCJjIl0sWzAsMSwiMCJdLFsxLDEsIjEiXSxbMCwxLCJcXG1hdGhybXtmc3R9Il0sWzAsMiwiXFxtYXRocm17c25kfSIsMl0sWzMsMCwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDEsImciLDJdLFszLDIsImgiXSxbNCwxLCIiLDAseyJjdXJ2ZSI6NCwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzUsMiwiIiwwLHsiY3VydmUiOjQsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
+	\[\begin{tikzcd}[ampersand replacement=\&]
+		\&\&\& c \\
+		0 \& 1 \& a \& {a\times b} \& b
+		\arrow["{\mathrm{fst}}", from=2-4, to=2-3]
+		\arrow["{\mathrm{snd}}"', from=2-4, to=2-5]
+		\arrow["h"', dashed, from=1-4, to=2-4]
+		\arrow["g"', from=1-4, to=2-3]
+		\arrow["h", from=1-4, to=2-5]
+		\arrow[color={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=2-1, to=2-3]
+		\arrow[color={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=2-2, to=2-5]
+	\end{tikzcd}\]
+\end{remark}
 
 \subsubsection*{As a terminal morphism from the diagonal functor}
 % https://q.uiver.app/?q=WzAsNSxbMiwwLCIoYSxiKSJdLFsxLDAsIlxcRGVsdGEoYVxcdGltZXMgYikiXSxbMSwxLCJcXERlbHRhKGMnKSJdLFswLDEsImMnIl0sWzAsMCwiYVxcdGltZXMgYiJdLFsxLDAsIihcXG1hdGhybXtmc3R9LFxcbWF0aHJte3NuZH0pIl0sWzIsMCwiZiciLDJdLFsyLDEsIlxcRGVsdGEoaCkiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMyw0LCJoIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMSwiIiwyLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzMsMiwiIiwyLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzgsNywiIiwxLHsibGFiZWxfcG9zaXRpb24iOjMwLCJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6NTB9LCJsZXZlbCI6MSwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
@@ -32,25 +37,5 @@
 	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
 	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
 	\arrow[draw={rgb,255:red,92;green,92;blue,214}, shorten <=8pt, shorten >=20pt, dotted, from=1, to=0]
-\end{tikzcd}\]
-\todo{Complete definition}
-
-\subsubsection*{As the limit of a discrete diagram}
-% https://q.uiver.app/?q=WzAsNixbMSwxLCIxIl0sWzAsMSwiMCJdLFszLDIsImFcXHRpbWVzIGIiXSxbMiwxLCJhIl0sWzQsMSwiYiJdLFszLDAsImMiXSxbMSwzLCIiLDEseyJjdXJ2ZSI6MiwiY29sb3VyIjpbMTIwLDYwLDQwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzAsNCwiIiwyLHsiY3VydmUiOjIsImNvbG91ciI6WzEyMCw2MCw0MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDMsIlxcbWF0aHJte2ZzdH0iLDFdLFsyLDQsIlxcbWF0aHJte3NuZH0iLDFdLFsxLDIsIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFswLDIsIiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs1LDIsImgiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSwzLCJcXGFscGhhX2EiLDFdLFs1LDQsIlxcYWxwaGFfYiIsMV0sWzEsNSwiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFswLDUsIiIsMix7ImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
-\[\begin{tikzcd}
-	&&& c \\
-	0 & 1 & a && b \\
-	&&& {a\times b}
-	\arrow[draw={rgb,255:red,41;green,163;blue,41}, curve={height=12pt}, dotted, from=2-1, to=2-3]
-	\arrow[draw={rgb,255:red,41;green,163;blue,41}, curve={height=12pt}, dotted, from=2-2, to=2-5]
-	\arrow["{\mathrm{fst}}"{description}, from=3-4, to=2-3]
-	\arrow["{\mathrm{snd}}"{description}, from=3-4, to=2-5]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=3-4]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-2, to=3-4]
-	\arrow["h"{description}, dashed, from=1-4, to=3-4]
-	\arrow["{\alpha_a}"{description}, from=1-4, to=2-3]
-	\arrow["{\alpha_b}"{description}, from=1-4, to=2-5]
-	\arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=2-1, to=1-4]
-	\arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=2-2, to=1-4]
 \end{tikzcd}\]
 \todo{Complete definition}
