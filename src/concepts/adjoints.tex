@@ -1,6 +1,6 @@
 \section{Adjoint functors}
 
-\begin{definition}[Adjoint Functors]
+\begin{definition}[Adjoint Functors]\label{def:adjoint_hom}
   For categories $C, D$ and functors $L: C\to D$ and $R: D\to C$, the pair ($L$,
   $R$) is said to be a left/right adjoint of eachother when there is a natural
   isomorphism between functors: \parencite{fong_spivak:7sketches}
@@ -47,7 +47,9 @@
 \end{definition}
 
 \begin{remark}
-  In diagram a pair of left/right adjoints $(L, R)$ is written as:
+  In diagram a pair of left/right adjoints $(L, R)$ is indicated by a double
+  arrow ($\Rightarrow$) going in the same direction as the left adjoint, or as a
+  turnstile ($\vdash$) pointing towards the left adjoint as follows:
   % https://q.uiver.app/?q=WzAsMixbMCwwLCJEIl0sWzEsMCwiQyJdLFsxLDAsIkwiLDIseyJjdXJ2ZSI6Mn1dLFswLDEsIlIiLDIseyJjdXJ2ZSI6Mn1dLFsxLDAsIiIsMSx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH0sImxldmVsIjoyfV1d
   \[\begin{tikzcd}
     D & C
@@ -63,12 +65,9 @@
     \arrow[""{name=1, anchor=center, inner sep=0}, "R"', curve={height=18pt}, from=1-1, to=1-2]
     \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=1]
   \end{tikzcd}\]
-
-  Where the double arrow points in the same direction as the left adjoint or the
-  turnstile ($\vdash$) points towards the left adjoint.
 \end{remark}
 
-\begin{definition}[Adjoint Functors]
+\begin{definition}[Adjoint Functors]\label{def:adjoint_unit_counit}
   For categories $C,D$ and functors $L: C\to D$ and $R: D\to C$, $L$ is said to
   be a left adjoint of $R$ when there exists a unit ($\eta$) and counit
   ($\varepsilon$)
@@ -103,6 +102,49 @@
   \end{tikzcd}\]
 \end{definition}
 
+\begin{theorem}[Equality of Adjoint Functor Definitions]
+  Definitions \ref{def:adjoint_hom} and \ref{def:adjoint_unit_counit} of adjoint
+  functors are equivalent.
+
+  \begin{proof}
+    The proof consists of two parts:
+    \begin{description}
+      \item[($\implies$)] For categories $C,D$ with left/right adjoints $L:C\to
+        D$, $R:D\to C$, consider:
+        \[
+          \begin{aligned}
+            \Hom_D(L(x), y) &\ \:\cong\ \: \Hom_C(x, R(y))\\
+            \Hom_D(L(x), L(x)) &\ \:\cong\ \: \Hom_C(x, (R\circ L)(x))\\
+            \big(\id_{L(x)}: L(x) \to L(x)\big) \in D
+            &\implies \big(\eta_x : x \to (R\circ L)(x)\big)\in C
+          \end{aligned}
+        \]
+        Obtaining the existence of the unit $\eta:\id_D\Rightarrow (R\circ L)$.
+        Similarly, the existence of the counit $\varepsilon:(L\circ
+        R)\Rightarrow\id_C$ can be obtained by:
+        \[
+          \begin{aligned}
+            \Hom_D(L(x), y) &\ \ \cong\ \ \Hom_C(x, R(y))\\
+            \Hom_D((L\circ R)(y), y) &\ \ \cong\ \ \Hom_C(R(y), R(y))\\
+            \big(\varepsilon_{y} : (L\circ R)(y) \to y) \in D
+            &\impliedby \big(\id_{R(y)}: R(y) \to R(y)\big) \in C
+          \end{aligned}
+        \]
+        \todo{Triangle identities}
+      \item[($\impliedby$)] For categories $C,D$ with left/right adjoints
+        $L:C\to D$, $R:D\to C$, consider two functions:
+        \[
+          \begin{aligned}
+            f: \hom_D(L(x), y) &\to \hom_C(x, R(y))\\
+            u &\mapsto R(u)\circ \eta_x\\
+            f^{-1} : \hom_C(x, R(y)) &\to \hom_D(L(x), y)\\
+            v &\mapsto \varepsilon_y \circ L(v)
+          \end{aligned}
+        \]
+        \todo{Show isomorphism}
+    \end{description}
+  \end{proof}
+\end{theorem}
 \subsection{Notable examples}
 \begin{itemize}
   \item Coproduct $\dashv$ Diagonal $\dashv$ Product $\dashv$ Exponential
