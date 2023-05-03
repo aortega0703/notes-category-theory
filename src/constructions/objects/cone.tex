@@ -1,62 +1,71 @@
 \subsection{Cone}
-Consider arbitrary categories $C,D$ and a functor $F:C\to D$. A cone over the
-diagram (functor) $F$ consists of an object $d\in D$ and a family of morphisms
-$\big(d_c: d \to F(c)\big)_{c\in C}$ such that for each $(f:c\to c')\in C,\
-(\forall c,c'\in C)$ the following commutes:
-\parencite{awodey:category_theory}
+\begin{definition}[Cone]\label{def:cone}
+	For categories $C,D$ and a functor $F:C\to D$. A cone over the
+	diagram (functor) $F$ consists of an object $d\in D$ and a family of morphisms
+	$\big(d_c: d \to F(c)\big)_{c\in C}$ such that for each $(f:c\to c')\in C,\
+	(\forall c,c'\in C)$ the following commutes:
+	\parencite{awodey:category_theory}
 
-% https://q.uiver.app/?q=WzAsMyxbMCwwLCJkIl0sWzAsMSwiRihjKSJdLFsxLDEsIkYoYycpIl0sWzAsMiwiZF97Yyd9Il0sWzAsMSwiZF9jIiwyXSxbMSwyLCJGKGYpIiwyXV0=
-\[\begin{tikzcd}
-	d \\
-	{F(c)} & {F(c')}
-	\arrow["{d_{c'}}", from=1-1, to=2-2]
-	\arrow["{d_c}"', from=1-1, to=2-1]
-	\arrow["{F(f)}"', from=2-1, to=2-2]
-\end{tikzcd}\]
+	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJkIl0sWzAsMSwiRihjKSJdLFsxLDEsIkYoYycpIl0sWzAsMiwiZF97Yyd9Il0sWzAsMSwiZF9jIiwyXSxbMSwyLCJGKGYpIiwyXV0=
+	\[\begin{tikzcd}
+		d \\
+		{F(c)} & {F(c')}
+		\arrow["{d_{c'}}", from=1-1, to=2-2]
+		\arrow["{d_c}"', from=1-1, to=2-1]
+		\arrow["{F(f)}"', from=2-1, to=2-2]
+	\end{tikzcd}\]
+\end{definition}
 
-e.g.
-% https://q.uiver.app/?q=WzAsOSxbMCwxLCJhIl0sWzEsMiwiYyJdLFsyLDEsImIiXSxbMywxLCJGKGEpIl0sWzUsMSwiRihiKSJdLFs0LDIsIkYoYykiXSxbNCwwLCJkIl0sWzIsMCwiQyJdLFszLDAsIkQiXSxbMCwzLCIiLDEseyJjdXJ2ZSI6NCwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzIsNCwiIiwwLHsiY3VydmUiOi00LCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNiwzLCJkX2EiLDJdLFs2LDQsImRfYiJdLFs2LDUsImRfYyIsMCx7ImxhYmVsX3Bvc2l0aW9uIjoxMH1dLFswLDIsImYiXSxbMiwxLCJoIl0sWzMsNSwiRihnKSIsMl0sWzMsNCwiRihmKSJdLFs3LDgsIkYiLDEseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzAsMSwiZyIsMl0sWzQsNSwiRihoKSJdLFsxLDUsIiIsMSx7ImN1cnZlIjo0LCJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
-\[\begin{tikzcd}
-	&& C & D & d \\
-	a && b & {F(a)} && {F(b)} \\
-	& c &&& {F(c)}
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=2-1, to=2-4]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-24pt}, dotted, from=2-3, to=2-6]
-	\arrow["{d_a}"', from=1-5, to=2-4]
-	\arrow["{d_b}", from=1-5, to=2-6]
-	\arrow["{d_c}"{pos=0.1}, from=1-5, to=3-5]
-	\arrow["f", from=2-1, to=2-3]
-	\arrow["h", from=2-3, to=3-2]
-	\arrow["{F(g)}"', from=2-4, to=3-5]
-	\arrow["{F(f)}", from=2-4, to=2-6]
-	\arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-3, to=1-4]
-	\arrow["g"', from=2-1, to=3-2]
-	\arrow["{F(h)}", from=2-6, to=3-5]
-	\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=3-2, to=3-5]
-\end{tikzcd}\]
+\begin{example}
+	% https://q.uiver.app/?q=WzAsNyxbMCwxLCJhIl0sWzEsMiwiYyJdLFsyLDEsImIiXSxbMywxLCJGKGEpIl0sWzUsMSwiRihiKSJdLFs0LDIsIkYoYykiXSxbNCwwLCJkIl0sWzAsMywiIiwxLHsiY3VydmUiOjQsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDQsIiIsMCx7ImN1cnZlIjotNCwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzYsMywiZF9hIiwyXSxbNiw0LCJkX2IiXSxbNiw1LCJkX2MiLDAseyJsYWJlbF9wb3NpdGlvbiI6MTB9XSxbMCwyLCJmIl0sWzIsMSwiaCJdLFszLDUsIkYoZykiLDJdLFszLDQsIkYoZikiXSxbMCwxLCJnIiwyXSxbNCw1LCJGKGgpIl0sWzEsNSwiIiwxLHsiY3VydmUiOjQsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
+	\[\begin{tikzcd}
+		&&&& d \\
+		a && b & {F(a)} && {F(b)} \\
+		& c &&& {F(c)}
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=2-1, to=2-4]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=-24pt}, dotted, from=2-3, to=2-6]
+		\arrow["{d_a}"', from=1-5, to=2-4]
+		\arrow["{d_b}", from=1-5, to=2-6]
+		\arrow["{d_c}"{pos=0.1}, from=1-5, to=3-5]
+		\arrow["f", from=2-1, to=2-3]
+		\arrow["h", from=2-3, to=3-2]
+		\arrow["{F(g)}"', from=2-4, to=3-5]
+		\arrow["{F(f)}", from=2-4, to=2-6]
+		\arrow["g"', from=2-1, to=3-2]
+		\arrow["{F(h)}", from=2-6, to=3-5]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=3-2, to=3-5]
+	\end{tikzcd}\]
+\end{example}
 
-\subsubsection*{As a natural transformation from the constant functor}
-For categories $C,D$ and a functor $F:C\to D$ and the constant functor
-$\Delta_d: C \to D$ for some $d\in D$, consider the natural transformation
-$\alpha: \Delta_d \Rightarrow F$. For every $c\in C$, the corresponding
-$c$-component $\alpha_c$ provides the family of morphisms of the cone, while the
-naturality condition satisfies the necessary commuting diagram:
+\begin{definition}[Cone as a Natural Transformation]\label{def:cone_nat_transformation}
+	For categories $C$, $D$, a functor $F:C\to D$, and an object $d\in D$, the natural transformation $\alpha: \Delta_d \Rightarrow F$ is a cone over $F$ with apex on $d$.
+\end{definition}
 
-% https://q.uiver.app/?q=WzAsNCxbMCwwLCJkIl0sWzEsMCwiZCJdLFswLDEsIkYoYykiXSxbMSwxLCJGKGMnKSJdLFswLDEsIlxcbWF0aHJte2lkfV9kIl0sWzAsMiwiXFxhbHBoYV9jIiwyXSxbMSwzLCJcXGFscGhhX3tjJ30iXSxbMiwzLCJGKGYpIiwyXV0=
-\[\begin{tikzcd}
-	d & d \\
-	{F(c)} & {F(c')}
-	\arrow["{\id_d}", from=1-1, to=1-2]
-	\arrow["{\alpha_c}"', from=1-1, to=2-1]
-	\arrow["{\alpha_{c'}}", from=1-2, to=2-2]
-	\arrow["{F(f)}"', from=2-1, to=2-2]
-\end{tikzcd}
-=
-% https://q.uiver.app/?q=WzAsMyxbMCwwLCJkIl0sWzAsMSwiRihjKSJdLFsxLDEsIkYoYycpIl0sWzAsMiwiXFxhbHBoYV97Yyd9Il0sWzAsMSwiXFxhbHBoYV9jIiwyXSxbMSwyLCJGKGYpIiwyXV0=
-\begin{tikzcd}
-	d \\
-	{F(c)} & {F(c')}
-	\arrow["{\alpha_{c'}}", from=1-1, to=2-2]
-	\arrow["{\alpha_c}"', from=1-1, to=2-1]
-	\arrow["{F(f)}"', from=2-1, to=2-2]
-\end{tikzcd}\]
+\begin{theorem}[Equivalence of Cone Definitions]
+	Definitions \ref{def:cone} and \ref{def:cone_nat_transformation} of cones are
+	equivalent.
+	\begin{proof}
+		The components of $\alpha$, namely $\big(\alpha_c: d \to F(c)\big)_{c\in C}$
+		provides the family of morphisms of the cone, while the naturality condition
+		satisfies the necessary commuting diagram for all $(f:c\to c')\in C,\
+		(\forall c,c'\in C)$:
+
+		% https://q.uiver.app/?q=WzAsNCxbMCwwLCJkIl0sWzEsMCwiZCJdLFswLDEsIkYoYykiXSxbMSwxLCJGKGMnKSJdLFswLDEsIlxcbWF0aHJte2lkfV9kIl0sWzAsMiwiXFxhbHBoYV9jIiwyXSxbMSwzLCJcXGFscGhhX3tjJ30iXSxbMiwzLCJGKGYpIiwyXV0=
+		\[\begin{tikzcd} d & d \\
+			{F(c)} & {F(c')}
+			\arrow["{\id_d}", from=1-1, to=1-2]
+			\arrow["{\alpha_c}"', from=1-1, to=2-1]
+			\arrow["{\alpha_{c'}}", from=1-2, to=2-2]
+			\arrow["{F(f)}"', from=2-1, to=2-2]
+		\end{tikzcd}
+		=
+		% https://q.uiver.app/?q=WzAsMyxbMCwwLCJkIl0sWzAsMSwiRihjKSJdLFsxLDEsIkYoYycpIl0sWzAsMiwiXFxhbHBoYV97Yyd9Il0sWzAsMSwiXFxhbHBoYV9jIiwyXSxbMSwyLCJGKGYpIiwyXV0=
+		\begin{tikzcd}
+			d \\
+			{F(c)} & {F(c')}
+			\arrow["{\alpha_{c'}}", from=1-1, to=2-2]
+			\arrow["{\alpha_c}"', from=1-1, to=2-1]
+			\arrow["{F(f)}"', from=2-1, to=2-2]
+		\end{tikzcd}\]
+	\end{proof}
+\end{theorem}
