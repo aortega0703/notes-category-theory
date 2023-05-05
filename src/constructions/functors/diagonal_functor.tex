@@ -1,11 +1,27 @@
 \subsection{Diagonal Functor}
 \begin{definition}[Diagonal Functor\index{Diagonal Functor}]
-  For a category $C$, the diagonal functor $\Delta: C\to C\times C$ consists of
-  maps of: \parencite{awodey:category_theory}
+  More generally, for categories $C, D$, the diagonal functor $\Delta: C \to
+  D^C$ consists of maps of: \parencite{leinster:basic_category_theory}
+  \begin{itemize}
+    \item Objects:\\
+      $\Delta(c) = \Delta_c : I \to C,\ (\forall c\in C)$\\
+      Where $\Delta_c$ is the constant functor.
+    \item Morphisms:\\
+      $\Delta(f) = \alpha : \Delta_c \Rightarrow \Delta_{c'}
+      ,\ (\forall f\in C)$\\
+      Such that:
+      $\alpha_c = f,\ (\forall c\in C)$
+  \end{itemize}
+\end{definition}
+
+\begin{remark}
+  As $A^{\underline{2}} \cong A\times A$, in the case where $I = \underline{2}$,
+  $\Delta: C\to C\times C$ consists of maps of:
+  \parencite{awodey:category_theory}
   \begin{itemize}
     \item Objects:\\
       $\Delta(c) = (c, c),\ (\forall c\in C)$
     \item Morphisms:\\
       $\Delta(f) = (f, f),\ (\forall f\in C)$
   \end{itemize}
-\end{definition}
+\end{remark}
