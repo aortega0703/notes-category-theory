@@ -1,6 +1,7 @@
 \subsection{Product}
 The product of a pair of objects, if it exists, is another object such that it
 represents the cartesian product of both of them.
+
 \begin{definition}[Product\index{Product}]\label{def:product} For a category $C$
 	and a discrete category $I$, the functor $F:I\to C$ is an $I$-indexed family
 	of objects $(c_i)_{i\in I}$ in $C$. The product $\prod_{i\in I} c_i$ is the
@@ -42,3 +43,15 @@ represents the cartesian product of both of them.
 		\arrow[draw={rgb,255:red,92;green,92;blue,214}, shorten <=8pt, shorten >=20pt, dotted, from=1, to=0]
 	\end{tikzcd}\]
 \end{remark}
+
+\begin{theorem}[Uniqueness of Product]
+	The product of a collection of objects is unique up to isomorphism.
+
+	\begin{proof}
+		As the product of objects is a limit, and by Theorem \ref{thm:limit_iso}
+		limits are unique up to isomorphism, then products are also unique up to
+		isomorphism.
+	\end{proof}
+\end{theorem}
+
+\todo{coproduct}
