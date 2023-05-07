@@ -20,7 +20,7 @@
 	\end{tikzcd}\]
 \end{definition}
 
-\begin{theorem}[Uniqueness up to Isomorphism of Initial Morphisms]
+\begin{theorem}[Uniqueness of Initial Morphisms]
 	For categories $C,D$, an object $d\in D$, and a functor $F:C\to D$, if there
 	are mulpliple initial morphisms from $d$ to $F$ then they are all isomophic.
 
@@ -90,9 +90,10 @@
 	\end{tikzcd}\]
 \end{definition}
 
-\begin{theorem}[Uniqueness up to Isomorphism of Terminal Morphisms]
-	For categories $C,D$, an object $d\in D$, and a functor $F:C\to D$, if there
-	are mulpliple initial morphisms from $d$ to $F$ then they are all isomophic.
+\begin{theorem}[Uniqueness of Terminal
+	Morphisms]\label{thm:terminal_morphism_unique} For categories $C,D$, an object
+	$d\in D$, and a functor $F:C\to D$, if there are mulpliple initial morphisms
+	from $d$ to $F$ then they are all isomophic.
 
 	\begin{proof}
 		For a set-up of categories and functors:
@@ -135,8 +136,8 @@
 		A terminal object of $(F\downarrow \Delta_d)$ is an object $(c,f,0)$ such
 		that for any other object $(c', f', 0)$ there exists a unique morphism $h:c'
 		\to c$ such that the previous diagram commutes. This is precisely a terminal
-		morphism from $F$ to $d$. Finally, by Theorem \ref{thm:term_obj_iso} they
-		are unique up to isomorphism.
+		morphism from $F$ to $d$. Finally, by Theorem \ref{thm:terminal_object_iso}
+		they are unique up to isomorphism.
 	\end{proof}
 \end{theorem}
 

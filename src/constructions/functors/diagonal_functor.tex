@@ -7,10 +7,30 @@
       $\Delta(c) = \Delta_c : I \to C,\ (\forall c\in C)$\\
       Where $\Delta_c$ is the constant functor.
     \item Morphisms:\\
-      $\Delta(f) = \alpha : \Delta_c \Rightarrow \Delta_{c'}
+      $\Delta(f)  \Delta_c \Rightarrow \Delta_{c'}
       ,\ (\forall f\in C)$\\
       Such that:
-      $\alpha_c = f,\ (\forall c\in C)$
+      $(\Delta(f))_d = f,\ (\forall d\in C)$\\
+      The naturality of this natural transformation is given by:
+      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXERlbHRhX2MoZCkiXSxbMSwwLCJcXERlbHRhX2MoZCcpIl0sWzAsMSwiXFxEZWx0YV97Yyd9KGQpIl0sWzEsMSwiXFxEZWx0YV97Yyd9KGQnKSJdLFswLDEsIlxcRGVsdGFfYyhmKSJdLFswLDIsIihcXERlbHRhKGYpKV9kIiwyXSxbMiwzLCJcXERlbHRhX3tjJ30oZikiLDJdLFsxLDMsIihcXERlbHRhKGYpKV97ZCd9Il1d
+      \[\begin{tikzcd}[ampersand replacement=\&]
+        {\Delta_c(d)} \& {\Delta_c(d')} \\
+        {\Delta_{c'}(d)} \& {\Delta_{c'}(d')}
+        \arrow["{\Delta_c(f)}", from=1-1, to=1-2]
+        \arrow["{(\Delta(f))_d}"', from=1-1, to=2-1]
+        \arrow["{\Delta_{c'}(f)}"', from=2-1, to=2-2]
+        \arrow["{(\Delta(f))_{d'}}", from=1-2, to=2-2]
+      \end{tikzcd}
+      =
+      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJjIl0sWzEsMCwiYyJdLFswLDEsImMnIl0sWzEsMSwiYyciXSxbMCwxLCJcXGlkX2MiXSxbMCwyLCJmIiwyXSxbMiwzLCJcXGlkX3tjJ30iLDJdLFsxLDMsImYiXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+      \begin{tikzcd}[ampersand replacement=\&]
+        c \& c \\
+        {c'} \& {c'}
+        \arrow["{\id_c}", from=1-1, to=1-2]
+        \arrow["f"', from=1-1, to=2-1]
+        \arrow["{\id_{c'}}"', from=2-1, to=2-2]
+        \arrow["f", from=1-2, to=2-2]
+      \end{tikzcd}\]
   \end{itemize}
 \end{definition}
 
