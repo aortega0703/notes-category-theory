@@ -67,7 +67,7 @@
 		that for any other object $(0, f', c')$ there exists a unique morphism $h:c
 		\to c'$ such that the previous diagram commutes. This is precisely an
 		initial morphism from $d$ to $F$. Finally, by Theorem
-		\ref{thm:init_obj_iso} they are unique up to isomorphism.
+		\ref{thm:initial_object_iso} they are unique up to isomorphism.
 	\end{proof}
 \end{theorem}
 
@@ -90,8 +90,12 @@
 	\end{tikzcd}\]
 \end{definition}
 
+\begin{remark}
+	Initial and terminal morphisms are dual concepts.
+\end{remark}
+
 \begin{theorem}[Uniqueness of Terminal
-	Morphisms]\label{thm:terminal_morphism_unique} For categories $C,D$, an object
+	Morphisms]\label{thm:terminal_morphism_iso} For categories $C,D$, an object
 	$d\in D$, and a functor $F:C\to D$, if there are mulpliple initial morphisms
 	from $d$ to $F$ then they are all isomophic.
 

@@ -1,4 +1,4 @@
-\subsection{Initial Object}
+\subsection{Initial and Terminal Objects}
 
 \begin{definition}
   For a category $C$, an object $0$ is said to be initial when there exists a
@@ -6,7 +6,7 @@
   \parencite{awodey:category_theory}
 \end{definition}
 
-\begin{theorem}[Isomorphism of Initial Objects]\label{thm:init_obj_iso} If
+\begin{theorem}[Uniqueness of Initial Objects]\label{thm:initial_object_iso} If
   there are multiple terminal objects in a category, then they are all
   isomorphic.
 
@@ -33,5 +33,25 @@
       \arrow["g", dashed, from=1-1, to=1-2]
       \arrow["f", dashed, from=1-2, to=2-2]
     \end{tikzcd}\]
+  \end{proof}
+\end{theorem}
+
+\begin{definition}[Terminal Object\index{Terminal Object}]
+  For a category $C$, an object $1$ is said to be terminal when there exists a
+  unique morphism $f: c\to 1$ for every object $c\in C$.
+  \parencite{awodey:category_theory}
+\end{definition}
+
+\begin{remark}
+  Initial and terminal objects are dual concepts.
+\end{remark}
+
+\begin{theorem}[Uniqueness of Terminal Objects]\label{thm:terminal_object_iso}
+  If there are multiple terminal objects in a category, then they are all
+  isomorphic.
+
+  \begin{proof}
+    By Theorem \ref{thm:initial_object_iso} initial objects are unique up to
+    isomorphism. As initial and terminal objects are dual, and isomorphism is self-dual, terminal objects are also unique up to isomorphism.
   \end{proof}
 \end{theorem}
