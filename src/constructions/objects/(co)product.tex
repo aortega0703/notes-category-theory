@@ -2,28 +2,27 @@
 The product of a pair of objects, if it exists, is another object such that it
 represents the cartesian product of both of them.
 
-\begin{definition}[Product\index{Product}]\label{def:product} For a category $C$
-	and a discrete category $I$, the functor $F:I\to C$ is an $I$-indexed family
-	of objects $(c_i)_{i\in I}$ in $C$. The product $\prod_{i\in I} c_i$ is the
-	limit of such a functor $F$.
-	\parencite{leinster:basic_category_theory}
+\begin{definition}[Product\index{Product}]\label{def:product} For a discrete
+	category $I$, the functor $F:I\to C$ is an $I$-indexed family of objects
+	$(c_i)_{i\in I}$ in $C$. The product $\prod_{i\in I} c_i$ is the limit of such
+	a functor $F$. \parencite{leinster:basic_category_theory}
 \end{definition}
 
 \begin{remark}
 	In the case where $I=\underline{2}$ the product of objects $a$ and $b$ is
 	denoted $a\times b$ and the resulting diagram (which must commute for all $c$)
 	is as follows: \parencite{awodey:category_theory}
-	% https://q.uiver.app/?q=WzAsNixbMywxLCJhXFx0aW1lcyBiIl0sWzIsMSwiYSJdLFs0LDEsImIiXSxbMywwLCJjIl0sWzAsMSwiMCJdLFsxLDEsIjEiXSxbMCwxLCJcXG1hdGhybXtmc3R9Il0sWzAsMiwiXFxtYXRocm17c25kfSIsMl0sWzMsMCwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDEsImciLDJdLFszLDIsImgiXSxbNCwxLCIiLDAseyJjdXJ2ZSI6NCwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzUsMiwiIiwwLHsiY3VydmUiOjQsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
+	% https://q.uiver.app/?q=WzAsNixbMywxLCJhXFx0aW1lcyBiIl0sWzIsMSwiYSJdLFs0LDEsImIiXSxbMywwLCJjIl0sWzAsMSwiMCJdLFsxLDEsIjEiXSxbMCwxLCJcXG1hdGhybXtmc3R9Il0sWzAsMiwiXFxtYXRocm17c25kfSIsMl0sWzMsMCwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDEsImYiLDJdLFszLDIsImciXSxbNCwxLCIiLDAseyJjdXJ2ZSI6NCwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzUsMiwiIiwwLHsiY3VydmUiOjQsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
 	\[\begin{tikzcd}[ampersand replacement=\&]
 		\&\&\& c \\
 		0 \& 1 \& a \& {a\times b} \& b
 		\arrow["{\mathrm{fst}}", from=2-4, to=2-3]
 		\arrow["{\mathrm{snd}}"', from=2-4, to=2-5]
 		\arrow["h"', dashed, from=1-4, to=2-4]
-		\arrow["g"', from=1-4, to=2-3]
-		\arrow["h", from=1-4, to=2-5]
-		\arrow[color={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=2-1, to=2-3]
-		\arrow[color={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=2-2, to=2-5]
+		\arrow["f"', from=1-4, to=2-3]
+		\arrow["g", from=1-4, to=2-5]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=2-1, to=2-3]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=2-2, to=2-5]
 	\end{tikzcd}\]
 \end{remark}
 
@@ -54,4 +53,54 @@ represents the cartesian product of both of them.
 	\end{proof}
 \end{theorem}
 
-\todo{coproduct}
+\begin{definition}[Coproduct\index{Product!Coproduct}\index{Sum}\label{def:coproduct}]
+	For a discrete category $I$, the functor $F:I\to C$ is an $I$-indexed family
+	of objects $(c_i)_{i\in I}$ in $C$. The coproduct or sum $\Sigma_{i\in I} c_i$
+	is the colimit of such a functor $F$.
+	\parencite{leinster:basic_category_theory}
+\end{definition}
+
+\begin{remark}
+	In the case where $I=\underline{2}$ the coproduct of objects $a$ and $b$ is
+	denoted $a + b$ and the resulting diagram (which must commute for all $c$)
+	is as follows: \parencite{leinster:basic_category_theory}
+	% https://q.uiver.app/?q=WzAsNixbMywxLCJhKyBiIl0sWzIsMSwiYSJdLFs0LDEsImIiXSxbMywwLCJjIl0sWzAsMSwiMCJdLFsxLDEsIjEiXSxbMSwwLCJcXG1hdGhybXtsZWZ0fSIsMl0sWzIsMCwiXFxtYXRocm17cmlnaHR9Il0sWzAsMywiaCIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDMsImYiXSxbMiwzLCJnIiwyXSxbNCwxLCIiLDAseyJjdXJ2ZSI6NCwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzUsMiwiIiwwLHsiY3VydmUiOjQsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
+	\[\begin{tikzcd}[ampersand replacement=\&]
+		\&\&\& c \\
+		0 \& 1 \& a \& {a+ b} \& b
+		\arrow["{\mathrm{left}}"', from=2-3, to=2-4]
+		\arrow["{\mathrm{right}}", from=2-5, to=2-4]
+		\arrow["h", dashed, from=2-4, to=1-4]
+		\arrow["f", from=2-3, to=1-4]
+		\arrow["g"', from=2-5, to=1-4]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=2-1, to=2-3]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=2-2, to=2-5]
+	\end{tikzcd}\]
+\end{remark}
+
+\begin{remark}
+	For the binary case, Definition \ref{def:coproduct} can be expressed as an
+	initial morphism from the (binary) diagonal functor to $(a, b)$:
+	% https://q.uiver.app/?q=WzAsNSxbMiwwLCIoYSxiKSJdLFsxLDAsIlxcRGVsdGEoYSsgYikiXSxbMSwxLCJcXERlbHRhKGMpIl0sWzAsMSwiYyJdLFswLDAsImErIGIiXSxbMCwxLCIoXFxtYXRocm17bGVmdH0sXFxtYXRocm17cmlnaHR9KSIsMl0sWzAsMiwiZiciXSxbMSwyLCJcXERlbHRhKGgpIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMywiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs0LDEsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFszLDIsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs4LDcsIiIsMSx7ImxhYmVsX3Bvc2l0aW9uIjozMCwic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjUwfSwibGV2ZWwiOjEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
+	\[\begin{tikzcd}[ampersand replacement=\&]
+		{a+ b} \& {\Delta(a+ b)} \& {(a,b)} \\
+		c \& {\Delta(c)}
+		\arrow["{(\mathrm{left},\mathrm{right})}"', from=1-3, to=1-2]
+		\arrow["{f'}", from=1-3, to=2-2]
+		\arrow[""{name=0, anchor=center, inner sep=0}, "{\Delta(h)}"', dashed, from=1-2, to=2-2]
+		\arrow[""{name=1, anchor=center, inner sep=0}, "h"', dashed, from=1-1, to=2-1]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
+		\arrow[draw={rgb,255:red,92;green,92;blue,214}, shorten <=8pt, shorten >=20pt, dotted, from=1, to=0]
+	\end{tikzcd}\]
+\end{remark}
+
+\begin{theorem}[Uniqueness of Product]
+	The coproduct of a collection of objects is unique up to isomorphism.
+
+	\begin{proof}
+		As the product of objects is a colimit, and by Theorem \ref{thm:colimit_iso}
+		colimits are unique up to isomorphism, then coproducts are also unique up to
+		isomorphism.
+	\end{proof}
+\end{theorem}
