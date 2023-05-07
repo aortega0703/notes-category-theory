@@ -145,21 +145,3 @@
     \end{description}
   \end{proof}
 \end{theorem}
-\subsection{Notable examples}
-\begin{itemize}
-  \item Coproduct $\dashv$ Diagonal $\dashv$ Product $\dashv$ Exponential
-    \parencite{lane_moerdijk:sheaves_geometry_logic}
-    % https://q.uiver.app/?q=WzAsMixbMCwwLCJDIl0sWzAsMiwiQ1xcdGltZXMgQyJdLFsxLDAsIisiLDEseyJjdXJ2ZSI6LTV9XSxbMCwxLCJcXERlbHRhIiwxLHsiY3VydmUiOjJ9XSxbMSwwLCJcXHRpbWVzIiwxLHsiY3VydmUiOjJ9XSxbMCwxLCJcXHJpZ2h0YXJyb3ciLDEseyJjdXJ2ZSI6LTV9XSxbMyw0LCIiLDEseyJsZXZlbCI6MSwic3R5bGUiOnsibmFtZSI6ImFkanVuY3Rpb24ifX1dLFs0LDUsIiIsMSx7ImxldmVsIjoxLCJzdHlsZSI6eyJuYW1lIjoiYWRqdW5jdGlvbiJ9fV0sWzIsMywiIiwxLHsibGV2ZWwiOjEsInN0eWxlIjp7Im5hbWUiOiJhZGp1bmN0aW9uIn19XV0=
-    \[\begin{tikzcd}
-      C \\
-      \\
-      {C\times C}
-      \arrow[""{name=0, anchor=center, inner sep=0}, "{+}"{description}, curve={height=-30pt}, from=3-1, to=1-1]
-      \arrow[""{name=1, anchor=center, inner sep=0}, "\Delta"{description}, curve={height=12pt}, from=1-1, to=3-1]
-      \arrow[""{name=2, anchor=center, inner sep=0}, "\times"{description}, curve={height=12pt}, from=3-1, to=1-1]
-      \arrow[""{name=3, anchor=center, inner sep=0}, "\rightarrow"{description}, curve={height=-30pt}, from=1-1, to=3-1]
-      \arrow["\dashv"{anchor=center}, draw=none, from=1, to=2]
-      \arrow["\dashv"{anchor=center, rotate=4}, draw=none, from=2, to=3]
-      \arrow["\dashv"{anchor=center, rotate=-4}, draw=none, from=0, to=1]
-    \end{tikzcd}\]
-\end{itemize}

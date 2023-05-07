@@ -1,9 +1,8 @@
 \subsection{Cones and Cocones}
-\begin{definition}[Cone\index{Cone}\label{def:cone}] For categories $C,D$ and a
-	functor $F:C\to D$. A cone over the functor $F$ consists of an object $d\in D$
-	(the vertex) and a family of morphisms $\big(d_c: d \to F(c)\big)_{c\in C}$
-	such that for each $(f:c\to c')\in C,\ (\forall c,c'\in C)$ the following
-	commutes:
+\begin{definition}[Cone\index{Cone}\label{def:cone}] For a functor $F:C\to D$
+	and an object $d\in D$, a cone from $d$ to $F$ consists of the vertex $d$ and
+	a family of morphisms $\big(d_c: d \to F(c)\big)_{c\in C}$ such that for each
+	$(f:c\to c')\in C,\ (\forall c,c'\in C)$ the following commutes:
 	\parencite{awodey:category_theory}
 
 	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJkIl0sWzAsMSwiRihjKSJdLFsxLDEsIkYoYycpIl0sWzAsMiwiZF97Yyd9Il0sWzAsMSwiZF9jIiwyXSxbMSwyLCJGKGYpIiwyXV0=
@@ -44,10 +43,10 @@
 \end{remark}
 
 \begin{definition}[Cocone\index{Cone!Cocone}\label{def:cocone}]
-	For categories $C,D$ and a functor $F:C\to D$. A cocone under the functor $F$
-	consists of an object $d\in D$ (the vertex) and a family of morphisms
-	$\big(d_c: F(c) \to d\big)_{c\in C}$ such that for each $(f:c\to c')\in C,\
-	(\forall c,c'\in C)$ the following commutes:
+	For a functor $F:C\to D$ and an object $d\in D$, a cocone from $F$ to $d$
+	consists of the vertex $d$ and a family of morphisms $\big(d_c: F(c) \to
+	d\big)_{c\in C}$ such that for each $(f:c\to c')\in C,\ (\forall c,c'\in C)$
+	the following commutes:
 	\parencite{leinster:basic_category_theory}
 	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJkIl0sWzAsMSwiRihjKSJdLFsxLDEsIkYoYycpIl0sWzIsMCwiZF97Yyd9IiwyXSxbMSwwLCJkX2MiXSxbMSwyLCJGKGYpIiwyXV0=
 	\[\begin{tikzcd}[ampersand replacement=\&]
