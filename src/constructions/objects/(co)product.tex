@@ -1,36 +1,38 @@
 \subsection{Products and Coproducts}
+
+\subsubsection*{Products}
 The product of a pair of objects, if it exists, is another object such that it
 represents the cartesian product of both of them.
 
-\begin{definition}[Binary Product\index{Product!Binary}]\label{def:product}
+\begin{definition}[Binary Product\index{Product}\label{def:product}]
+
 	For a pair of objects $(A, B)$, a product candidate consists of an object $P$
-	together with morphisms $\mathrm{fst}: A\times B\to A$ and
-	$\mathrm{scn}:A\times B\to B$:
-	% https://q.uiver.app/?q=WzAsMyxbMCwxLCJBIl0sWzIsMSwiQiJdLFsxLDAsIlAiXSxbMiwwXSxbMiwxXV0=
+	together with morphisms $p_1: P\to A$ and $p_2:P\to B$:
+	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJBIl0sWzIsMCwiQiJdLFsxLDAsIlAiXSxbMiwwLCJwXzEiLDJdLFsyLDEsInBfMiJdXQ==
 	\[\begin{tikzcd}[ampersand replacement=\&]
-		\& P \\
-		A \&\& B
-		\arrow[from=1-2, to=2-1]
-		\arrow[from=1-2, to=2-3]
+		A \& P \& B
+		\arrow["{p_1}"', from=1-2, to=1-1]
+		\arrow["{p_2}", from=1-2, to=1-3]
 	\end{tikzcd}\]
 
-	A product $A\times B$ is a candidate such that for any other candidate $P$ the
-	following commutes: \parencite{leinster:basic_category_theory}
-	% https://q.uiver.app/?q=WzAsNCxbMiwxLCJBIl0sWzEsMSwiQiJdLFswLDIsIkFcXHRpbWVzIEIiXSxbMCwwLCJQIl0sWzIsMF0sWzIsMV0sWzMsMF0sWzMsMV0sWzMsMiwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
-	% https://q.uiver.app/?q=WzAsNCxbMSwxLCJBIl0sWzIsMSwiQiJdLFswLDIsIkFcXHRpbWVzIEIiXSxbMCwwLCJQIl0sWzIsMCwiXFxtYXRocm17ZnN0fSJdLFsyLDEsIlxcbWF0aHJte3NuZH0iLDJdLFszLDAsInBfMSIsMl0sWzMsMSwicF8yIl0sWzMsMiwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+	A product $(A\times B, \mathrm{fst}, \mathrm{snd})$ is a candidate such that
+	for any candidate $(P, p_1, p_2)$ there exists a unique $h: P\to A\times B$
+	that makes the following commute:
+	\parencite{leinster:basic_category_theory}
+	% https://q.uiver.app/?q=WzAsNCxbMCwxLCJBIl0sWzIsMSwiQiJdLFsxLDEsIkFcXHRpbWVzIEIiXSxbMSwwLCJQIl0sWzIsMCwiXFxtYXRocm17ZnN0fSJdLFsyLDEsIlxcbWF0aHJte3NuZH0iLDJdLFszLDAsInBfMSIsMl0sWzMsMSwicF8yIl0sWzMsMiwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
 	\[\begin{tikzcd}[ampersand replacement=\&]
-		P \\
-		\& A \& B \\
-		{A\times B}
-		\arrow["{\mathrm{fst}}", from=3-1, to=2-2]
-		\arrow["{\mathrm{snd}}"', from=3-1, to=2-3]
-		\arrow["{p_1}"', from=1-1, to=2-2]
-		\arrow["{p_2}", from=1-1, to=2-3]
-		\arrow["h"', dashed, from=1-1, to=3-1]
+		\& P \\
+		A \& {A\times B} \& B
+		\arrow["{\mathrm{fst}}", from=2-2, to=2-1]
+		\arrow["{\mathrm{snd}}"', from=2-2, to=2-3]
+		\arrow["{p_1}"', from=1-2, to=2-1]
+		\arrow["{p_2}", from=1-2, to=2-3]
+		\arrow["h"', dashed, from=1-2, to=2-2]
 	\end{tikzcd}\]
 \end{definition}
 
-\begin{definition}[Product as Limit\index{Product!as Limit}]\label{def:product:limit}
+\begin{definition}[Product as Limit\index{Product!as Limit}\label{def:product:limit}]
+
 	More generally, for a discrete category $I$, the functor $F:I\to C$ is an
 	$I$-indexed family of objects $(c_i)_{i\in I}$ in $C$. The product
 	$\prod_{i\in I} c_i$ is the limit of such a functor $F$.
@@ -44,7 +46,7 @@ represents the cartesian product of both of them.
 
 \begin{remark}
 	In the case where $I=\underline{2}$, Definitions \ref{def:product} and
-	\ref{def:product:def:limit} are equivalent.
+	\ref{def:product:limit} are equivalent.
 \end{remark}
 
 \begin{theorem}[Uniqueness of Product]
@@ -57,9 +59,40 @@ represents the cartesian product of both of them.
 	\end{proof}
 \end{theorem}
 
+\subsubsection*{Coproduct}
 The coproduct of a pair of objects, if it exists, is another object such that it
 represents the disjunt union of both of them.
-\begin{definition}[Coproduct\index{Product!Coproduct}\index{Sum}\label{def:coproduct}]
+
+\begin{definition}[Binary
+Coproduct\index{Coproduct}\label{def:coproduct}]
+
+	For a pair of objects $(A, B)$, a coproduct or sum candidate consists of an
+	object $P$ together with morphisms $p_1: A\to P$ and
+	$p_2:B\to P$:
+	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJBIl0sWzIsMCwiQiJdLFsxLDAsIlAiXSxbMCwyLCJwXzEiXSxbMSwyLCJwXzIiLDJdXQ==
+	\[\begin{tikzcd}[ampersand replacement=\&]
+		A \& P \& B
+		\arrow["{p_1}", from=1-1, to=1-2]
+		\arrow["{p_2}"', from=1-3, to=1-2]
+	\end{tikzcd}\]
+
+	A coproduct $(A+ B, \mathrm{left}, \mathrm{right})$ is a candidate such that
+	for any candidate $(P, p_1, p_2)$ there exists a unique $h: A+B\to P$ that
+	makes the following commute:
+	\parencite{leinster:basic_category_theory}
+	% https://q.uiver.app/?q=WzAsNCxbMCwwLCJBIl0sWzIsMCwiQiJdLFsxLDAsIkErIEIiXSxbMSwxLCJQIl0sWzAsMiwiXFxtYXRocm17bGVmdH0iXSxbMSwyLCJcXG1hdGhybXtyaWdodH0iLDJdLFswLDMsInBfMSIsMl0sWzEsMywicF8yIl0sWzIsMywiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+	\[\begin{tikzcd}[ampersand replacement=\&]
+		A \& {A+ B} \& B \\
+		\& P
+		\arrow["{\mathrm{left}}", from=1-1, to=1-2]
+		\arrow["{\mathrm{right}}"', from=1-3, to=1-2]
+		\arrow["{p_1}"', from=1-1, to=2-2]
+		\arrow["{p_2}", from=1-3, to=2-2]
+		\arrow["h"', dashed, from=1-2, to=2-2]
+	\end{tikzcd}\]
+\end{definition}
+
+\begin{definition}[Coproduct as Colimit\index{Coproduct!as Colimit}\index{Sum}]
 	For a discrete category $I$, the functor $F:I\to C$ is an $I$-indexed family
 	of objects $(c_i)_{i\in I}$ in $C$. The coproduct or sum $\Sigma_{i\in I} c_i$
 	is the colimit of such a functor $F$.
@@ -73,41 +106,6 @@ represents the disjunt union of both of them.
 \begin{remark}
 	In the case where $I=\underline{0}$ the product is denoted as $0$ and
 	corresponds to an initial object.
-\end{remark}
-
-\begin{remark}
-	In the case where $I=\underline{2}$ the coproduct of objects $a$ and $b$ is
-	denoted $a + b$ and the resulting diagram (which must commute for all $c$)
-	is as follows: \parencite{leinster:basic_category_theory}
-	% https://q.uiver.app/?q=WzAsNixbMywxLCJhKyBiIl0sWzIsMSwiYSJdLFs0LDEsImIiXSxbMywwLCJjIl0sWzAsMSwiMCJdLFsxLDEsIjEiXSxbMSwwLCJcXG1hdGhybXtsZWZ0fSIsMl0sWzIsMCwiXFxtYXRocm17cmlnaHR9Il0sWzAsMywiaCIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDMsImYiXSxbMiwzLCJnIiwyXSxbNCwxLCIiLDAseyJjdXJ2ZSI6NCwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzUsMiwiIiwwLHsiY3VydmUiOjQsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
-	\[\begin{tikzcd}[ampersand replacement=\&]
-		\&\&\& c \\
-		0 \& 1 \& a \& {a+ b} \& b
-		\arrow["{\mathrm{left}}"', from=2-3, to=2-4]
-		\arrow["{\mathrm{right}}", from=2-5, to=2-4]
-		\arrow["h", dashed, from=2-4, to=1-4]
-		\arrow["f", from=2-3, to=1-4]
-		\arrow["g"', from=2-5, to=1-4]
-		\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=2-1, to=2-3]
-		\arrow[draw={rgb,255:red,92;green,92;blue,214}, curve={height=24pt}, dotted, from=2-2, to=2-5]
-	\end{tikzcd}\]
-\end{remark}
-
-\begin{remark}
-	For the binary case, Definition \ref{def:coproduct} can be expressed as an
-	initial morphism from the (binary) diagonal functor to $(a, b)$:
-	% https://q.uiver.app/?q=WzAsNSxbMiwwLCIoYSxiKSJdLFsxLDAsIlxcRGVsdGEoYSsgYikiXSxbMSwxLCJcXERlbHRhKGMpIl0sWzAsMSwiYyJdLFswLDAsImErIGIiXSxbMCwxLCIoXFxtYXRocm17bGVmdH0sXFxtYXRocm17cmlnaHR9KSIsMl0sWzAsMiwiZiciXSxbMSwyLCJcXERlbHRhKGgpIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMywiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs0LDEsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFszLDIsIiIsMix7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFs4LDcsIiIsMSx7ImxhYmVsX3Bvc2l0aW9uIjozMCwic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjUwfSwibGV2ZWwiOjEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
-	\[\begin{tikzcd}[ampersand replacement=\&]
-		{a+ b} \& {\Delta(a+ b)} \& {(a,b)} \\
-		c \& {\Delta(c)}
-		\arrow["{(\mathrm{left},\mathrm{right})}"', from=1-3, to=1-2]
-		\arrow["{f'}", from=1-3, to=2-2]
-		\arrow[""{name=0, anchor=center, inner sep=0}, "{\Delta(h)}"', dashed, from=1-2, to=2-2]
-		\arrow[""{name=1, anchor=center, inner sep=0}, "h"', dashed, from=1-1, to=2-1]
-		\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
-		\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
-		\arrow[draw={rgb,255:red,92;green,92;blue,214}, shorten <=8pt, shorten >=20pt, dotted, from=1, to=0]
-	\end{tikzcd}\]
 \end{remark}
 
 \begin{theorem}[Uniqueness of Coproduct]
