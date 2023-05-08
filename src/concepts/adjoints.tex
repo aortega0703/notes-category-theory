@@ -126,7 +126,7 @@
           \begin{aligned}
             \Hom_D(L(x), y) &\ \ \cong\ \ \Hom_C(x, R(y))\\
             \Hom_D((L\circ R)(y), y) &\ \ \cong\ \ \Hom_C(R(y), R(y))\\
-            \big(\varepsilon_{y} : (L\circ R)(y) \to y) \in D
+            \big(\varepsilon_{y} : (L\circ R)(y) \to y) \in Dexampl
             &\impliedby \big(\id_{R(y)}: R(y) \to R(y)\big) \in C
           \end{aligned}
         \]
@@ -135,13 +135,51 @@
         $L:C\to D$, $R:D\to C$, consider two functions:
         \[
           \begin{aligned}
-            f: \hom_D(L(x), y) &\to \hom_C(x, R(y))\\
+            \phi: \hom_D(L(x), y) &\to \hom_C(x, R(y))\\
             u &\mapsto R(u)\circ \eta_x\\
-            f^{-1} : \hom_C(x, R(y)) &\to \hom_D(L(x), y)\\
+            \psi: \hom_C(x, R(y)) &\to \hom_D(L(x), y)\\
             v &\mapsto \varepsilon_y \circ L(v)
           \end{aligned}
         \]
-        \todo{Show isomorphism}
+        Given the triangle identities, and using the naturality condition of $\eta$ and $\varepsilon$, the following diagrams commute:
+        % https://q.uiver.app/?q=WzAsNSxbMCwwLCJMKHgpIl0sWzAsMSwiKExcXGNpcmMgUlxcY2lyYyBMKSh4KSJdLFsxLDEsIkwoeCkiXSxbMCwyLCIoTFxcY2lyYyBSKSh5KSJdLFsxLDIsInkiXSxbMCwyLCJcXGlkX3tMKHgpfSJdLFswLDEsIkwoXFxldGFfeCkiLDJdLFsxLDIsIlxcdmFyZXBzaWxvbl97TCh4KX0iXSxbMiw0LCJ1Il0sWzEsMywiKExcXGNpcmMgUikodSkiLDJdLFszLDQsIlxcdmFyZXBzaWxvbl95IiwyXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+        \[\begin{tikzcd}[ampersand replacement=\&]
+          {L(x)} \\
+          {(L\circ R\circ L)(x)} \& {L(x)} \\
+          {(L\circ R)(y)} \& y
+          \arrow["{\id_{L(x)}}", from=1-1, to=2-2]
+          \arrow["{L(\eta_x)}"', from=1-1, to=2-1]
+          \arrow["{\varepsilon_{L(x)}}", from=2-1, to=2-2]
+          \arrow["u", from=2-2, to=3-2]
+          \arrow["{(L\circ R)(u)}"', from=2-1, to=3-1]
+          \arrow["{\varepsilon_y}"', from=3-1, to=3-2]
+        \end{tikzcd}
+        \qquad
+        % https://q.uiver.app/?q=WzAsNSxbMCwxLCJSKHkpIl0sWzEsMSwiKFJcXGNpcmMgTFxcY2lyYyBSKSh5KSJdLFsxLDIsIlIoeSkiXSxbMSwwLCIoTFxcY2lyYyBSKSh4KSJdLFswLDAsIngiXSxbMCwyLCJcXGlkX3tSKHgpfSIsMl0sWzAsMSwiXFxldGFfe1IoeSl9Il0sWzEsMiwiUihcXHZhcmVwc2lsb25feSkiXSxbMywxLCIoTFxcY2lyYyBSKSh2KSJdLFs0LDAsInYiLDJdLFs0LDMsIlxcZXRhX3giXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+        \begin{tikzcd}[ampersand replacement=\&]
+          x \& {(L\circ R)(x)} \\
+          {R(y)} \& {(R\circ L\circ R)(y)} \\
+          \& {R(y)}
+          \arrow["{\id_{R(x)}}"', from=2-1, to=3-2]
+          \arrow["{\eta_{R(y)}}", from=2-1, to=2-2]
+          \arrow["{R(\varepsilon_y)}", from=2-2, to=3-2]
+          \arrow["{(L\circ R)(v)}", from=1-2, to=2-2]
+          \arrow["v"', from=1-1, to=2-1]
+          \arrow["{\eta_x}", from=1-1, to=1-2]
+        \end{tikzcd}\]
+
+        To show that $\phi$ and $\psi$ are an isomorphism consider their
+        compositions, both of which are the identity by use of the respective
+        diagram above:
+        \[
+          \begin{aligned}
+            (\psi\circ\phi)(u) &=
+              \varepsilon \circ (L\circ R(u)) \circ L(\eta_x) = u\\
+            (\phi\circ\psi)(v) &=
+              R(\varepsilon_y)\circ (R\circ L(v)) \circ \eta_x = v\\
+          \end{aligned}
+        \]
+        \todo{Show naturality}
     \end{description}
   \end{proof}
 \end{theorem}
