@@ -7,9 +7,9 @@
   \parencite{leinster:basic_category_theory}
   \[
     \begin{aligned}
-      \phi_{(c', d)}: \Hom_D(L(c'), d) &\to \Hom_C(c', R(d))\\
+      \phi_{(c', d)}: \Hom_D(L(c), d) &\to \Hom_C(c, R(d))\\
       u &\mapsto \overline{u}\\
-      \psi_{(c', d)}: \Hom_C(c', R(d)) &\to \Hom_D(L(c'), d)\\
+      \psi_{(c', d)}: \Hom_C(c, R(d)) &\to \Hom_D(L(c), d)\\
       v &\mapsto \overline{v}
     \end{aligned}
   \]
@@ -19,29 +19,29 @@
     \item $(c', d)$-Components:
       \[
         \alpha_{(c', d)}
-          = \Hom_D(L(c'), d) \overset{\cong}{\to} \Hom_C(c', R(d))\\
+          = \Hom_D(L(c), d) \overset{\cong}{\to} \Hom_C(c, R(d))\\
       \]
     \item Naturality Condition:\\
-      For every $f = (g^{op}, h): (c', d) \to (c, d')$, the following commutes:
-      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXEhvbV9EKEwoYycpLCBkKSJdLFsxLDAsIlxcSG9tX0MoYycsIFIoZCkpIl0sWzAsMSwiXFxIb21fRChMKGMpLGQnKSJdLFsxLDEsIlxcSG9tX0MoYyxSKGQnKSkiXSxbMCwyLCJcXEhvbV9EKEwoZ157XFxvcH0pLCBoKSIsMl0sWzEsMywiXFxIb21fQyhnXntcXG9wfSwgUihoKSkiXSxbMCwxLCJcXHBoaV97KGMnLCBkKX0iLDAseyJvZmZzZXQiOi0xfV0sWzIsMywiXFxwaGlfeyhjLGQnKX0iLDIseyJvZmZzZXQiOjF9XSxbMywyLCJcXHBzaV97KGMsZCcpfSIsMix7Im9mZnNldCI6MX1dLFsxLDAsIlxccHNpX3soYycsZCl9IiwwLHsib2Zmc2V0IjotMX1dXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+      For every $f = (g, h): (c', d) \to (c, d')$, the following commutes:
+      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXEhvbV9EKEwoYyksIGQpIl0sWzEsMCwiXFxIb21fQyhjLCBSKGQpKSJdLFswLDEsIlxcSG9tX0QoTChjJyksZCcpIl0sWzEsMSwiXFxIb21fQyhjJyxSKGQnKSkiXSxbMCwyLCJcXEhvbV9EKEwoZyksIGgpIiwyXSxbMSwzLCJcXEhvbV9DKGcsIFIoaCkpIl0sWzAsMSwiXFxwaGlfeyhjLCBkKX0iLDAseyJvZmZzZXQiOi0xfV0sWzIsMywiXFxwaGlfeyhjJyxkJyl9IiwyLHsib2Zmc2V0IjoxfV0sWzMsMiwiXFxwc2lfeyhjJyxkJyl9IiwyLHsib2Zmc2V0IjoxfV0sWzEsMCwiXFxwc2lfeyhjLGQpfSIsMCx7Im9mZnNldCI6LTF9XV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
       \[\begin{tikzcd}[ampersand replacement=\&]
-        {\Hom_D(L(c'), d)} \& {\Hom_C(c', R(d))} \\
-        {\Hom_D(L(c),d')} \& {\Hom_C(c,R(d'))}
-        \arrow["{\Hom_D(L(g^{\op}), h)}"', from=1-1, to=2-1]
-        \arrow["{\Hom_C(g^{\op}, R(h))}", from=1-2, to=2-2]
-        \arrow["{\phi_{(c', d)}}", shift left=1, from=1-1, to=1-2]
-        \arrow["{\phi_{(c,d')}}"', shift right=1, from=2-1, to=2-2]
-        \arrow["{\psi_{(c,d')}}"', shift right=1, from=2-2, to=2-1]
-        \arrow["{\psi_{(c',d)}}", shift left=1, from=1-2, to=1-1]
+        {\Hom_D(L(c), d)} \& {\Hom_C(c, R(d))} \\
+        {\Hom_D(L(c'),d')} \& {\Hom_C(c',R(d'))}
+        \arrow["{\Hom_D(L(g), h)}"', from=1-1, to=2-1]
+        \arrow["{\Hom_C(g, R(h))}", from=1-2, to=2-2]
+        \arrow["{\phi_{(c, d)}}", shift left=1, from=1-1, to=1-2]
+        \arrow["{\phi_{(c',d')}}"', shift right=1, from=2-1, to=2-2]
+        \arrow["{\psi_{(c',d')}}"', shift right=1, from=2-2, to=2-1]
+        \arrow["{\psi_{(c,d)}}", shift left=1, from=1-2, to=1-1]
       \end{tikzcd}\]
 
       Equating both $\phi$ paths:
       \[
         \begin{aligned}
-          \big(\phi_{(c', d)} \circ \Hom_D(L(g^\op), h)\big)(u)
-            &= \big(\Hom_C(g^\op, R(h)) \circ \phi_{(c', d)}\big)(u)\\
-          \phi_{(c', d)}(h\circ u \circ L(g))
-            &= \Hom_C(g^\op, R(h))(\overline{u})\\
+          \big(\phi_{(c', d')} \circ \Hom_D(L(g), h)\big)(u)
+            &= \big(\Hom_C(g, R(h)) \circ \phi_{(c, d)}\big)(u)\\
+          \phi_{(c', d')}(h\circ u \circ L(g))
+            &= \Hom_C(g, R(h))(\overline{u})\\
           \overline{h\circ u \circ L(g)}
             &= R(h) \circ \overline{u} \circ g
         \end{aligned}
@@ -49,17 +49,13 @@
       Equating both $\psi$ paths:
       \[
         \begin{aligned}
-          \big(\psi_{(c, d')} \circ \Hom_C(g^\op, R(h))\big)(v)
-            &= \big(\Hom_D(L(g^\op), h) \circ \psi_{(c', d)}\big)(v)\\
-          \psi_{(c', d)}(R(h)\circ v \circ g)
-            &= \Hom_D(L(g^\op), h)(\overline{v})\\
+          \big(\psi_{(c', d')} \circ \Hom_C(g, R(h))\big)(v)
+            &= \big(\Hom_D(L(g), h) \circ \psi_{(c, d)}\big)(v)\\
+          \psi_{(c', d')}(R(h)\circ v \circ g)
+            &= \Hom_D(L(g), h)(\overline{v})\\
           \overline{R(h)\circ v \circ g}
             &= h \circ \overline{v} \circ L(g)
         \end{aligned}
-      \]
-      Or equivalently:
-      \[
-        x\overset{}{\to} x'
       \]
   \end{itemize}
 \end{definition}
@@ -112,20 +108,22 @@
   Such that the triangular identities are satisfied (the following diagrams
   commute)
 
-  % https://q.uiver.app/?q=WzAsMyxbMCwwLCJMIl0sWzAsMSwiTFxcY2lyYyBSXFxjaXJjIEwiXSxbMSwxLCJMIl0sWzAsMSwiXFxtYXRocm17aWR9X0xcXGNpcmNcXGV0YSIsMl0sWzEsMiwiXFx2YXJlcHNpbG9uXFxjaXJjIFxcbWF0aHJte2lkfV9MIiwyXSxbMCwyLCJcXG1hdGhybXtpZH1fTCJdXQ==
-  \[\begin{tikzcd} L \\
-    {L\circ R\circ L} & L
-    \arrow["{\id_L\circ\eta}"', from=1-1, to=2-1]
-    \arrow["{\varepsilon\circ \id_L}"', from=2-1, to=2-2]
-    \arrow["{\id_L}", from=1-1, to=2-2]
+  % https://q.uiver.app/?q=WzAsMyxbMCwwLCJMKGMpIl0sWzAsMSwiKExcXGNpcmMgUlxcY2lyYyBMKShjKSJdLFsxLDEsIkwoYykiXSxbMCwxLCJMKFxcZXRhX2MpIiwyXSxbMSwyLCJcXHZhcmVwc2lsb25fe0woYyl9IiwyXSxbMCwyLCJcXGlkX3tMKGMpfSJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    {L(c)} \\
+    {(L\circ R\circ L)(c)} \& {L(c)}
+    \arrow["{L(\eta_c)}"', from=1-1, to=2-1]
+    \arrow["{\varepsilon_{L(c)}}"', from=2-1, to=2-2]
+    \arrow["{\id_{L(c)}}", from=1-1, to=2-2]
   \end{tikzcd}
-  % https://q.uiver.app/?q=WzAsMyxbMCwwLCJSIl0sWzEsMCwiUlxcY2lyYyBMXFxjaXJjIFIiXSxbMSwxLCJSIl0sWzAsMSwiXFxldGFcXGNpcmNcXG1hdGhybXtpZH1fUiJdLFsxLDIsIlxcbWF0aHJte2lkfV9SIFxcY2lyYyBcXHZhcmVwc2lsb24iXSxbMCwyLCJcXG1hdGhybXtpZH1fUiIsMl1d
-  \begin{tikzcd}
-    R & {R\circ L\circ R} \\
-    & R
-    \arrow["{\eta\circ\id_R}", from=1-1, to=1-2]
-    \arrow["{\id_R \circ \varepsilon}", from=1-2, to=2-2]
-    \arrow["{\id_R}"', from=1-1, to=2-2]
+  \quad
+  % https://q.uiver.app/?q=WzAsMyxbMCwwLCJSKGQpIl0sWzEsMCwiKFJcXGNpcmMgTFxcY2lyYyBSKShkKSJdLFsxLDEsIlIoZCkiXSxbMCwxLCJcXGV0YV97UihkKX0iXSxbMSwyLCJSKFxcdmFyZXBzaWxvbl9kKSJdLFswLDIsIlxcaWRfe1IoZCl9IiwyXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+  \begin{tikzcd}[ampersand replacement=\&]
+    {R(d)} \& {(R\circ L\circ R)(d)} \\
+    \& {R(d)}
+    \arrow["{\eta_{R(d)}}", from=1-1, to=1-2]
+    \arrow["{R(\varepsilon_d)}", from=1-2, to=2-2]
+    \arrow["{\id_{R(d)}}"', from=1-1, to=2-2]
   \end{tikzcd}\]
 \end{definition}
 
@@ -140,24 +138,44 @@
         D$, $R:D\to C$, consider:
         \[
           \begin{aligned}
-            \Hom_D(L(x), y) &\ \:\cong\ \: \Hom_C(x, R(y))\\
-            \Hom_D(L(x), L(x)) &\ \:\cong\ \: \Hom_C(x, (R\circ L)(x))\\
-            \big(\id_{L(x)}: L(x) \to L(x)\big) \in D
-            &\implies \big(\eta_x : x \to (R\circ L)(x)\big)\in C
+            \Hom_D(L(c), d) &\ \:\cong\ \: \Hom_C(c, R(d))\\
+            \Hom_D(L(c), L(c)) &\ \:\cong\ \: \Hom_C(c, (R\circ L)(c))\\
+            \big(\id_{L(c)}: L(c) \to L(c)\big) \in D
+            &\implies \big(\eta_c : c \to (R\circ L)(c)\big)\in C\\
+            \overline{\id_{L(c)}} &\ \:=\ \:\eta_c
           \end{aligned}
         \]
+
         Obtaining the existence of the unit $\eta:\id_D\Rightarrow (R\circ L)$.
         Similarly, the existence of the counit $\varepsilon:(L\circ
         R)\Rightarrow\id_C$ can be obtained by:
         \[
           \begin{aligned}
-            \Hom_D(L(x), y) &\ \ \cong\ \ \Hom_C(x, R(y))\\
-            \Hom_D((L\circ R)(y), y) &\ \ \cong\ \ \Hom_C(R(y), R(y))\\
-            \big(\varepsilon_{y} : (L\circ R)(y) \to y) \in D
-            &\impliedby \big(\id_{R(y)}: R(y) \to R(y)\big) \in C
+            \Hom_D(L(c), d) &\ \ \cong\ \ \Hom_C(c, R(d))\\
+            \Hom_D((L\circ R)(d), d) &\ \ \cong\ \ \Hom_C(R(d), R(d))\\
+            \big(\varepsilon_{d} : (L\circ R)(d) \to d) \in D
+            &\impliedby \big(\id_{R(d)}: R(d) \to R(d)\big) \in C\\
+            \overline{\id_{R(d)}} &= \varepsilon_d
           \end{aligned}
         \]
-        \todo{Triangle identities}
+
+        To obtain the triangle identities consider:
+        \[
+          \begin{aligned}
+            \id_{L(c)} &= \overline{\eta_c}\\
+              &= \overline{R(\id_{L(c)})\circ R(\id_{L(c)})\circ \eta_c}\\
+              &= \id_{L(c)} \circ \varepsilon_{L(c)}\circ L(\eta_c)\\
+              &= \varepsilon_{L(c)}\circ L(\eta_c)
+          \end{aligned}
+          \qquad
+          \begin{aligned}
+            \id_{R(d)} &= \overline{\varepsilon_d}\\
+              &= \overline{\varepsilon_d
+                \circ L(\id_{R(d)})\circ L(\id_{R(d)})}\\
+              &= R(\varepsilon_d) \circ \eta_{R(d)} \circ \id_{R(d)}\\
+              &= R(\varepsilon_d) \circ \eta_{R(d)}
+          \end{aligned}
+        \]
       \item[($\impliedby$)] For categories $C,D$ with left/right adjoints
         $L:C\to D$, $R:D\to C$, consider two functions:
         \[
