@@ -1,19 +1,23 @@
 \section{Adjoint functors}
 
+\subsection{As a Natural Isomorphism}
+
 \begin{definition}[Adjoint Functors\index{Adjoint Functors}\label{def:adjoint_hom}]
-  For categories $C, D$ and functors $L: C\to
-  D$ and $R: D\to C$, the pair ($L$, $R$) is said to be a left/right adjoint of
-  eachother when there is a natural isomorphism between hom-functors given by:
+  For categories $C, D$ and functors $L: C\to D$ and $R: D\to C$, the pair ($L$,
+  $R$) is said to be a left/right adjoint of each other when there is a natural
+  isomorphism between the hom-functors:
   \parencite{leinster:basic_category_theory}
   \[
     \begin{aligned}
-      \phi_{(c', d)}: \Hom_D(L(c), d) &\to \Hom_C(c, R(d))\\
-      u &\mapsto \overline{u}\\
-      \psi_{(c', d)}: \Hom_C(c, R(d)) &\to \Hom_D(L(c), d)\\
-      v &\mapsto \overline{v}
+      F&: C^\op \times D \to \mathrm{Set}\\
+      F&=\Hom_D(L(\underline{\ \ }), \underline{\ \ })
+    \end{aligned}
+    \qquad
+    \begin{aligned}
+      G&: C^\op \times D \to \mathrm{Set}\\
+      G&=\Hom_C(\underline{\ \ }, R(\underline{\ \ }))
     \end{aligned}
   \]
-  Such that $\overline{\overline{u}} = u$ and $\overline{\overline{v}} = v$.
 
   \begin{itemize}
     \item $(c', d)$-Components:
@@ -23,40 +27,17 @@
       \]
     \item Naturality Condition:\\
       For every $f = (g, h): (c', d) \to (c, d')$, the following commutes:
-      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXEhvbV9EKEwoYyksIGQpIl0sWzEsMCwiXFxIb21fQyhjLCBSKGQpKSJdLFswLDEsIlxcSG9tX0QoTChjJyksZCcpIl0sWzEsMSwiXFxIb21fQyhjJyxSKGQnKSkiXSxbMCwyLCJcXEhvbV9EKEwoZyksIGgpIiwyXSxbMSwzLCJcXEhvbV9DKGcsIFIoaCkpIl0sWzAsMSwiXFxwaGlfeyhjLCBkKX0iLDAseyJvZmZzZXQiOi0xfV0sWzIsMywiXFxwaGlfeyhjJyxkJyl9IiwyLHsib2Zmc2V0IjoxfV0sWzMsMiwiXFxwc2lfeyhjJyxkJyl9IiwyLHsib2Zmc2V0IjoxfV0sWzEsMCwiXFxwc2lfeyhjLGQpfSIsMCx7Im9mZnNldCI6LTF9XV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXEhvbV9EKEwoYyksIGQpIl0sWzEsMCwiXFxIb21fQyhjLCBSKGQpKSJdLFswLDEsIlxcSG9tX0QoTChjJyksZCcpIl0sWzEsMSwiXFxIb21fQyhjJyxSKGQnKSkiXSxbMCwyLCJcXEhvbV9EKEwoZyksIGgpIiwyXSxbMSwzLCJcXEhvbV9DKGcsIFIoaCkpIl0sWzAsMSwiXFxhbHBoYV97KGMsIGQpfSJdLFsyLDMsIlxcYWxwaGFfeyhjJyxkJyl9IiwyXSxbMCwxLCJcXGNvbmciLDJdLFsyLDMsIlxcY29uZyJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
       \[\begin{tikzcd}[ampersand replacement=\&]
         {\Hom_D(L(c), d)} \& {\Hom_C(c, R(d))} \\
         {\Hom_D(L(c'),d')} \& {\Hom_C(c',R(d'))}
         \arrow["{\Hom_D(L(g), h)}"', from=1-1, to=2-1]
         \arrow["{\Hom_C(g, R(h))}", from=1-2, to=2-2]
-        \arrow["{\phi_{(c, d)}}", shift left=1, from=1-1, to=1-2]
-        \arrow["{\phi_{(c',d')}}"', shift right=1, from=2-1, to=2-2]
-        \arrow["{\psi_{(c',d')}}"', shift right=1, from=2-2, to=2-1]
-        \arrow["{\psi_{(c,d)}}", shift left=1, from=1-2, to=1-1]
+        \arrow["{\alpha_{(c, d)}}", from=1-1, to=1-2]
+        \arrow["{\alpha_{(c',d')}}"', from=2-1, to=2-2]
+        \arrow["\cong"', from=1-1, to=1-2]
+        \arrow["\cong", from=2-1, to=2-2]
       \end{tikzcd}\]
-
-      Equating both $\phi$ paths:
-      \[
-        \begin{aligned}
-          \big(\phi_{(c', d')} \circ \Hom_D(L(g), h)\big)(u)
-            &= \big(\Hom_C(g, R(h)) \circ \phi_{(c, d)}\big)(u)\\
-          \phi_{(c', d')}(h\circ u \circ L(g))
-            &= \Hom_C(g, R(h))(\overline{u})\\
-          \overline{h\circ u \circ L(g)}
-            &= R(h) \circ \overline{u} \circ g
-        \end{aligned}
-      \]
-      Equating both $\psi$ paths:
-      \[
-        \begin{aligned}
-          \big(\psi_{(c', d')} \circ \Hom_C(g, R(h))\big)(v)
-            &= \big(\Hom_D(L(g), h) \circ \psi_{(c, d)}\big)(v)\\
-          \psi_{(c', d')}(R(h)\circ v \circ g)
-            &= \Hom_D(L(g), h)(\overline{v})\\
-          \overline{R(h)\circ v \circ g}
-            &= h \circ \overline{v} \circ L(g)
-        \end{aligned}
-      \]
   \end{itemize}
 \end{definition}
 
@@ -82,15 +63,91 @@
 \end{remark}
 
 \begin{remark}
-  $\overline{f}$ is called the transpose of $f$.
-\end{remark}
-
-\begin{remark}
   Note the similarity of $\Hom_D(L(c'), d)\cong \Hom_C(c', R(d))$ to
   $f^{-1}(y)=x \iff y=f(x)$.
 \end{remark}
 
-\begin{definition}[Adjoint Functors\index{Adjoint Functors}]\label{def:adjoint_unit_counit}
+\begin{definition}[Transpose\index{Transpose}\label{def:transpose}]
+  For a pair of left/right adjoints $(L, R)$, consider the following maps:
+  \[
+    \begin{aligned}
+      \phi_{(c', d)}: \hom_D(L(c), d) &\to \hom_C(c, R(d))\\
+      u &\mapsto \overline{u}\\
+      \psi_{(c', d)}: \hom_C(c, R(d)) &\to \hom_D(L(c), d)\\
+      v &\mapsto \overline{v}
+    \end{aligned}
+  \]
+  Such that $\overline{\overline{u}} = u$ and $\overline{\overline{v}} = v$.
+  Here $\overline{f}$ is called the transpose of $f$.
+\end{definition}
+
+\begin{theorem}[General Tranpose\label{thm:transpose}]
+  For a pair of left/right adjoints $(L, R)$, there exists a general way of
+  obtaining transposes:
+  \[
+    \overline{h\circ u \circ L(g)} = R(h) \circ \overline{u} \circ g
+  \]
+  As $\overline{\cdot}$ is its own inverse, the overline goes in either side of
+  the equation.
+  \begin{proof}
+    The naturality condition, when expanded the following:
+    \[
+      \begin{aligned}
+      \big(\alpha_{(c', d')} \circ \Hom_D(L(g), h)\big)(u)
+        &= \big(\Hom_C(g, R(h)) \circ \alpha_{(c, d)}\big)(u)\\
+      \alpha_{(c', d')}(h\circ u \circ L(g))
+        &= \Hom_C(g, R(h))(\overline{u})\\
+      \overline{h\circ u \circ L(g)}
+        &= R(h) \circ \overline{u} \circ g
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[Alternative Transposes\label{thm:transpose2}]
+  Theorem \ref{thm:transpose} is equivalent to saying that for a pair of
+  left/right adjoints $(L:C\to D, R:D\to C)$ and morphisms $u:L(c)\to d$,
+  $v:c\to R(d)$, $g:c'\to c$, and $h:d\to d'$, the following two equations hold:
+  \begin{align*}
+    \overline{h\circ u} &= R(h) \circ \overline{u}\\
+    \overline{v\circ g} &= \overline{v} \circ L(g)
+  \end{align*}
+
+  \begin{proof}
+    The proof consists on two parts:
+    \begin{description}
+      \item[$(\implies)$] By setting either $g=\id_c$ or $h=\id_d$:
+        \[
+          \begin{aligned}
+            \overline{h\circ u}
+              &= \overline{h\circ u \circ L(\id_c)}\\
+              &= R(h) \circ \overline{u} \circ \id_c\\
+              &= R(h) \circ \overline{u}
+          \end{aligned}
+          \qquad
+          \begin{aligned}
+            \overline{v\circ g}
+              &= \overline{R(\id_d)\circ v\circ g}\\
+              &= \id_d \circ \overline{v} \circ L(g)\\
+              &= \overline{v} \circ L(g)
+          \end{aligned}
+        \]
+      \item[$(\impliedby)$] Consider the following:
+        \[
+          \begin{aligned}
+            \overline{h \circ u\circ L(g)}
+              &= \overline{(h \circ u)\circ L(g)}\\
+              &= \overline{h\circ u} \circ g\\
+              &= R(h) \circ \overline{u} \circ g
+          \end{aligned}
+        \]
+    \end{description}
+  \end{proof}
+\end{theorem}
+
+\subsection{As a Unit and Counit}
+
+\begin{definition}[Adjoint Functors\index{Adjoint Functors}\label{def:adjoint_unit_counit}]
   For categories $C,D$ and functors $L: C\to D$ and $R: D\to C$, $L$ is said to
   be a left adjoint of $R$ when there exists a unit ($\eta$) and counit
   ($\varepsilon$): \parencite{leinster:basic_category_theory}
@@ -101,8 +158,8 @@
       \varepsilon&:
     \end{aligned}
     \ \begin{aligned}
-      \id_C\ \ &\Rightarrow R \circ L\\
-      L \circ R &\Rightarrow\ \ \id_D
+      \id_C\ \:&\Rightarrow R \circ L\\
+      L \circ R &\Rightarrow\ \:\id_D
     \end{aligned}
   \]
   Such that the triangular identities are satisfied (the following diagrams
@@ -180,10 +237,10 @@
         $L:C\to D$, $R:D\to C$, consider two functions:
         \[
           \begin{aligned}
-            \phi: \hom_D(L(x), y) &\to \hom_C(x, R(y))\\
-            u &\mapsto R(u)\circ \eta_x\\
-            \psi: \hom_C(x, R(y)) &\to \hom_D(L(x), y)\\
-            v &\mapsto \varepsilon_y \circ L(v)
+            \phi: \hom_D(L(c), d) &\to \hom_C(c, R(d))\\
+            u &\mapsto R(u)\circ \eta_c\\
+            \psi: \hom_C(c, R(d)) &\to \hom_D(L(c), d)\\
+            v &\mapsto \varepsilon_d \circ L(v)
           \end{aligned}
         \]
         Given the triangle identities, and using the naturality condition of $\eta$ and $\varepsilon$, the following diagrams commute:
@@ -214,8 +271,8 @@
         \end{tikzcd}\]
 
         To show that $\phi$ and $\psi$ are an isomorphism consider their
-        compositions, both of which are the identity by use of the respective
-        diagram above:
+        compositions, both of which are equal to the identity taking the
+        external paths of the respective diagrams above:
         \[
           \begin{aligned}
             (\psi\circ\phi)(u) &=
@@ -224,7 +281,21 @@
               R(\varepsilon_y)\circ (R\circ L(v)) \circ \eta_x = v\\
           \end{aligned}
         \]
-        \todo{Show naturality}
+        In order to show naturality it is sufficient to show that for morphisms
+        $g:c'\to c$ and $h:d\to d'$ Theorem \ref{thm:transpose2} holds:
+        \[
+          \begin{aligned}
+            \phi(h\circ u)
+              &= R(h) \circ R(u) \circ \overline{u}\\
+              &= R(h) \phi(u)
+          \end{aligned}
+          \qquad
+          \begin{aligned}
+            \psi(v\circ g)
+              &= \varepsilon_d \circ L(v) \circ L(g)\\
+              &= \psi(v) \circ L(g)
+          \end{aligned}
+        \]
     \end{description}
   \end{proof}
 \end{theorem}
