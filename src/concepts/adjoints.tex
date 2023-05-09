@@ -1,48 +1,66 @@
 \section{Adjoint functors}
 
-\begin{definition}[Adjoint Functors\index{Adjoint Functors}]\label{def:adjoint_hom}
-  For categories $C, D$ and functors $L: C\to D$ and $R: D\to C$, the pair ($L$,
-  $R$) is said to be a left/right adjoint of eachother when there is a natural
-  isomorphism between functors: \parencite{fong_spivak:7sketches}
+\begin{definition}[Adjoint Functors\index{Adjoint Functors}\label{def:adjoint_hom}]
+  For categories $C, D$ and functors $L: C\to
+  D$ and $R: D\to C$, the pair ($L$, $R$) is said to be a left/right adjoint of
+  eachother when there is a natural isomorphism between hom-functors given by:
+  \parencite{leinster:basic_category_theory}
   \[
     \begin{aligned}
-      F&: C^\op \times D \to \mathrm{Set}\\
-      F&=\Hom_D(L(\underline{\ \ }), \underline{\ \ })
-    \end{aligned}
-    \qquad
-    \begin{aligned}
-      G&: C^\op \times D \to \mathrm{Set}\\
-      G&=\Hom_C(\underline{\ \ }, R(\underline{\ \ }))
+      \phi_{(c', d)}: \Hom_D(L(c'), d) &\to \Hom_C(c', R(d))\\
+      u &\mapsto \overline{u}\\
+      \psi_{(c', d)}: \Hom_C(c', R(d)) &\to \Hom_D(L(c'), d)\\
+      v &\mapsto \overline{v}
     \end{aligned}
   \]
-
-  % https://q.uiver.app/?q=WzAsNCxbMSwwLCJkIl0sWzAsMCwiTChkKSJdLFswLDEsImMiXSxbMSwxLCJSKGMpIl0sWzAsM10sWzEsMl0sWzAsMSwiIiwxLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzIsMywiIiwxLHsiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
-  \[\begin{tikzcd}
-    {L(d)} & d \\
-    c & {R(c)}
-    \arrow[from=1-2, to=2-2]
-    \arrow[from=1-1, to=2-1]
-    \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-2, to=1-1]
-    \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=2-1, to=2-2]
-  \end{tikzcd}\]
+  Such that $\overline{\overline{u}} = u$ and $\overline{\overline{v}} = v$.
 
   \begin{itemize}
-    \item $(c', d)$-Components:\\
-      $\alpha_{(c', d)} \coloneqq \Hom_D(L(c'), d)
-      \overset{\cong}{\to} \Hom_C(c', R(d))$\\
-      Note the similarity to $f^{-1}(y)=x \iff y=f(x)$
+    \item $(c', d)$-Components:
+      \[
+        \alpha_{(c', d)}
+          = \Hom_D(L(c'), d) \overset{\cong}{\to} \Hom_C(c', R(d))\\
+      \]
     \item Naturality Condition:\\
-      $\forall (f = (g^{op}, h): (c', d) \to (c, d')),$
-      the following commutes
-      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJIb21fRChMKGMnKSwgZCkiXSxbMCwxLCJIb21fQyhjJywgUihkKSkiXSxbMiwwLCJIb21fRChMKGMpLGQnKSJdLFsyLDEsIkhvbV9DKGMsUihkJykpIl0sWzAsMSwiXFxhbHBoYV97YycsZH0iLDJdLFsyLDMsIlxcYWxwaGFfe2MsZCd9IiwyXSxbMCwyLCJIb21fRChMKGhee29wfSksIGcpIl0sWzEsMywiSG9tX0MoaF57b3B9LCBSKGcpKSIsMl1d
-      \[\begin{tikzcd}
-        {\Hom_D(L(c'), d)} && {\Hom_D(L(c),d')} \\
-        {\Hom_C(c', R(d))} && {\Hom_C(c,R(d'))}
-        \arrow["{\alpha_{c',d}}"', from=1-1, to=2-1]
-        \arrow["{\alpha_{c,d'}}"', from=1-3, to=2-3]
-        \arrow["{\Hom_D(L(h^{op}), g)}", from=1-1, to=1-3]
-        \arrow["{\Hom_C(h^{op}, R(g))}"', from=2-1, to=2-3]
+      For every $f = (g^{op}, h): (c', d) \to (c, d')$, the following commutes:
+      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXEhvbV9EKEwoYycpLCBkKSJdLFsxLDAsIlxcSG9tX0MoYycsIFIoZCkpIl0sWzAsMSwiXFxIb21fRChMKGMpLGQnKSJdLFsxLDEsIlxcSG9tX0MoYyxSKGQnKSkiXSxbMCwyLCJcXEhvbV9EKEwoZ157XFxvcH0pLCBoKSIsMl0sWzEsMywiXFxIb21fQyhnXntcXG9wfSwgUihoKSkiXSxbMCwxLCJcXHBoaV97KGMnLCBkKX0iLDAseyJvZmZzZXQiOi0xfV0sWzIsMywiXFxwaGlfeyhjLGQnKX0iLDIseyJvZmZzZXQiOjF9XSxbMywyLCJcXHBzaV97KGMsZCcpfSIsMix7Im9mZnNldCI6MX1dLFsxLDAsIlxccHNpX3soYycsZCl9IiwwLHsib2Zmc2V0IjotMX1dXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+      \[\begin{tikzcd}[ampersand replacement=\&]
+        {\Hom_D(L(c'), d)} \& {\Hom_C(c', R(d))} \\
+        {\Hom_D(L(c),d')} \& {\Hom_C(c,R(d'))}
+        \arrow["{\Hom_D(L(g^{\op}), h)}"', from=1-1, to=2-1]
+        \arrow["{\Hom_C(g^{\op}, R(h))}", from=1-2, to=2-2]
+        \arrow["{\phi_{(c', d)}}", shift left=1, from=1-1, to=1-2]
+        \arrow["{\phi_{(c,d')}}"', shift right=1, from=2-1, to=2-2]
+        \arrow["{\psi_{(c,d')}}"', shift right=1, from=2-2, to=2-1]
+        \arrow["{\psi_{(c',d)}}", shift left=1, from=1-2, to=1-1]
       \end{tikzcd}\]
+
+      Equating both $\phi$ paths:
+      \[
+        \begin{aligned}
+          \big(\phi_{(c', d)} \circ \Hom_D(L(g^\op), h)\big)(u)
+            &= \big(\Hom_C(g^\op, R(h)) \circ \phi_{(c', d)}\big)(u)\\
+          \phi_{(c', d)}(h\circ u \circ L(g))
+            &= \Hom_C(g^\op, R(h))(\overline{u})\\
+          \overline{h\circ u \circ L(g)}
+            &= R(h) \circ \overline{u} \circ g
+        \end{aligned}
+      \]
+      Equating both $\psi$ paths:
+      \[
+        \begin{aligned}
+          \big(\psi_{(c, d')} \circ \Hom_C(g^\op, R(h))\big)(v)
+            &= \big(\Hom_D(L(g^\op), h) \circ \psi_{(c', d)}\big)(v)\\
+          \psi_{(c', d)}(R(h)\circ v \circ g)
+            &= \Hom_D(L(g^\op), h)(\overline{v})\\
+          \overline{R(h)\circ v \circ g}
+            &= h \circ \overline{v} \circ L(g)
+        \end{aligned}
+      \]
+      Or equivalently:
+      \[
+        x\overset{}{\to} x'
+      \]
   \end{itemize}
 \end{definition}
 
@@ -65,6 +83,15 @@
     \arrow[""{name=1, anchor=center, inner sep=0}, "R"', curve={height=18pt}, from=1-1, to=1-2]
     \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=1]
   \end{tikzcd}\]
+\end{remark}
+
+\begin{remark}
+  $\overline{f}$ is called the transpose of $f$.
+\end{remark}
+
+\begin{remark}
+  Note the similarity of $\Hom_D(L(c'), d)\cong \Hom_C(c', R(d))$ to
+  $f^{-1}(y)=x \iff y=f(x)$.
 \end{remark}
 
 \begin{definition}[Adjoint Functors\index{Adjoint Functors}]\label{def:adjoint_unit_counit}
@@ -126,7 +153,7 @@
           \begin{aligned}
             \Hom_D(L(x), y) &\ \ \cong\ \ \Hom_C(x, R(y))\\
             \Hom_D((L\circ R)(y), y) &\ \ \cong\ \ \Hom_C(R(y), R(y))\\
-            \big(\varepsilon_{y} : (L\circ R)(y) \to y) \in Dexampl
+            \big(\varepsilon_{y} : (L\circ R)(y) \to y) \in D
             &\impliedby \big(\id_{R(y)}: R(y) \to R(y)\big) \in C
           \end{aligned}
         \]
