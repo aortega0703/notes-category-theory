@@ -1,8 +1,8 @@
-\section{Adjoint functors}
+\section{Adjunctions}
 
-\subsection{As a Natural Isomorphism}
+\subsection{Via Natural Isomorphism}
 
-\begin{definition}[Adjoint Functors\index{Adjoint Functors}\label{def:adjoint_hom}]
+\begin{definition}[Adjunctions\index{Adjunctions}\label{def:adjoint_hom}]
   For categories $C, D$ and functors $L: C\to D$ and $R: D\to C$, the pair ($L$,
   $R$) is said to be a left/right adjoint of each other when there is a natural
   isomorphism between the hom-functors:
@@ -145,9 +145,15 @@
   \end{proof}
 \end{theorem}
 
-\subsection{As a Unit and Counit}
+\subsection{Via Initial Morphism}
 
-\begin{definition}[Adjoint Functors\index{Adjoint Functors}\label{def:adjoint_unit_counit}]
+\begin{definition}[Adjunction]
+
+\end{definition}
+
+\subsection{Via Triangle Identities}
+
+\begin{definition}[Adjunctions\index{Adjunctions}\label{def:adjoint_unit_counit}]
   For categories $C,D$ and functors $L: C\to D$ and $R: D\to C$, $L$ is said to
   be a left adjoint of $R$ when there exists a unit ($\eta$) and counit
   ($\varepsilon$): \parencite{leinster:basic_category_theory}
@@ -163,7 +169,7 @@
     \end{aligned}
   \]
   Such that the triangular identities are satisfied (the following diagrams
-  commute)
+  commute):
 
   % https://q.uiver.app/?q=WzAsMyxbMCwwLCJMKGMpIl0sWzAsMSwiKExcXGNpcmMgUlxcY2lyYyBMKShjKSJdLFsxLDEsIkwoYykiXSxbMCwxLCJMKFxcZXRhX2MpIiwyXSxbMSwyLCJcXHZhcmVwc2lsb25fe0woYyl9IiwyXSxbMCwyLCJcXGlkX3tMKGMpfSJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
   \[\begin{tikzcd}[ampersand replacement=\&]
