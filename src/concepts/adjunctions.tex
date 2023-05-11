@@ -2,7 +2,7 @@
 
 \subsection{Via Natural Isomorphism}
 
-\begin{definition}[Adjunctions\index{Adjunctions}\label{def:adjoint_hom}]
+\begin{definition}[Adjunction\index{Adjunction!via Natural Isomorphism}\label{def:adjunction_isomorphism}]
   For categories $C, D$ and functors $L: C\to D$ and $R: D\to C$, the pair ($L$,
   $R$) is said to be a left/right adjoint of each other when there is a natural
   isomorphism between the hom-functors:
@@ -62,18 +62,14 @@
   \end{tikzcd}\]
 \end{remark}
 
-\begin{remark}
-  Note the similarity of $\Hom_D(L(c'), d)\cong \Hom_C(c', R(d))$ to
-  $f^{-1}(y)=x \iff y=f(x)$.
-\end{remark}
-
 \begin{definition}[Transpose\index{Transpose}\label{def:transpose}]
-  For a pair of left/right adjoints $(L, R)$, consider the following maps:
+  For a pair of left/right adjoints $(L, R)$, consider the following maps that
+  constitute the isomorphism in Definition \ref{def:adjunction_isomorphism}:
   \[
     \begin{aligned}
-      \phi_{(c', d)}: \hom_D(L(c), d) &\to \hom_C(c, R(d))\\
+      \phi_{(c, d)}: \hom_D(L(c), d) &\to \hom_C(c, R(d))\\
       u &\mapsto \overline{u}\\
-      \psi_{(c', d)}: \hom_C(c, R(d)) &\to \hom_D(L(c), d)\\
+      \psi_{(c, d)}: \hom_C(c, R(d)) &\to \hom_D(L(c), d)\\
       v &\mapsto \overline{v}
     \end{aligned}
   \]
@@ -82,15 +78,14 @@
 \end{definition}
 
 \begin{theorem}[General Tranpose\label{thm:transpose}]
-  For a pair of left/right adjoints $(L, R)$, there exists a general way of
-  obtaining transposes:
-  \[
+  For a pair of left/right adjoints $(L, R)$, the naturality condition is
+  equivalent to stating that:
+  \begin{align*}
     \overline{h\circ u \circ L(g)} = R(h) \circ \overline{u} \circ g
-  \]
-  As $\overline{\cdot}$ is its own inverse, the overline goes in either side of
-  the equation.
+  \end{align*}
+
   \begin{proof}
-    The naturality condition, when expanded the following:
+    It follows from equating both paths in the naturality condition, that:
     \[
       \begin{aligned}
       \big(\alpha_{(c', d')} \circ \Hom_D(L(g), h)\big)(u)
@@ -104,17 +99,21 @@
   \end{proof}
 \end{theorem}
 
+\begin{remark}
+  In Theorem \ref{thm:transpose}, the overline goes in either side of the
+  equation as $\phi_{(c, d)}$ and $\psi_{(c, d)}$ are inverses.
+\end{remark}
+
 \begin{theorem}[Alternative Transposes\label{thm:transpose2}]
-  Theorem \ref{thm:transpose} is equivalent to saying that for a pair of
-  left/right adjoints $(L:C\to D, R:D\to C)$ and morphisms $u:L(c)\to d$,
-  $v:c\to R(d)$, $g:c'\to c$, and $h:d\to d'$, the following two equations hold:
+  Theorem \ref{thm:transpose} is equivalent to stating that for a pair of
+  left/right adjoints $(L:C\to D, R:D\to C)$, the following two equations hold:
   \begin{align*}
     \overline{h\circ u} &= R(h) \circ \overline{u}\\
     \overline{v\circ g} &= \overline{v} \circ L(g)
   \end{align*}
 
   \begin{proof}
-    The proof consists on two parts:
+    The proof consists of two parts:
     \begin{description}
       \item[$(\implies)$] By setting either $g=\id_c$ or $h=\id_d$:
         \[
@@ -147,25 +146,65 @@
 
 \subsection{Via Initial Morphism}
 
-\begin{definition}[Adjunction]
+\begin{definition}[Adjunction\index{Adjunction!via Initial Morphism}\label{def:adjunction_initial}]
+  For categories $C,D$ and functors $L: C\to D$ and $R: D\to C$, $L$ is said to
+  be a left adjoint of $R$ when there is an initial morphism $(L(c), \eta_c:c\to
+  (R\circ L)(c))$ from every $c\in C$ to $R$ such that $\eta: \id_C \to (R\circ
+  L)$ is a natural transformation:
+  \parencite{awodey:category_theory}
+  % https://q.uiver.app/?q=WzAsNSxbMCwwLCJMKGMpIl0sWzAsMSwiZCJdLFsxLDAsIihSXFxjaXJjIEwpKGMpIl0sWzEsMSwiUihkKSJdLFsyLDAsImMiXSxbMCwxLCJcXG92ZXJsaW5le3Z9IiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsMywiUihcXG92ZXJsaW5le3Z9KSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs0LDMsInYiXSxbNCwyLCJcXGV0YV9jIiwyXV0=
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    {L(c)} \& {(R\circ L)(c)} \& c \\
+    d \& {R(d)}
+    \arrow["{\overline{v}}"', dashed, from=1-1, to=2-1]
+    \arrow["{R(\overline{v})}"', dashed, from=1-2, to=2-2]
+    \arrow["v", from=1-3, to=2-2]
+    \arrow["{\eta_c}"', from=1-3, to=1-2]
+  \end{tikzcd}\]
+\end{definition}
 
+\begin{theorem}
+  Definitions \ref{def:adjunction_isomorphism} and \ref{def:adjunction_initial}
+  are equivalent.
+
+  \begin{proof}
+    The proof consists on two parts.
+    \begin{description}
+      \item[$(\implies)$] To obtain the existence of the counit consider:
+    \end{description}
+  \end{proof}
+\end{theorem}
+
+\subsection{Via Terminal Morphism}
+
+\begin{definition}[Adjunction\index{Adjunction!via Terminal Morphism}\label{def:adjunction_terminal}]
+  For categories $C,D$ and functors $L: C\to D$ and $R: D\to C$, $L$ is said to
+  be a left adjoint of $R$ when there exists a terminal morphism $(R(d), \eta_d:
+  (L\circ R)(d) \to d)$ from every $d\in D$ to $L$ such that $\varepsilon: (L\circ R)\to \id_D$ is a natural transformation:
+  \parencite{awodey:category_theory}
+  % https://q.uiver.app/?q=WzAsNSxbMCwxLCJSKGQpIl0sWzAsMCwiYyJdLFsxLDAsIkwoYykiXSxbMSwxLCIoTFxcY2lyYyBSKShkKSJdLFsyLDAsImQiXSxbMSwwLCJcXG92ZXJsaW5le3V9IiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsMywiTChcXG92ZXJsaW5le3V9KSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDQsIlxcdmFyZXBzaWxvbl9kIiwyXSxbMiw0LCJ1Il1d
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    c \& {L(c)} \& d \\
+    {R(d)} \& {(L\circ R)(d)}
+    \arrow["{\overline{u}}"', dashed, from=1-1, to=2-1]
+    \arrow["{L(\overline{u})}"', dashed, from=1-2, to=2-2]
+    \arrow["{\varepsilon_d}"', from=2-2, to=1-3]
+    \arrow["u", from=1-2, to=1-3]
+  \end{tikzcd}\]
 \end{definition}
 
 \subsection{Via Triangle Identities}
 
-\begin{definition}[Adjunctions\index{Adjunctions}\label{def:adjoint_unit_counit}]
+\begin{definition}[Adjunction\index{Adjunction!via Triangle Identities}\label{def:adjunction_triangle}]
   For categories $C,D$ and functors $L: C\to D$ and $R: D\to C$, $L$ is said to
-  be a left adjoint of $R$ when there exists a unit ($\eta$) and counit
-  ($\varepsilon$): \parencite{leinster:basic_category_theory}
+  be a left adjoint of $R$ when there exists a unit ($\eta: \id_C\to R\circ L$)
+  and counit ($\varepsilon: L\circ R \to \id_D$):
+  \parencite{leinster:basic_category_theory}
 
   \[
     \begin{aligned}
-      \eta&:\\
-      \varepsilon&:
-    \end{aligned}
-    \ \begin{aligned}
-      \id_C\ \:&\Rightarrow R \circ L\\
-      L \circ R &\Rightarrow\ \:\id_D
+      \eta:&\!\!\!&\id_C\ &\Rightarrow R \circ L\\
+      \varepsilon:&\!\!\!& L \circ R &\Rightarrow\ \ \id_D
     \end{aligned}
   \]
   Such that the triangular identities are satisfied (the following diagrams
@@ -191,8 +230,8 @@
 \end{definition}
 
 \begin{theorem}[Adjoint Functors Definitions]
-  Definitions \ref{def:adjoint_hom} and \ref{def:adjoint_unit_counit} of adjoint
-  functors are equivalent.
+  Definitions \ref{def:adjunction_isomorphism} and \ref{def:adjunction_triangle}
+  of adjoint functors are equivalent.
 
   \begin{proof}
     The proof consists of two parts:
@@ -292,7 +331,7 @@
         \[
           \begin{aligned}
             \phi(h\circ u)
-              &= R(h) \circ R(u) \circ \overline{u}\\
+              &= R(h) \circ R(u) \circ \eta_c\\
               &= R(h) \phi(u)
           \end{aligned}
           \qquad
