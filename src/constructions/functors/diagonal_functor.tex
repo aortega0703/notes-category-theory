@@ -10,9 +10,9 @@
   \end{itemize}
 \end{definition}
 
-\begin{theorem}[Left Adjoint of $\Delta$]
-  For a category $C$ with coproducts, the coproduct functor $+:C\times C\to C$
-  is the left adjoint of the diagonal functor $\Delta: C\to C\times C$.
+\begin{theorem}[Left Adjoint of $\Delta$\label{thm:diagonal_left}]
+  For a category $C$, the left adjoint of the diagonal functor $\Delta: C\to
+  C\times C$ is the coproduct functor $+:C\times C\to C$ given that it exists.
 
   \begin{proof}
     Using Definition \ref{def:adjunction_initial} of adjunctions we obtain that
@@ -46,9 +46,10 @@
   \end{proof}
 \end{theorem}
 
-\begin{theorem}[Right Adjoint of $\Delta$]
-  For a category $C$ with products, the product functor $\times:C\times C\to C$
-  is the right adjoint of the diagonal functor $\Delta: C\to C\times C$.
+\begin{theorem}[Right Adjoint of $\Delta$\label{thm:diagonal_right}]
+  For a category $C$, the right adjoint of the diagonal functor $\Delta: C\to
+  C\times C$ is the product functor $\times:C\times C\to C$ given that it
+  exists.
 
   \begin{proof}
     Using Definition \ref{def:adjunction_terminal} of adjunctions we obtain that
