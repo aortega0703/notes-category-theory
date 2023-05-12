@@ -433,32 +433,9 @@
   \begin{proof}
     The proof consists of two parts:
     \begin{description}
-      \item[($\implies$)] For categories $C,D$ with left/right adjoints $L:C\to
-        D$, $R:D\to C$, consider:
-        \[
-          \begin{aligned}
-            \Hom_D(L(c), d) &\ \:\cong\ \: \Hom_C(c, R(d))\\
-            \Hom_D(L(c), L(c)) &\ \:\cong\ \: \Hom_C(c, (R\circ L)(c))\\
-            \big(\id_{L(c)}: L(c) \to L(c)\big) \in D
-            &\implies \big(\eta_c : c \to (R\circ L)(c)\big)\in C\\
-            \bar{\id_{L(c)}} &\ \:=\ \:\eta_c
-          \end{aligned}
-        \]
-
-        Obtaining the existence of the unit $\eta:\id_D\Rightarrow (R\circ L)$.
-        Similarly, the existence of the counit $\epsilon:(L\circ
-        R)\Rightarrow\id_C$ can be obtained by:
-        \[
-          \begin{aligned}
-            \Hom_D(L(c), d) &\ \ \cong\ \ \Hom_C(c, R(d))\\
-            \Hom_D((L\circ R)(d), d) &\ \ \cong\ \ \Hom_C(R(d), R(d))\\
-            \big(\epsilon_{d} : (L\circ R)(d) \to d) \in D
-            &\impliedby \big(\id_{R(d)}: R(d) \to R(d)\big) \in C\\
-            \bar{\id_{R(d)}} &= \epsilon_d
-          \end{aligned}
-        \]
-
-        To obtain the triangle identities consider:
+      \item[($\implies$)] Theorems \ref{thm:unit_exists} and
+        \ref{thm:counit_exists} provide the existence of $\eta: \id_C \to R\circ
+        L$ and $\epsilon: L\circ R \to \id_D$. Now to obtain the triangle identities consider:
         \[
           \begin{aligned}
             \id_{L(c)} &= \bar{\eta_c}\\

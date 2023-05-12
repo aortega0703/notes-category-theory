@@ -1,42 +1,39 @@
 \section{Categories}
-A category can be thought of as a way to formalize the presence of certain
-structure, only caring about the underlying relationships.
 
 \begin{definition}[Category\index{Category}]
-  A category $C$ is composed of: \parencite{fong_spivak:7sketches}
+  A category $\C$ is composed of: \parencite{fong_spivak:7sketches}
   \begin{itemize}
-    \item Objects:\\
-      $\ob_C$: the collection of objects.
-    \item Morphisms:\footnote{Also referred to as arrows.}\\
-      $\hom_C(c, c'),\ (\forall c, c' \in \ob_C)$: the collection of all
-      morphisms from $c$ to $c'$ where $c$ is called the domain and $c'$ the
-      codomain.\\
-      $\hom_C \coloneqq \bigcup\limits_{a,b\in C} \hom_C(a,b)$
+    \item Collections of Objects ($\C_0$) and Morphisms\footnote{Also referred
+      to as arrows.} ($\C_1$).
+    \item Functions Domain ($\mathrm{Dom}:\C_1\to \C_0$) and Codomain
+      ($\mathrm{Cod}: \C_1 \to \C_0$).
+      \[\C(c, c')=\{f\ |\ \mathrm{Dom}(f) = c \land \mathrm{Cod}(f) = c'\}
+      \subseteq \C_1\]
   \end{itemize}
 
   Such that the following are satisfied:
   \begin{itemize}
-    \item Identity:\\
-      $(\id_c: c \to c) \in C,\ (\forall c \in C)$
-    \item Composition:\\
-      $(g \circ f : a \to c) \in C,
-        \ (\forall a, b, c \in C,\ f: a \to b,\ g:b \to c)$
-    \item Unitality:\\
-      $f \circ \id_a = \id_b \circ f = f,
-        \ (\forall a, b \in C,\ f: a \to b)$
-    \item Associativity:\\
-      $(h \circ g) \circ f = h \circ (g \circ f), \ (\forall a,b,c\in C,\ f:a\to
-        b,\ g:b\to c,\ h:c\to d)$
+    \item Identity:
+      \[(\forall c \in \C_0)
+        (\id_c \in \C(c,c))\]
+    \item Composition:
+      \[\big(\forall f \in \C(a, b),\ g\in\C(b,c)\big)
+        (g\circ f\in \C(a, c))\]
+    \item Unitality:
+      \[(\forall f\in \C_1)
+        (f \circ \id_a = \id_b \circ f = f)\]
+    \item Associativity:
+      \[\big(\forall f\in\C(a,b),\ g\in\C(b,c),\ h\in\C(c,d)\big)
+        \big((h \circ g) \circ f = h \circ (g \circ f)\big)\]
   \end{itemize}
 \end{definition}
 
 \begin{remark}
   For simplicity's sake, the following conventions are usually followed:
   \begin{itemize}
-    \item $c\in C$ to mean $c\in\ob_C$.
-    \item $(f: c\to c')\in C$ to mean $f\in \hom_C(c, c')$.
+    \item $f\in \C(c, c')$ is written as $f: c \to c'$.
     \item Identities are not drawn.
-    \item Omission of parenthesis when associativity holds.
+    \item Parenthesis are ommited when associativity holds.
   \end{itemize}
 \end{remark}
 
@@ -54,58 +51,54 @@ structure, only caring about the underlying relationships.
 \end{example}
 
 \begin{definition}[Opposite category\index{Opposite category}]
-  For a category $C$, its opposite category $C^\op$ is given by keeping all
-  objects in $C$ and reversing its arrows. i.e. it is composed of:
+  For a category $\C$, its opposite category $\C^\op$ is composed of:
   \parencite{awodey:category_theory}
   \begin{itemize}
-    \item Objects:\\
-      $c\in C^\op,\ (\forall c \in C$)
-    \item Morphisms:\\
-      $(f^\op : c' \to c)\in C^\op,
-        \ (\forall c, c' \in C,\ f : c \to c')$
+    \item Objects:
+      \[(\forall c \in \C_0)
+        (c\in \C^\op_0)\]
+    \item Morphisms:
+      \[(\forall f \in \C(c, c'))
+        (f^\op \in \C^\op(c', c))\]
   \end{itemize}
 \end{definition}
 
 \begin{remark}
   As the axioms of category theory are self-dual, any statement $\Sigma$ that
   holds for all categories implies that its dual statement ($\Sigma$ in
-  $C^\op$) must also hold for all categories.
+  $\C^\op$) must also hold for all categories.
   \parencite{awodey:category_theory}
 \end{remark}
 
 \subsection{Category Properties}
 
 \begin{definition}[Small/Large Category\index{Small Category}\index{Large Category}]
-  A category $C$ is said to be small when $\ob_C$ and $\hom_C$ are sets instead
-  of proper classes. It is said to be large otherwise.
+  A category $\C$ is small when $\C_0$ and $\C_1$ are sets instead of proper
+  classes. It is large otherwise.
   \parencite{awodey:category_theory}
 \end{definition}
 
 \begin{definition}[Locally Small Category\index{Locally Small Category}]
-  A category $C$ is said to be locally small when $\hom_C(c, c')$ is a set for
-  all $c,c'\in C$. \parencite{awodey:category_theory}
+  A category $\C$ is locally small when $\C(c, c')$ is a set for all $c,c'\in
+  C$. \parencite{awodey:category_theory}
 \end{definition}
 
 \begin{definition}[Free Category\index{Free Category}]
-  A category is said to be free when it has no more constraints
-  \footnote{Equalities between paths} than the ones enforced from the category
-  axioms. \parencite{adamek_herrlich_strecker:joy_cats} A free category can be
-  constructed from an arbitrary graph by adding morphisms as necessary to
-  fulfill such axioms.
+  A category is free when it has no more constraints \footnote{Equalities
+  between paths} than the ones enforced from the category axioms.
+  \parencite{adamek_herrlich_strecker:joy_cats}
 \end{definition}
 
 \begin{definition}[Thin Category\index{Thin Category}]
-  A category $C$ is said to be thin when $\hom_C(a, b)$ is either empty or
-  a singleton for every $a,b\in C$.
-  \parencite{adamek_herrlich_strecker:joy_cats} Every thin category can be seen
-  as a preorder. This is the opposite of a free category in the sense that it
-  has every possible constraint.
+  A category $\C$ is thin when $\C(a, b)$ is either empty or a singleton for
+  every $a,b\in C$. \parencite{adamek_herrlich_strecker:joy_cats} It has every
+  possible constraint.
 \end{definition}
 
 \begin{definition}[Discrete Category\index{Discrete Category}]
-  A category $C$ is said to be discrete when $\hom_C$ is composed entirely
-  out of identity morphisms. \parencite{awodey:category_theory} Discrete
-  categories are going to be denoted by $\underline{n}$, with $n=|\ob_C|$.
+  A category $\C$ is discrete when $\C_1$ is composed entirely out of identity
+  morphisms. \parencite{awodey:category_theory} Discrete categories are going to
+  be denoted by $\underline{n}$, with $n=|\C_0|$.
 \end{definition}
 
 \subsection{Morphism Properties}
