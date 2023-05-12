@@ -68,20 +68,20 @@
   \[
     \begin{aligned}
       \phi_{(c, d)}: \hom_D(L(c), d) &\to \hom_C(c, R(d))\\
-      u &\mapsto \overline{u}\\
+      u &\mapsto \bar{u}\\
       \psi_{(c, d)}: \hom_C(c, R(d)) &\to \hom_D(L(c), d)\\
-      v &\mapsto \overline{v}
+      v &\mapsto \bar{v}
     \end{aligned}
   \]
-  Such that $\overline{\overline{u}} = u$ and $\overline{\overline{v}} = v$.
-  Here $\overline{f}$ is called the transpose of $f$.
+  Such that $\bar{\bar{u}} = u$ and $\bar{\bar{v}} = v$.
+  Here $\bar{f}$ is called the transpose of $f$.
 \end{definition}
 
 \begin{theorem}[General Tranpose\label{thm:transpose}]
   For a pair of left/right adjoints $(L, R)$, the naturality condition is
   equivalent to stating that:
   \begin{align*}
-    \overline{h\circ u \circ L(g)} = R(h) \circ \overline{u} \circ g
+    \bar{h\circ u \circ L(g)} = R(h) \circ \bar{u} \circ g
   \end{align*}
 
   \begin{proof}
@@ -91,9 +91,9 @@
       \big(\alpha_{(c', d')} \circ \Hom_D(L(g), h)\big)(u)
         &= \big(\Hom_C(g, R(h)) \circ \alpha_{(c, d)}\big)(u)\\
       \alpha_{(c', d')}(h\circ u \circ L(g))
-        &= \Hom_C(g, R(h))(\overline{u})\\
-      \overline{h\circ u \circ L(g)}
-        &= R(h) \circ \overline{u} \circ g
+        &= \Hom_C(g, R(h))(\bar{u})\\
+      \bar{h\circ u \circ L(g)}
+        &= R(h) \circ \bar{u} \circ g
       \end{aligned}
     \]
   \end{proof}
@@ -108,8 +108,8 @@
   Theorem \ref{thm:transpose} is equivalent to stating that for a pair of
   left/right adjoints $(L:C\to D, R:D\to C)$, the following two equations hold:
   \begin{align*}
-    \overline{h\circ u} &= R(h) \circ \overline{u}\\
-    \overline{v\circ g} &= \overline{v} \circ L(g)
+    \bar{h\circ u} &= R(h) \circ \bar{u}\\
+    \bar{v\circ g} &= \bar{v} \circ L(g)
   \end{align*}
 
   \begin{proof}
@@ -118,29 +118,67 @@
       \item[$(\implies)$] By setting either $g=\id_c$ or $h=\id_d$:
         \[
           \begin{aligned}
-            \overline{h\circ u}
-              &= \overline{h\circ u \circ L(\id_c)}\\
-              &= R(h) \circ \overline{u} \circ \id_c\\
-              &= R(h) \circ \overline{u}
+            \bar{h\circ u}
+              &= \bar{h\circ u \circ L(\id_c)}\\
+              &= R(h) \circ \bar{u} \circ \id_c\\
+              &= R(h) \circ \bar{u}
           \end{aligned}
           \qquad
           \begin{aligned}
-            \overline{v\circ g}
-              &= \overline{R(\id_d)\circ v\circ g}\\
-              &= \id_d \circ \overline{v} \circ L(g)\\
-              &= \overline{v} \circ L(g)
+            \bar{v\circ g}
+              &= \bar{R(\id_d)\circ v\circ g}\\
+              &= \id_d \circ \bar{v} \circ L(g)\\
+              &= \bar{v} \circ L(g)
           \end{aligned}
         \]
       \item[$(\impliedby)$] Consider the following:
         \[
           \begin{aligned}
-            \overline{h \circ u\circ L(g)}
-              &= \overline{(h \circ u)\circ L(g)}\\
-              &= \overline{h\circ u} \circ g\\
-              &= R(h) \circ \overline{u} \circ g
+            \bar{h \circ u\circ L(g)}
+              &= \bar{(h \circ u)\circ L(g)}\\
+              &= \bar{h\circ u} \circ g\\
+              &= R(h) \circ \bar{u} \circ g
           \end{aligned}
         \]
     \end{description}
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[Existence of a unit $\eta$\label{thm:unit_exists}]
+  For a pair of left/right adjoints ($L: \C \to \D$, $R:\D\to \C$)
+  there exists a morphism $\eta_c: c\to (R\circ L)(c)$ that corresponds to
+  $\bar{\id_{L(c)}}$ for every $c\in \C_0$.
+
+  \begin{proof}
+    Consider definition \ref{def:adjunction_isomorphism} of adjunction:
+    \[
+      \begin{aligned}
+        \D(L(c), d) &\ \:\cong\ \: \C(c, R(d))\\
+        \D(L(c), L(c)) &\ \:\cong\ \: \C(c, (R\circ L)(c))\\
+        \big(\id_{L(c)}: L(c) \to L(c)\big) \in \D_1
+        &\implies \big(\eta_c : c \to (R\circ L)(c)\big)\in \C_1\\
+        \bar{\id_{L(c)}} &\ \:=\ \:\eta_c
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[Existence of a counit $\epsilon$\label{thm:counit_exists}]
+  For an adjunction ($L: \C \to \D$, $R:\D\to \C$)
+  there exists a morphism $\epsilon_d: (L\circ R)(d)\to d$ that corresponds to
+  $\bar{\id_{R(d)}}$ for every $d\in \D_0$.
+
+  \begin{proof}
+    Consider Definition \ref{def:adjunction_isomorphism} of adjunction:
+    \[
+      \begin{aligned}
+        \D(L(c), d) &\ \:\cong\ \: \C(c, R(d))\\
+        \D((L\circ R)(d), d) &\ \:\cong\ \: \C(R(d), R(d))\\
+        \big(\epsilon:(L\circ R)(d)\to d\big)\in D_1 &\impliedby
+          \big(\id_{R(d)}: R(d) \to R(d)\big)\\
+        \epsilon_d &\ \:=\ \:\bar{\id_{R(d)}}
+      \end{aligned}
+    \]
   \end{proof}
 \end{theorem}
 
@@ -155,8 +193,8 @@
   \[\begin{tikzcd}[ampersand replacement=\&]
     {L(c)} \& {(R\circ L)(c)} \& c \\
     d \& {R(d)}
-    \arrow[""{name=0, anchor=center, inner sep=0}, "{\overline{v}}"', dashed, from=1-1, to=2-1]
-    \arrow[""{name=1, anchor=center, inner sep=0}, "{R(\overline{v})}"', dashed, from=1-2, to=2-2]
+    \arrow[""{name=0, anchor=center, inner sep=0}, "{\bar{v}}"', dashed, from=1-1, to=2-1]
+    \arrow[""{name=1, anchor=center, inner sep=0}, "{R(\bar{v})}"', dashed, from=1-2, to=2-2]
     \arrow["v", from=1-3, to=2-2]
     \arrow["{\eta_c}"', from=1-3, to=1-2]
     \arrow[color={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
@@ -178,18 +216,18 @@
     $R$ makes the triangle commute ($\eta_c\circ f = (R\circ L)(f) \circ
     \eta_c$) completing the naturality condition of $\eta$.
 
-    % https://q.uiver.app/?q=WzAsNixbMiwwLCJjIl0sWzAsMCwiTChjKSJdLFsxLDAsIihSXFxjaXJjIEwpKGMpIl0sWzIsMSwiYyciXSxbMCwxLCJMKGMnKSJdLFsxLDEsIihSXFxjaXJjIEwpKGMnKSJdLFswLDIsIlxcZXRhX2MiLDJdLFszLDUsIlxcZXRhX3tjJ30iXSxbMCwzLCJmIl0sWzAsNSwiXFxldGFfY1xcY2lyYyBmIiwxXSxbMiw1LCIoUlxcY2lyYyBMKShmKSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDQsIkwoZikiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwyLCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNCw1LCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
+    % https://q.uiver.app/?q=WzAsNixbMiwxLCJjIl0sWzAsMSwiTChjKSJdLFsxLDEsIihSXFxjaXJjIEwpKGMpIl0sWzIsMCwiYyciXSxbMCwwLCJMKGMnKSJdLFsxLDAsIihSXFxjaXJjIEwpKGMnKSJdLFswLDIsIlxcZXRhX2MiXSxbMyw1LCJcXGV0YV97Yyd9IiwyXSxbMywwLCJnIl0sWzUsMiwiKFJcXGNpcmMgTCkoZykiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCwxLCJMKGcpIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEsMiwiIiwyLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzQsNSwiIiwyLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzMsMiwiXFxldGFfY1xcY2lyYyBnIiwxXV0=
     \[\begin{tikzcd}[ampersand replacement=\&]
-      {L(c)} \& {(R\circ L)(c)} \& c \\
-      {L(c')} \& {(R\circ L)(c')} \& {c'}
-      \arrow["{\eta_c}"', from=1-3, to=1-2]
-      \arrow["{\eta_{c'}}", from=2-3, to=2-2]
-      \arrow["f", from=1-3, to=2-3]
-      \arrow["{\eta_c\circ f}"{description}, from=1-3, to=2-2]
-      \arrow["{(R\circ L)(f)}"', dashed, from=1-2, to=2-2]
-      \arrow["{L(f)}"', dashed, from=1-1, to=2-1]
-      \arrow[color={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
-      \arrow[color={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
+      {L(c')} \& {(R\circ L)(c')} \& {c'} \\
+      {L(c)} \& {(R\circ L)(c)} \& c
+      \arrow["{\eta_c}", from=2-3, to=2-2]
+      \arrow["{\eta_{c'}}"', from=1-3, to=1-2]
+      \arrow["g", from=1-3, to=2-3]
+      \arrow["{(R\circ L)(g)}"', dashed, from=1-2, to=2-2]
+      \arrow["{L(g)}"', dashed, from=1-1, to=2-1]
+      \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
+      \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
+      \arrow["{\eta_c\circ g}"{description}, from=1-3, to=2-2]
     \end{tikzcd}\]
   \end{proof}
 \end{theorem}
@@ -201,7 +239,43 @@
   \begin{proof}
     The proof consists on two parts.
     \begin{description}
-      \item[$(\implies)$] \todo{Complete Proof}
+      \item[$(\implies)$] By Theorem \ref{thm:unit_exists} $\eta:\id_\C\to
+        (R\circ L)$ exists:
+      \item[$(\impliedby)$] Consider the function:
+        \[
+          \begin{aligned}
+            \phi:&&\mathcal{D}(L(c), d) &\to \mathcal{C}(c, R(d))\\
+            && u &\mapsto R(u) \circ \eta_c
+          \end{aligned}
+        \]
+        By Definition \ref{def:adjunction_initial} every $v:c\to R(d)$ can be
+        expressed as $\phi(\bar{v})$ for a unique $\bar{v}:L(c)\to d$,
+        therefore $\phi$, which makes it a bijection and therefore an
+        isomorphism. To show naturality of $\phi$ consider $g:c'\to c$ and
+        $h:d\to d'$:
+        % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXG1hdGhjYWx7RH0oTChjKSwgZCkiXSxbMSwwLCJcXG1hdGhjYWx7Q30oYywgUihkKSkiXSxbMCwxLCJcXG1hdGhjYWx7RH0oTChjJyksIGQnKSJdLFsxLDEsIlxcbWF0aGNhbHtDfShjJywgUihkJykpIl0sWzAsMSwiXFxwaGlfe2MsZH0iXSxbMCwyLCJcXG1hdGhjYWx7RH0oTChnKSxoKSIsMl0sWzIsMywiXFxwaGlfe2MnLGQnfSIsMl0sWzEsMywiXFxtYXRoY2Fse0N9KGcsUihoKSkiXSxbMCwxLCJcXGNvbmciLDJdLFsyLDMsIlxcY29uZyJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+        \[\begin{tikzcd}[ampersand replacement=\&]
+          {\mathcal{D}(L(c), d)} \& {\mathcal{C}(c, R(d))} \\
+          {\mathcal{D}(L(c'), d')} \& {\mathcal{C}(c', R(d'))}
+          \arrow["{\phi_{c,d}}", from=1-1, to=1-2]
+          \arrow["{\mathcal{D}(L(g),h)}"', from=1-1, to=2-1]
+          \arrow["{\phi_{c',d'}}"', from=2-1, to=2-2]
+          \arrow["{\mathcal{C}(g,R(h))}", from=1-2, to=2-2]
+          \arrow["\cong"', from=1-1, to=1-2]
+          \arrow["\cong", from=2-1, to=2-2]
+        \end{tikzcd}\]
+        \[
+          \begin{aligned}
+            \big(\mathcal{C}(g, R(h))\circ \phi_{c,d}\big)(u)
+            &= \mathcal{D}(g, R(h))(R(u)\circ\eta_c)\\
+            &= R(h)\circ R(u)\circ\eta_c \circ g\\
+            &= R(h)\circ R(u) \circ (R\circ L)(g)\circ \eta_{c'}\\
+            &= R(h\circ u\circ L(g))\circ \eta_{c'}\\
+            &= \phi\big(h\circ u \circ L(g)\big)\\
+            &= \phi\big(\mathcal{D}(L(g), h)(u)\big)\\
+            &= \big(\phi\circ \mathcal{D}(L(g), h))(u)
+          \end{aligned}
+        \]
     \end{description}
   \end{proof}
 \end{theorem}
@@ -211,15 +285,15 @@
 \begin{definition}[Adjunction\index{Adjunction!via Terminal Morphism}\label{def:adjunction_terminal}]
   For categories $C,D$ and functors $L: C\to D$ and $R: D\to C$, $L$ is said to
   be a left adjoint of $R$ when there exists a terminal morphism $(R(d),
-  \varepsilon_d: (L\circ R)(d) \to d)$ from every $d\in D$ to $L$:
+  \epsilon_d: (L\circ R)(d) \to d)$ from every $d\in D$ to $L$:
   \parencite{awodey:category_theory}
   % https://q.uiver.app/?q=WzAsNSxbMCwxLCJSKGQpIl0sWzAsMCwiYyJdLFsxLDAsIkwoYykiXSxbMSwxLCIoTFxcY2lyYyBSKShkKSJdLFsyLDAsImQiXSxbMSwwLCJcXG92ZXJsaW5le3V9IiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsMywiTChcXG92ZXJsaW5le3V9KSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDQsIlxcdmFyZXBzaWxvbl9kIiwyXSxbMiw0LCJ1Il0sWzEsMiwiIiwwLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzAsMywiIiwyLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzUsNiwiIiwyLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjUwfSwibGV2ZWwiOjEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
   \[\begin{tikzcd}[ampersand replacement=\&]
     c \& {L(c)} \& d \\
     {R(d)} \& {(L\circ R)(d)}
-    \arrow[""{name=0, anchor=center, inner sep=0}, "{\overline{u}}"', dashed, from=1-1, to=2-1]
-    \arrow[""{name=1, anchor=center, inner sep=0}, "{L(\overline{u})}"', dashed, from=1-2, to=2-2]
-    \arrow["{\varepsilon_d}"', from=2-2, to=1-3]
+    \arrow[""{name=0, anchor=center, inner sep=0}, "{\bar{u}}"', dashed, from=1-1, to=2-1]
+    \arrow[""{name=1, anchor=center, inner sep=0}, "{L(\bar{u})}"', dashed, from=1-2, to=2-2]
+    \arrow["{\epsilon_d}"', from=2-2, to=1-3]
     \arrow["u", from=1-2, to=1-3]
     \arrow[color={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
     \arrow[color={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
@@ -227,19 +301,19 @@
   \end{tikzcd}\]
 \end{definition}
 
-\begin{theorem}[Naturality of $\varepsilon$]
-  In Definition \ref{def:adjunction_terminal}, $\varepsilon: L\circ R \to \id_d$
+\begin{theorem}[Naturality of $\epsilon$]
+  In Definition \ref{def:adjunction_terminal}, $\epsilon: L\circ R \to \id_d$
   is a natural transformation.
 
   \begin{proof}
     Take two objects $d,d'\in D_0$ with a morphism $f:d'\to d$. There must
-    exists initial morphisms $(R(d), \varepsilon_d)$ and $(R(d'),
-    \varepsilon_{d'})$. Construct the composite arrow $f\circ
-    \varepsilon_{d'}:(L\circ R)(d')\to d$. As $(R(d'), f\circ \varepsilon_{d'})$
+    exists initial morphisms $(R(d), \epsilon_d)$ and $(R(d'),
+    \epsilon_{d'})$. Construct the composite arrow $f\circ
+    \epsilon_{d'}:(L\circ R)(d')\to d$. As $(R(d'), f\circ \epsilon_{d'})$
     is a candidate of terminal morphism from $L$ to $d$, there must exist a
     unique arrow $R(f): R(d')\to R(c)$ that when lifted on $L$ makes the
-    triangle commute ($f\circ \varepsilon_{d'} = \varepsilon_d \circ (L\circ
-    R)(d)$) completing the naturality condition of $\varepsilon$.
+    triangle commute ($f\circ \epsilon_{d'} = \epsilon_d \circ (L\circ
+    R)(d)$) completing the naturality condition of $\epsilon$.
   \end{proof}
 \end{theorem}
 
@@ -251,6 +325,7 @@
     The proof consists of two parts:
     \begin{description}
       \item[$(\implies)$]
+      \item[$(\impliedby)$]
     \end{description}
   \end{proof}
 \end{theorem}
@@ -260,13 +335,13 @@
 \begin{definition}[Adjunction\index{Adjunction!via Triangle Identities}\label{def:adjunction_triangle}]
   For categories $C,D$ and functors $L: C\to D$ and $R: D\to C$, $L$ is said to
   be a left adjoint of $R$ when there exists a unit ($\eta: \id_C\to R\circ L$)
-  and counit ($\varepsilon: L\circ R \to \id_D$):
+  and counit ($\epsilon: L\circ R \to \id_D$):
   \parencite{leinster:basic_category_theory}
 
   \[
     \begin{aligned}
       \eta:&\!\!\!&\id_C\ &\Rightarrow R \circ L\\
-      \varepsilon:&\!\!\!& L \circ R &\Rightarrow\ \ \id_D
+      \epsilon:&\!\!\!& L \circ R &\Rightarrow\ \ \id_D
     \end{aligned}
   \]
   Such that the triangular identities are satisfied (the following diagrams
@@ -277,7 +352,7 @@
     {L(c)} \\
     {(L\circ R\circ L)(c)} \& {L(c)}
     \arrow["{L(\eta_c)}"', from=1-1, to=2-1]
-    \arrow["{\varepsilon_{L(c)}}"', from=2-1, to=2-2]
+    \arrow["{\epsilon_{L(c)}}"', from=2-1, to=2-2]
     \arrow["{\id_{L(c)}}", from=1-1, to=2-2]
   \end{tikzcd}
   \quad
@@ -286,7 +361,7 @@
     {R(d)} \& {(R\circ L\circ R)(d)} \\
     \& {R(d)}
     \arrow["{\eta_{R(d)}}", from=1-1, to=1-2]
-    \arrow["{R(\varepsilon_d)}", from=1-2, to=2-2]
+    \arrow["{R(\epsilon_d)}", from=1-2, to=2-2]
     \arrow["{\id_{R(d)}}"', from=1-1, to=2-2]
   \end{tikzcd}\]
 \end{definition}
@@ -306,38 +381,38 @@
             \Hom_D(L(c), L(c)) &\ \:\cong\ \: \Hom_C(c, (R\circ L)(c))\\
             \big(\id_{L(c)}: L(c) \to L(c)\big) \in D
             &\implies \big(\eta_c : c \to (R\circ L)(c)\big)\in C\\
-            \overline{\id_{L(c)}} &\ \:=\ \:\eta_c
+            \bar{\id_{L(c)}} &\ \:=\ \:\eta_c
           \end{aligned}
         \]
 
         Obtaining the existence of the unit $\eta:\id_D\Rightarrow (R\circ L)$.
-        Similarly, the existence of the counit $\varepsilon:(L\circ
+        Similarly, the existence of the counit $\epsilon:(L\circ
         R)\Rightarrow\id_C$ can be obtained by:
         \[
           \begin{aligned}
             \Hom_D(L(c), d) &\ \ \cong\ \ \Hom_C(c, R(d))\\
             \Hom_D((L\circ R)(d), d) &\ \ \cong\ \ \Hom_C(R(d), R(d))\\
-            \big(\varepsilon_{d} : (L\circ R)(d) \to d) \in D
+            \big(\epsilon_{d} : (L\circ R)(d) \to d) \in D
             &\impliedby \big(\id_{R(d)}: R(d) \to R(d)\big) \in C\\
-            \overline{\id_{R(d)}} &= \varepsilon_d
+            \bar{\id_{R(d)}} &= \epsilon_d
           \end{aligned}
         \]
 
         To obtain the triangle identities consider:
         \[
           \begin{aligned}
-            \id_{L(c)} &= \overline{\eta_c}\\
-              &= \overline{R(\id_{L(c)})\circ R(\id_{L(c)})\circ \eta_c}\\
-              &= \id_{L(c)} \circ \varepsilon_{L(c)}\circ L(\eta_c)\\
-              &= \varepsilon_{L(c)}\circ L(\eta_c)
+            \id_{L(c)} &= \bar{\eta_c}\\
+              &= \bar{R(\id_{L(c)})\circ R(\id_{L(c)})\circ \eta_c}\\
+              &= \id_{L(c)} \circ \epsilon_{L(c)}\circ L(\eta_c)\\
+              &= \epsilon_{L(c)}\circ L(\eta_c)
           \end{aligned}
           \qquad
           \begin{aligned}
-            \id_{R(d)} &= \overline{\varepsilon_d}\\
-              &= \overline{\varepsilon_d
+            \id_{R(d)} &= \bar{\epsilon_d}\\
+              &= \bar{\epsilon_d
                 \circ L(\id_{R(d)})\circ L(\id_{R(d)})}\\
-              &= R(\varepsilon_d) \circ \eta_{R(d)} \circ \id_{R(d)}\\
-              &= R(\varepsilon_d) \circ \eta_{R(d)}
+              &= R(\epsilon_d) \circ \eta_{R(d)} \circ \id_{R(d)}\\
+              &= R(\epsilon_d) \circ \eta_{R(d)}
           \end{aligned}
         \]
       \item[($\impliedby$)] For categories $C,D$ with left/right adjoints
@@ -347,10 +422,10 @@
             \phi: \hom_D(L(c), d) &\to \hom_C(c, R(d))\\
             u &\mapsto R(u)\circ \eta_c\\
             \psi: \hom_C(c, R(d)) &\to \hom_D(L(c), d)\\
-            v &\mapsto \varepsilon_d \circ L(v)
+            v &\mapsto \epsilon_d \circ L(v)
           \end{aligned}
         \]
-        Given the triangle identities, and using the naturality condition of $\eta$ and $\varepsilon$, the following diagrams commute:
+        Given the triangle identities, and using the naturality condition of $\eta$ and $\epsilon$, the following diagrams commute:
         % https://q.uiver.app/?q=WzAsNSxbMCwwLCJMKHgpIl0sWzAsMSwiKExcXGNpcmMgUlxcY2lyYyBMKSh4KSJdLFsxLDEsIkwoeCkiXSxbMCwyLCIoTFxcY2lyYyBSKSh5KSJdLFsxLDIsInkiXSxbMCwyLCJcXGlkX3tMKHgpfSJdLFswLDEsIkwoXFxldGFfeCkiLDJdLFsxLDIsIlxcdmFyZXBzaWxvbl97TCh4KX0iXSxbMiw0LCJ1Il0sWzEsMywiKExcXGNpcmMgUikodSkiLDJdLFszLDQsIlxcdmFyZXBzaWxvbl95IiwyXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
         \[\begin{tikzcd}[ampersand replacement=\&]
           {L(x)} \\
@@ -358,10 +433,10 @@
           {(L\circ R)(y)} \& y
           \arrow["{\id_{L(x)}}", from=1-1, to=2-2]
           \arrow["{L(\eta_x)}"', from=1-1, to=2-1]
-          \arrow["{\varepsilon_{L(x)}}", from=2-1, to=2-2]
+          \arrow["{\epsilon_{L(x)}}", from=2-1, to=2-2]
           \arrow["u", from=2-2, to=3-2]
           \arrow["{(L\circ R)(u)}"', from=2-1, to=3-1]
-          \arrow["{\varepsilon_y}"', from=3-1, to=3-2]
+          \arrow["{\epsilon_y}"', from=3-1, to=3-2]
         \end{tikzcd}
         \qquad
         % https://q.uiver.app/?q=WzAsNSxbMCwxLCJSKHkpIl0sWzEsMSwiKFJcXGNpcmMgTFxcY2lyYyBSKSh5KSJdLFsxLDIsIlIoeSkiXSxbMSwwLCIoTFxcY2lyYyBSKSh4KSJdLFswLDAsIngiXSxbMCwyLCJcXGlkX3tSKHgpfSIsMl0sWzAsMSwiXFxldGFfe1IoeSl9Il0sWzEsMiwiUihcXHZhcmVwc2lsb25feSkiXSxbMywxLCIoTFxcY2lyYyBSKSh2KSJdLFs0LDAsInYiLDJdLFs0LDMsIlxcZXRhX3giXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
@@ -371,7 +446,7 @@
           \& {R(y)}
           \arrow["{\id_{R(x)}}"', from=2-1, to=3-2]
           \arrow["{\eta_{R(y)}}", from=2-1, to=2-2]
-          \arrow["{R(\varepsilon_y)}", from=2-2, to=3-2]
+          \arrow["{R(\epsilon_y)}", from=2-2, to=3-2]
           \arrow["{(L\circ R)(v)}", from=1-2, to=2-2]
           \arrow["v"', from=1-1, to=2-1]
           \arrow["{\eta_x}", from=1-1, to=1-2]
@@ -383,9 +458,9 @@
         \[
           \begin{aligned}
             (\psi\circ\phi)(u) &=
-              \varepsilon \circ (L\circ R(u)) \circ L(\eta_x) = u\\
+              \epsilon \circ (L\circ R(u)) \circ L(\eta_x) = u\\
             (\phi\circ\psi)(v) &=
-              R(\varepsilon_y)\circ (R\circ L(v)) \circ \eta_x = v\\
+              R(\epsilon_y)\circ (R\circ L(v)) \circ \eta_x = v\\
           \end{aligned}
         \]
         In order to show naturality it is sufficient to show that for morphisms
@@ -399,7 +474,7 @@
           \qquad
           \begin{aligned}
             \psi(v\circ g)
-              &= \varepsilon_d \circ L(v) \circ L(g)\\
+              &= \epsilon_d \circ L(v) \circ L(g)\\
               &= \psi(v) \circ L(g)
           \end{aligned}
         \]
