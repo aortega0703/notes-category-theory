@@ -73,8 +73,8 @@
       v &\mapsto \bar{v}
     \end{aligned}
   \]
-  Such that $\bar{\bar{u}} = u$ and $\bar{\bar{v}} = v$.
-  Here $\bar{f}$ is called the transpose of $f$.
+  As $\phi$ and $\psi$ form an isomorphism $\bar{\bar{f}} = f$. Here $\bar{f}$
+  is called the transpose of $f$.
 \end{definition}
 
 \begin{theorem}[General Tranpose\label{thm:transpose}]
@@ -208,13 +208,9 @@
   natural transformation.
 
   \begin{proof}
-    Take two objects $c,c'\in C_0$ with a morphism $f:c\to c'$. There must
-    exists initial morphisms $(L(c), \eta_c)$ and $(L(c'), \eta_{c'})$.
-    Construct the composite arrow $\eta_c\circ f:c\to (R\circ L)(c')$. As
-    $(L(c'), \eta_c\circ f)$ is a candidate of initial morphism from $c$ to $R$,
-    there must exist a unique arrow $L(f): L(c)\to L(c')$ that when lifted on
-    $R$ makes the triangle commute ($\eta_c\circ f = (R\circ L)(f) \circ
-    \eta_c$) completing the naturality condition of $\eta$.
+    Take two objects $c,c'\in \C_0$ with a morphism $g:c'\to c$. Then by the
+    definition of $\eta_{c'}$ it follows that $\eta_c\circ g = (R\circ
+    L)(c)\circ \eta_{c'}$, fulfilling the naturality condition in:
 
     % https://q.uiver.app/?q=WzAsNixbMiwxLCJjIl0sWzAsMSwiTChjKSJdLFsxLDEsIihSXFxjaXJjIEwpKGMpIl0sWzIsMCwiYyciXSxbMCwwLCJMKGMnKSJdLFsxLDAsIihSXFxjaXJjIEwpKGMnKSJdLFswLDIsIlxcZXRhX2MiXSxbMyw1LCJcXGV0YV97Yyd9IiwyXSxbMywwLCJnIl0sWzUsMiwiKFJcXGNpcmMgTCkoZykiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCwxLCJMKGcpIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEsMiwiIiwyLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzQsNSwiIiwyLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzMsMiwiXFxldGFfY1xcY2lyYyBnIiwxXV0=
     \[\begin{tikzcd}[ampersand replacement=\&]
@@ -240,7 +236,19 @@
     The proof consists on two parts.
     \begin{description}
       \item[$(\implies)$] By Theorem \ref{thm:unit_exists} $\eta:\id_\C\to
-        (R\circ L)$ exists:
+        (R\circ L)$ exists. As $\bar{v}$ is unique for every $v$, then for any
+        $c\in \C$ the initial morphism from $c$ to $R$ can be constructed in the
+        following manner:
+        % https://q.uiver.app/?q=WzAsNixbMSwwLCJMKGMpIl0sWzAsMCwiTChjKSJdLFszLDAsImMiXSxbMiwwLCIoUlxcY2lyYyBMKShjKSJdLFsyLDEsIlIoZCkiXSxbMCwxLCJkIl0sWzAsMSwiXFxpZF97TChjKX0iLDJdLFsyLDMsIlxcZXRhX2MiLDJdLFsyLDQsInYiXSxbMSw1LCJcXGJhcnt2fSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDQsIlIoXFxiYXJ7dn0pIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+        \[\begin{tikzcd}[ampersand replacement=\&]
+          {L(c)} \& {L(c)} \& {(R\circ L)(c)} \& c \\
+          d \&\& {R(d)}
+          \arrow["{\id_{L(c)}}"', from=1-2, to=1-1]
+          \arrow["{\eta_c}"', from=1-4, to=1-3]
+          \arrow["v", from=1-4, to=2-3]
+          \arrow["{\bar{v}}"', dashed, from=1-1, to=2-1]
+          \arrow["{R(\bar{v})}"', dashed, from=1-3, to=2-3]
+        \end{tikzcd}\]
       \item[$(\impliedby)$] Consider the function:
         \[
           \begin{aligned}
@@ -249,10 +257,9 @@
           \end{aligned}
         \]
         By Definition \ref{def:adjunction_initial} every $v:c\to R(d)$ can be
-        expressed as $\phi(\bar{v})$ for a unique $\bar{v}:L(c)\to d$,
-        therefore $\phi$, which makes it a bijection and therefore an
-        isomorphism. To show naturality of $\phi$ consider $g:c'\to c$ and
-        $h:d\to d'$:
+        expressed as $\phi(\bar{v})$ for a unique $\bar{v}:L(c)\to d$, which
+        makes $\psi$ a bijection and therefore an isomorphism. To show
+        naturality of $\phi$ consider $g:c'\to c$ and $h:d\to d'$:
         % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXG1hdGhjYWx7RH0oTChjKSwgZCkiXSxbMSwwLCJcXG1hdGhjYWx7Q30oYywgUihkKSkiXSxbMCwxLCJcXG1hdGhjYWx7RH0oTChjJyksIGQnKSJdLFsxLDEsIlxcbWF0aGNhbHtDfShjJywgUihkJykpIl0sWzAsMSwiXFxwaGlfe2MsZH0iXSxbMCwyLCJcXG1hdGhjYWx7RH0oTChnKSxoKSIsMl0sWzIsMywiXFxwaGlfe2MnLGQnfSIsMl0sWzEsMywiXFxtYXRoY2Fse0N9KGcsUihoKSkiXSxbMCwxLCJcXGNvbmciLDJdLFsyLDMsIlxcY29uZyJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
         \[\begin{tikzcd}[ampersand replacement=\&]
           {\mathcal{D}(L(c), d)} \& {\mathcal{C}(c, R(d))} \\
@@ -266,14 +273,14 @@
         \end{tikzcd}\]
         \[
           \begin{aligned}
-            \big(\mathcal{C}(g, R(h))\circ \phi_{c,d}\big)(u)
-            &= \mathcal{D}(g, R(h))(R(u)\circ\eta_c)\\
+            \big(\C(g, R(h))\circ \phi_{c,d}\big)(u)
+            &= \C(g, R(h))(R(u)\circ\eta_c)\\
             &= R(h)\circ R(u)\circ\eta_c \circ g\\
             &= R(h)\circ R(u) \circ (R\circ L)(g)\circ \eta_{c'}\\
             &= R(h\circ u\circ L(g))\circ \eta_{c'}\\
-            &= \phi\big(h\circ u \circ L(g)\big)\\
-            &= \phi\big(\mathcal{D}(L(g), h)(u)\big)\\
-            &= \big(\phi\circ \mathcal{D}(L(g), h))(u)
+            &= \phi_{c', d'}\big(h\circ u \circ L(g)\big)\\
+            &= \phi_{c', d'}\big(\D(L(g), h)(u)\big)\\
+            &= \big(\phi_{c', d'}\circ \D(L(g), h))(u)
           \end{aligned}
         \]
     \end{description}
@@ -306,26 +313,79 @@
   is a natural transformation.
 
   \begin{proof}
-    Take two objects $d,d'\in D_0$ with a morphism $f:d'\to d$. There must
-    exists initial morphisms $(R(d), \epsilon_d)$ and $(R(d'),
-    \epsilon_{d'})$. Construct the composite arrow $f\circ
-    \epsilon_{d'}:(L\circ R)(d')\to d$. As $(R(d'), f\circ \epsilon_{d'})$
-    is a candidate of terminal morphism from $L$ to $d$, there must exist a
-    unique arrow $R(f): R(d')\to R(c)$ that when lifted on $L$ makes the
-    triangle commute ($f\circ \epsilon_{d'} = \epsilon_d \circ (L\circ
-    R)(d)$) completing the naturality condition of $\epsilon$.
+    Take two objects $d,d'\in \D_0$ with a morphism $h:d\to d'$. Then by the
+    definition of $\varepsilon_{d}$ it follows that $\eta_c\circ h = (R\circ
+    L)(c)\circ \eta_{c'}$, fulfilling the naturality condition in:
+    % https://q.uiver.app/?q=WzAsNixbMiwwLCJkIl0sWzIsMSwiZCciXSxbMSwwLCIoTFxcY2lyYyBSKShkKSJdLFswLDAsIlIoZCkiXSxbMCwxLCJSKGQnKSJdLFsxLDEsIihMXFxjaXJjIFIpKGQnKSJdLFswLDEsImgiXSxbMyw0LCJSKGgpIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsMCwiXFxlcHNpbG9uX2QiXSxbNSwxLCJcXGVwc2lsb25fe2QnfSIsMl0sWzIsMSwiaFxcY2lyY1xcZXBzaWxvbl9kIiwxXSxbMiw1LCIoTFxcY2lyYyBSKShoKSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+    \[\begin{tikzcd}[ampersand replacement=\&]
+      {R(d)} \& {(L\circ R)(d)} \& d \\
+      {R(d')} \& {(L\circ R)(d')} \& {d'}
+      \arrow["h", from=1-3, to=2-3]
+      \arrow["{R(h)}"', dashed, from=1-1, to=2-1]
+      \arrow["{\epsilon_d}", from=1-2, to=1-3]
+      \arrow["{\epsilon_{d'}}"', from=2-2, to=2-3]
+      \arrow["{h\circ\epsilon_d}"{description}, from=1-2, to=2-3]
+      \arrow["{(L\circ R)(h)}"', dashed, from=1-2, to=2-2]
+    \end{tikzcd}\]
   \end{proof}
 \end{theorem}
 
 \begin{theorem}[Adjunction Definitions]
-  Definitions \ref{def:adjunction_initial} and \ref{def:adjunction_terminal}
+  Definitions \ref{def:adjunction_isomorphism} and \ref{def:adjunction_terminal}
   are equivalent.
 
   \begin{proof}
     The proof consists of two parts:
     \begin{description}
-      \item[$(\implies)$]
-      \item[$(\impliedby)$]
+      \item[$(\implies)$] By Theorem \ref{thm:counit_exists} $\epsilon:(L\circ
+        R) \to \id_\D$ exists. As $\bar{u}$ is unique for every $u$, then for
+        any $d\in\D$ the terminal morphism from $L$ to $d$ can be constructed in
+        the following manner:
+        % https://q.uiver.app/?q=WzAsNixbMiwwLCJkIl0sWzIsMSwiZCciXSxbMCwwLCJSKGQpIl0sWzAsMSwiUihkJykiXSxbMSwwLCIoTFxcY2lyYyBSKShkKSJdLFsxLDEsIihMXFxjaXJjIFIpKGQnKSJdLFs0LDAsIlxcZXBzaWxvbl9kIl0sWzUsMSwiXFxlcHNpbG9uX3tkJ30iLDJdLFswLDEsImciXSxbMiwzLCJSKGcpIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMSwiZ1xcY2lyYyBcXGVwc2lsb25fZCIsMV0sWzQsNSwiKExcXGNpcmMgUikoZykiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+        \[\begin{tikzcd}[ampersand replacement=\&] {R(d)} \& {(L\circ R)(d)} \&
+          d \\
+          {R(d')} \& {(L\circ R)(d')} \& {d'}
+          \arrow["{\epsilon_d}", from=1-2, to=1-3]
+          \arrow["{\epsilon_{d'}}"', from=2-2, to=2-3]
+          \arrow["g", from=1-3, to=2-3]
+          \arrow["{R(g)}"', dashed, from=1-1, to=2-1]
+          \arrow["{g\circ \epsilon_d}"{description}, from=1-2, to=2-3]
+          \arrow["{(L\circ R)(g)}"', dashed, from=1-2, to=2-2]
+        \end{tikzcd}\]
+      \item[$(\impliedby)$] Consider the function:
+        \[
+          \begin{aligned}
+            \psi:&&\C(c, R(d)) &\to \D(L(c), d)\\
+            &&v&\mapsto \epsilon_d\circ L(v)
+          \end{aligned}
+        \]
+        By Definition \ref{def:adjunction_terminal} every $u:L(c)\to d$ can be
+        expressed as $\psi(\bar{u})$ for a unique $\bar{u}:c\to R(d)$, which
+        makes $\psi$ a bijection and therefore an isomorphism. To show
+        naturality of $\psi$ consider $g:c'\to c$ and $h:d\to d'$:
+        % https://q.uiver.app/?q=WzAsNCxbMSwwLCJcXG1hdGhjYWx7RH0oTChjKSwgZCkiXSxbMCwwLCJcXG1hdGhjYWx7Q30oYywgUihkKSkiXSxbMSwxLCJcXG1hdGhjYWx7RH0oTChjJyksIGQnKSJdLFswLDEsIlxcbWF0aGNhbHtDfShjJywgUihkJykpIl0sWzEsMCwiXFxwc2lfe2MsZH0iXSxbMCwyLCJcXG1hdGhjYWx7RH0oTChnKSxoKSJdLFszLDIsIlxccHNpX3tjJyxkJ30iLDJdLFsxLDMsIlxcbWF0aGNhbHtDfShnLFIoaCkpIiwyXSxbMSwwLCJcXGNvbmciLDJdLFszLDIsIlxcY29uZyJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+        \[\begin{tikzcd}[ampersand replacement=\&]
+          {\mathcal{C}(c, R(d))} \& {\mathcal{D}(L(c), d)} \\
+          {\mathcal{C}(c', R(d'))} \& {\mathcal{D}(L(c'), d')}
+          \arrow["{\psi_{c,d}}", from=1-1, to=1-2]
+          \arrow["{\mathcal{D}(L(g),h)}", from=1-2, to=2-2]
+          \arrow["{\psi_{c',d'}}"', from=2-1, to=2-2]
+          \arrow["{\mathcal{C}(g,R(h))}"', from=1-1, to=2-1]
+          \arrow["\cong"', from=1-1, to=1-2]
+          \arrow["\cong", from=2-1, to=2-2]
+        \end{tikzcd}\]
+        \[
+          \begin{aligned}
+            \big(\D(L(g), h)\circ \psi_{c, d}\big)(v)
+            &= \D(L(g), h) (\epsilon_d \circ L(v))\\
+            &= h \circ \epsilon_d \circ L(v) \circ L(g)\\
+            &= \epsilon_{d'}\circ (L\circ R)(h) \circ L(v) \circ L(g)\\
+            &= \epsilon_{d'}\circ L(R(h) \circ v \circ g)\\
+            &= \psi_{c', d'} (R(h) \circ v \circ g)\\
+            &= \psi_{c', d'} (\C(g, R(h))(v))\\
+            &= \big(\psi_{c', d'} \circ \C(g, R(h))\big)(v)
+          \end{aligned}
+        \]
     \end{description}
   \end{proof}
 \end{theorem}
