@@ -4,13 +4,15 @@ it represents the collection of morphisms from one to the other.
 \begin{definition}[Exponential\index{Exponential}\label{def:exponential}]
 
   For a category $\C$ with all binary products of the form $\hole\times b$, an
-  exponential candidate consists of an object $e\times b$ together with a morphism $f: e\times b\to a$.
+  exponential candidate consists of an object $e\times b$ together with a morphism $f: e\times b\to a$:
   % https://q.uiver.app/?q=WzAsMixbMSwwLCJhIl0sWzAsMCwiZVxcdGltZXMgYiJdLFsxLDAsImYiXV0=
   \[\begin{tikzcd}[ampersand replacement=\&]
     {e\times b} \& a
     \arrow["f", from=1-1, to=1-2]
-  \end{tikzcd}\] An exponential ($a^b$, $\mathrm{eval}$) consists of a candidate
-  such that for any candidate ($e$, $f$) there exists a unique $h:e\to a^b$ that
+  \end{tikzcd}\]
+
+  An exponential $\<a^b,\mathrm{eval}\>$ consists of a candidate
+  such that for any candidate $\<e, f\>$ there exists a unique $h:e\to a^b$ that
   makes the following commute:
   \parencite{awodey:category_theory}
 

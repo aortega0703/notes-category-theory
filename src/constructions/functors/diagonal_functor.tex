@@ -1,83 +1,79 @@
 \subsection{Diagonal Functor}
 \begin{definition}[Diagonal Functor\index{Diagonal Functor}\label{def:diagonal_functor_binary}]
-  For a category $C$, the diagonal functor $\Delta: C \to C\times C$ is defined
-  as maps of:
+  For a category $\C$, the diagonal functor $\Delta: \C \to \C\times \C$ is
+  defined as maps of:
   \begin{itemize}
     \item Objects:
-      \[\Delta(c) = (c,c),\ (\forall c\in C_0)\]
+      \[\big(\forall c\in \C_0\big)
+        \big(\Delta(c) = (c,c)\big)\]
     \item Morphisms:
-      \[\Delta(f) = (f,f),\ (\forall f\in C_1)\]
+      \[\big(\forall f\in \C_1\big)
+        \big(\Delta(f) = (f,f)\big)\]
   \end{itemize}
 \end{definition}
 
 \begin{theorem}[Left Adjoint of $\Delta$\label{thm:diagonal_left}]
-  For a category $C$, the left adjoint of the diagonal functor $\Delta: C\to
-  C\times C$ is the coproduct functor $+:C\times C\to C$ given that it exists.
+  For a category $\C$, the left adjoint of the diagonal functor $\Delta: \C\to
+  \C\times \C$ is the coproduct functor $+:\C\times \C\to \C$ given that it
+  exists.
 
   \begin{proof}
     Using Definition \ref{def:adjunction_initial} of adjunctions we obtain that
-    for any $(c, c')\in C\times C$ and $d\in C$:
-    % https://q.uiver.app/?q=WzAsNSxbMCwwLCJMKGMsIGMnKSJdLFswLDEsImQiXSxbMSwwLCIoXFxEZWx0YVxcY2lyYyBMKShjLCBjJykiXSxbMSwxLCJcXERlbHRhKGQpIl0sWzIsMCwiKGMsIGMnKSJdLFswLDEsIlxcb3ZlcmxpbmV7dn0iLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiwzLCJcXERlbHRhKFxcb3ZlcmxpbmV7dn0pIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMiwiXFxldGFfeyhjLGMnKX0iLDJdLFs0LDMsInYiXSxbMCwyLCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMSwzLCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNSw2LCIiLDIseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6NTB9LCJsZXZlbCI6MSwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
+    for any $\<c, c'\>\in C\times C$ and $d\in C$:
+    % https://q.uiver.app/?q=WzAsNSxbMCwwLCJMXFw8YywgYydcXD4iXSxbMCwxLCJkIl0sWzEsMCwiKFxcRGVsdGFcXGNpcmMgTClcXDxjLCBjJ1xcPiJdLFsxLDEsIlxcRGVsdGEoZCkiXSxbMiwwLCJcXDxjLCBjJ1xcPiJdLFswLDEsIlxcb3ZlcmxpbmV7dn0iLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiwzLCJcXERlbHRhKFxcb3ZlcmxpbmV7dn0pIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMiwiXFxldGFfe1xcPGMsYydcXD59IiwyXSxbNCwzLCJ2Il1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
     \[\begin{tikzcd}[ampersand replacement=\&]
-      {L(c, c')} \& {(\Delta\circ L)(c, c')} \& {(c, c')} \\
+      {L\<c, c'\>} \& {(\Delta\circ L)\<c, c'\>} \& {\<c, c'\>} \\
       d \& {\Delta(d)}
-      \arrow[""{name=0, anchor=center, inner sep=0}, "{\bar{v}}"', dashed, from=1-1, to=2-1]
-      \arrow[""{name=1, anchor=center, inner sep=0}, "{\Delta(\bar{v})}"', dashed, from=1-2, to=2-2]
-      \arrow["{\eta_{(c,c')}}"', from=1-3, to=1-2]
+      \arrow["{\overline{v}}"', dashed, from=1-1, to=2-1]
+      \arrow["{\Delta(\overline{v})}"', dashed, from=1-2, to=2-2]
+      \arrow["{\eta_{\<c,c'\>}}"', from=1-3, to=1-2]
       \arrow["v", from=1-3, to=2-2]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, shorten <=10pt, shorten >=25pt, dotted, from=0, to=1]
     \end{tikzcd}
     =
-    % https://q.uiver.app/?q=WzAsNCxbMSwwLCJMKGMsIGMnKSJdLFsxLDEsImQiXSxbMiwwLCJjJyJdLFswLDAsImMiXSxbMCwxLCJcXG92ZXJsaW5le3Z9IiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsMCwiXFxldGFfeyhjLGMnKV8xfSIsMl0sWzIsMSwidl8xIl0sWzMsMCwiXFxldGFfeyhjLGMnKV8wfSJdLFszLDEsInZfMCIsMl1d
+    % https://q.uiver.app/?q=WzAsNCxbMSwwLCJMXFw8YywgYydcXD4iXSxbMSwxLCJkIl0sWzIsMCwiYyciXSxbMCwwLCJjIl0sWzAsMSwiXFxvdmVybGluZXt2fSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDAsIihcXGV0YV97XFw8YyxjJ1xcPn0pXzEiLDJdLFsyLDEsInZfMSJdLFszLDAsIihcXGV0YV97XFw8YyxjJ1xcPn0pXzAiXSxbMywxLCJ2XzAiLDJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
     \begin{tikzcd}[ampersand replacement=\&]
-      c \& {L(c, c')} \& {c'} \\
+      c \& {L\<c, c'\>} \& {c'} \\
       \& d
-      \arrow["{\bar{v}}"', dashed, from=1-2, to=2-2]
-      \arrow["{\eta_{(c,c')_1}}"', from=1-3, to=1-2]
+      \arrow["{\overline{v}}"', dashed, from=1-2, to=2-2]
+      \arrow["{(\eta_{\<c,c'\>})_1}"', from=1-3, to=1-2]
       \arrow["{v_1}", from=1-3, to=2-2]
-      \arrow["{\eta_{(c,c')_0}}", from=1-1, to=1-2]
+      \arrow["{(\eta_{\<c,c'\>})_0}", from=1-1, to=1-2]
       \arrow["{v_0}"', from=1-1, to=2-2]
     \end{tikzcd}\]
 
-    Which is precisely the definition of the coproduct $(c+c',\mathrm{left},
-    \mathrm{right})$
+    Which is precisely the definition of the coproduct $\<c+c',\mathrm{left},
+    \mathrm{right}\>$
   \end{proof}
 \end{theorem}
 
 \begin{theorem}[Right Adjoint of $\Delta$\label{thm:diagonal_right}]
-  For a category $C$, the right adjoint of the diagonal functor $\Delta: C\to
-  C\times C$ is the product functor $\times:C\times C\to C$ given that it
+  For a category $\C$, the right adjoint of the diagonal functor $\Delta: \C\to
+  \C\times \C$ is the product functor $\times:\C\times \C\to \C$ given that it
   exists.
 
   \begin{proof}
     Using Definition \ref{def:adjunction_terminal} of adjunctions we obtain that
-    for any $c\in C$ and $(d,d')\in C\times C$:
-    % https://q.uiver.app/?q=WzAsNSxbMCwwLCJjIl0sWzAsMSwiUihkLGQnKSJdLFsxLDAsIlxcRGVsdGEoYykiXSxbMSwxLCIoXFxEZWx0YVxcY2lyYyBSKShkLCBkJykiXSxbMiwxLCIoZCwgZCcpIl0sWzAsMSwiXFxvdmVybGluZXt1fSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDMsIlxcRGVsdGEoXFxvdmVybGluZXt1fSkiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiw0LCJ1Il0sWzMsNCwiXFx2YXJlcHNpbG9uX3soZCxkJyl9IiwyXSxbMCwyLCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMSwzLCIiLDIseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNSw2LCIiLDIseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6NTB9LCJsZXZlbCI6MSwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d
+    for any $c\in \C_0$ and $\<d,d'\>\in \C\times \C$:
+    % https://q.uiver.app/?q=WzAsNSxbMCwwLCJjIl0sWzAsMSwiUlxcPGQsZCdcXD4iXSxbMSwwLCJcXERlbHRhKGMpIl0sWzEsMSwiKFxcRGVsdGFcXGNpcmMgUilcXDxkLCBkJ1xcPiJdLFsyLDEsIlxcPGQsIGQnXFw+Il0sWzAsMSwiXFxvdmVybGluZXt1fSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDMsIlxcRGVsdGEoXFxvdmVybGluZXt1fSkiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiw0LCJ1Il0sWzMsNCwiXFx2YXJlcHNpbG9uX3tcXDxkLGQnXFw+fSIsMl1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
     \[\begin{tikzcd}[ampersand replacement=\&]
       c \& {\Delta(c)} \\
-      {R(d,d')} \& {(\Delta\circ R)(d, d')} \& {(d, d')}
-      \arrow[""{name=0, anchor=center, inner sep=0}, "{\bar{u}}"', dashed, from=1-1, to=2-1]
-      \arrow[""{name=1, anchor=center, inner sep=0}, "{\Delta(\bar{u})}"', dashed, from=1-2, to=2-2]
+      {R\<d,d'\>} \& {(\Delta\circ R)\<d, d'\>} \& {\<d, d'\>}
+      \arrow["{\overline{u}}"', dashed, from=1-1, to=2-1]
+      \arrow["{\Delta(\overline{u})}"', dashed, from=1-2, to=2-2]
       \arrow["u", from=1-2, to=2-3]
-      \arrow["{\epsilon_{(d,d')}}"', from=2-2, to=2-3]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
-      \arrow[draw={rgb,255:red,92;green,92;blue,214}, shorten <=10pt, shorten >=26pt, dotted, from=0, to=1]
+      \arrow["{\varepsilon_{\<d,d'\>}}"', from=2-2, to=2-3]
     \end{tikzcd}
     =
-    % https://q.uiver.app/?q=WzAsNCxbMSwwLCJjIl0sWzEsMSwiUihkLGQnKSJdLFsyLDEsImQnIl0sWzAsMSwiZCJdLFswLDEsIlxcb3ZlcmxpbmV7dX0iLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwyLCJ1XzEiXSxbMSwyLCJcXHZhcmVwc2lsb25feyhkLGQnKV8xfSIsMl0sWzAsMywidV8wIiwyXSxbMSwzLCJcXHZhcmVwc2lsb25feyhkLGQnKV8wfSJdXQ==
+    % https://q.uiver.app/?q=WzAsNCxbMSwwLCJjIl0sWzEsMSwiUlxcPGQsZCdcXD4iXSxbMiwxLCJkJyJdLFswLDEsImQiXSxbMCwxLCJcXG92ZXJsaW5le3V9IiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsMiwidV8xIl0sWzEsMiwiKFxcdmFyZXBzaWxvbl97XFw8ZCxkJ1xcPn0pXzEiLDJdLFswLDMsInVfMCIsMl0sWzEsMywiKFxcdmFyZXBzaWxvbl97XFw8ZCxkJ1xcPn0pXzAiXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
     \begin{tikzcd}[ampersand replacement=\&]
       \& c \\
-      d \& {R(d,d')} \& {d'}
-      \arrow["{\bar{u}}"', dashed, from=1-2, to=2-2]
+      d \& {R\<d,d'\>} \& {d'}
+      \arrow["{\overline{u}}"', dashed, from=1-2, to=2-2]
       \arrow["{u_1}", from=1-2, to=2-3]
-      \arrow["{\epsilon_{(d,d')_1}}"', from=2-2, to=2-3]
+      \arrow["{(\varepsilon_{\<d,d'\>})_1}"', from=2-2, to=2-3]
       \arrow["{u_0}"', from=1-2, to=2-1]
-      \arrow["{\epsilon_{(d,d')_0}}", from=2-2, to=2-1]
-    \end{tikzcd}
-    \]
+      \arrow["{(\varepsilon_{\<d,d'\>})_0}", from=2-2, to=2-1]
+    \end{tikzcd}\]
 
     Which is precisely the definition of the product $(d\times d',\mathrm{fst},
     \mathrm{snd})$
@@ -85,18 +81,17 @@
 \end{theorem}
 
 \begin{definition}[Diagonal Functor\index{Diagonal Functor}\label{def:diagonal_functor}]
-  More generally, for categories $C, D$, the diagonal functor $\Delta: C \to
-  D^C$ consists of maps of: \parencite{leinster:basic_category_theory}
+  More generally, for categories $\C, \D$, the diagonal functor $\Delta: \C \to
+  \D^\C$ consists of maps of: \parencite{leinster:basic_category_theory}
   \begin{itemize}
-    \item Objects:\\
-      $\Delta(c) = \Delta_c : I \to C,\ (\forall c\in C)$\\
+    \item Objects:
+      \[\big(\forall c\in \C_0\big)
+        \big(\Delta(c) = \Delta_c : \I \to \C\big)\]
       Where $\Delta_c$ is the constant functor.
-    \item Morphisms:\\
-      $\Delta(f)  \Delta_c \Rightarrow \Delta_{c'}
-      ,\ (\forall f\in C)$\\
-      Such that:
-      $(\Delta(f))_d = f,\ (\forall d\in C)$\\
-      The naturality of this natural transformation is given by:
+    \item Morphisms:
+      \[\big(\forall c\in C_0,\ f\in \C_1\big)
+        \big((\Delta(f))_c: f \big)\]
+      The naturality of $\Delta(f)$ is given by:
       % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXERlbHRhX2MoZCkiXSxbMSwwLCJcXERlbHRhX2MoZCcpIl0sWzAsMSwiXFxEZWx0YV97Yyd9KGQpIl0sWzEsMSwiXFxEZWx0YV97Yyd9KGQnKSJdLFswLDEsIlxcRGVsdGFfYyhmKSJdLFswLDIsIihcXERlbHRhKGYpKV9kIiwyXSxbMiwzLCJcXERlbHRhX3tjJ30oZikiLDJdLFsxLDMsIihcXERlbHRhKGYpKV97ZCd9Il1d
       \[\begin{tikzcd}[ampersand replacement=\&]
         {\Delta_c(d)} \& {\Delta_c(d')} \\
@@ -118,9 +113,3 @@
       \end{tikzcd}\]
   \end{itemize}
 \end{definition}
-
-\begin{remark}
-  As $A^{\underline{2}} \cong A\times A$, Definitions
-  \ref{def:diagonal_functor_binary} and \ref{def:diagonal_functor} coincide in
-  the case where $I = \underline{2}$. \parencite{awodey:category_theory}
-\end{remark}

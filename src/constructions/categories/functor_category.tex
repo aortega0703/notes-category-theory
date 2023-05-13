@@ -1,6 +1,6 @@
 \subsection{Functor Category}
 \begin{definition}[Functor Category\label{def:functor_category}]
-  For categories $C, D$ the functor category $D^C$ is composed of:
+  For categories $\C, \D$ the functor category $\D^\C$ is composed of:
   \parencite{leinster:basic_category_theory}
   \begin{itemize}
     \item Objects:\\
@@ -10,8 +10,8 @@
   \end{itemize}
 \end{definition}
 
-\begin{theorem}[Functor Category]
-  For categories $C, D$, $D^C$ satisfies the axioms of a category.
+\begin{theorem}[Functor Category is a Category]
+  The functor category $\D^\C$ satisfies the axioms of a category.
 
   \begin{proof}
     Given Definitions \ref{def:id_functor} and \ref{def:functor_composition},
@@ -27,4 +27,5 @@
 \begin{remark}
   The functor category $C^{\underline{n}}$ is isomorphic to the product category
   $\prod_{i=1}^n C$.
+  \todo{Prove}
 \end{remark}

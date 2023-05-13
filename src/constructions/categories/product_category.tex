@@ -1,13 +1,18 @@
 \subsection{Product Category}
 \begin{definition}[Product Category\index{Product Category}]
-  For categories $C,D$, a product category $C\times D$ consists of:
+  For categories $\C,\D$, a product category $\C\times \D$ consists of:
   \parencite{awodey:category_theory}
   \begin{itemize}
-    \item Objects:\\
-      $(c, d),\ (\forall c \in \ob_C, d \in \ob_D)$
-    \item Morphisms:\\
-      $(f,g) : (c,d) \to (c', d'),\ (\forall f: c \to
-        c',\ g:d \to d')$
+    \item Objects:
+      \[\big(\forall c \in \C_0,\ d \in \D_0\big)
+        \big(\<c, d\>\in (\C\times \D)_0)\]
+    \item Morphisms:
+      \[
+        \begin{gathered}
+          \big(\forall (f: c \to c')\in \C_1,\ (g:d \to d')\in \D_1\big)\\
+          \big((\<f,g\> : \<c,d\> \to \<c', d'\>)\in (\C\times \D)_1\big)
+        \end{gathered}
+      \]
   \end{itemize}
 \end{definition}
 
@@ -18,10 +23,10 @@
 \begin{example}
   \[
     % https://q.uiver.app/?q=WzAsMixbMCwwLCIxIl0sWzAsMSwiMiJdLFswLDEsImYiLDJdXQ==
-    \begin{tikzcd}
+    \begin{tikzcd}[ampersand replacement=\&]
       1 \\
       2
-      \arrow["f", from=1-1, to=2-1]
+      \arrow["f"', from=1-1, to=2-1]
     \end{tikzcd}
     \times
     % https://q.uiver.app/?q=WzAsMixbMCwwLCJhIl0sWzAsMSwiYiJdLFswLDEsImciXV0=
@@ -31,15 +36,15 @@
       \arrow["g", from=1-1, to=2-1]
     \end{tikzcd}
     =
-    % https://q.uiver.app/?q=WzAsNCxbMCwwLCIoMSxhKSJdLFsxLDAsIigxLGIpIl0sWzAsMSwiKDIsYSkiXSxbMSwxLCIoMixiKSJdLFswLDEsIihpZF8xLGcpIl0sWzAsMiwiKGYsaWRfYSkiLDJdLFsyLDMsIihpZF8yLGcpIiwyXSxbMSwzLCIoZixpZF9iKSJdLFswLDMsIihmLGcpIiwxXV0=
-    \begin{tikzcd}
-      {(1,a)} & {(1,b)} \\
-      {(2,a)} & {(2,b)}
-      \arrow["{(\id_1,g)}", from=1-1, to=1-2]
-      \arrow["{(f,\id_a)}"', from=1-1, to=2-1]
-      \arrow["{(\id_2,g)}"', from=2-1, to=2-2]
-      \arrow["{(f,\id_b)}", from=1-2, to=2-2]
-      \arrow["{(f,g)}"{description}, from=1-1, to=2-2]
+    % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXGxhbmdsZTEsYVxccmFuZ2xlIl0sWzEsMCwiXFxsYW5nbGUxLGJcXHJhbmdsZSJdLFswLDEsIlxcbGFuZ2xlMixhXFxyYW5nbGUiXSxbMSwxLCJcXGxhbmdsZTIsYlxccmFuZ2xlIl0sWzAsMSwiXFxsYW5nbGUgXFxpZF8xLGdcXHJhbmdsZSJdLFswLDIsIlxcbGFuZ2xlIGYsaWRfYVxccmFuZ2xlIiwyXSxbMiwzLCJcXGxhbmdsZSBcXGlkXzIsZ1xccmFuZ2xlIiwyXSxbMSwzLCJcXGxhbmdsZSBmLGlkX2JcXHJhbmdsZSJdLFswLDMsIlxcbGFuZ2xlIGYsZ1xccmFuZ2xlIiwxXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+    \begin{tikzcd}[ampersand replacement=\&]
+      {\langle1,a\rangle} \& {\langle1,b\rangle} \\
+      {\langle2,a\rangle} \& {\langle2,b\rangle}
+      \arrow["{\langle \id_1,g\rangle}", from=1-1, to=1-2]
+      \arrow["{\langle f,id_a\rangle}"', from=1-1, to=2-1]
+      \arrow["{\langle \id_2,g\rangle}"', from=2-1, to=2-2]
+      \arrow["{\langle f,id_b\rangle}", from=1-2, to=2-2]
+      \arrow["{\langle f,g\rangle}"{description}, from=1-1, to=2-2]
     \end{tikzcd}
   \]
 \end{example}

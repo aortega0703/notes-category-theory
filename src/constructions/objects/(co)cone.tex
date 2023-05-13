@@ -2,10 +2,11 @@
 
 \subsubsection*{Cones}
 
-\begin{definition}[Cone\index{Cone}\label{def:cone}] For a functor $F:C\to D$
-	and an object $d\in D$, a cone from $d$ to $F$ consists of the vertex $d$ and
-	a family of morphisms $\big(d_c: d \to F(c)\big)_{c\in C}$ such that for each
-	$(f:c\to c')\in C,\ (\forall c,c'\in C)$ the following commutes:
+\begin{definition}[Cone\index{Cone}\label{def:cone}]
+	For a functor $F:\C\to \D$ and an object $d\in \D$, a cone from $d$ to $F$
+	consists of the vertex $d$ and a family of morphisms $\big(d_c: d \to
+	F(c)\big)_{c\in \C_0}$ such that for each $f\in \C(c, c')$ the following
+	commutes:
 	\parencite{awodey:category_theory}
 
 	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJkIl0sWzAsMSwiRihjKSJdLFsxLDEsIkYoYycpIl0sWzAsMiwiZF97Yyd9Il0sWzAsMSwiZF9jIiwyXSxbMSwyLCJGKGYpIiwyXV0=
@@ -23,17 +24,17 @@
 \end{remark}
 
 \begin{definition}[Cone as Natural Transformation\index{Cone!as Natural Transformation}]
-	Definition \ref{def:cone} is equivalent to saying that a cone is a natural
-	transformation $\alpha: \Delta_d \Rightarrow F$ from the constant functor,
-	where $d$ is the apex of the cone.
+	Equivalenty to Definition \ref{def:cone}, a cone is a natural transformation
+	$\alpha: \Delta_d \Rightarrow F$ from the constant functor $\Delta_d:\C\to
+	\D$, where $d$ is the apex of the cone.
 \end{definition}
 
 \subsubsection*{Cocones}
 \begin{definition}[Cocone\index{Cocone}\label{def:cocone}]
-	For a functor $F:C\to D$ and an object $d\in D$, a cocone from $F$ to $d$
+	For a functor $F:\C\to \D$ and an object $d\in \D$, a cocone from $F$ to $d$
 	consists of the vertex $d$ and a family of morphisms $\big(d_c: F(c) \to
-	d\big)_{c\in C}$ such that for each $(f:c\to c')\in C,\ (\forall c,c'\in C)$
-	the following commutes:
+	d\big)_{c\in \C_0}$ such that for each $f \in \C(c, c')$ the following
+	commutes:
 	\parencite{leinster:basic_category_theory}
 	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJkIl0sWzAsMSwiRihjKSJdLFsxLDEsIkYoYycpIl0sWzIsMCwiZF97Yyd9IiwyXSxbMSwwLCJkX2MiXSxbMSwyLCJGKGYpIiwyXV0=
 	\[\begin{tikzcd}[ampersand replacement=\&]
@@ -49,8 +50,8 @@
 	Cocones are dual of cones.
 \end{remark}
 
-\begin{remark}
-	Definition \ref{def:cocone} can be expressed simply as a natural
-	transformation $\alpha: F \Rightarrow \Delta_d$ to the constant functor,
-	where $d$ is the apex of the cocone.
-\end{remark}
+\begin{definition}[Cone as Natural Transformation\index{Cone!as Natural Transformation}]
+	Equivalenty to Definition \ref{def:cocone}, a cocone is a natural
+	transformation $\alpha: F \Rightarrow \Delta_d$ to the constant functor
+	$\Delta_d:\C\to \D$, where $d$ is the apex of the cone.
+\end{definition}

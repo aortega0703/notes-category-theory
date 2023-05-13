@@ -38,14 +38,14 @@
 		The comma category $(\Delta_d\downarrow F)$ consists of:
 		\begin{itemize}
 			\item Objects:
-				\[\big(\forall f\in \D(d, F(c))\big)
-					\big((0,f,c)\in(\Delta_d\downarrow F)\big)_0\]
+				\[\big(\forall (f:d\to F(c))\in \D_1\big)
+					\big(\<0,f,c\>\in(\Delta_d\downarrow F)\big)_0\]
 			\item Morphisms:
 				\[
 					\begin{gathered}
-						\big(\forall h\in \C(c, c')
-							,\ f\in \D(d, F(c)),\ f'\in \D(d, F(c'))\big)\\
-						\big((\id_0, h): (0, f, c) \to (0, f', c')\big)
+						\big(\forall (h: c \to c') \in \C_1
+							,\ (f: d \to F(c))\in \D_1,\ (f': d\to F(c'))\in \D_1\big)\\
+						\big(\<\id_0, h\>: \<0, f, c\> \to \<0, f', c'\>\big)
 						\in(\Delta_d\downarrow F)_1
 					\end{gathered}
 				\]
@@ -70,9 +70,9 @@
 					\arrow["f"', from=1-2, to=1-1]
 				\end{tikzcd}\]
 		\end{itemize}
-		An initial object of $(\Delta_d\downarrow F)$ is an object $(0,f,c)$ such
-		that for any other object $(0, f', c')$ there exists a unique morphism $h:c
-		\to c'$ such that the previous diagram commutes. This is precisely an
+		An initial object of $(\Delta_d\downarrow F)$ is an object $\<0,f,c\>$ such
+		that for any other object $\<0, f', c'\>$ there exists a unique morphism
+		$h:c \to c'$ such that the previous diagram commutes. This is precisely an
 		initial morphism from $d$ to $F$. Finally, by Theorem
 		\ref{thm:initial_object_iso} they are unique up to isomorphism.
 	\end{proof}
@@ -118,16 +118,16 @@
 		\begin{itemize}
 			\item Objects:
 				\[
-					\big(\forall f\in \D(F(c), d)\big)
-					\big((c, f, 0) \in (F\downarrow \Delta _d)\big)
+					\big(\forall (f: F(c)\to d)\in \D_1\big)
+					\big(\<c, f, 0\> \in (F\downarrow \Delta _d)_0\big)
 				\]
 			\item Morphisms:
 				\[
 					\begin{gathered}
-						\big(\forall h\in \C(c', c)
-							,\ f\in \D(F(c), d),\ f'\in\D(F(c'), d)\big)\\
-						\big((h, \id_0): (c', f', 0) \to (c, f, 0)\big)
-					\end{gathered}
+						\big(\forall (h: c'\to c)\in \C_1
+							,\ (f:F(c)\to d)\in \D_1,\ (f':F(c') \to d)\in\D_1\big)\\
+						\big((\<h, \id_0\>: \<c', f', 0\> \to \<c, f, 0\>)\in (F\downarrow\Delta_d)_1 \big)
+						\end{gathered}
 				\]
 				Such that the following commutes:
 				% https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMnKSJdLFsxLDAsIkYoYykiXSxbMCwxLCJkIl0sWzEsMSwiZCJdLFswLDEsIkYoaCkiXSxbMiwzLCJcXG1hdGhybXtpZH1fZCIsMl0sWzAsMiwiZiIsMl0sWzEsMywiZiciXV0=
@@ -149,7 +149,7 @@
 					\arrow["f", from=1-1, to=1-2]
 				\end{tikzcd}\]
 		\end{itemize}
-		A terminal object of $(F\downarrow \Delta_d)$ is an object $(c,f,0)$ such
+		A terminal object of $(F\downarrow \Delta_d)$ is an object $\<c,f,0\>$ such
 		that for any other object $(c', f', 0)$ there exists a unique morphism $h:c'
 		\to c$ such that the previous diagram commutes. This is precisely a terminal
 		morphism from $F$ to $d$. Finally, by Theorem \ref{thm:terminal_object_iso}

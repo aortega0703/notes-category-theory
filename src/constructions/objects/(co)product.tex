@@ -2,7 +2,7 @@
 
 \subsubsection*{Products}
 
-\begin{definition}[Binary Product\index{Product}\label{def:product}]
+\begin{definition}[Product\index{Product}\label{def:product}]
 
 	For a pair of objects $a, b$, a product candidate consists of an object $p$
 	together with morphisms $p_1: P\to a$ and $p_2:P\to b$:
@@ -13,7 +13,7 @@
 		\arrow["{p_2}", from=1-2, to=1-3]
 	\end{tikzcd}\]
 
-	A product $(a\times b, \mathrm{fst}, \mathrm{snd})$ is a candidate such that
+	A product $\<a\times b, \mathrm{fst}, \mathrm{snd}\>$ is a candidate such that
 	for any candidate $(p, p_1, p_2)$ there exists a unique $h: p\to a\times b$
 	that makes the following commute:
 	\parencite{leinster:basic_category_theory}
@@ -34,8 +34,8 @@
 \end{remark}
 
 \begin{definition}[Product as Terminal Morphism\index{Product! as Terminal Morphism}]
-	Equivalently to Definition \ref{def:product}, the product ($a\times b,
-	\mathrm{fst}, \mathrm{snd}$) can be expressed as a terminal morphism from the diagonal functor $\Delta: \C \to \C\times \C$ to $(a, b)$:
+	Equivalently to Definition \ref{def:product}, the product $\<a\times b,
+	\mathrm{fst}, \mathrm{snd}\>$ can be expressed as a terminal morphism from the diagonal functor $\Delta: \C \to \C\times \C$ to $\<a, b\>$:
 	% https://q.uiver.app/?q=WzAsNSxbMCwwLCJwIl0sWzAsMSwiYVxcdGltZXMgYiJdLFsxLDAsIlxcRGVsdGEocCkiXSxbMSwxLCJcXERlbHRhKGFcXHRpbWVzIGIpIl0sWzIsMSwiKGEsYikiXSxbMCwxLCJoIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsMywiXFxEZWx0YShoKSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDQsInBfKiJdLFszLDQsIihcXG1hdGhybXtmc3R9LCBcXG1hdGhybXtzbmR9KSIsMl1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
 	\[\begin{tikzcd}[ampersand replacement=\&]
 		p \& {\Delta(p)} \\
@@ -78,10 +78,9 @@
 
 \subsubsection*{Coproduct}
 
-\begin{definition}[Binary
-Coproduct\index{Coproduct}\label{def:coproduct}]
+\begin{definition}[Coproduct\index{Coproduct}\label{def:coproduct}]
 
-	For a pair of objects $(a, b)$, a coproduct or sum candidate consists of an
+	For a pair of objects $\<a, b\>$, a coproduct or sum candidate consists of an
 	object $P$ together with morphisms $p_1: a\to p$ and
 	$p_2:b\to p$:
 	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzIsMCwiYiJdLFsxLDAsInAiXSxbMCwyLCJwXzEiXSxbMSwyLCJwXzIiLDJdXQ==
@@ -92,7 +91,7 @@ Coproduct\index{Coproduct}\label{def:coproduct}]
 	\end{tikzcd}\]
 
 	A coproduct $(a + b, \mathrm{left}, \mathrm{right})$ is a candidate such that
-	for any candidate $(p, p_1, p_2)$ there exists a unique $h: a+b\to P$ that
+	for any candidate $(p, p_1, p_2)$ there exists a unique $h: a+b\to p$ that
 	makes the following commute:
 	\parencite{leinster:basic_category_theory}
 	% https://q.uiver.app/?q=WzAsNCxbMCwwLCJhIl0sWzIsMCwiYiJdLFsxLDAsImErYiJdLFsxLDEsInAiXSxbMCwyLCJcXG1hdGhybXtsZWZ0fSJdLFsxLDIsIlxcbWF0aHJte3JpZ2h0fSIsMl0sWzAsMywicF8xIiwyXSxbMSwzLCJwXzIiXSxbMiwzLCJoIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
@@ -112,24 +111,24 @@ Coproduct\index{Coproduct}\label{def:coproduct}]
 \end{remark}
 
 \begin{definition}[Coproduct as Initial Morphism\index{Coproduct!as Initial Morphism}]
-	Equivalently to Definition \ref{def:coproduct}, the coproduct ($a+b,
-	\mathrm{left}, \mathrm{right}$) can be expressed as an initial morphism from
+	Equivalently to Definition \ref{def:coproduct}, the coproduct $\<a+b,
+	\mathrm{left}, \mathrm{right}\>$ can be expressed as an initial morphism from
 	$(a,b)$ to the diagonal functor $\Delta: \C \to \C\times \C$:
-	% https://q.uiver.app/?q=WzAsNSxbMCwxLCJwIl0sWzAsMCwiYStiIl0sWzEsMSwiXFxEZWx0YShwKSJdLFsxLDAsIlxcRGVsdGEoYStiKSJdLFsyLDAsIihhLGIpIl0sWzEsMCwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDIsIlxcRGVsdGEoaCkiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCwzLCIoXFxtYXRocm17bGVmdH0sIFxcbWF0aHJte3JpZ2h0fSkiLDJdLFs0LDIsInBfKiJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+	% https://q.uiver.app/?q=WzAsNSxbMCwxLCJwIl0sWzAsMCwiYStiIl0sWzEsMSwiXFxEZWx0YShwKSJdLFsxLDAsIlxcRGVsdGEoYStiKSJdLFsyLDAsIlxcPGEsYlxcPiJdLFsxLDAsImgiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMywyLCJcXERlbHRhKGgpIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMywiXFw8XFxtYXRocm17bGVmdH0sIFxcbWF0aHJte3JpZ2h0fVxcPiIsMl0sWzQsMiwicF8qIl1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
 	\[\begin{tikzcd}[ampersand replacement=\&]
-		{a+b} \& {\Delta(a+b)} \& {(a,b)} \\
+		{a+b} \& {\Delta(a+b)} \& {\<a,b\>} \\
 		p \& {\Delta(p)}
 		\arrow["h"', dashed, from=1-1, to=2-1]
 		\arrow["{\Delta(h)}"', dashed, from=1-2, to=2-2]
-		\arrow["{(\mathrm{left}, \mathrm{right})}"', from=1-3, to=1-2]
+		\arrow["{\<\mathrm{left}, \mathrm{right}\>}"', from=1-3, to=1-2]
 		\arrow["{p_*}", from=1-3, to=2-2]
 	\end{tikzcd}\]
 \end{definition}
 
 \begin{definition}[Coproduct as Colimit\index{Coproduct!as Colimit}\label{def:coproduct_limit}]
-	For a discrete category $\I$, the functor $F:\I\to \C$ is an $\I$-indexed
-	family of objects $(F(i))_{i\in \I_0}$ in $\C$. The coproduct or sum
-	$\sum\limits_{i\in \I_0} F(i)$ is the colimit of such a functor $F$.
+	More generally, for a discrete category $\I$, the functor $F:\I\to \C$ is an
+	$\I$-indexed family of objects $(F(i))_{i\in \I_0}$ in $\C$. The coproduct or
+	sum $\sum\limits_{i\in \I_0} F(i)$ is the colimit of such a functor $F$.
 	\parencite{leinster:basic_category_theory}
 \end{definition}
 

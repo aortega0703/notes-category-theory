@@ -1,28 +1,33 @@
 \subsection{Hom-Functor}
 \begin{definition}[Hom-Functor\index{Hom-Functor}]
-  For a category $C$, the hom-functor $\Hom_C : C^{op}\times C \to
+  For a category $\C$, the hom-functor $\C(\hole, \hole) : \C^{op}\times \C \to
   \mathrm{Set}$ consists of maps of: \parencite{lane:working_mathematician}
   \begin{itemize}
-    \item Objects:\\
-      $\Hom_C (c', d) = \hom_C (c', d),
-        \ (\forall c', d\in \ob_C)$
-    \item Morphisms:\\
-      Let $f=(g^{op}, h): (c', d)\to (c, d')$, then:
+    \item Objects:
+      \[\big(\forall c, d \in \C_0\big)
+        \big(\C(c, d) = \{f\ |\ (f: c \to d)\in \C_1\}\big)\]
+    \item Morphisms:
       \[
-        \begin{aligned}
-          \Hom_C (f) : \hom_{C^{op}\times C}(c', d) &\to
-            \hom_{C^{op}\times C}(c, d')\\
-          p &\mapsto q = h\circ p\circ g
-        \end{aligned}\quad
-      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJjJyJdLFswLDEsImMiXSxbMSwwLCJkIl0sWzEsMSwiZCciXSxbMSwwLCJnIl0sWzIsMywiaCJdLFswLDIsInAiXSxbMSwzLCJxIiwyXV0=
-        \begin{tikzcd}
-        {c'} & d \\
-        c & {d'}
-        \arrow["g", from=2-1, to=1-1]
-        \arrow["h", from=1-2, to=2-2]
-        \arrow["p", from=1-1, to=1-2]
-        \arrow["q"', from=2-1, to=2-2]
-        \end{tikzcd}
+        \begin{gathered}
+          \big(\forall (g: c' \to c) \in \C_1,\ (h: d\to d')\in \C_1\big)\\
+          \left(
+            \begin{aligned}
+              \C(g,h):&& (\C^{op}\times \C)(c', d) &\to
+              (\C^{op}\times \C)(c, d')\\
+              &&p &\mapsto q = h\circ p\circ g
+            \end{aligned}
+          \right)
+          \quad
+          % https://q.uiver.app/?q=WzAsNCxbMCwwLCJjJyJdLFswLDEsImMiXSxbMSwwLCJkIl0sWzEsMSwiZCciXSxbMSwwLCJnIl0sWzIsMywiaCJdLFswLDIsInAiXSxbMSwzLCJxIiwyXV0=
+          \begin{tikzcd}
+            {c'} & d \\
+            c & {d'}
+            \arrow["g", from=2-1, to=1-1]
+            \arrow["h", from=1-2, to=2-2]
+            \arrow["p", from=1-1, to=1-2]
+            \arrow["q"', from=2-1, to=2-2]
+            \end{tikzcd}
+        \end{gathered}
       \]
   \end{itemize}
 \end{definition}

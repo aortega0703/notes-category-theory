@@ -1,14 +1,17 @@
 \subsection{Cone and Cocone Categories}
-\begin{definition}[Cone Category\index{Cone Category}]
-  For a functor $F:C\to D$, the cone category $\mathrm{Cone}(F)$ consists of:
+\begin{definition}[Cone Category\index{Cone!Category}]
+  For a functor $F:\C\to \D$, the cone category $\mathrm{Cone}(F)$ consists of:
   \parencite{fong_spivak:7sketches}
 
   \begin{itemize}
-    \item Objects:\\
-      $\big(d, \big(d_c: d \to F(c)\big)_{c\in C}\big)$.
-    \item Morphisms:\\
-      $f: (d, d_*) \to (d', d'_*)$, for all $(f:d\to d')\in D$ such
-      that for every $c\in C$ the following commutes:
+    \item Objects:
+      \[\big(d, \big(d_c: d \to F(c)\big)_{c\in \C_0}\big)\in
+        \mathrm{cone}(F)_0\]
+    \item Morphisms:
+      \[\big(\forall (f : d \to d') \in \D_1\big)
+        \big((f: \<d, d_*\>\to \<d', d'_*\>) \in \mathrm{cone}(F)_1\big)\]
+
+      Such that for every $c\in C$ the following commutes:
       % https://q.uiver.app/?q=WzAsMyxbMCwwLCJkIl0sWzEsMCwiZCciXSxbMSwxLCJGKGMpIl0sWzAsMiwiZF9jIiwyXSxbMSwyLCJkJ19jIl0sWzAsMSwiZiJdXQ==
       \[\begin{tikzcd}
         d & {d'} \\
@@ -20,16 +23,19 @@
   \end{itemize}
 \end{definition}
 
-\begin{definition}[Cocone Category\index{Cocone Category}]
-  For a functor $F:C\to D$, the cocone category $\mathrm{Cocone}(F)$ consists
+\begin{definition}[Cocone Category\index{Cocone!Category}]
+  For a functor $F:\C\to \D$, the cocone category $\mathrm{cocone}(F)$ consists
   of:
 
   \begin{itemize}
-    \item Objects:\\
-      $\big(d, \big(d_c: F(c) \to d\big)_{c\in C}\big)$.
-    \item Morphisms:\\
-      $f: (d, d_*) \to (d', d'_*)$, for all $(f:d\to d')\in D$ such
-      that for every $c\in C$ the following commutes:
+    \item Objects:
+      \[\big(d, \big(d_c: F(c) \to d\big)_{c\in \C_0}\big)\in
+        \mathrm{cone}(F)_0\]
+    \item Morphisms:
+      \[\big(\forall (f : d\to d')\in \D_1\big)
+        \big((f:\<d, d_*\>\to \<d', d'_*\>)\in \mathrm{cocone}(F)_1\big)\]
+
+      Such that for every $c\in C$ the following commutes:
       % https://q.uiver.app/?q=WzAsMyxbMCwxLCJkIl0sWzEsMSwiZCciXSxbMCwwLCJGKGMpIl0sWzIsMCwiZF9jIiwyXSxbMiwxLCJkJ19jIl0sWzAsMSwiZiIsMl1d
       \[\begin{tikzcd}[ampersand replacement=\&]
         {F(c)} \\

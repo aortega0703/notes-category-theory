@@ -3,7 +3,7 @@
 \subsection{Via Natural Isomorphism}
 
 \begin{definition}[Adjunction\index{Adjunction!via Natural Isomorphism}\label{def:adjunction_isomorphism}]
-  The pair of functors ($L: \C\to \D$, $R: \D\to \C$) is said to be left/right
+  The pair of functors $\<L: \C\to \D$, $R: \D\to \C\>$ is said to be left/right
   adjoint of each other when there is a natural isomorphism between the
   functors:
   \parencite{leinster:basic_category_theory}
@@ -23,7 +23,7 @@
           = \D(L(c), d) \overset{\cong}{\to} \C(c, R(d))\\
       \]
     \item Naturality Condition:\\
-      For every $f = (g, h): (c', d) \to (c, d')$, the following commutes:
+      For every $f = \<g, h\>: \<c', d\> \to \<c, d'\>$, the following commutes:
       % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXEQoTChjKSwgZCkiXSxbMSwwLCJcXEMoYywgUihkKSkiXSxbMCwxLCJcXEQoTChjJyksZCcpIl0sWzEsMSwiXFxDKGMnLFIoZCcpKSJdLFswLDIsIlxcRChMKGcpLCBoKSIsMl0sWzEsMywiXFxDKGcsIFIoaCkpIl0sWzAsMSwiXFxhbHBoYV97YywgZH0iXSxbMiwzLCJcXGFscGhhX3tjJyxkJ30iLDJdLFswLDEsIlxcY29uZyIsMl0sWzIsMywiXFxjb25nIl1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
       \[\begin{tikzcd}[ampersand replacement=\&]
         {\D(L(c), d)} \& {\C(c, R(d))} \\
@@ -39,7 +39,7 @@
 \end{definition}
 
 \begin{remark}
-  In diagram a pair of left/right adjoints $(L, R)$ is indicated by a double
+  In diagram a pair of left/right adjoints $\<L, R\>$ is indicated by a double
   arrow ($\Rightarrow$) going in the same direction as the left adjoint, or as a
   turnstile ($\vdash$) pointing towards the left adjoint as follows:
   % https://q.uiver.app/?q=WzAsMixbMSwwLCJcXEQiXSxbMCwwLCJcXEMiXSxbMSwwLCJMIiwwLHsiY3VydmUiOi0zfV0sWzAsMSwiUiIsMCx7ImN1cnZlIjotM31dLFsxLDAsIiIsMSx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH0sImxldmVsIjoyfV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
@@ -60,37 +60,37 @@
 \end{remark}
 
 \begin{definition}[Transpose\index{Transpose}\label{def:transpose}]
-  For a pair of left/right adjoints $(L, R)$, the transpose $\bar{f}$ of a
-  morphism $f$ is given by the following maps that constitute the isomorphism in
-  Definition \ref{def:adjunction_isomorphism}:
+  For an adjunction $(L:\C\to \D, R:\D\to \C)$, the transpose $\overline{f}$ of a
+  morphism $f$ is given by the following isomorphisms of Definition
+  \ref{def:adjunction_isomorphism}:
   \[
     \begin{aligned}
       \phi_{(c, d)}: \D(L(c), d) &\to \C(c, R(d))\\
-      u &\mapsto \bar{u}\\
+      u &\mapsto \overline{u}\\
       \psi_{(c, d)}: \C(c, R(d)) &\to \D(L(c), d)\\
-      v &\mapsto \bar{v}
+      v &\mapsto \overline{v}
     \end{aligned}
   \]
 \end{definition}
 
 \begin{theorem}[General Tranpose\label{thm:transpose}]
-  For a pair of left/right adjoints $(L, R)$, the naturality condition is
+  For an adjunction $\<L: \C\to \D, R:\D\to \C\>$, the naturality condition is
   equivalent to stating that for any $u\in \D(L(\hole), \hole)$, $g \in \C_1$,
   $h\in \D_1$:
   \begin{align*}
-    \bar{h\circ u \circ L(g)} = R(h) \circ \bar{u} \circ g
+    \overline{h\circ u \circ L(g)} = R(h) \circ \overline{u} \circ g
   \end{align*}
 
   \begin{proof}
     It follows from equating both paths in the naturality condition, that:
     \[
       \begin{aligned}
-      \big(\alpha_{(c', d')} \circ \D(L(g), h)\big)(u)
-        &= \big(\C(g, R(h)) \circ \alpha_{(c, d)}\big)(u)\\
-      \alpha_{(c', d')}(h\circ u \circ L(g))
-        &= \C(g, R(h))(\bar{u})\\
-      \bar{h\circ u \circ L(g)}
-        &= R(h) \circ \bar{u} \circ g
+      \big(\alpha_{c', d'} \circ \D(L(g), h)\big)(u)
+        &= \big(\C(g, R(h)) \circ \alpha_{c, d}\big)(u)\\
+      \alpha_{c', d'}(h\circ u \circ L(g))
+        &= \C(g, R(h))(\overline{u})\\
+      \overline{h\circ u \circ L(g)}
+        &= R(h) \circ \overline{u} \circ g
       \end{aligned}
     \]
   \end{proof}
@@ -102,13 +102,12 @@
 \end{remark}
 
 \begin{theorem}[Alternative Transposes\label{thm:transpose2}]
-  Theorem \ref{thm:transpose} is equivalent to stating that for a pair of
-  left/right adjoints $(L:\C\to \D, R:\D\to \C)$, the following two equations
-  hold for any $u\in \D(L(\hole), \hole)$, $v\in \C(\hole, R(\hole))$, $g \in
-  \C_1$, $h\in \D_1$:
+  Theorem \ref{thm:transpose} is equivalent to stating that the following two
+  equations hold for any $u\in \D(L(\hole), \hole)$, $v\in \C(\hole, R(\hole))$,
+  $g \in \C_1$, $h\in \D_1$:
   \begin{align*}
-    \bar{h\circ u} &= R(h) \circ \bar{u}\\
-    \bar{v\circ g} &= \bar{v} \circ L(g)
+    \overline{h\circ u} &= R(h) \circ \overline{u}\\
+    \overline{v\circ g} &= \overline{v} \circ L(g)
   \end{align*}
 
   \begin{proof}
@@ -117,26 +116,26 @@
       \item[$(\implies)$] By setting either $g=\id_c$ or $h=\id_d$:
         \[
           \begin{aligned}
-            \bar{h\circ u}
-              &= \bar{h\circ u \circ L(\id_c)}\\
-              &= R(h) \circ \bar{u} \circ \id_c\\
-              &= R(h) \circ \bar{u}
+            \overline{h\circ u}
+              &= \overline{h\circ u \circ L(\id_c)}\\
+              &= R(h) \circ \overline{u} \circ \id_c\\
+              &= R(h) \circ \overline{u}
           \end{aligned}
           \qquad
           \begin{aligned}
-            \bar{v\circ g}
-              &= \bar{R(\id_d)\circ v\circ g}\\
-              &= \id_d \circ \bar{v} \circ L(g)\\
-              &= \bar{v} \circ L(g)
+            \overline{v\circ g}
+              &= \overline{R(\id_d)\circ v\circ g}\\
+              &= \id_d \circ \overline{v} \circ L(g)\\
+              &= \overline{v} \circ L(g)
           \end{aligned}
         \]
       \item[$(\impliedby)$] Consider the following:
         \[
           \begin{aligned}
-            \bar{h \circ u\circ L(g)}
-              &= \bar{(h \circ u)\circ L(g)}\\
-              &= \bar{h\circ u} \circ g\\
-              &= R(h) \circ \bar{u} \circ g
+            \overline{h \circ u\circ L(g)}
+              &= \overline{(h \circ u)\circ L(g)}\\
+              &= \overline{h\circ u} \circ g\\
+              &= R(h) \circ \overline{u} \circ g
           \end{aligned}
         \]
     \end{description}
@@ -144,9 +143,9 @@
 \end{theorem}
 
 \begin{theorem}[Existence of a unit $\eta$\label{thm:unit_exists}]
-  For a pair of left/right adjoints ($L: \C \to \D$, $R:\D\to \C$)
+  For a pair of left/right adjoints $\<L: \C \to \D$, $R:\D\to \C\>$
   there exists a morphism $\eta_c: c\to (R\circ L)(c)$ that corresponds to
-  $\bar{\id_{L(c)}}$ for every $c\in \C_0$.
+  $\overline{\id_{L(c)}}$ for every $c\in \C_0$.
 
   \begin{proof}
     Consider definition \ref{def:adjunction_isomorphism} of adjunction:
@@ -156,16 +155,16 @@
         \D(L(c), L(c)) &\ \:\cong\ \: \C(c, (R\circ L)(c))\\
         \big(\id_{L(c)}: L(c) \to L(c)\big) \in \D_1
         &\implies \big(\eta_c : c \to (R\circ L)(c)\big)\in \C_1\\
-        \bar{\id_{L(c)}} &\ \:=\ \:\eta_c
+        \overline{\id_{L(c)}} &\ \:=\ \:\eta_c
       \end{aligned}
     \]
   \end{proof}
 \end{theorem}
 
 \begin{theorem}[Existence of a counit $\epsilon$\label{thm:counit_exists}]
-  For an adjunction ($L: \C \to \D$, $R:\D\to \C$)
+  For an adjunction $\<L: \C \to \D$, $R:\D\to \C\>$
   there exists a morphism $\epsilon_d: (L\circ R)(d)\to d$ that corresponds to
-  $\bar{\id_{R(d)}}$ for every $d\in \D_0$.
+  $\overline{\id_{R(d)}}$ for every $d\in \D_0$.
 
   \begin{proof}
     Consider Definition \ref{def:adjunction_isomorphism} of adjunction:
@@ -175,7 +174,7 @@
         \D((L\circ R)(d), d) &\ \:\cong\ \: \C(R(d), R(d))\\
         \big(\epsilon:(L\circ R)(d)\to d\big)\in D_1 &\impliedby
           \big(\id_{R(d)}: R(d) \to R(d)\big)\\
-        \epsilon_d &\ \:=\ \:\bar{\id_{R(d)}}
+        \epsilon_d &\ \:=\ \:\overline{\id_{R(d)}}
       \end{aligned}
     \]
   \end{proof}
@@ -184,7 +183,7 @@
 \subsection{Via Initial Morphism}
 
 \begin{definition}[Adjunction\index{Adjunction!via Initial Morphism}\label{def:adjunction_initial}]
-  The pair of functors ($L: \C\to \D$, $R: \D\to \C$) is left/right adjoint of
+  The pair of functors $\<L: \C\to \D$, $R: \D\to \C\>$ is left/right adjoint of
   each other when there is an initial morphism $(L(c), \eta_c:c\to (R\circ
   L)(c))$ from every $c\in \C_0$ to $R$:
   \parencite{awodey:category_theory}
@@ -230,7 +229,7 @@
     The proof consists on two parts.
     \begin{description}
       \item[$(\implies)$] By Theorem \ref{thm:unit_exists} $\eta:\id_\C\to
-        (R\circ L)$ exists. As $\bar{v}$ is unique for every $v$, then for any
+        (R\circ L)$ exists. As $\overline{v}$ is unique for every $v$, then for any
         $c\in \C_0$ the initial morphism from $c$ to $R$ can be constructed in
         the following manner:
         % https://q.uiver.app/?q=WzAsNixbMSwwLCJMKGMpIl0sWzAsMCwiTChjKSJdLFszLDAsImMiXSxbMiwwLCIoUlxcY2lyYyBMKShjKSJdLFsyLDEsIlIoZCkiXSxbMCwxLCJkIl0sWzAsMSwiXFxpZF97TChjKX0iLDJdLFsyLDMsIlxcZXRhX2MiLDJdLFsyLDQsInYiXSxbMSw1LCJcXGJhcnt2fSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDQsIlIoXFxiYXJ7dn0pIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
@@ -240,8 +239,8 @@
           \arrow["{\id_{L(c)}}"', from=1-2, to=1-1]
           \arrow["{\eta_c}"', from=1-4, to=1-3]
           \arrow["v", from=1-4, to=2-3]
-          \arrow["{\bar{v}}"', dashed, from=1-1, to=2-1]
-          \arrow["{R(\bar{v})}"', dashed, from=1-3, to=2-3]
+          \arrow["{\overline{v}}"', dashed, from=1-1, to=2-1]
+          \arrow["{R(\overline{v})}"', dashed, from=1-3, to=2-3]
         \end{tikzcd}\]
       \item[$(\impliedby)$] Consider the function:
         \[
@@ -251,7 +250,7 @@
           \end{aligned}
         \]
         By Definition \ref{def:adjunction_initial} every $v:c\to R(d)$ can be
-        expressed as $\phi(\bar{v})$ for a unique $\bar{v}:L(c)\to d$, which
+        expressed as $\phi(\overline{v})$ for a unique $\overline{v}:L(c)\to d$, which
         makes $\psi$ a bijection and therefore an isomorphism. To show
         naturality of $\phi$ consider $g:c'\to c$ and $h:d\to d'$:
         % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXG1hdGhjYWx7RH0oTChjKSwgZCkiXSxbMSwwLCJcXG1hdGhjYWx7Q30oYywgUihkKSkiXSxbMCwxLCJcXG1hdGhjYWx7RH0oTChjJyksIGQnKSJdLFsxLDEsIlxcbWF0aGNhbHtDfShjJywgUihkJykpIl0sWzAsMSwiXFxwaGlfe2MsZH0iXSxbMCwyLCJcXG1hdGhjYWx7RH0oTChnKSxoKSIsMl0sWzIsMywiXFxwaGlfe2MnLGQnfSIsMl0sWzEsMywiXFxtYXRoY2Fse0N9KGcsUihoKSkiXSxbMCwxLCJcXGNvbmciLDJdLFsyLDMsIlxcY29uZyJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
@@ -284,9 +283,9 @@
 \subsection{Via Terminal Morphism}
 
 \begin{definition}[Adjunction\index{Adjunction!via Terminal Morphism}\label{def:adjunction_terminal}]
-  The pair of functors ($L: \C\to \D$, $R: \D\to \C$), is left/right adjoint of
-  each other when there exists a terminal morphism $(R(d), \epsilon_d: (L\circ
-  R)(d) \to d)$ from every $d\in \D_0$ to $L$:
+  The pair of functors $\<L: \C\to \D$, $R: \D\to \C\>$, is left/right adjoint
+  of each other when there exists a terminal morphism $(R(d), \epsilon_d:
+  (L\circ R)(d) \to d)$ from every $d\in \D_0$ to $L$:
   \parencite{awodey:category_theory}
   % https://q.uiver.app/?q=WzAsNSxbMCwxLCJSKGQpIl0sWzAsMCwiYyJdLFsxLDAsIkwoYykiXSxbMSwxLCIoTFxcY2lyYyBSKShkKSJdLFsyLDEsImQiXSxbMSwwLCJcXG92ZXJsaW5le3V9IiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsMywiTChcXG92ZXJsaW5le3V9KSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDQsIlxcdmFyZXBzaWxvbl9kIiwyXSxbMiw0LCJ1Il1d
   \[\begin{tikzcd}[ampersand replacement=\&]
@@ -329,7 +328,7 @@
     The proof consists of two parts:
     \begin{description}
       \item[$(\implies)$] By Theorem \ref{thm:counit_exists} $\epsilon:(L\circ
-        R) \to \id_\D$ exists. As $\bar{u}$ is unique for every $u$, then for
+        R) \to \id_\D$ exists. As $\overline{u}$ is unique for every $u$, then for
         any $d\in\D_0$ the terminal morphism from $L$ to $d$ can be constructed
         in the following manner:
         % https://q.uiver.app/?q=WzAsNixbMiwwLCJkIl0sWzIsMSwiZCciXSxbMCwwLCJSKGQpIl0sWzAsMSwiUihkJykiXSxbMSwwLCIoTFxcY2lyYyBSKShkKSJdLFsxLDEsIihMXFxjaXJjIFIpKGQnKSJdLFs0LDAsIlxcZXBzaWxvbl9kIl0sWzUsMSwiXFxlcHNpbG9uX3tkJ30iLDJdLFswLDEsImciXSxbMiwzLCJSKGcpIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMSwiZ1xcY2lyYyBcXGVwc2lsb25fZCIsMV0sWzQsNSwiKExcXGNpcmMgUikoZykiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
@@ -351,7 +350,7 @@
           \end{aligned}
         \]
         By Definition \ref{def:adjunction_terminal} every $u:L(c)\to d$ can be
-        expressed as $\psi(\bar{u})$ for a unique $\bar{u}:c\to R(d)$, which
+        expressed as $\psi(\overline{u})$ for a unique $\overline{u}:c\to R(d)$, which
         makes $\psi$ a bijection and therefore an isomorphism. To show
         naturality of $\psi$ consider $g:c'\to c$ and $h:d\to d'$:
         % https://q.uiver.app/?q=WzAsNCxbMSwwLCJcXG1hdGhjYWx7RH0oTChjKSwgZCkiXSxbMCwwLCJcXG1hdGhjYWx7Q30oYywgUihkKSkiXSxbMSwxLCJcXG1hdGhjYWx7RH0oTChjJyksIGQnKSJdLFswLDEsIlxcbWF0aGNhbHtDfShjJywgUihkJykpIl0sWzEsMCwiXFxwc2lfe2MsZH0iXSxbMCwyLCJcXG1hdGhjYWx7RH0oTChnKSxoKSJdLFszLDIsIlxccHNpX3tjJyxkJ30iLDJdLFsxLDMsIlxcbWF0aGNhbHtDfShnLFIoaCkpIiwyXSxbMSwwLCJcXGNvbmciLDJdLFszLDIsIlxcY29uZyJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
@@ -384,8 +383,8 @@
 \subsection{Via Triangle Identities}
 
 \begin{definition}[Adjunction\index{Adjunction!via Triangle Identities}\label{def:adjunction_triangle}]
-  The pair of functors ($L: C\to D$, $R: D\to C$) is left/right adjoint of each
-  other when there exists a unit ($\eta: \id_\C\to R\circ L$) and counit
+  The pair of functors $\<L: \C\to \D$, $R: \D\to \C\>$ is left/right adjoint of
+  each other when there exists a unit ($\eta: \id_\C\to R\circ L$) and counit
   ($\epsilon: L\circ R \to \id_\D$):
   \parencite{leinster:basic_category_theory}
 
@@ -430,15 +429,15 @@
         triangle identities consider:
         \[
           \begin{aligned}
-            \id_{L(c)} &= \bar{\eta_c}\\
-              &= \bar{R(\id_{L(c)})\circ R(\id_{L(c)})\circ \eta_c}\\
+            \id_{L(c)} &= \overline{\eta_c}\\
+              &= \overline{R(\id_{L(c)})\circ R(\id_{L(c)})\circ \eta_c}\\
               &= \id_{L(c)} \circ \epsilon_{L(c)}\circ L(\eta_c)\\
               &= \epsilon_{L(c)}\circ L(\eta_c)
           \end{aligned}
           \qquad
           \begin{aligned}
-            \id_{R(d)} &= \bar{\epsilon_d}\\
-              &= \bar{\epsilon_d
+            \id_{R(d)} &= \overline{\epsilon_d}\\
+              &= \overline{\epsilon_d
                 \circ L(\id_{R(d)})\circ L(\id_{R(d)})}\\
               &= R(\epsilon_d) \circ \eta_{R(d)} \circ \id_{R(d)}\\
               &= R(\epsilon_d) \circ \eta_{R(d)}
