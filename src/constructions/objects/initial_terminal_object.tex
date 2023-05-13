@@ -15,11 +15,8 @@
   isomorphic.
 
   \begin{proof}
-    Consider two initial objects $c$ and $c'$ in the same category. By their
-    initiality there exists a unique morphism from themselves into themselves,
-    the identity morphism. Additionally the exists two unique morphisms $f:c\to
-    c'$ and $g:c' \to c$ between them. Therefore the following diagrams must
-    commute:
+    Consider two initial objects $c$ and $c'$, the following diagrams must
+    commute :
     % https://q.uiver.app/?q=WzAsMyxbMCwwLCJjIl0sWzEsMCwiYyciXSxbMSwxLCJjIl0sWzAsMiwiXFxpZF9jIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsMSwiZiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDIsImciLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
     \[\begin{tikzcd}
       c & {c'} \\
@@ -41,7 +38,7 @@
 \end{theorem}
 
 \begin{definition}[Terminal Object\index{Terminal Object}]
-  For a category $C$, an object $1$ is said to be terminal when there exists a
+  For a category $\C$, an object $1$ is said to be terminal when there exists a
   unique morphism $f: c\to 1$ for every object $c\in C$.
   \parencite{awodey:category_theory}
 \end{definition}

@@ -4,23 +4,23 @@
 
 \begin{definition}[Binary Product\index{Product}\label{def:product}]
 
-	For a pair of objects $(A, B)$, a product candidate consists of an object $P$
-	together with morphisms $p_1: P\to A$ and $p_2:P\to B$:
-	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJBIl0sWzIsMCwiQiJdLFsxLDAsIlAiXSxbMiwwLCJwXzEiLDJdLFsyLDEsInBfMiJdXQ==
+	For a pair of objects $a, b$, a product candidate consists of an object $p$
+	together with morphisms $p_1: P\to a$ and $p_2:P\to b$:
+	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzIsMCwiYiJdLFsxLDAsInAiXSxbMiwwLCJwXzEiLDJdLFsyLDEsInBfMiJdXQ==
 	\[\begin{tikzcd}[ampersand replacement=\&]
-		A \& P \& B
+		a \& p \& b
 		\arrow["{p_1}"', from=1-2, to=1-1]
 		\arrow["{p_2}", from=1-2, to=1-3]
 	\end{tikzcd}\]
 
-	A product $(A\times B, \mathrm{fst}, \mathrm{snd})$ is a candidate such that
-	for any candidate $(P, p_1, p_2)$ there exists a unique $h: P\to A\times B$
+	A product $(a\times b, \mathrm{fst}, \mathrm{snd})$ is a candidate such that
+	for any candidate $(p, p_1, p_2)$ there exists a unique $h: p\to a\times b$
 	that makes the following commute:
 	\parencite{leinster:basic_category_theory}
-	% https://q.uiver.app/?q=WzAsNCxbMCwxLCJBIl0sWzIsMSwiQiJdLFsxLDEsIkFcXHRpbWVzIEIiXSxbMSwwLCJQIl0sWzIsMCwiXFxtYXRocm17ZnN0fSJdLFsyLDEsIlxcbWF0aHJte3NuZH0iLDJdLFszLDAsInBfMSIsMl0sWzMsMSwicF8yIl0sWzMsMiwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+	% https://q.uiver.app/?q=WzAsNCxbMCwxLCJhIl0sWzIsMSwiYiJdLFsxLDEsImFcXHRpbWVzIGIiXSxbMSwwLCJwIl0sWzIsMCwiXFxtYXRocm17ZnN0fSJdLFsyLDEsIlxcbWF0aHJte3NuZH0iLDJdLFszLDAsInBfMSIsMl0sWzMsMSwicF8yIl0sWzMsMiwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
 	\[\begin{tikzcd}[ampersand replacement=\&]
-		\& P \\
-		A \& {A\times B} \& B
+		\& p \\
+		a \& {a\times b} \& b
 		\arrow["{\mathrm{fst}}", from=2-2, to=2-1]
 		\arrow["{\mathrm{snd}}"', from=2-2, to=2-3]
 		\arrow["{p_1}"', from=1-2, to=2-1]
@@ -33,22 +33,22 @@
 	Products are the dual of coproducts.
 \end{remark}
 
-\begin{definition}[Product as Limit\index{Product!as Limit}\label{def:product:limit}]
+\begin{definition}[Product as Limit\index{Product!as Limit}\label{def:product_limit}]
 
-	More generally, for a discrete category $I$, the functor $F:I\to C$ is an
-	$I$-indexed family of objects $(c_i)_{i\in I}$ in $C$. The product
-	$\prod_{i\in I} c_i$ is the limit of such a functor $F$.
+	More generally, for a discrete category $\I$, the functor $F:\I\to \C$ is an
+	$\I$-indexed family of objects $(F(i))_{i\in \I_0}$ in $\C$. The product
+	$\prod\limits_{i\in \I_0} F(i)$ is the limit of such a functor $F$.
 	\parencite{leinster:basic_category_theory}
 \end{definition}
 
 \begin{remark}
-	In the case where $I=\underline{0}$ the product is denoted as $1$ and
+	In the case where $\I=\underline{0}$ the product is denoted as $1$ and
 	corresponds to a terminal object.
 \end{remark}
 
 \begin{remark}
-	In the case where $I=\underline{2}$, Definitions \ref{def:product} and
-	\ref{def:product:limit} are equivalent.
+	In the case where $\I=\underline{2}$, Definitions \ref{def:product} and
+	\ref{def:product_limit} are equivalent.
 \end{remark}
 
 \begin{theorem}[Uniqueness of Product]
@@ -66,24 +66,24 @@
 \begin{definition}[Binary
 Coproduct\index{Coproduct}\label{def:coproduct}]
 
-	For a pair of objects $(A, B)$, a coproduct or sum candidate consists of an
-	object $P$ together with morphisms $p_1: A\to P$ and
-	$p_2:B\to P$:
-	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJBIl0sWzIsMCwiQiJdLFsxLDAsIlAiXSxbMCwyLCJwXzEiXSxbMSwyLCJwXzIiLDJdXQ==
+	For a pair of objects $(a, b)$, a coproduct or sum candidate consists of an
+	object $P$ together with morphisms $p_1: a\to p$ and
+	$p_2:b\to p$:
+	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzIsMCwiYiJdLFsxLDAsInAiXSxbMCwyLCJwXzEiXSxbMSwyLCJwXzIiLDJdXQ==
 	\[\begin{tikzcd}[ampersand replacement=\&]
-		A \& P \& B
+		a \& p \& b
 		\arrow["{p_1}", from=1-1, to=1-2]
 		\arrow["{p_2}"', from=1-3, to=1-2]
 	\end{tikzcd}\]
 
-	A coproduct $(A+ B, \mathrm{left}, \mathrm{right})$ is a candidate such that
-	for any candidate $(P, p_1, p_2)$ there exists a unique $h: A+B\to P$ that
+	A coproduct $(a + b, \mathrm{left}, \mathrm{right})$ is a candidate such that
+	for any candidate $(p, p_1, p_2)$ there exists a unique $h: a+b\to P$ that
 	makes the following commute:
 	\parencite{leinster:basic_category_theory}
-	% https://q.uiver.app/?q=WzAsNCxbMCwwLCJBIl0sWzIsMCwiQiJdLFsxLDAsIkErIEIiXSxbMSwxLCJQIl0sWzAsMiwiXFxtYXRocm17bGVmdH0iXSxbMSwyLCJcXG1hdGhybXtyaWdodH0iLDJdLFswLDMsInBfMSIsMl0sWzEsMywicF8yIl0sWzIsMywiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+	% https://q.uiver.app/?q=WzAsNCxbMCwwLCJhIl0sWzIsMCwiYiJdLFsxLDAsImErYiJdLFsxLDEsInAiXSxbMCwyLCJcXG1hdGhybXtsZWZ0fSJdLFsxLDIsIlxcbWF0aHJte3JpZ2h0fSIsMl0sWzAsMywicF8xIiwyXSxbMSwzLCJwXzIiXSxbMiwzLCJoIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
 	\[\begin{tikzcd}[ampersand replacement=\&]
-		A \& {A+ B} \& B \\
-		\& P
+		a \& {a+b} \& b \\
+		\& p
 		\arrow["{\mathrm{left}}", from=1-1, to=1-2]
 		\arrow["{\mathrm{right}}"', from=1-3, to=1-2]
 		\arrow["{p_1}"', from=1-1, to=2-2]
@@ -96,16 +96,21 @@ Coproduct\index{Coproduct}\label{def:coproduct}]
 	Coproducts are the dual of products.
 \end{remark}
 
-\begin{definition}[Coproduct as Colimit\index{Coproduct!as Colimit}\index{Sum}]
-	For a discrete category $I$, the functor $F:I\to C$ is an $I$-indexed family
-	of objects $(c_i)_{i\in I}$ in $C$. The coproduct or sum $\Sigma_{i\in I} c_i$
-	is the colimit of such a functor $F$.
+\begin{definition}[Coproduct as Colimit\index{Coproduct!as Colimit}\label{def:coproduct_limit}]
+	For a discrete category $\I$, the functor $F:\I\to \C$ is an $\I$-indexed
+	family of objects $(F(i))_{i\in \I_0}$ in $\C$. The coproduct or sum
+	$\sum\limits_{i\in \I_0} F(i)$ is the colimit of such a functor $F$.
 	\parencite{leinster:basic_category_theory}
 \end{definition}
 
 \begin{remark}
-	In the case where $I=\underline{0}$ the product is denoted as $0$ and
+	In the case where $\I=\underline{0}$ the product is denoted as $0$ and
 	corresponds to an initial object.
+\end{remark}
+
+\begin{remark}
+	In the case where $\I=\underline{2}$, Definitions \ref{def:coproduct} and
+	\ref{def:coproduct_limit} are equivalent.
 \end{remark}
 
 \begin{theorem}[Uniqueness of Coproduct]

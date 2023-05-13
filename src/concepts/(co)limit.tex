@@ -1,11 +1,11 @@
 \section{Limits and Colimits}
 
 \begin{definition}[Limit\index{Limit}\label{def:limit}]
-	The limit of a functor $F:C\to D$ is a cone with vertex $d\in D$ and morphisms
-	$\big(\alpha_c: d \to F(c)\big)_{c\in C}$ such that for any other cone with
-	vertex $d'\in D$ and morphisms $\big(\beta_c: d' \to F(c)\big)_{c\in C}$ there
-	exists a unique map $f:d'\to d$ such that the following diagram commutes for
-	all $c\in C$: \parencite{leinster:basic_category_theory}
+	The limit of a functor $F:\C\to \D$ is a cone with vertex $d\in \D$ and
+	morphisms $\big(\alpha_c: d \to F(c)\big)_{c\in \C_0}$ such that for any other
+	cone with vertex $d'\in D$ and morphisms $\big(\beta_c: d' \to F(c)\big)_{c\in
+	\C_0}$ there exists a unique map $f:d'\to d$ such that the following diagram
+	commutes for all $c\in \C_0$: \parencite{leinster:basic_category_theory}
 
 	% https://q.uiver.app/?q=WzAsMyxbMCwxLCJkIl0sWzAsMCwiZCciXSxbMSwxLCJGKGMpIl0sWzAsMiwiXFxhbHBoYV9jIiwyXSxbMSwyLCJcXGJldGFfYyJdLFsxLDAsImYiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
 	\[\begin{tikzcd}
@@ -25,68 +25,73 @@
 \begin{remark}
 	Note that Definition \ref{def:limit} can also be thought of as a terminal
 	morphism from the diagonal functor $\Delta$ to the functor $F$ (thought of as
-	an object in $D^C$) as shown in the following diagram:
-	% https://q.uiver.app/?q=WzAsNSxbMCwwLCJjIl0sWzAsMSwiYyciXSxbMSwwLCJcXERlbHRhX2MiXSxbMSwxLCJcXERlbHRhX3tjJ30iXSxbMiwwLCJGIl0sWzEsMCwiaCIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDIsIlxcRGVsdGEoaCkiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMyw0LCJcXGJldGEiLDJdLFsyLDQsIlxcYWxwaGEiXSxbMCwyLCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMSwzLCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNSw2LCIiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6NjB9LCJsZXZlbCI6MSwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+	an object in $\D^\C$) as shown in the following diagram:
+	% https://q.uiver.app/?q=WzAsNSxbMCwxLCJjIl0sWzAsMCwiYyciXSxbMSwxLCJcXERlbHRhX2MiXSxbMSwwLCJcXERlbHRhX3tjJ30iXSxbMiwxLCJGIl0sWzEsMCwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDIsIlxcRGVsdGEoaCkiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMyw0LCJcXGJldGEiXSxbMiw0LCJcXGFscGhhIiwyXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
 	\[\begin{tikzcd}[ampersand replacement=\&]
-		c \& {\Delta_c} \& F \\
-		{c'} \& {\Delta_{c'}}
-		\arrow[""{name=0, anchor=center, inner sep=0}, "h", dashed, from=2-1, to=1-1]
-		\arrow[""{name=1, anchor=center, inner sep=0}, "{\Delta(h)}", dashed, from=2-2, to=1-2]
-		\arrow["\beta"', from=2-2, to=1-3]
-		\arrow["\alpha", from=1-2, to=1-3]
-		\arrow[color={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
-		\arrow[color={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
-		\arrow[color={rgb,255:red,92;green,92;blue,214}, shorten <=6pt, shorten >=19pt, dotted, from=0, to=1]
+		{c'} \& {\Delta_{c'}} \\
+		c \& {\Delta_c} \& F
+		\arrow["h"', dashed, from=1-1, to=2-1]
+		\arrow["{\Delta(h)}"', dashed, from=1-2, to=2-2]
+		\arrow["\beta", from=1-2, to=2-3]
+		\arrow["\alpha"', from=2-2, to=2-3]
 	\end{tikzcd}\]
 \end{remark}
 
 \begin{theorem}[Uniqueness of Limits\label{thm:limit_iso}]
-	A limit can be seen as a terminal morphism, which are unique up to Isomorphism
-	(Theorem \ref{thm:terminal_morphism_iso}), therefore limits are also unique
-	up to isomorphism.
+	If there exists multiple limits for the same functor, then they are all
+	isomorphic.
+
+	\begin{proof}
+		A limit can be seen as a terminal morphism, which are unique up to
+		Isomorphism (Theorem \ref{thm:terminal_morphism_iso}), therefore limits are
+		also unique up to isomorphism.
+	\end{proof}
 \end{theorem}
 
 \begin{definition}[Colimit\index{Colimit}\label{def:colimit}]
-	The colimit of a functor $F:C\to D$ is a cocone with vertex $d\in D$ and
-	morphisms $\big(\alpha_c: F(c)\to d\big)_{c\in C}$ such that for any other
-	cone with vertex $d'\in D$ and morphisms $\big(\beta_c: F(c)\to d'\big)_{c\in
-	C}$ there exists a unique map $f:d\to d'$ such that the following diagram
-	commutes for all $c\in C$: \parencite{leinster:basic_category_theory}
+	The colimit of a functor $F:\C\to \D$ is a cocone with vertex $d\in \D_0$ and
+	morphisms $\big(\alpha_c: F(c)\to d\big)_{c\in \C_0}$ such that for any other
+	cone with vertex $d'\in \D_0$ and morphisms $\big(\beta_c: F(c)\to
+	d'\big)_{c\in \C_0}$ there exists a unique map $f:d\to d'$ such that the
+	following diagram commutes for all $c\in \C_0$:
+	\parencite{leinster:basic_category_theory}
 
-	% https://q.uiver.app/?q=WzAsMyxbMCwxLCJkIl0sWzAsMCwiZCciXSxbMSwxLCJGKGMpIl0sWzIsMCwiXFxhbHBoYV9jIl0sWzIsMSwiXFxiZXRhX2MiLDJdLFswLDEsImYiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJkIl0sWzAsMSwiZCciXSxbMSwwLCJGKGMpIl0sWzIsMCwiXFxhbHBoYV9jIiwyXSxbMiwxLCJcXGJldGFfYyJdLFswLDEsImYiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
 	\[\begin{tikzcd}[ampersand replacement=\&]
-		{d'} \\
-		d \& {F(c)}
-		\arrow["{\alpha_c}", from=2-2, to=2-1]
-		\arrow["{\beta_c}"', from=2-2, to=1-1]
-		\arrow["f", dashed, from=2-1, to=1-1]
+		d \& {F(c)} \\
+		{d'}
+		\arrow["{\alpha_c}"', from=1-2, to=1-1]
+		\arrow["{\beta_c}", from=1-2, to=2-1]
+		\arrow["f"', dashed, from=1-1, to=2-1]
 	\end{tikzcd}\]
 \end{definition}
 
 \begin{remark}
 	Note that Definition \ref{def:colimit} is equivalent to saying that a colimit
-	of a functor $F:C\to D$ is an initial object in the category cocone($F$).
+	of a functor $F:\C\to \D$ is an initial object in the category cocone($F$).
 \end{remark}
 
 \begin{remark}
 	Note that Definition \ref{def:colimit} can also be thought of as an initial
-	morphism from the functor $F$ (thought of as an object in $D^C$) to the diagonal functor $\Delta$ as shown in the following diagram:
-	% https://q.uiver.app/?q=WzAsNSxbMCwwLCJjIl0sWzAsMSwiYyciXSxbMSwwLCJcXERlbHRhX2MiXSxbMSwxLCJcXERlbHRhX3tjJ30iXSxbMiwwLCJGIl0sWzAsMSwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDMsIlxcRGVsdGEoaCkiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCwzLCJcXGJldGEiXSxbNCwyLCJcXGFscGhhIiwyXSxbMCwyLCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMSwzLCIiLDAseyJjb2xvdXIiOlsyNDAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNSw2LCIiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6NjB9LCJsZXZlbCI6MSwiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+	morphism from the functor $F$ (thought of as an object in $\D^\C$) to the diagonal functor $\Delta$ as shown in the following diagram:
+	% https://q.uiver.app/?q=WzAsNSxbMCwwLCJjIl0sWzAsMSwiYyciXSxbMSwwLCJcXERlbHRhX2MiXSxbMSwxLCJcXERlbHRhX3tjJ30iXSxbMiwwLCJGIl0sWzAsMSwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDMsIlxcRGVsdGEoaCkiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCwzLCJcXGJldGEiXSxbNCwyLCJcXGFscGhhIiwyXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
 	\[\begin{tikzcd}[ampersand replacement=\&]
 		c \& {\Delta_c} \& F \\
 		{c'} \& {\Delta_{c'}}
-		\arrow[""{name=0, anchor=center, inner sep=0}, "h"', dashed, from=1-1, to=2-1]
-		\arrow[""{name=1, anchor=center, inner sep=0}, "{\Delta(h)}"', dashed, from=1-2, to=2-2]
+		\arrow["h"', dashed, from=1-1, to=2-1]
+		\arrow["{\Delta(h)}"', dashed, from=1-2, to=2-2]
 		\arrow["\beta", from=1-3, to=2-2]
 		\arrow["\alpha"', from=1-3, to=1-2]
-		\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
-		\arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=2-1, to=2-2]
-		\arrow[draw={rgb,255:red,92;green,92;blue,214}, shorten <=6pt, shorten >=19pt, dotted, from=0, to=1]
 	\end{tikzcd}\]
 \end{remark}
 
 \begin{theorem}[Uniqueness of Colimits\label{thm:colimit_iso}]
-	A colimit can be seen as an initial morphism, which are unique up to
-	Isomorphism (Theorem \ref{thm:initial_morphism_iso}), therefore colimits are
-	also unique up to isomorphism.
+	If there exists multiple colimits for the same functor, then they are all
+	isomorphic.
+
+	\begin{proof}
+		A colimit can be seen as an initial morphism, which are unique up to
+		Isomorphism (Theorem \ref{thm:initial_morphism_iso}), therefore colimits are
+		also unique up to isomorphism.
+	\end{proof}
 \end{theorem}

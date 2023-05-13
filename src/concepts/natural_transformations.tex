@@ -1,17 +1,16 @@
 \section{Natural Transformations}
 
 \begin{definition}[Natural Transformation\index{Natural Transformation}]
-  For categories $C,D$ and functors $F:C \to D$, $G: C \to D$, a natural
-  transformation $\alpha : F \Rightarrow G$ consists of:
+  For functors $F, G:\C \to \D$, a natural transformation $\alpha : F
+  \Rightarrow G$ consists of:
   \parencite{fong_spivak:7sketches}
   \begin{itemize}
-    \item $c$-Components:\\
-      $\big(\alpha_c : F(c) \to G(c)\big) \in D,\ (\forall c\in \ob_C)$\\
+    \item $c$-Components:
+      \[(\forall c\in \C_0)(\alpha_c : F(c) \to G(c))\]
       If every $c$-component is an isomorphism the natural transformation is
       then called a natural isomorphism.
-    \item Naturality Condition:\\
-      The following diagram must commute for all $c,c'\in C$ and $(f:c\to
-      c')\in C$:
+    \item Naturality Condition: The following diagram must commute for all
+      $c,c'\in \C_0$ and $f \in \C(c, c')$:
       % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJHKGMpIl0sWzEsMSwiRyhjJykiXSxbMCwyLCJcXGFscGhhX2MiLDJdLFsxLDMsIlxcYWxwaGFfe2MnfSJdLFswLDEsIkYoZikiXSxbMiwzLCJHKGYpIiwyXV0=
       \[\begin{tikzcd}[ampersand replacement=\&]
         {F(c)} \& {F(c')} \\
@@ -26,34 +25,33 @@
 
 \begin{example}
   Observe the following consiguration of categories, with functors $F,G:C\to D$
-  (in \textcolor{blue}{blue}/\textcolor{red}{red} respectively) and a natural tranformation $\alpha$ between them:
-  % https://q.uiver.app/?q=WzAsNixbMCwxLCJGKGMpIl0sWzEsMSwiRihjJykiXSxbMCwyLCJHKGMpIl0sWzEsMiwiRyhjJykiXSxbMCwwLCJjIl0sWzEsMCwiYyciXSxbMCwyLCJcXGFscGhhX2EiLDJdLFsxLDMsIlxcYWxwaGFfYiJdLFswLDEsIkYoZikiXSxbMiwzLCJHKGYpIiwyXSxbNCw1LCJmIl0sWzQsMCwiIiwwLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzUsMSwiIiwyLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzQsMiwiIiwyLHsiY3VydmUiOjQsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbNSwzLCIiLDIseyJjdXJ2ZSI6LTQsImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=
-  \[\begin{tikzcd}
-    c & {c'} \\
-    {F(c)} & {F(c')} \\
-    {G(c)} & {G(c')}
+  and a natural tranformation $\alpha$ between them:
+  % https://q.uiver.app/?q=WzAsOCxbMCwxLCJGKGEpIl0sWzEsMSwiRihiKSJdLFswLDIsIkcoYSkiXSxbMSwyLCJHKGIpIl0sWzAsMCwiYSJdLFsxLDAsImIiXSxbMiwxLCJGKGMpPUcoYykiXSxbMiwwLCJjIl0sWzAsMiwiXFxhbHBoYV9hIiwyXSxbMSwzLCJcXGFscGhhX2IiXSxbMCwxLCJGKGYpIl0sWzIsMywiRyhmKSIsMl0sWzQsNSwiZiJdLFs1LDcsImciXSxbMSw2LCJGKGcpIl0sWzMsNiwiRyhnKSIsMl1d
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    a \& b \& c \\
+    {F(a)} \& {F(b)} \& {F(c)=G(c)} \\
+    {G(a)} \& {G(b)}
     \arrow["{\alpha_a}"', from=2-1, to=3-1]
     \arrow["{\alpha_b}", from=2-2, to=3-2]
     \arrow["{F(f)}", from=2-1, to=2-2]
     \arrow["{G(f)}"', from=3-1, to=3-2]
     \arrow["f", from=1-1, to=1-2]
-    \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=2-1]
-    \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-2, to=2-2]
-    \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=24pt}, dotted, from=1-1, to=3-1]
-    \arrow[draw={rgb,255:red,214;green,92;blue,92}, curve={height=-24pt}, dotted, from=1-2, to=3-2]
+    \arrow["g", from=1-2, to=1-3]
+    \arrow["{F(g)}", from=2-2, to=2-3]
+    \arrow["{G(g)}"', from=3-2, to=2-3]
   \end{tikzcd}\]
 \end{example}
 
 \subsection{Composition}
 \begin{definition}[Identity Natural Transformation\index{Identity Natural Transformation}]
-  For any categories $C,D$ with a functor $F:C\to D$, there exists a natural
+  For a functor $F:\C\to \D$, there exists a natural
   transformation $\id_F: F\Rightarrow F$ which consists of:
   \parencite{leinster:basic_category_theory}
   \begin{itemize}
-    \item $c$-Components:\\
-      $(\id_F)_c = \id_{F(c)}: F(c) \to F(c),\ (\forall c\in C)$
-    \item Naturality Condition:\\
-      The following diagram commutes:
+    \item $c$-Components:
+      \[(\forall c\in \C_0)
+        \big((\id_F)_c = \id_{F(c)}\big)\]
+    \item Naturality Condition:
       % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJGKGMpIl0sWzEsMSwiRihjJykiXSxbMCwxLCJGKGYpIl0sWzAsMiwiXFxtYXRocm17aWR9X3tGKGMpfSIsMl0sWzIsMywiRihmKSIsMl0sWzEsMywiXFxtYXRocm17aWR9X3tGKGMnKX0iXV0=
       \[\begin{tikzcd}
         {F(c)} & {F(c')} \\
@@ -66,8 +64,8 @@
   \end{itemize}
 \end{definition}
 
-\begin{theorem}[Naturality of Identity Functor]
-  The naturality condition of the identity functor holds.
+\begin{theorem}[Naturality of Identity Natural Transformation]
+  The naturality condition of the identity natural transformation holds.
 
   \begin{proof}
     By unitality it follows that $F(f) \circ \id_{F(c)} = \id_{F(c')} \circ
@@ -77,9 +75,9 @@
 
 \begin{definition}[Vertical Composition\index{Vertical Composition}]
   For a set-up of categories, functors, and natural transformations:
-  % https://q.uiver.app/?q=WzAsMixbMCwwLCJDIl0sWzEsMCwiRCJdLFswLDEsIkYiLDAseyJjdXJ2ZSI6LTR9XSxbMCwxLCJIIiwyLHsiY3VydmUiOjR9XSxbMCwxLCJHIiwxXSxbMiw0LCJcXGFscGhhIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dLFs0LDMsIlxcYmV0YSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XV0=
-  \[\begin{tikzcd}
-    C & D
+  % https://q.uiver.app/?q=WzAsMixbMCwwLCJcXEMiXSxbMSwwLCJcXEQiXSxbMCwxLCJGIiwwLHsiY3VydmUiOi00fV0sWzAsMSwiSCIsMix7ImN1cnZlIjo0fV0sWzAsMSwiRyIsMV0sWzIsNCwiXFxhbHBoYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNCwzLCJcXGJldGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    \C \& \D
     \arrow[""{name=0, anchor=center, inner sep=0}, "F", curve={height=-24pt}, from=1-1, to=1-2]
     \arrow[""{name=1, anchor=center, inner sep=0}, "H"', curve={height=24pt}, from=1-1, to=1-2]
     \arrow[""{name=2, anchor=center, inner sep=0}, "G"{description}, from=1-1, to=1-2]
@@ -90,19 +88,18 @@
   The vertical composition $\beta\circ \alpha:F\to H$ consists of:
   \parencite{leinster:basic_category_theory}
   \begin{itemize}
-    \item $c$-Components:\\
-      $(\beta\circ\alpha)_c = \beta_c \circ \alpha_c: F(c) \to H(c),\ (\forall
-      c\in C)$
-    \item Naturality Condition:\\
-      The following diagram commutes:
-      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJIKGMpIl0sWzEsMSwiSChjJykiXSxbMCwxLCJGKGYpIl0sWzIsMywiSChmKSIsMl0sWzAsMiwiKFxcYmV0YVxcY2lyY1xcYWxwaGEpX2MiLDJdLFsxLDMsIihcXGJldGEnXFxjaXJjXFxhbHBoYScpX2MiXV0=
-      \[\begin{tikzcd}
-        {F(c)} & {F(c')} \\
-        {H(c)} & {H(c')}
+    \item $c$-Components:
+      \[(\forall c\in \C_0)
+        \big((\beta\circ\alpha)_c = \beta_c \circ \alpha_c\big)\]
+    \item Naturality Condition:
+      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJIKGMpIl0sWzEsMSwiSChjJykiXSxbMCwxLCJGKGYpIl0sWzIsMywiSChmKSIsMl0sWzAsMiwiKFxcYmV0YVxcY2lyY1xcYWxwaGEpX2MiLDJdLFsxLDMsIihcXGJldGFcXGNpcmNcXGFscGhhKV97Yyd9Il1d
+      \[\begin{tikzcd}[ampersand replacement=\&]
+        {F(c)} \& {F(c')} \\
+        {H(c)} \& {H(c')}
         \arrow["{F(f)}", from=1-1, to=1-2]
         \arrow["{H(f)}"', from=2-1, to=2-2]
         \arrow["{(\beta\circ\alpha)_c}"', from=1-1, to=2-1]
-        \arrow["{(\beta'\circ\alpha')_c}", from=1-2, to=2-2]
+        \arrow["{(\beta\circ\alpha)_{c'}}", from=1-2, to=2-2]
       \end{tikzcd}\]
   \end{itemize}
 \end{definition}
@@ -124,15 +121,21 @@
       \arrow["{\beta_{c'}}", from=2-2, to=3-2]
     \end{tikzcd}\]
 
-    Given the naturality of $\alpha$ and $\beta$ each of the subsquares of the
-    previous diagram commutes, therefore taking either exterior path is the same
-    implying the naturality of $\beta \circ \alpha$.
+    \[
+      \begin{aligned}
+        (\beta \circ \alpha)_{c'} \circ F(f)
+        &= \beta_{c'} \circ \alpha_{c'} \circ F(f)\\
+        &= \beta_{c'} \circ G(f) \circ \alpha_c\\
+        &= H(f) \circ \beta_c \circ \alpha_c\\
+        &= H(f) \circ (\alpha \circ \beta)_c
+      \end{aligned}
+    \]
   \end{proof}
 \end{theorem}
 
 \begin{theorem}[Unitality of Vertical Composition]
-  For categories $C,D$, functors $F,G:C\to D$ and a natural transformation
-  $\alpha:F\to G$, the following holds:
+  For functors $F,G:\C\to \D$ and a natural transformation $\alpha:F\to G$, the
+  following holds:
   \[\alpha \circ \id_F = \id_G \circ \alpha = \alpha\]
 
   \begin{proof}
@@ -156,9 +159,9 @@
 
 \begin{theorem}[Associativity of Vertical Composition]
   For a set-up of categories, functors, and natural transformations:
-  % https://q.uiver.app/?q=WzAsMixbMCwwLCJDIl0sWzIsMCwiRCJdLFswLDEsIkYiLDAseyJjdXJ2ZSI6LTV9XSxbMCwxLCJJIiwyLHsiY3VydmUiOjV9XSxbMCwxLCJHIiwxLHsiY3VydmUiOi0yfV0sWzAsMSwiSCIsMSx7ImN1cnZlIjoyfV0sWzIsNCwiXFxhbHBoYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNCw1LCJcXGJldGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV0sWzUsMywiXFxnYW1tYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XV0=&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
-  \[\begin{tikzcd}
-    C && D
+  % https://q.uiver.app/?q=WzAsMixbMCwwLCJcXEMiXSxbMiwwLCJcXEQiXSxbMCwxLCJGIiwwLHsiY3VydmUiOi01fV0sWzAsMSwiSSIsMix7ImN1cnZlIjo1fV0sWzAsMSwiRyIsMSx7ImN1cnZlIjotMn1dLFswLDEsIkgiLDEseyJjdXJ2ZSI6Mn1dLFsyLDQsIlxcYWxwaGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV0sWzQsNSwiXFxiZXRhIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dLFs1LDMsIlxcZ2FtbWEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    \C \&\& \D
     \arrow[""{name=0, anchor=center, inner sep=0}, "F", curve={height=-30pt}, from=1-1, to=1-3]
     \arrow[""{name=1, anchor=center, inner sep=0}, "I"', curve={height=30pt}, from=1-1, to=1-3]
     \arrow[""{name=2, anchor=center, inner sep=0}, "G"{description}, curve={height=-12pt}, from=1-1, to=1-3]
@@ -177,8 +180,7 @@
         ((\gamma \circ \beta) \circ \alpha)_c
         &= (\gamma \circ \beta)_c \circ \alpha_c\\
         &= (\gamma_c \circ \beta_c) \circ \alpha_c\\
-        &= \gamma_c \circ (\beta_c \circ \alpha_c)
-          ,\quad\text{(associativity of morphisms)}\\
+        &= \gamma_c \circ (\beta_c \circ \alpha_c)\\
         &= \gamma_c \circ (\beta \circ \alpha)_c\\
         &= (\gamma \circ (\beta \circ \alpha))_c\\
       \end{aligned}
@@ -188,9 +190,9 @@
 
 \begin{definition}[Horizontal Composition\index{Horizontal Composition}]
   For a set-up of categories, functors, and natural transformations:
-  % https://q.uiver.app/?q=WzAsMyxbMCwwLCJBIl0sWzIsMCwiQiJdLFs0LDAsIkMiXSxbMCwxLCJGIiwxLHsiY3VydmUiOi00fV0sWzAsMSwiRiciLDEseyJjdXJ2ZSI6NH1dLFsxLDIsIkciLDEseyJjdXJ2ZSI6LTR9XSxbMSwyLCJHJyIsMSx7ImN1cnZlIjo0fV0sWzMsNCwiXFxhbHBoYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNSw2LCJcXGJldGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV1d&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
+  % https://q.uiver.app/?q=WzAsMyxbMCwwLCJcXEEiXSxbMiwwLCJcXEIiXSxbNCwwLCJcXEMiXSxbMCwxLCJGIiwxLHsiY3VydmUiOi00fV0sWzAsMSwiRiciLDEseyJjdXJ2ZSI6NH1dLFsxLDIsIkciLDEseyJjdXJ2ZSI6LTR9XSxbMSwyLCJHJyIsMSx7ImN1cnZlIjo0fV0sWzMsNCwiXFxhbHBoYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNSw2LCJcXGJldGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
   \[\begin{tikzcd}[ampersand replacement=\&]
-    A \&\& B \&\& C
+    \A \&\& \B \&\& \C
     \arrow[""{name=0, anchor=center, inner sep=0}, "F"{description}, curve={height=-24pt}, from=1-1, to=1-3]
     \arrow[""{name=1, anchor=center, inner sep=0}, "{F'}"{description}, curve={height=24pt}, from=1-1, to=1-3]
     \arrow[""{name=2, anchor=center, inner sep=0}, "G"{description}, curve={height=-24pt}, from=1-3, to=1-5]
@@ -203,12 +205,10 @@
   consists of: \parencite{leinster:basic_category_theory}
   \begin{itemize}
     \item $c$-Components:
-      \[
-        \begin{aligned}
-          (\beta * \alpha)_c
-          &=\beta_{F'(c)} \circ G(\alpha_c) : (G\circ F) \to (G' \circ F')\\
-          &= G'(\alpha_c) \circ \beta_{F(c)}
-        \end{aligned}
+      \[(\forall c\in\C_0)
+        \big((\beta * \alpha)_c
+        =\beta_{F'(c)} \circ G(\alpha_c)
+        = G'(\alpha_c) \circ \beta_{F(c)}\big)
       \]
     \item Naturality Condition:
       The following diagram commutes:
@@ -284,10 +284,10 @@
     \begin{aligned}
       &(G'\circ F')(f) \circ (\beta * \alpha)_c\\
       =& (G'\circ F')(f) \circ G'(\alpha_c)\circ\beta_{F(c)}\\
-      =& G'(\alpha_{c'}) \circ (G' \circ F)(f) \circ \beta_{F(c)}
-        ,\quad\text{(naturality of $\alpha$)}\\
-      =& G'(\alpha_{c'}) \circ \beta_{F(c')} \circ (G \circ F)(f)
-        ,\quad\text{(naturality of $\beta$)}\\
+      =& G'(F'(f) \circ \alpha_c)\circ\beta_{F(c)}\\
+      =& G'(\alpha_{c'} \circ F)(f) \circ \beta_{F(c)}\\
+      =& G'(\alpha_{c'}) \circ (G'\circ F)(f) \circ \beta_{F(c)}\\
+      =& G'(\alpha_{c'}) \circ \beta_{F(c')} \circ (G \circ F)(f)\\
       =& (\beta * \alpha)_{c'}\circ (G \circ F)(f)
     \end{aligned}
   \]
@@ -295,25 +295,25 @@
 \end{theorem}
 
 \begin{theorem}[Unitality of Horizontal Composition]
-  For categories $C,D$, functors $F, G:C\to D$ and a natural transformations
+  For functors $F, G:\C\to \D$ and a natural transformations
   $\alpha:F\Rightarrow G$, the following holds:
-  \[\alpha * \id_{\id_C} = \id_{\id_D} * \alpha = \alpha\]
+  \[\alpha * \id_{\id_\C} = \id_{\id_\D} * \alpha = \alpha\]
 
   \begin{proof}
     \[
     \begin{aligned}[t]
-      (\alpha * \id_{\id_C})_c
-      &= \alpha_{\id_C(c)} \circ F((\id_{\id_C})_c)\\
-      &= \alpha_{c} \circ F(\id_{\id_C(c)})\\
+      (\alpha * \id_{\id_\C})_c
+      &= \alpha_{\id_\C(c)} \circ F\big((\id_{\id_\C})_c\big)\\
+      &= \alpha_{c} \circ F(\id_{\id_\C(c)})\\
       &= \alpha_{c} \circ F(\id_{c})\\
       &= \alpha_{c} \circ \id_{F(c)}\\
       &= \alpha_{c}
     \end{aligned}
     \quad
     \begin{aligned}[t]
-      (\id_{\id_D} * \alpha)_c
-      &= (\id_{\id_D})_{G(c)} \circ \id_D(\alpha_c)\\
-      &= \id_{\id_D(G(c))} \circ \alpha_c\\
+      (\id_{\id_\D} * \alpha)_c
+      &= (\id_{\id_\D})_{G(c)} \circ \id_\D(\alpha_c)\\
+      &= \id_{\id_\D(G(c))} \circ \alpha_c\\
       &= \id_{G(c)} \circ \alpha_c\\
       &= \alpha_c
     \end{aligned}
@@ -323,9 +323,9 @@
 
 \begin{theorem}[Associativity of Horizontal Composition]
   For a set-up of categories, functors, and natural transformations:
-  % https://q.uiver.app/?q=WzAsNCxbNCwwLCJDIl0sWzIsMCwiQiJdLFswLDAsIkEiXSxbNiwwLCJEIl0sWzEsMCwiRyIsMCx7ImN1cnZlIjotNH1dLFsxLDAsIkcnIiwyLHsiY3VydmUiOjR9XSxbMiwxLCJGIiwwLHsiY3VydmUiOi00fV0sWzIsMSwiRiciLDIseyJjdXJ2ZSI6NH1dLFswLDMsIkgiLDAseyJjdXJ2ZSI6LTR9XSxbMCwzLCJIJyIsMix7ImN1cnZlIjo0fV0sWzYsNywiXFxhbHBoYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNCw1LCJcXGJldGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV0sWzgsOSwiXFxnYW1tYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XV0=&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
-  \[\begin{tikzcd}
-    A && B && C && D
+  % https://q.uiver.app/?q=WzAsNCxbNCwwLCJcXEMiXSxbMiwwLCJcXEIiXSxbMCwwLCJcXEEiXSxbNiwwLCJcXEQiXSxbMSwwLCJHIiwwLHsiY3VydmUiOi00fV0sWzEsMCwiRyciLDIseyJjdXJ2ZSI6NH1dLFsyLDEsIkYiLDAseyJjdXJ2ZSI6LTR9XSxbMiwxLCJGJyIsMix7ImN1cnZlIjo0fV0sWzAsMywiSCIsMCx7ImN1cnZlIjotNH1dLFswLDMsIkgnIiwyLHsiY3VydmUiOjR9XSxbNiw3LCJcXGFscGhhIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dLFs0LDUsIlxcYmV0YSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbOCw5LCJcXGdhbW1hIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    \A \&\& \B \&\& \C \&\& \D
     \arrow[""{name=0, anchor=center, inner sep=0}, "G", curve={height=-24pt}, from=1-3, to=1-5]
     \arrow[""{name=1, anchor=center, inner sep=0}, "{G'}"', curve={height=24pt}, from=1-3, to=1-5]
     \arrow[""{name=2, anchor=center, inner sep=0}, "F", curve={height=-24pt}, from=1-1, to=1-3]
@@ -348,11 +348,9 @@
         =& \left(\gamma_{(G'\circ F')(a)}\circ H(\beta_{F'(a)})\right)
         \circ (H\circ G)(\alpha_a)\\
         =& \gamma_{(G'\circ F')(a)} \circ
-        \left(H(\beta_{F'(a)}) \circ (H\circ G)(\alpha_a)\right)
-        ,\quad\text{(associativity of $\circ$)}\\
+        \left(H(\beta_{F'(a)}) \circ (H\circ G)(\alpha_a)\right)\\
         =& \gamma_{(G'\circ F')(a)}\circ
-        H\left((\beta_{F'(a)}) \circ G(\alpha_a)\right)
-        ,\quad\text{(preservation of $\circ$ over $H$)}\\
+        H\left((\beta_{F'(a)}) \circ G(\alpha_a)\right)\\
         =& \gamma_{(G'\circ F')(a)} \circ H( (\beta *\alpha)_a)\\
         =& (\gamma * (\beta * \alpha))_a
       \end{aligned}
@@ -362,9 +360,9 @@
 
 \begin{definition}[Whiskering\index{Whiskering}]
   For a set-up of categories, functors, and natural transformations:
-  % https://q.uiver.app/?q=WzAsMyxbMCwwLCJBIl0sWzEsMCwiQiJdLFsyLDAsIkMiXSxbMCwxLCJGIiwwLHsiY3VydmUiOi00fV0sWzAsMSwiRiciLDIseyJjdXJ2ZSI6NH1dLFsxLDIsIkciLDAseyJjdXJ2ZSI6LTR9XSxbMSwyLCJHJyIsMix7ImN1cnZlIjo0fV0sWzMsNCwiXFxhbHBoYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNSw2LCJcXGJldGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV1d
-  \[\begin{tikzcd}
-    A & B & C
+  % https://q.uiver.app/?q=WzAsMyxbMCwwLCJcXEEiXSxbMSwwLCJcXEIiXSxbMiwwLCJcXEMiXSxbMCwxLCJGIiwwLHsiY3VydmUiOi00fV0sWzAsMSwiRiciLDIseyJjdXJ2ZSI6NH1dLFsxLDIsIkciLDAseyJjdXJ2ZSI6LTR9XSxbMSwyLCJHJyIsMix7ImN1cnZlIjo0fV0sWzMsNCwiXFxhbHBoYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNSw2LCJcXGJldGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    \A \& \B \& \C
     \arrow[""{name=0, anchor=center, inner sep=0}, "F", curve={height=-24pt}, from=1-1, to=1-2]
     \arrow[""{name=1, anchor=center, inner sep=0}, "{F'}"', curve={height=24pt}, from=1-1, to=1-2]
     \arrow[""{name=2, anchor=center, inner sep=0}, "G", curve={height=-24pt}, from=1-2, to=1-3]
@@ -415,9 +413,9 @@
 
 \begin{theorem}[Interchange Law]
   For a set-up of categories, functors, and natural transformations:
-  % https://q.uiver.app/?q=WzAsMyxbNCwwLCJDIl0sWzIsMCwiQiJdLFswLDAsIkEiXSxbMSwwLCJHXzEiLDAseyJjdXJ2ZSI6LTR9XSxbMSwwLCJHXzMiLDIseyJjdXJ2ZSI6NH1dLFsyLDEsIkZfMSIsMCx7ImN1cnZlIjotNH1dLFsyLDEsIkZfMiIsMV0sWzIsMSwiRl8zIiwyLHsiY3VydmUiOjR9XSxbMSwwLCJHXzIiLDFdLFs1LDYsIlxcYWxwaGFfMSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNiw3LCJcXGFscGhhXzIiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV0sWzMsOCwiXFxiZXRhXzEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV0sWzgsNCwiXFxiZXRhXzIiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV1d&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
-  \[\begin{tikzcd}
-    A && B && C
+  % https://q.uiver.app/?q=WzAsMyxbNCwwLCJcXEMiXSxbMiwwLCJcXEIiXSxbMCwwLCJcXEEiXSxbMSwwLCJHXzEiLDAseyJjdXJ2ZSI6LTR9XSxbMSwwLCJHXzMiLDIseyJjdXJ2ZSI6NH1dLFsyLDEsIkZfMSIsMCx7ImN1cnZlIjotNH1dLFsyLDEsIkZfMiIsMV0sWzIsMSwiRl8zIiwyLHsiY3VydmUiOjR9XSxbMSwwLCJHXzIiLDFdLFs1LDYsIlxcYWxwaGFfMSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNiw3LCJcXGFscGhhXzIiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV0sWzMsOCwiXFxiZXRhXzEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV0sWzgsNCwiXFxiZXRhXzIiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    \A \&\& \B \&\& \C
     \arrow[""{name=0, anchor=center, inner sep=0}, "{G_1}", curve={height=-24pt}, from=1-3, to=1-5]
     \arrow[""{name=1, anchor=center, inner sep=0}, "{G_3}"', curve={height=24pt}, from=1-3, to=1-5]
     \arrow[""{name=2, anchor=center, inner sep=0}, "{F_1}", curve={height=-24pt}, from=1-1, to=1-3]
@@ -435,9 +433,9 @@
   (\alpha_2*\alpha_2)\]
 
   \begin{proof}
-    Consider the following diagram in the category $A^C$:
+    Consider the following diagram in the exponential category $\A^\C$:
 
-    % https://q.uiver.app/?q=WzAsOSxbMCwwLCJHXzFcXGNpcmMgRl8xIl0sWzIsMiwiR18yXFxjaXJjIEZfMiJdLFsyLDAsIkdfMlxcY2lyYyBGXzEiXSxbMCwyLCJHXzEgXFxjaXJjIEZfMiJdLFs0LDQsIkdfMyBcXGNpcmMgRl8zIl0sWzAsNCwiR18xIFxcY2lyYyBGXzMiXSxbMiw0LCJHXzJcXGNpcmMgRl8zIl0sWzQsMiwiR18zIFxcY2lyYyBGXzIiXSxbNCwwLCJHXzNcXGNpcmMgRl8xIl0sWzAsMSwiXFxiZXRhXzEqXFxhbHBoYV8xIiwxXSxbMCwyLCJcXGJldGFfMVxcY2lyYyBGXzEiLDFdLFswLDMsIkdfMVxcY2lyY1xcYWxwaGFfMSIsMV0sWzMsMSwiXFxiZXRhXzFcXGNpcmMgRl8yIiwxXSxbMiwxLCJHXzJcXGNpcmMgXFxhbHBoYV8xIiwxXSxbMSw0LCJcXGJldGFfMiAqIFxcYWxwaGFfMiIsMV0sWzMsNSwiR18xXFxjaXJjXFxhbHBoYV8yIiwxXSxbNSw2LCJcXGJldGFfMVxcY2lyYyBGXzMiLDFdLFszLDYsIlxcYmV0YV8xKlxcYWxwaGFfMiIsMV0sWzEsNiwiR18yXFxjaXJjXFxhbHBoYV8yIiwxXSxbNiw0LCJcXGJldGFfMlxcY2lyYyBGXzMiLDFdLFsxLDcsIlxcYmV0YV8yXFxjaXJjIEZfMiIsMV0sWzcsNCwiR18zXFxjaXJjIFxcYWxwaGFfMiIsMV0sWzIsOCwiXFxhbHBoYV8yXFxjaXJjIEYxIiwxXSxbOCw3LCJHXzNcXGNpcmNcXGFscGhhXzEiLDFdLFsyLDcsIlxcYmV0YV8yKlxcYWxwaGFfMSIsMV1d&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
+    % https://q.uiver.app/?q=WzAsOSxbMCwwLCJHXzFcXGNpcmMgRl8xIl0sWzIsMiwiR18yXFxjaXJjIEZfMiJdLFsyLDAsIkdfMlxcY2lyYyBGXzEiXSxbMCwyLCJHXzEgXFxjaXJjIEZfMiJdLFs0LDQsIkdfMyBcXGNpcmMgRl8zIl0sWzAsNCwiR18xIFxcY2lyYyBGXzMiXSxbMiw0LCJHXzJcXGNpcmMgRl8zIl0sWzQsMiwiR18zIFxcY2lyYyBGXzIiXSxbNCwwLCJHXzNcXGNpcmMgRl8xIl0sWzAsMSwiXFxiZXRhXzEqXFxhbHBoYV8xIiwxXSxbMCwyLCJcXGJldGFfMVxcY2lyYyBGXzEiLDFdLFswLDMsIkdfMVxcY2lyY1xcYWxwaGFfMSIsMV0sWzMsMSwiXFxiZXRhXzFcXGNpcmMgRl8yIiwxXSxbMiwxLCJHXzJcXGNpcmMgXFxhbHBoYV8xIiwxXSxbMSw0LCJcXGJldGFfMiAqIFxcYWxwaGFfMiIsMV0sWzMsNSwiR18xXFxjaXJjXFxhbHBoYV8yIiwxXSxbNSw2LCJcXGJldGFfMVxcY2lyYyBGXzMiLDFdLFszLDYsIlxcYmV0YV8xKlxcYWxwaGFfMiIsMV0sWzEsNiwiR18yXFxjaXJjXFxhbHBoYV8yIiwxXSxbNiw0LCJcXGJldGFfMlxcY2lyYyBGXzMiLDFdLFsxLDcsIlxcYmV0YV8yXFxjaXJjIEZfMiIsMV0sWzcsNCwiR18zXFxjaXJjIFxcYWxwaGFfMiIsMV0sWzIsOCwiXFxiZXRhXzJcXGNpcmMgRjEiLDFdLFs4LDcsIkdfM1xcY2lyY1xcYWxwaGFfMSIsMV0sWzIsNywiXFxiZXRhXzIqXFxhbHBoYV8xIiwxXV0=&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
     \[\begin{tikzcd}[ampersand replacement=\&]
       {G_1\circ F_1} \&\& {G_2\circ F_1} \&\& {G_3\circ F_1} \\
       \\
@@ -457,13 +455,20 @@
       \arrow["{\beta_2\circ F_3}"{description}, from=5-3, to=5-5]
       \arrow["{\beta_2\circ F_2}"{description}, from=3-3, to=3-5]
       \arrow["{G_3\circ \alpha_2}"{description}, from=3-5, to=5-5]
-      \arrow["{\alpha_2\circ F1}"{description}, from=1-3, to=1-5]
+      \arrow["{\beta_2\circ F1}"{description}, from=1-3, to=1-5]
       \arrow["{G_3\circ\alpha_1}"{description}, from=1-5, to=3-5]
       \arrow["{\beta_2*\alpha_1}"{description}, from=1-3, to=3-5]
     \end{tikzcd}\]
 
-    Each sub-square in the diagram commutes, so taking the diagonal path
-    $(\beta_2*\alpha_2) \circ (\alpha_2*\alpha_2)$ is the same as taking either
-    outer path $(\beta_2\circ\beta_1)*(\alpha_2\circ\alpha_1)$.
+    \[
+      \begin{aligned}
+        (\beta_2 \circ \beta_1) * (\alpha_2 \circ \alpha_1)
+        &= (G_3\circ \alpha_2) \circ (G_3\circ \alpha_1)
+          \circ (beta_2 \circ F1) \circ (\beta_1 \circ F1)\\
+        &= (G_3\circ \alpha_2) \circ (\beta_2\circ F_2)
+          \circ (G_2\circ \alpha_1) \circ (\beta_1\circ F_1)\\
+        &= (\beta_2 * \alpha_2) \circ (\beta_1 * \alpha_1)
+      \end{aligned}
+    \]
   \end{proof}
 \end{theorem}

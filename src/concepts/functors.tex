@@ -3,100 +3,115 @@ A functor can be thought of as an structure preserving transformation between
 categories, or a way to identify one category inside another.
 
 \begin{definition}[Functor\index{Functor}]
-  For categories $C,D$, a functor $F: C \to D$ consist of mappings of:
+  For categories $\C,\D$, a functor $F: \C \to \D$ consist of maps of:
   \parencite{fong_spivak:7sketches}
   \begin{itemize}
-    \item Object to objects:\\
-      $F(c) \in D,\ (\forall c \in C)$
-    \item Morphism to morphisms:\\
-      $\big(F(f): F(c) \to F(c')\big) \in D,
-        \ (\forall c,c' \in C,\ f : c \to c')$
+    \item Objects:
+      \[(\forall c \in \C_0)
+        (F(c) \in D)\]
+    \item Morphisms:
+      \[\big(\forall f\in \C(c, c')\big)
+        \big(F(f)\in \D(F(c), F(c'))\big)\]
   \end{itemize}
   Such that it preserves:
   \begin{itemize}
-    \item Identity\\
-      $F(\id_c) = \id_{F(c)},
-        \ (\forall c \in C)$
-    \item Composition\\
-      $F(g \circ f) = F(g) \circ F(f),
-        \ (\forall a,b,c \in C,\ f: a \to b,\ g: b \to c)$
+    \item Identity
+      \[(\forall c \in \C_0)
+        (F(\id_c) = \id_{F(c)})\]
+    \item Composition
+      \[\big(\forall f\in \C(a,b),\ g\in \C(b,c)\big)
+        \big(F(g \circ f) = F(g) \circ F(f)\big)\]
   \end{itemize}
 \end{definition}
 
 \begin{example}
-  % https://q.uiver.app/?q=WzAsNSxbMCwwLCIxIl0sWzAsMiwiYSJdLFsxLDIsImIiXSxbMiwyLCJjIl0sWzIsMCwiMiJdLFswLDQsImYiXSxbMSwyLCJnIiwyXSxbMiwzLCJoIiwyXSxbMCwxLCJGIiwxLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzQsMywiRiIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxLDMsImggXFxjaXJjIGciLDAseyJjdXJ2ZSI6LTN9XSxbNSwxMCwiRiIsMSx7ImxhYmVsX3Bvc2l0aW9uIjo0MCwic2hvcnRlbiI6eyJzb3VyY2UiOjEwLCJ0YXJnZXQiOjMwfSwibGV2ZWwiOjEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
+  % https://q.uiver.app/?q=WzAsNyxbMCwwLCIxIl0sWzAsMiwiRigxKSJdLFsxLDIsIkYoMikiXSxbMiwyLCJcXGJ1bGxldCJdLFsxLDAsIjIiXSxbMywwLCIzIl0sWzMsMiwiRigzKSJdLFswLDQsImYiXSxbMSwyLCJGKGYpIiwyXSxbMiwzLCJoIiwyXSxbMSwzLCJoIFxcY2lyYyBGKGYpIiwwLHsiY3VydmUiOi0zfV0sWzQsNSwiZyJdLFswLDUsImdcXGNpcmMgZiIsMix7ImN1cnZlIjozfV0sWzIsNiwiRihnKSIsMCx7ImN1cnZlIjotM31dLFszLDYsImkiLDJdLFsxLDYsIkYoZ1xcY2lyYyBmKSIsMix7ImN1cnZlIjo0fV1d
   \[\begin{tikzcd}[ampersand replacement=\&]
-    1 \&\& 2 \\
+    1 \& 2 \&\& 3 \\
     \\
-    a \& b \& c
-    \arrow[""{name=0, anchor=center, inner sep=0}, "f", from=1-1, to=1-3]
-    \arrow["g"', from=3-1, to=3-2]
+    {F(1)} \& {F(2)} \& \bullet \& {F(3)}
+    \arrow["f", from=1-1, to=1-2]
+    \arrow["{F(f)}"', from=3-1, to=3-2]
     \arrow["h"', from=3-2, to=3-3]
-    \arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=3-1]
-    \arrow["F"{description}, draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-3, to=3-3]
-    \arrow[""{name=1, anchor=center, inner sep=0}, "{h \circ g}", curve={height=-18pt}, from=3-1, to=3-3]
-    \arrow["F"{description, pos=0.4}, draw={rgb,255:red,92;green,92;blue,214}, shorten <=3pt, shorten >=9pt, dotted, from=0, to=1]
+    \arrow["{h \circ F(f)}", curve={height=-18pt}, from=3-1, to=3-3]
+    \arrow["g", from=1-2, to=1-4]
+    \arrow["{g\circ f}"', curve={height=18pt}, from=1-1, to=1-4]
+    \arrow["{F(g)}", curve={height=-18pt}, from=3-2, to=3-4]
+    \arrow["i"', from=3-3, to=3-4]
+    \arrow["{F(g\circ f)}"', curve={height=24pt}, from=3-1, to=3-4]
   \end{tikzcd}\]
 \end{example}
 
 \subsection{Composition}
 \begin{definition}[Identity Functor\index{Identity
-  Functor}\label{def:id_functor}] For a category $C$ there exists an identity
-  functor $\id_C: C \to C$ which consists of maps of:
+  Functor}\label{def:id_functor}] For a category $\C$ there exists an identity
+  functor $\id_\C: \C \to \C$ which consists of maps of:
   \parencite{adamek_herrlich_strecker:joy_cats}
   \begin{itemize}
-    \item Objects:\\
-      $\id_C(c) = c \in C,\ (\forall c\in C)$
-    \item Morphisms:\\
-      $\id_C(f): c\to c' = f \in C,\ (\forall c, c'\in C,\ f:c\to c')$
+    \item Objects:
+      \[(\forall c \in \C_0)
+        (\id_\C(c) = c)\]
+    \item Morphisms:
+      \[\big(\forall f \in \C(c, c')\big)
+        (\id_C(f) = f)\]
   \end{itemize}
 \end{definition}
 
-\begin{theorem}[Identity Functor Preserves Identity]
-  For a category $C$, the identity functor $\id_C: C \to C$ trivially preserves
+\begin{theorem}[$\id_\C$ Preserves Identity\label{thm:id_functor_identity}]
+  For a category $\C$, the identity functor $\id_\C: \C \to \C$ preserves
   identity.
 
   \begin{proof}
-    For all objects $c\in C$, $\id_C(\id_c) = \id_c$ by definition.
+    For all objects $c\in \C$, $\id_\C(\id_c) = \id_c$ by definition.
   \end{proof}
 \end{theorem}
 
-\begin{theorem}[Identity Functor Preserves Composition]
-  For a category $C$, the identity functor $\id_C: C \to C$ trivially preserves
+\begin{theorem}[$\id_\C$ Preserves Composition\label{thm:id_functor_composition}]
+  For a category $\C$, the identity functor $\id_\C: \C \to \C$ preserves
   composition.
 
   \begin{proof}
-    For all morphisms $f,g\in C$ with $g$ composable after $f$:
+    For all morphisms $f,g\in \C$ with $g$ composable after $f$:
     \[
       \begin{aligned}
-        \id_C(g\circ f)
+        \id_\C(g\circ f)
         &= g\circ f\\
-        &= \id_C(g) \circ \id_C(f)
+        &= \id_\C(g) \circ \id_\C(f)
       \end{aligned}
     \]
   \end{proof}
 \end{theorem}
 
-\begin{definition}[Composition of Functors\index{Composition of
-  Functors}\label{def:cmp_functor}] For categories $A,B,C$ and functors $F:A\to
-  B$ and $G:B\to C$, the composite functor $G\circ F$ consists of maps of:
+\begin{theorem}[$\id_\C$ is a Functor]
+  For a category $\C$, the identity functor $\id_\C$ is a functor.
+
+  \begin{proof}
+    By Theorems \ref{thm:id_functor_identity} and
+    \ref{thm:id_functor_composition} the identity functor fulfills the axioms of
+    a functor.
+  \end{proof}
+\end{theorem}
+
+\begin{definition}[Functor Composition\index{Functor
+  Composition}\label{def:functor_composition}] For functors $F:\A\to \B$ and
+  $G:\B\to \C$, the composite functor $G\circ F$ consists of maps of:
   \parencite{leinster:basic_category_theory}
   \begin{itemize}
-    \item Objects:\\
-      $(G\circ F)(a) = G(F(a)) \in C,\ (\forall a\in A)$
-    \item Morphisms:\\
-      $(\forall a, a'\in A,\ f:a\to a').$\\
-      \phantom{$\qquad$}
-      $(G\circ F)(f): (G\circ F)(a) \to (G\circ F)(a') = G(F(f)) \in C$
+    \item Objects:
+      \[(\forall a \in \A_0)
+        \big((G\circ F)(a) = G(F(a))\big)\]
+    \item Morphisms:
+      \[(\forall f\in \A_1)
+        \big((G\circ F)(f) = G(F(f))\big)\]
   \end{itemize}
 \end{definition}
 
 \begin{theorem}[Functor Composition Preserves Identity]
-  For categories $A,B,C$ and functors $F:A\to B$ and $G:B\to C$, the composite
-  functor $G\circ F$ preserves indentity.
+  For functors $F:\A\to \B$ and $G:\B\to \C$, the composite functor $G\circ F$
+  preserves indentity.
 
   \begin{proof}
-    For all objects $a\in A$:
+    For all objects $a\in \A_0$:
     \[
       \begin{aligned}
         (G\circ F)(\id_a)
@@ -109,11 +124,11 @@ categories, or a way to identify one category inside another.
 \end{theorem}
 
 \begin{theorem}[Functor Composition Preserves Composition]
-  For categories $A,B,C$ and functors $F:A\to B$ and $G:B\to C$, the composite
-  functor $G\circ F$ preserves composition.
+  For functors $F:\A\to \B$ and $G:\B\to \C$, the composite functor $G\circ F$
+  preserves composition.
 
   \begin{proof}
-    For all morphisms $f,g\in A$ with $g$ composable after $f$:
+    For all morphisms $f,g\in \A_1$ with $g$ composable after $f$:
     \[
       \begin{aligned}
         (G\circ F)(g\circ F)
@@ -126,13 +141,12 @@ categories, or a way to identify one category inside another.
   \end{proof}
 \end{theorem}
 
-\begin{theorem}[Unitality of Composition of Functors\label{thm:unitality_functor}]
-  For categories $\mathcal{C},\mathcal{D}$ and a functor $F:C\to D$ the
-  following holds:
+\begin{theorem}[Unitality of Functor Composition\label{thm:unitality_functor}]
+  For a functor $F:\C\to \D$ the following holds:
   \[F \circ \id_C = \id_D \circ F = F\]
 
   \begin{proof}
-    Let either $c\in \ob_C$ or $c\in \hom_C$, then:
+    Let either $c\in \C_0$ or $c\in \C_1$, then:
     \[
       \begin{aligned}
         (F \circ \id_C)(c)
@@ -151,9 +165,9 @@ categories, or a way to identify one category inside another.
 
 \begin{theorem}[Associativity of Functor Composition\label{thm:assoc_functor}]
   For a set-up of categories and functors:
-  % https://q.uiver.app/?q=WzAsNCxbMCwwLCJBIl0sWzEsMCwiQiJdLFsyLDAsIkMiXSxbMywwLCJEIl0sWzAsMSwiRiJdLFsxLDIsIkciXSxbMiwzLCJIIl1d
-  \[\begin{tikzcd}
-    A & B & C & D
+  % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXEEiXSxbMSwwLCJcXEIiXSxbMiwwLCJcXEMiXSxbMywwLCJcXEQiXSxbMCwxLCJGIl0sWzEsMiwiRyJdLFsyLDMsIkgiXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    \A \& \B \& \C \& \D
     \arrow["F", from=1-1, to=1-2]
     \arrow["G", from=1-2, to=1-3]
     \arrow["H", from=1-3, to=1-4]
@@ -163,7 +177,7 @@ categories, or a way to identify one category inside another.
   \[(H \circ G) \circ F = H\circ(G\circ F)\]
 
   \begin{proof}
-    Let either $c\in \ob_C$ or $c\in \hom_C$, then:
+    Let either $c\in \C_0$ or $c\in \C_1$, then:
     \[
       \begin{aligned}
         ((H \circ G) \circ F) (c)
@@ -179,24 +193,24 @@ categories, or a way to identify one category inside another.
 \subsection{Functor Properties}
 
 \begin{definition}[Faithful Functor\index{Faithful Functor}]
-  For categories $C, D$, a functor $F:C\to D$ is said to be faithful when for
-  every $x,y\in C$, the function $F_{x, y}: \hom_C(x, y) \to \hom_D(F(x), F(y))$
-  is injective. \parencite{awodey:category_theory}
+  A functor $F:\C\to \D$ is faithful when for every $x,y\in \C_0$, the function
+  $F_{x, y}: \C(x, y) \to \D(F(x), F(y))$ is injective.
+  \parencite{awodey:category_theory}
 \end{definition}
 
 \begin{definition}[Full Functor\index{Full Functor}]
-  For categories $C, D$, a functor $F:C\to D$ is said to be full when for every
-  $x,y\in C$, the function $F_{x, y}: \hom_C(x, y) \to \hom_D(F(x), F(y))$ is
-  surjective. \parencite{adamek_herrlich_strecker:joy_cats}
+  A functor $F:\C\to \D$ is full when for every $x,y\in \C_0$, the function
+  $F_{x, y}: \C(x, y) \to \D(F(x), F(y))$ is surjective.
+  \parencite{adamek_herrlich_strecker:joy_cats}
 \end{definition}
 
 \begin{definition}[Endofunctor\index{Endofunctor}]
-  For a category $C$, a functor $F:C\to C$ (one from $C$ to itself) is said to
-  be an endofunctor. \parencite{adamek_herrlich_strecker:joy_cats}
+  A functor $F:\C\to \C$ (one from $\C$ to itself) is an endofunctor.
+  \parencite{adamek_herrlich_strecker:joy_cats}
 \end{definition}
 
 \begin{definition}[Bifunctor\index{Bifunctor}]
-  For categories $A, B, C$, a functor $F:A\times B \to C$ (one with $2$
-  parameters) is said to be a bifunctor.
+  A functor $F:\A\times \B \to \C$ (one with $2$ parameters) is said to be a
+  bifunctor.
   \parencite{lane:working_mathematician}
 \end{definition}
