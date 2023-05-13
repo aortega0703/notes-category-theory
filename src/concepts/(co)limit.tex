@@ -1,5 +1,7 @@
 \section{Limits and Colimits}
 
+\subsection{Limits}
+
 \begin{definition}[Limit\index{Limit}\label{def:limit}]
 	The limit of a functor $F:\C\to \D$ is a cone with vertex $d\in \D$ and
 	morphisms $\big(\alpha_c: d \to F(c)\big)_{c\in \C_0}$ such that for any other
@@ -17,15 +19,15 @@
 	\end{tikzcd}\]
 \end{definition}
 
-\begin{remark}
-	Note that Definition \ref{def:limit} is equivalent to saying that a limit of a
-	functor $F:C\to D$ is a terminal object in the category cone($F$).
-\end{remark}
+\begin{definition}[Limit as a Terminal Object\index{Limit!as a Terminal Object}]
+	Equivalently to Definition \ref{def:limit}, the limit of a functor $F:\I\to
+	\C$ can be expressed as a terminal object in the category $\mathrm{cone}(F)$.
+\end{definition}
 
-\begin{remark}
-	Note that Definition \ref{def:limit} can also be thought of as a terminal
-	morphism from the diagonal functor $\Delta$ to the functor $F$ (thought of as
-	an object in $\D^\C$) as shown in the following diagram:
+\begin{definition}[Limit as a Terminal Morphism\index{Limit!as a Terminal Morphism}]
+	Equivalently to Definition \ref{def:limit}, the limit of a functor $F:\I\to
+	\C$ can be expressed as a terminal morphism from the diagonal functor $\Delta:
+	\C \to \C^\I$ to $F$ (thought of as an object in $\C^\I$).
 	% https://q.uiver.app/?q=WzAsNSxbMCwxLCJjIl0sWzAsMCwiYyciXSxbMSwxLCJcXERlbHRhX2MiXSxbMSwwLCJcXERlbHRhX3tjJ30iXSxbMiwxLCJGIl0sWzEsMCwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDIsIlxcRGVsdGEoaCkiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMyw0LCJcXGJldGEiXSxbMiw0LCJcXGFscGhhIiwyXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
 	\[\begin{tikzcd}[ampersand replacement=\&]
 		{c'} \& {\Delta_{c'}} \\
@@ -35,7 +37,7 @@
 		\arrow["\beta", from=1-2, to=2-3]
 		\arrow["\alpha"', from=2-2, to=2-3]
 	\end{tikzcd}\]
-\end{remark}
+\end{definition}
 
 \begin{theorem}[Uniqueness of Limits\label{thm:limit_iso}]
 	If there exists multiple limits for the same functor, then they are all
@@ -47,6 +49,8 @@
 		also unique up to isomorphism.
 	\end{proof}
 \end{theorem}
+
+\subsection{Colimits}
 
 \begin{definition}[Colimit\index{Colimit}\label{def:colimit}]
 	The colimit of a functor $F:\C\to \D$ is a cocone with vertex $d\in \D_0$ and
@@ -66,14 +70,15 @@
 	\end{tikzcd}\]
 \end{definition}
 
-\begin{remark}
-	Note that Definition \ref{def:colimit} is equivalent to saying that a colimit
-	of a functor $F:\C\to \D$ is an initial object in the category cocone($F$).
-\end{remark}
+\begin{definition}[Colimit as an Initial Object\index{Colimit!as an Initial Object}]
+	Equivalently to Definition \ref{def:limit}, the colimit of a functor $FL\I\to
+	\C$ can be expressed as an initial object in the category
+	$\mathrm{cocone}(F)$.
+\end{definition}
 
-\begin{remark}
-	Note that Definition \ref{def:colimit} can also be thought of as an initial
-	morphism from the functor $F$ (thought of as an object in $\D^\C$) to the diagonal functor $\Delta$ as shown in the following diagram:
+\begin{definition}[Colimit as an Initial Morphism\index{Colimit!as an Initial Morphism}]
+	Equivalently to Definition \ref{def:limit}, the colimit of a functor $FL\I\to
+	\C$ can be expressed as an initial morphism from $F$ (thought of as an object in $\C^\I$) to the diagonal functor $\Delta:\C\to\C^\I$:
 	% https://q.uiver.app/?q=WzAsNSxbMCwwLCJjIl0sWzAsMSwiYyciXSxbMSwwLCJcXERlbHRhX2MiXSxbMSwxLCJcXERlbHRhX3tjJ30iXSxbMiwwLCJGIl0sWzAsMSwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDMsIlxcRGVsdGEoaCkiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCwzLCJcXGJldGEiXSxbNCwyLCJcXGFscGhhIiwyXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
 	\[\begin{tikzcd}[ampersand replacement=\&]
 		c \& {\Delta_c} \& F \\
@@ -83,7 +88,7 @@
 		\arrow["\beta", from=1-3, to=2-2]
 		\arrow["\alpha"', from=1-3, to=1-2]
 	\end{tikzcd}\]
-\end{remark}
+\end{definition}
 
 \begin{theorem}[Uniqueness of Colimits\label{thm:colimit_iso}]
 	If there exists multiple colimits for the same functor, then they are all
