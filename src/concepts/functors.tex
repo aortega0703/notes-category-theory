@@ -36,6 +36,29 @@ categories, or a way to identify one category inside another.
   \end{tikzcd}\]
 \end{example}
 
+\begin{theorem}[Functors Preserve Isomorphisms]
+  Given two isomorphic objects, their images under any functor are also
+  isomorphic.
+
+  \begin{proof}
+    Consider two objects $c,d \in \C_0$ with an isomorphism $f: c\to d$, and any
+    functor $F:\C \to \D$ then:
+    \[
+      \begin{aligned}
+        f^{-1}\circ f &= \id_c\\
+        F(f^{-1}\circ f) &= F(\id_c)\\
+        F(f^{-1})\circ F(f) &= \id_{F(c)}
+      \end{aligned}
+      \qquad
+      \begin{aligned}
+        f \circ f^{-1} &= \id_d\\
+        F(f \circ f^{-1}) &= F(\id_d)\\
+        F(f) \circ F(f^{-1}) &= \id_{F(d)}
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
+
 \subsection{Composition}
 \begin{definition}[Identity Functor\index{Identity
   Functor}\label{def:id_functor}] For a category $\C$ there exists an identity
