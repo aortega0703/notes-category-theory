@@ -3,42 +3,36 @@ A functor can be thought of as an structure preserving transformation between
 categories, or a way to identify one category inside another.
 
 \begin{definition}[Functor\index{Functor}]
-  For categories $\C,\D$, a functor $F: \C \to \D$ consist of maps of:
-  \parencite{fong_spivak:7sketches}
+  For categories $\C,\D$, a functor $F: \C \to \D$ consist of maps of objects
+  and morphisms, such that it preserves:
+  \parencite{awodey:category_theory}
   \begin{itemize}
-    \item Objects:
-      \[(\forall c \in \C_0)
-        (F(c) \in D)\]
-    \item Morphisms:
-      \[\big(\forall f\in \C(c, c')\big)
-        \big(F(f)\in \D(F(c), F(c'))\big)\]
-  \end{itemize}
-  Such that it preserves:
-  \begin{itemize}
-    \item Identity
+    \item Domain and Codomain:
+      \[\big(\forall (f:c\to c')\in \C_1\big)
+        \big(F(f): F(c) \to F(c')\big)\]
+    \item Identity:
       \[(\forall c \in \C_0)
         (F(\id_c) = \id_{F(c)})\]
-    \item Composition
-      \[\big(\forall f\in \C(a,b),\ g\in \C(b,c)\big)
+    \item Composition:
+      \[\big(\forall (f: a \to b)\in \C_1,\ (g: b\to c) \in \C_1\big)
         \big(F(g \circ f) = F(g) \circ F(f)\big)\]
   \end{itemize}
 \end{definition}
 
 \begin{example}
-  % https://q.uiver.app/?q=WzAsNyxbMCwwLCIxIl0sWzAsMiwiRigxKSJdLFsxLDIsIkYoMikiXSxbMiwyLCJcXGJ1bGxldCJdLFsxLDAsIjIiXSxbMywwLCIzIl0sWzMsMiwiRigzKSJdLFswLDQsImYiXSxbMSwyLCJGKGYpIiwyXSxbMiwzLCJoIiwyXSxbMSwzLCJoIFxcY2lyYyBGKGYpIiwwLHsiY3VydmUiOi0zfV0sWzQsNSwiZyJdLFswLDUsImdcXGNpcmMgZiIsMix7ImN1cnZlIjozfV0sWzIsNiwiRihnKSIsMCx7ImN1cnZlIjotM31dLFszLDYsImkiLDJdLFsxLDYsIkYoZ1xcY2lyYyBmKSIsMix7ImN1cnZlIjo0fV1d
+  % https://q.uiver.app/?q=WzAsNyxbMCwwLCIxIl0sWzMsMCwiRigxKSJdLFs0LDAsIkYoMikiXSxbNCwxLCJcXGJ1bGxldCJdLFsxLDAsIjIiXSxbMiwwLCIzIl0sWzUsMCwiRigzKSJdLFswLDQsImYiXSxbMSwyLCJGKGYpIl0sWzIsMywiaCIsMl0sWzEsMywiaCBcXGNpcmMgRihmKSIsMix7ImxhYmVsX3Bvc2l0aW9uIjoyMH1dLFs0LDUsImciXSxbMCw1LCJnXFxjaXJjIGYiLDAseyJjdXJ2ZSI6LTN9XSxbMiw2LCJGKGcpIl0sWzMsNiwiaSIsMl0sWzEsNiwiRihnXFxjaXJjIGYpIiwwLHsiY3VydmUiOi00fV1d
   \[\begin{tikzcd}[ampersand replacement=\&]
-    1 \& 2 \&\& 3 \\
-    \\
-    {F(1)} \& {F(2)} \& \bullet \& {F(3)}
+    1 \& 2 \& 3 \& {F(1)} \& {F(2)} \& {F(3)} \\
+    \&\&\&\& \bullet
     \arrow["f", from=1-1, to=1-2]
-    \arrow["{F(f)}"', from=3-1, to=3-2]
-    \arrow["h"', from=3-2, to=3-3]
-    \arrow["{h \circ F(f)}", curve={height=-18pt}, from=3-1, to=3-3]
-    \arrow["g", from=1-2, to=1-4]
-    \arrow["{g\circ f}"', curve={height=18pt}, from=1-1, to=1-4]
-    \arrow["{F(g)}", curve={height=-18pt}, from=3-2, to=3-4]
-    \arrow["i"', from=3-3, to=3-4]
-    \arrow["{F(g\circ f)}"', curve={height=24pt}, from=3-1, to=3-4]
+    \arrow["{F(f)}", from=1-4, to=1-5]
+    \arrow["h"', from=1-5, to=2-5]
+    \arrow["{h \circ F(f)}"'{pos=0.2}, from=1-4, to=2-5]
+    \arrow["g", from=1-2, to=1-3]
+    \arrow["{g\circ f}", curve={height=-18pt}, from=1-1, to=1-3]
+    \arrow["{F(g)}", from=1-5, to=1-6]
+    \arrow["i"', from=2-5, to=1-6]
+    \arrow["{F(g\circ f)}", curve={height=-24pt}, from=1-4, to=1-6]
   \end{tikzcd}\]
 \end{example}
 
@@ -52,7 +46,7 @@ categories, or a way to identify one category inside another.
       \[(\forall c \in \C_0)
         (\id_\C(c) = c)\]
     \item Morphisms:
-      \[\big(\forall f \in \C(c, c')\big)
+      \[\big(\forall (f: c\to c') \in \C_1\big)
         (\id_C(f) = f)\]
   \end{itemize}
 \end{definition}
@@ -87,8 +81,7 @@ categories, or a way to identify one category inside another.
 
   \begin{proof}
     By Theorems \ref{thm:id_functor_identity} and
-    \ref{thm:id_functor_composition} the identity functor fulfills the axioms of
-    a functor.
+    \ref{thm:id_functor_composition} the identity functor is a functor.
   \end{proof}
 \end{theorem}
 
@@ -106,7 +99,7 @@ categories, or a way to identify one category inside another.
   \end{itemize}
 \end{definition}
 
-\begin{theorem}[Functor Composition Preserves Identity]
+\begin{theorem}[Functor Composition Preserves Identity\label{thm:functor_cmp_id}]
   For functors $F:\A\to \B$ and $G:\B\to \C$, the composite functor $G\circ F$
   preserves indentity.
 
@@ -123,7 +116,7 @@ categories, or a way to identify one category inside another.
   \end{proof}
 \end{theorem}
 
-\begin{theorem}[Functor Composition Preserves Composition]
+\begin{theorem}[Functor Composition Preserves Composition\label{thm:functor_cmp_cmp}]
   For functors $F:\A\to \B$ and $G:\B\to \C$, the composite functor $G\circ F$
   preserves composition.
 
@@ -138,6 +131,15 @@ categories, or a way to identify one category inside another.
         &= (G\circ F)(g)\circ(G\circ F)(f)
       \end{aligned}
     \]
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[Functor Composition is a Functor]
+  For functors $F, G$, the composition $G\circ F$ is a functor.
+
+  \begin{proof}
+    By Theorems \ref{thm:functor_cmp_id} and \ref{thm:functor_cmp_cmp} functor
+    composition fulfills the axioms of a functor.
   \end{proof}
 \end{theorem}
 

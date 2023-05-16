@@ -10,8 +10,8 @@
   Initial objects are the dual of terminal objects.
 \end{remark}
 
-\begin{theorem}[Uniqueness of Initial Objects]\label{thm:initial_object_iso} If
-  there are multiple terminal objects in a category, then they are all
+\begin{theorem}[Uniqueness of Initial Objects\label{thm:initial_object_iso}]
+  If there are multiple terminal objects in a category, then they are all
   isomorphic.
 
   \begin{proof}
@@ -37,6 +37,37 @@
   \end{proof}
 \end{theorem}
 
+\begin{theorem}[Isomorphism to an Initial Object\label{thm:iso_initial_object}]
+  If an object is isomorphic to an initial object, it is also initial.
+
+  \begin{proof}
+    Consider an initial object $1$ isomorphic to an object $c$ with an arrow
+    $f:1\to c$. The proof consists on showing the existence and uniqueness of an
+    arrow from $c$ into an arbitrary object $c'$.
+
+    \begin{description}
+      \item[Existence:]
+        % https://q.uiver.app/?q=WzAsMyxbMCwxLCIxIl0sWzEsMSwiYyJdLFswLDAsImMnIl0sWzAsMSwiZiIsMCx7Im9mZnNldCI6LTEsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDAsImZeey0xfSIsMCx7Im9mZnNldCI6LTF9XSxbMCwyLCJnIiwwLHsib2Zmc2V0IjoxLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwyLCJnXFxjaXJjIGZeey0xfSIsMl1d
+        \[\begin{tikzcd}[ampersand replacement=\&]
+          {c'} \\
+          1 \& c
+          \arrow["f", shift left=1, dashed, from=2-1, to=2-2]
+          \arrow["{f^{-1}}", shift left=1, from=2-2, to=2-1]
+          \arrow["g", shift right=1, dashed, from=2-1, to=1-1]
+          \arrow["{g\circ f^{-1}}"', from=2-2, to=1-1]
+        \end{tikzcd}\]
+      \item[Uniqueness:] Consider an arrow $h:c\to c'$, then by the initiality
+        of $1$:
+        \[
+          \begin{aligned}
+            g &= h\circ f\\
+            g\circ f^{-1} &= h
+          \end{aligned}
+        \]
+    \end{description}
+  \end{proof}
+\end{theorem}
+
 \begin{definition}[Terminal Object\index{Terminal Object}]
   For a category $\C$, an object $1$ is said to be terminal when there exists a
   unique morphism $f: c\to 1$ for every object $c\in C$.
@@ -47,12 +78,23 @@
   Terminal objects are the dual of initial objects.
 \end{remark}
 
-\begin{theorem}[Uniqueness of Terminal Objects]\label{thm:terminal_object_iso}
+\begin{theorem}[Uniqueness of Terminal Objects\label{thm:terminal_object_iso}]
   If there are multiple terminal objects in a category, then they are all
   isomorphic.
 
   \begin{proof}
     By Theorem \ref{thm:initial_object_iso} initial objects are unique up to
-    isomorphism. As initial and terminal objects are dual, and isomorphism is self-dual, terminal objects are also unique up to isomorphism.
+    isomorphism. Then by duality of initial and terminal objects, the statement
+    holds.
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[Isomorphism to Terminal Objects]
+  If an object is isomorphic to a terminal object, then it is terminal.
+
+  \begin{proof}
+    By Theorem \ref{thm:iso_initial_object} objects isomorphic to an initial
+    object are initial. Then by duality of initial and terminal objects, the
+    statement holds.
   \end{proof}
 \end{theorem}
