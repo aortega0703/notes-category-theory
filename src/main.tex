@@ -1,5 +1,14 @@
 \documentclass[a4paper, draft]{article}
 
+\usepackage[utf8]{inputenc}
+
+% To use hiragana yo
+\DeclareFontFamily{U}{dmjhira}{}
+\DeclareFontShape{U}{dmjhira}{m}{n}{ <-> dmjhira }{}
+
+\DeclareRobustCommand{\yo}{\text{\usefont{U}{dmjhira}{m}{n}\symbol{"48}}}
+
+
 \usepackage{amsmath, amssymb, mathtools} % Math
 \usepackage{framed}
 \usepackage[framed, thmmarks]{ntheorem}

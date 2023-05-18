@@ -1,0 +1,33 @@
+\section{Representables and Yoneda Lemma}
+
+\subsection{Representables}
+\begin{definition}[Presheaf\index{Presheaf}]
+  A functor $\C^\op \to \Set$ is a presheaf on $\C$.
+  \parencite{leinster:basic_category_theory}
+\end{definition}
+
+\begin{definition}[Representable Covariant Functor\index{Representable Functor}]
+  A functor $F: \C\to \Set$ is representable if for some $c\in\C$, $F
+  \cong \C(c, \hole)$. A representation of $F$ consists of such an object $c$
+  and said isomorphism. \parencite{leinster:basic_category_theory}
+\end{definition}
+
+\begin{definition}[Representable Contravariant Functor\index{Representable Functor}]
+  A functor $F: \C^\op\to \Set$ is representable if for some $c\in\C$,
+  $F \cong \C(\hole, c)$. A representation of $F$ consists of such an object $c$
+  and said isomorphism. \parencite{leinster:basic_category_theory}
+\end{definition}
+
+\begin{definition}[Yoneda Embedding]
+  For a locally small category $\C$, the Yoneda embedding $\yo_\C:\C \to
+  \Set^{(\C^\op)}$ is defined as maps of:
+  \parencite{leinster:basic_category_theory}
+  \begin{itemize}
+    \item Objects:
+      \[\big(\forall c\in \C_0\big)
+        \big(\yo_\C(c) = \C(\hole, c) \big)\]
+    \item Morphisms:
+      \[\big(\forall f\in \C_1\big)
+        \big(\yo_\C(f) = \C(\hole, f) \big)\]
+  \end{itemize}
+\end{definition}
