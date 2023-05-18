@@ -251,7 +251,7 @@
         \]
         By Definition \ref{def:adjunction_initial} every $v:c\to R(d)$ can be
         expressed as $\phi(\overline{v})$ for a unique $\overline{v}:L(c)\to d$, which
-        makes $\psi$ a bijection and therefore an isomorphism. To show
+        makes $\psi$ a bijection and therefore an isomorphism. To prove
         naturality of $\phi$ consider $g:c'\to c$ and $h:d\to d'$:
         % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXG1hdGhjYWx7RH0oTChjKSwgZCkiXSxbMSwwLCJcXG1hdGhjYWx7Q30oYywgUihkKSkiXSxbMCwxLCJcXG1hdGhjYWx7RH0oTChjJyksIGQnKSJdLFsxLDEsIlxcbWF0aGNhbHtDfShjJywgUihkJykpIl0sWzAsMSwiXFxwaGlfe2MsZH0iXSxbMCwyLCJcXG1hdGhjYWx7RH0oTChnKSxoKSIsMl0sWzIsMywiXFxwaGlfe2MnLGQnfSIsMl0sWzEsMywiXFxtYXRoY2Fse0N9KGcsUihoKSkiXSxbMCwxLCJcXGNvbmciLDJdLFsyLDMsIlxcY29uZyJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
         \[\begin{tikzcd}[ampersand replacement=\&]
@@ -350,8 +350,8 @@
           \end{aligned}
         \]
         By Definition \ref{def:adjunction_terminal} every $u:L(c)\to d$ can be
-        expressed as $\psi(\overline{u})$ for a unique $\overline{u}:c\to R(d)$, which
-        makes $\psi$ a bijection and therefore an isomorphism. To show
+        expressed as $\psi(\overline{u})$ for a unique $\overline{u}:c\to R(d)$,
+        which makes $\psi$ a bijection and therefore an isomorphism. To prove
         naturality of $\psi$ consider $g:c'\to c$ and $h:d\to d'$:
         % https://q.uiver.app/?q=WzAsNCxbMSwwLCJcXG1hdGhjYWx7RH0oTChjKSwgZCkiXSxbMCwwLCJcXG1hdGhjYWx7Q30oYywgUihkKSkiXSxbMSwxLCJcXG1hdGhjYWx7RH0oTChjJyksIGQnKSJdLFswLDEsIlxcbWF0aGNhbHtDfShjJywgUihkJykpIl0sWzEsMCwiXFxwc2lfe2MsZH0iXSxbMCwyLCJcXG1hdGhjYWx7RH0oTChnKSxoKSJdLFszLDIsIlxccHNpX3tjJyxkJ30iLDJdLFsxLDMsIlxcbWF0aGNhbHtDfShnLFIoaCkpIiwyXSxbMSwwLCJcXGNvbmciLDJdLFszLDIsIlxcY29uZyJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
         \[\begin{tikzcd}[ampersand replacement=\&]
@@ -384,15 +384,17 @@
 
 \begin{definition}[Adjunction\index{Adjunction!via Triangle Identities}\label{def:adjunction_triangle}]
   The pair of functors $\<L: \C\to \D$, $R: \D\to \C\>$ is left/right adjoint of
-  each other when there exists a unit ($\eta: \id_\C\to R\circ L$) and counit
-  ($\epsilon: L\circ R \to \id_\D$):
+  each other when there exists a unit ($\eta$) and counit ($\epsilon$):
   \parencite{leinster:basic_category_theory}
 
   \[
-    \begin{aligned}
-      \eta:&\!\!\!&\id_\C\ &\Rightarrow R \circ L\\
-      \epsilon:&\!\!\!& L \circ R &\Rightarrow\ \ \id_\D
-    \end{aligned}
+    \begin{gathered}
+      \eta: \id_\C \Rightarrow R \circ L
+    \end{gathered}
+    \qquad
+    \begin{gathered}
+      \epsilon: L \circ R \Rightarrow \id_\D
+    \end{gathered}
   \]
   Such that the triangular identities are satisfied (the following diagrams
   commute):
@@ -448,7 +450,10 @@
         \[
           \begin{aligned}
             \phi: \D(L(c), d) &\to \C(c, R(d))\\
-            u &\mapsto R(u)\circ \eta_c\\
+            u &\mapsto R(u)\circ \eta_c
+          \end{aligned}
+          \qquad
+          \begin{aligned}
             \psi: \C(c, R(d)) &\to \D(L(c), d)\\
             v &\mapsto \epsilon_d \circ L(v)
           \end{aligned}
@@ -496,9 +501,9 @@
           &= u \circ \id_{L(c)}\\
           &= u
         \end{aligned}
-        \]
-        In order to show naturality it is sufficient to show that for morphisms
-        $g:c'\to c$ and $h:d\to d'$ Theorem \ref{thm:transpose2} holds:
+        \] In order to prove naturality it is sufficient to prove that for
+        morphisms $g:c'\to c$ and $h:d\to d'$ Theorem \ref{thm:transpose2}
+        holds:
         \[
           \begin{aligned}
             \phi(h\circ u)

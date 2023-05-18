@@ -1,33 +1,120 @@
 \section{Representables and Yoneda Lemma}
 
 \subsection{Representables}
+
 \begin{definition}[Presheaf\index{Presheaf}]
   A functor $\C^\op \to \Set$ is a presheaf on $\C$.
   \parencite{leinster:basic_category_theory}
 \end{definition}
 
 \begin{definition}[Representable Covariant Functor\index{Representable Functor}]
-  A functor $F: \C\to \Set$ is representable if for some $c\in\C$, $F
+  A covariant functor $F: \C\to \Set$ is representable if for some $c\in\C$, $F
   \cong \C(c, \hole)$. A representation of $F$ consists of such an object $c$
   and said isomorphism. \parencite{leinster:basic_category_theory}
 \end{definition}
 
 \begin{definition}[Representable Contravariant Functor\index{Representable Functor}]
-  A functor $F: \C^\op\to \Set$ is representable if for some $c\in\C$,
-  $F \cong \C(\hole, c)$. A representation of $F$ consists of such an object $c$
-  and said isomorphism. \parencite{leinster:basic_category_theory}
+  A contravariant functor $F: \C^\op\to \Set$ is representable if for some
+  $c\in\C$, $F \cong \C(\hole, c)$. A representation of $F$ consists of such an
+  object $c$ and said isomorphism. \parencite{leinster:basic_category_theory}
 \end{definition}
 
-\begin{definition}[Yoneda Embedding]
+\subsection{Yoneda Lemma}
+
+\begin{definition}[Yoneda Embedding\index{Yoneda Embedding}]
   For a locally small category $\C$, the Yoneda embedding $\yo_\C:\C \to
   \Set^{(\C^\op)}$ is defined as maps of:
   \parencite{leinster:basic_category_theory}
   \begin{itemize}
     \item Objects:
-      \[\big(\forall c\in \C_0\big)
-        \big(\yo_\C(c) = \C(\hole, c) \big)\]
+      \[\big(\forall d\in \C_0\big)
+        \big(\yo_\C(d) = \C(\hole, d) \big)\]
     \item Morphisms:
-      \[\big(\forall f\in \C_1\big)
-        \big(\yo_\C(f) = \C(\hole, f) \big)\]
+      \[\big(\forall h\in \C_1\big)
+        \big(\yo_\C(h) = \C(\hole, h) \big)\]
   \end{itemize}
 \end{definition}
+
+\begin{remark}
+  Note that the Yoneda embedding $\yo_{\C^\op}: \C^\op \to\Set^\C$ is defined as
+  maps of:
+  \begin{itemize}
+    \item Objects:
+      \[\big(\forall c\in \C^\op_0\big)
+        \big(\yo_{\C^\op}(c) = \C^\op(\hole, c) = \C(c, \hole)\big)\]
+    \item Morphisms:
+      \[\big(\forall g\in \C^\op_1\big)
+        \big(\yo_{\C^\op}(g) = \C^\op(\hole, g) = \C(g, \hole)\big)\]
+  \end{itemize}
+\end{remark}
+
+\begin{theorem}[Yoneda Lemma\index{Yoneda Lemma}\label{thm:yoneda_lemma}]
+  For a presheaf $F: \D^\op \to \Set$ on $\D$ and an object $d\in \D_0$, there
+  exists a natural isomorphism:
+  \[\Set^{(\D^\op)}(\yo_\D(d), F) \cong F(d)\]
+
+  \begin{proof}
+    Consider the functions:
+    \[
+      \begin{aligned}
+        \phi: \Set^{(\D^\op)}(\yo_\D(d), F) &\to F(d)\\
+        \alpha &\mapsto \alpha_d(\id_d)
+      \end{aligned}
+      \qquad
+      \begin{aligned}
+        \psi: F(d) &\to \Set^{(\D^\op)}(\yo_\D(d), F)\\
+        x &\mapsto \psi(x)
+      \end{aligned}
+    \]
+
+    Such that for $f:c\to d$:
+    \[(\psi(x)_{c})(f) = (F(f))(x)\]
+
+    To prove naturality of $\psi(x)$, consider a morphism $g:c'\to c$:
+    % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXEQoYyxkKSJdLFsxLDAsIkYoYykiXSxbMCwxLCJcXEQoYycsZCkiXSxbMSwxLCJGKGMnKSJdLFswLDEsIlxccHNpKHgpX2MiXSxbMiwzLCJcXHBzaSh4KV97Yyd9IiwyXSxbMCwyLCJcXEQoZyxkKSIsMl0sWzEsMywiRihnKSJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+    \[\begin{tikzcd}[ampersand replacement=\&]
+      {\D(c,d)} \& {F(c)} \\
+      {\D(c',d)} \& {F(c')}
+      \arrow["{\psi(x)_c}", from=1-1, to=1-2]
+      \arrow["{\psi(x)_{c'}}"', from=2-1, to=2-2]
+      \arrow["{\D(g,d)}"', from=1-1, to=2-1]
+      \arrow["{F(g)}", from=1-2, to=2-2]
+    \end{tikzcd}\]
+    \[
+      \begin{aligned}
+        (F(g)\circ \psi(x)_c)(f)
+        &= F(g)(F(f)(x))\\
+        &= F(f\circ g)(x)\\
+        &= \psi(x)_{c'}(f\circ g)
+      \end{aligned}
+    \]
+    Then, consider composition in both ways:
+    \[
+      \begin{aligned}
+        (\phi \circ \psi)(x)
+        &= \psi(x)_{d}(\id_d)\\
+        &= F(\id_d)(x)\\
+        &= \id_{F(d)}(x)\\
+        &= x
+      \end{aligned}
+      \qquad
+      \begin{aligned}
+        \big((\psi \circ \phi)(\alpha)\big)_c(f)
+        &= \psi (\alpha_d(\id_d))_c(f)\\
+        &= F(f)(\alpha_d(\id_d))\\
+        &= \alpha_c(\D(f, d)(\id_d))\\
+        &= \alpha_c(f)
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[Covariant Yoneda Lemma]
+  For a functor $F:\C \to \Set$ and an object $c\in\C_0$, there exists an
+  natural isomorphism:
+  \[\Set^{\C}(\yo_{\C^\op}(c), F) \cong F(c)\]
+
+  \begin{proof}
+    Take $\C^\op = \D$ in Theorem \ref{thm:yoneda_lemma}.
+  \end{proof}
+\end{theorem}
