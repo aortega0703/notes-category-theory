@@ -3,9 +3,9 @@
 \theoremheaderfont{\normalfont\bfseries}
 \theoremseparator{}
 \newtheorem{theorem}{Theorem}[section]
-\newtheorem{proposition}{Proposition}[theorem]
-\newtheorem{lemma}{Lemma}[theorem]
-\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
 
 \theorembodyfont{\upshape}
 \newmdtheoremenv[
@@ -15,12 +15,16 @@
   innerrightmargin=0pt,
   innertopmargin=0pt,
   innerbottommargin=0pt
-]{definition}{Definition}[section]
+]{definition}[theorem]{Definition}
+
+\theoremstyle{plain}
+\theoremheaderfont{\normalfont\bfseries}
+\newtheorem{remark}[theorem]{Remark}
 
 \theoremstyle{nonumberplain}
-\newtheorem{remark}{Remark}
 \newtheorem{example}{Example}
 \theoremheaderfont{\scshape}
 \theorembodyfont{\normalfont}
 \theoremsymbol{\ensuremath{\square}}
 \newtheorem{proof}{Proof.}
+
