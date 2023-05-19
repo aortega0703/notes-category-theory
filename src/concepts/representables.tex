@@ -106,6 +106,49 @@
         &= \alpha_c(f)
       \end{aligned}
     \]
+    This proves that $\phi$ and $\psi$ form an isomorphism. By Theorem
+    \ref{thm:binaturality} to prove that such isomorphism is natural on both $d$
+    and $F$ it suffices to show that it is so on each separately. Let $f: d' \to
+    d$ and $\beta: F \to G$, then:
+    \[
+      \begin{gathered}
+        \\
+        % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXFNldF57XFxDXlxcb3B9KFxceW9fXFxEKGQpLCBGKSJdLFsxLDAsIkYoZCkiXSxbMCwxLCJcXFNldF57XFxDXlxcb3B9KFxceW9fXFxEKGQpLCBHKSJdLFsxLDEsIkcoZCkiXSxbMCwxLCJcXHBoaSJdLFswLDIsIlxcU2V0XntcXENeXFxvcH0oXFx5b19cXEQoZCksIFxcYmV0YSkiLDJdLFsyLDMsIlxccGhpIiwyXSxbMSwzLCJcXGJldGFfZCJdXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb46a955b6b1f06908105b870088e59a10049fc60%2Fmacros.tex
+        \begin{tikzcd}[ampersand replacement=\&,column sep=small]
+          {\Set^{\C^\op}(\yo_\D(d), F)} \& {F(d)} \\
+          {\Set^{\C^\op}(\yo_\D(d), G)} \& {G(d)}
+          \arrow["\phi", from=1-1, to=1-2]
+          \arrow["{\Set^{\C^\op}(\yo_\D(d), \beta)}"', from=1-1, to=2-1]
+          \arrow["\phi"', from=2-1, to=2-2]
+          \arrow["{\beta_d}", from=1-2, to=2-2]
+        \end{tikzcd}\\
+        \\
+        % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXFNldF57XFxDXlxcb3B9KFxceW9fXFxEKGQpLCBGKSJdLFsxLDAsIkYoZCkiXSxbMCwxLCJcXFNldF57XFxDXlxcb3B9KFxceW9fXFxEKGQnKSwgRikiXSxbMSwxLCJGKGQnKSJdLFswLDEsIlxccGhpIl0sWzAsMiwiXFxTZXRee1xcQ15cXG9wfShcXHlvX1xcRChmKSwgRikiLDJdLFsyLDMsIlxccGhpIiwyXSxbMSwzLCJGKGYpIl1d&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb46a955b6b1f06908105b870088e59a10049fc60%2Fmacros.tex
+        \begin{tikzcd}[ampersand replacement=\&,column sep=small]
+          {\Set^{\C^\op}(\yo_\D(d), F)} \& {F(d)} \\
+          {\Set^{\C^\op}(\yo_\D(d'), F)} \& {F(d')}
+          \arrow["\phi", from=1-1, to=1-2]
+          \arrow["{\Set^{\C^\op}(\yo_\D(f), F)}"', from=1-1, to=2-1]
+          \arrow["\phi"', from=2-1, to=2-2]
+          \arrow["{F(f)}", from=1-2, to=2-2]
+        \end{tikzcd}
+      \end{gathered}
+      \hspace{-10pt}
+      \begin{aligned}
+        (\beta_d \circ \phi)(\alpha)
+        &= \beta_d (\alpha_d (\id_d))\\
+        &= (\beta \circ \alpha)_d (\id_d)\\
+        &= \phi(\beta \circ \alpha)\\
+        &= \phi(\Set^{\C^\op}(\yo_\D(d), \beta)(\alpha))\\
+        &= (\phi \circ \Set^{\C^\op}(\yo_\D(d), \beta)) (\alpha)\\
+        (F(f)\circ \phi) (\alpha)
+        &= F(f)(\alpha_d (\id_d))\\
+        &= \alpha_{d'}(f)\\
+        &= \alpha_{d'}(\yo_\D(f)_{d'}(\id_{d'}))\\
+        &= \phi(\alpha \circ \yo_\D(f))\\
+        &= \phi(\Set^{\C^\op}(\yo_\D(f), F)(\alpha))
+      \end{aligned}
+    \]
   \end{proof}
 \end{theorem}
 
