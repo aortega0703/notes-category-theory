@@ -218,15 +218,27 @@ categories, or a way to identify one category inside another.
 \subsection{Functor Properties}
 
 \begin{definition}[Faithful Functor\index{Faithful Functor}]
-  A functor $F:\C\to \D$ is faithful when for every $x,y\in \C_0$, the function
-  $F_{x, y}: \C(x, y) \to \D(F(x), F(y))$ is injective.
-  \parencite{awodey:category_theory}
+  A functor $F:\C\to \D$ is faithful when for every morphism $(f: c\to c') \in
+  \C_1$, the following function is injective:
+  \parencite{leinster:basic_category_theory}
+    \[
+      \begin{aligned}
+        F: \C(c, c') &\to \D(F(c), F(c'))\\
+        f &\mapsto F(f)
+      \end{aligned}
+    \]
 \end{definition}
 
 \begin{definition}[Full Functor\index{Full Functor}]
-  A functor $F:\C\to \D$ is full when for every $x,y\in \C_0$, the function
-  $F_{x, y}: \C(x, y) \to \D(F(x), F(y))$ is surjective.
-  \parencite{adamek_herrlich_strecker:joy_cats}
+  A functor $F:\C\to \D$ is full when for every morphism $(f: c\to c') \in
+  \C_1$, the following function is surjective:
+  \parencite{leinster:basic_category_theory}
+  \[
+    \begin{aligned}
+      F: \C(c, c') &\to \D(F(c), F(c'))\\
+      f &\mapsto F(f)
+    \end{aligned}
+  \]
 \end{definition}
 
 \begin{definition}[Endofunctor\index{Endofunctor}]
@@ -238,4 +250,9 @@ categories, or a way to identify one category inside another.
   A functor $F:\A\times \B \to \C$ (one with $2$ parameters) is said to be a
   bifunctor.
   \parencite{lane:working_mathematician}
+\end{definition}
+
+\begin{definition}[Presheaf\index{Presheaf}]
+  A functor $\C^\op \to \Set$ is a presheaf on $\C$.
+  \parencite{leinster:basic_category_theory}
 \end{definition}
