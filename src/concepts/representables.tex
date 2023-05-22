@@ -154,7 +154,7 @@
   \[\Set^{\C}(\yo_{\C^\op}(c), F) \cong F(c)\]
 \end{remark}
 
-\begin{theorem}[$\yo$ is Full and Faithful]
+\begin{theorem}[$\yo$ is Full and Faithful]\label{thm:yoneda_full_faithful}
   For any category $\C$, the Yoneda embedding $\yo_C: \C \to \Set^{(\C^\op)}$ is
   both full and faithful. That is, for every $f: c\to d$ the following is a
   bijection:
@@ -183,3 +183,54 @@
     \[\psi: \C(c,d) \overset{\cong}{\to} \Set^{(\C^\op)}(\yo_\C(c), \yo_\C(d))\]
   \end{proof}
 \end{theorem}
+
+\begin{theorem}
+  For any objects $c, d\in\C_0$ it follows that:
+  \[ c \cong d \iff \yo(c) \cong \yo(d) \]
+
+  \begin{proof}
+    It follows immediately from Theorems \ref{thm:full_faithful_isomorphism} and
+    \ref{thm:yoneda_full_faithful}.
+  \end{proof}
+\end{theorem}
+
+\begin{definition}[Universal Element]\label{def:element}
+
+  An element of a functor $F: \C \to \Set$ consists of a pair $(d'\in \C_0, v\in
+  F(d'))$. A universal element of the same functor, is an element $(d, u)$ such
+  that for any other element $(d', v)$ there exists a unique morphism $f: d\to
+  d'$ that makes $(F(f))(u) = v$ hold true.
+  % https://q.uiver.app/#q=WzAsNCxbMCwxLCJkJyJdLFswLDAsImQiXSxbMSwwLCJ1Il0sWzEsMSwidiJdLFsxLDAsImYiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiwzLCJGKGYpIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    d \& u \\
+    {d'} \& v
+    \arrow["f"', dashed, from=1-1, to=2-1]
+    \arrow["{F(f)}", dashed, from=1-2, to=2-2]
+  \end{tikzcd}\]
+\end{definition}
+
+\begin{theorem}[Representation as Universal Element]\label{thm:representation_universal}
+
+  Representations of a presheave $F:\C^\op \to \Set$ is in bijection with
+  universal elements for the same presheaf.
+
+  \begin{proof}
+    Consider the element $(d \in \C^\op, u \in F(d))$, via Theorem
+    \ref{thm:yoneda_lemma} there is a unique natural transformation
+    $\psi_{d,F}(u):\yo_\C(d) \to F$ associated with $u$. For $(d, \psi(u))$ to
+    be a representation of $F$, $\psi_{d,F}(u)$ needs to be an isomorphism i.e.
+    for every $(c, v\in F(c))$ there exists a unique $f: c \to d$ such that:
+    \[
+      \begin{aligned}
+        (\psi_{d,F}(u))(f)
+          &= v\\
+        (F(f))(u) &= v
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
+
+\begin{remark}
+  Note that Theorem \ref{thm:representation_universal} also holds for covariant
+  functors by reversing the direction of $f$.
+\end{remark}

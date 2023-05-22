@@ -36,7 +36,8 @@ categories, or a way to identify one category inside another.
   \end{tikzcd}\]
 \end{example}
 
-\begin{theorem}[Functors Preserve Isomorphisms]
+\begin{theorem}[Functors Preserve Isomorphisms]\label{thm:isomorphism_functor}
+
   Given two isomorphic objects, their images under any functor are also
   isomorphic.
 
@@ -60,9 +61,10 @@ categories, or a way to identify one category inside another.
 \end{theorem}
 
 \subsection{Composition}
-\begin{definition}[Identity Functor\index{Identity
-  Functor}\label{def:id_functor}] For a category $\C$ there exists an identity
-  functor $\id_\C: \C \to \C$ which consists of maps of:
+\begin{definition}[Identity Functor\index{Identity Functor}]\label{def:id_functor}
+
+  For a category $\C$ there exists an identity functor $\id_\C: \C \to \C$ which
+  consists of maps of:
   \parencite{adamek_herrlich_strecker:joy_cats}
   \begin{itemize}
     \item Objects:
@@ -83,7 +85,8 @@ categories, or a way to identify one category inside another.
   \end{proof}
 \end{theorem}
 
-\begin{theorem}[$\id_\C$ Preserves Composition\label{thm:id_functor_composition}]
+\begin{theorem}[$\id_\C$ Preserves Composition]\label{thm:id_functor_composition}
+
   For a category $\C$, the identity functor $\id_\C: \C \to \C$ preserves
   composition.
 
@@ -109,8 +112,10 @@ categories, or a way to identify one category inside another.
 \end{theorem}
 
 \begin{definition}[Functor Composition\index{Functor
-  Composition}\label{def:functor_composition}] For functors $F:\A\to \B$ and
-  $G:\B\to \C$, the composite functor $G\circ F$ consists of maps of:
+  Composition}]\label{def:functor_composition}
+
+  For functors $F:\A\to \B$ and $G:\B\to \C$, the composite functor $G\circ F$
+  consists of maps of:
   \parencite{leinster:basic_category_theory}
   \begin{itemize}
     \item Objects:
@@ -256,3 +261,36 @@ categories, or a way to identify one category inside another.
   A functor $\C^\op \to \Set$ is a presheaf on $\C$.
   \parencite{leinster:basic_category_theory}
 \end{definition}
+
+\begin{theorem}[Fully Faithful Isomorphism]\label{thm:full_faithful_isomorphism}
+
+  For any full and faithful functor $F:\C\to \D$ it follows that $c \cong c'
+  \iff F(c) \cong F(c')$ for objects $c, c'\in \C_0$.
+
+  \begin{proof}
+    The $(\implies)$ holds via Theorem \ref{thm:isomorphism_functor}. For the
+    $(\impliedby)$ part, consider the isomorphism $Ff: F(c) \overset{\cong}{\to}
+    F(c')$. As $F$ is fully faithful, morphisms $c\to c'$ are in bijection
+    with morphisms $F(c)\to F(c')$, therefore there exists unique arrows $f:c\to c'$ $g:c'\to c$ such that $F(f) = Ff$ and $F(g) = Ff^{-1}$, then:
+    \[
+      \begin{aligned}
+        &F(\id_c)\\
+        =& \id_{F(c)}\\
+        =& Ff^{-1} \circ Ff\\
+        =& F(g) \circ F(f)\\
+        =& F(g\circ f)
+      \end{aligned}
+      \qquad
+      \begin{aligned}
+        &F(\id_{c'})\\
+        =& \id_{F(c')}\\
+        =& Ff \circ Ff^{-1}\\
+        =& F(f) \circ F(g)\\
+        =& F(f\circ g)
+      \end{aligned}
+    \]
+
+    As $F$ is faithful and $F(\id_c) = F(g\circ f)$, then $g\circ f = \id_c$.
+    Similarly, $f\circ g = \id_{c'}$.
+  \end{proof}
+\end{theorem}
