@@ -1,7 +1,7 @@
 \subsection{Set}
 \begin{definition}[Set\index{Set}]
   Set is the category of all sets, composed
-  by~\parencite{awodey:category_theory}:
+  by~\parencite[p.~11]{leinster:basic_category_theory}:
   \begin{itemize}
     \item Objects:\\
       $\Set_0\coloneqq$ The collection of all sets.
@@ -143,8 +143,9 @@
     The proof consists of two parts:
 
     \begin{description}
-      \item[$(\implies)$] By Qusing Theorems \ref{thm:iso_then_mono},
-        \ref{thm:iso_then_epi}, \ref{thm:mono_iff_inj}, and
+      \item[$(\implies)$] By using Theorems
+        \ref{thm:left_inverse_implies_mono},
+        \ref{thm:right_inverse_implies_epi}, \ref{thm:mono_iff_inj}, and
         \ref{thm:epi_iff_sur} we get that any isomorphism is also a bijective
         function.
       \item[$(\impliedby)$] Consider a bijection $f:A\to B$. Then define

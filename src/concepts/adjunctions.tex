@@ -5,7 +5,7 @@
 \begin{definition}[Adjunction\index{Adjunction!via Natural Isomorphism}\label{def:adjunction_isomorphism}]
   The pair of functors $\<L: \C\to \D$, $R: \D\to \C\>$ is said to be left/right
   adjoint of each other when there is a natural isomorphism between the
-  functors~\parencite{leinster:basic_category_theory}:
+  functors~\parencite[p.~41]{leinster:basic_category_theory}:
   \[
     \begin{aligned}
       \D(L(\hole), \hole)
@@ -184,7 +184,8 @@
 \begin{definition}[Adjunction\index{Adjunction!via Initial Morphism}\label{def:adjunction_initial}]
   The pair of functors $\<L: \C\to \D$, $R: \D\to \C\>$ is left/right adjoint of
   each other when there is an initial morphism $(L(c), \eta_c:c\to (R\circ
-  L)(c))$ from every $c\in \C_0$ to $R$~\parencite{awodey:category_theory}:
+  L)(c))$ from every $c\in \C_0$ to
+  $R$~\parencite[p.~208]{awodey:category_theory}:
   % https://q.uiver.app/?q=WzAsNSxbMCwwLCJMKGMpIl0sWzAsMSwiZCJdLFsxLDAsIihSXFxjaXJjIEwpKGMpIl0sWzEsMSwiUihkKSJdLFsyLDAsImMiXSxbMCwxLCJcXG92ZXJsaW5le3Z9IiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsMywiUihcXG92ZXJsaW5le3Z9KSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs0LDMsInYiXSxbNCwyLCJcXGV0YV9jIiwyXV0=
   \[\begin{tikzcd}[ampersand replacement=\&]
     {L(c)} \& {(R\circ L)(c)} \& c \\
@@ -284,7 +285,7 @@
   The pair of functors $\<L: \C\to \D$, $R: \D\to \C\>$, is left/right adjoint
   of each other when there exists a terminal morphism $(R(d), \epsilon_d:
   (L\circ R)(d) \to d)$ from every $d\in \D_0$ to
-  $L$~\parencite{awodey:category_theory}:
+  $L$~\parencite[p.~214]{awodey:category_theory}:
   % https://q.uiver.app/?q=WzAsNSxbMCwxLCJSKGQpIl0sWzAsMCwiYyJdLFsxLDAsIkwoYykiXSxbMSwxLCIoTFxcY2lyYyBSKShkKSJdLFsyLDEsImQiXSxbMSwwLCJcXG92ZXJsaW5le3V9IiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsMywiTChcXG92ZXJsaW5le3V9KSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDQsIlxcdmFyZXBzaWxvbl9kIiwyXSxbMiw0LCJ1Il1d
   \[\begin{tikzcd}[ampersand replacement=\&]
     c \& {L(c)} \\
@@ -381,9 +382,9 @@
 \subsection{Via Triangle Identities}
 
 \begin{definition}[Adjunction\index{Adjunction!via Triangle Identities}\label{def:adjunction_triangle}]
-  The pair of functors $\<L: \C\to \D$, $R: \D\to \C\>$ is left/right adjoint of
-  each other when there exists a unit ($\eta$) and counit
-  ($\epsilon$)~\parencite{leinster:basic_category_theory}:
+  The pair of functors $\<L: \C\to \D$, $R: \D\to \C\>$ is left/right adjoint
+  of each other when there exists a unit ($\eta$)
+  and counit ($\epsilon$)~\parencite[p.~53]{leinster:basic_category_theory}:
   \[
     \begin{gathered}
       \eta: \id_\C \Rightarrow R \circ L

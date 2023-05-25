@@ -2,45 +2,32 @@
 A category can be thought of as the abstraction of a certain structure.
 
 \begin{definition}[Category\index{Category}]
-  A category $\C$ is composed of~\parencite{fong_spivak:7sketches}:
+  A category $\C$ is composed of~\parencite[p.~4]{awodey:category_theory}:
   \begin{itemize}
     \item Collections of Objects ($\C_0$) and Morphisms ($\C_1$).
     \item Functions Domain ($\mathrm{Dom}:\C_1\to \C_0$) and Codomain
       ($\mathrm{Cod}: \C_1 \to \C_0$).
       \[
         \begin{gathered}
-          (f : c\to c') \in \C_1
-          \coloneqq f\in \C_1
-          \land \mathrm{Dom}(f) = c \land \mathrm{Cod}(f) = c'\\
+          (f : c\to c')
+          \coloneqq \mathrm{Dom}(f) = c \land \mathrm{Cod}(f) = c'\\
           \C(c, c') \coloneqq \{f\ |\ f : c \to c'\}\subseteq \C_1
         \end{gathered}
       \]
+    \item Identity morphisms:
+      \[\big(\forall c \in \C_0\big)
+        \big((\id_c : c\to c)\in \C_1\big)\]
+    \item Composition of Morphisms:
+      \[\big(\forall (f :a \to b),\ (g : b\to c) \in \C_1\big)
+        \big((g\circ f :a\to c) \in \C_1\big)\]
   \end{itemize}
 
   Such that the following are satisfied:
   \begin{itemize}
-    \item Identity:
-      \[\big(\forall c \in \C_0\big)
-        \big((\id_c : c\to c)\in \C_1\big)\]
-      % https://q.uiver.app/?q=WzAsMixbMCwwLCJjIl0sWzEsMCwiYyJdLFswLDEsIlxcaWRfYyJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
-      \[\begin{tikzcd}[ampersand replacement=\&]
-        c \& c
-        \arrow["{\id_c}", from=1-1, to=1-2]
-      \end{tikzcd}\]
-    \item Composition:
-      \[\big(\forall (f :a \to b),\ (g : b\to c) \in \C_1\big)
-        \big((g\circ f :a\to c) \in \C_1\big)\]
-      % https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzEsMCwiYiJdLFsxLDEsImMiXSxbMCwxLCJmIl0sWzEsMiwiZyJdLFswLDIsImdcXGNpcmMgZiIsMix7ImxhYmVsX3Bvc2l0aW9uIjo0MH1dXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
-      \[\begin{tikzcd}[ampersand replacement=\&]
-        a \& b \\
-        \& c
-        \arrow["f", from=1-1, to=1-2]
-        \arrow["g", from=1-2, to=2-2]
-        \arrow["{g\circ f}"'{pos=0.4}, from=1-1, to=2-2]
-      \end{tikzcd}\]
     \item Unitality:
       \[\big(\forall (f:a\to b)\in \C_1\big)
         \big(f \circ \id_a = \id_b \circ f = f\big)\]
+      i.e. the following commutes:
       % https://q.uiver.app/?q=WzAsNCxbMSwwLCJhIl0sWzEsMSwiYiJdLFsyLDEsImIiXSxbMCwwLCJhIl0sWzAsMSwiZiIsMl0sWzEsMiwiXFxpZF9iIiwyXSxbMywwLCJcXGlkX2EiXSxbMywxLCJmIiwyXSxbMCwyLCJmIl1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
       \[\begin{tikzcd}[ampersand replacement=\&]
         a \& a \\
@@ -54,6 +41,7 @@ A category can be thought of as the abstraction of a certain structure.
     \item Associativity:
       \[\big(\forall (f : a\to b),\ (g: b\to c),\ (h: c\to d)\in\C_1\big)
         \big((h \circ g) \circ f = h \circ (g \circ f)\big)\]
+      i.e. the following commutes:
       % https://q.uiver.app/?q=WzAsNCxbMCwwLCJhIl0sWzEsMCwiYiJdLFsxLDEsImMiXSxbMiwwLCJkIl0sWzAsMSwiZiJdLFsxLDIsImciLDJdLFsyLDMsImgiLDJdLFswLDIsImdcXGNpcmMgZiIsMix7ImxhYmVsX3Bvc2l0aW9uIjozMH1dLFsxLDMsImhcXGNpcmMgZyJdLFswLDMsImhcXGNpcmMgZyBcXGNpcmMgZiIsMCx7ImN1cnZlIjotNH1dXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
       \[\begin{tikzcd}[ampersand replacement=\&]
         a \& b \& d \\
@@ -70,7 +58,7 @@ A category can be thought of as the abstraction of a certain structure.
 
 \begin{definition}[Opposite category\index{Opposite category}]
   For a category $\C$, its opposite category $\C^\op$ is composed
-  of~\parencite{awodey:category_theory}:
+  of~\parencite[p.~15]{awodey:category_theory}:
 
   \begin{itemize}
     \item Objects:
@@ -86,35 +74,24 @@ A category can be thought of as the abstraction of a certain structure.
   As the axioms of category theory are self-dual, any statement $\Sigma$ that
   holds for all categories implies that its dual statement ($\Sigma$ in
   $\C^\op$) must also hold for all
-  categories~\parencite{awodey:category_theory}.
+  categories~\parencite[p.~16]{leinster:basic_category_theory}.
 \end{remark}
 
 \subsection{Category Properties}
 
 \begin{definition}[Small/Large Category\index{Small Category}\index{Large Category}]
   A category $\C$ is small when $\C_0$ and $\C_1$ are sets instead of proper
-  classes. It is large otherwise~\parencite{awodey:category_theory}.
+  classes. It is large otherwise~\parencite[p.~24]{awodey:category_theory}.
 \end{definition}
 
 \begin{definition}[Locally Small Category\index{Locally Small Category}]
   A category $\C$ is locally small when $\C(c, c')$ is a set for all $c,c'\in
-  \C_0$~\parencite{awodey:category_theory}.
-\end{definition}
-
-\begin{definition}[Free Category\index{Free Category}]
-  A category is free when it has no more constraints\footnote{Equalities
-  between paths} than the ones enforced from the category axioms~\parencite{adamek_herrlich_strecker:joy_cats}.
-\end{definition}
-
-\begin{definition}[Thin Category\index{Thin Category}]
-  A category $\C$ is thin when $\C(a, b)$ is either empty or a singleton for
-  every $a,b\in C$~\parencite{adamek_herrlich_strecker:joy_cats}. It has every
-  possible constraint.
+  \C_0$~\parencite[p.~25]{awodey:category_theory}.
 \end{definition}
 
 \begin{definition}[Discrete Category\index{Discrete Category}]
   A category $\C$ is discrete when $\C_1$ is composed entirely out of identity
-  morphisms~\parencite{awodey:category_theory}. Discrete categories are going to
+  morphisms~\parencite[p.~11]{awodey:category_theory}. Discrete categories are going to
   be denoted by $\underline{n}$, with $n=|\C_0|$.
 \end{definition}
 
@@ -122,7 +99,7 @@ A category can be thought of as the abstraction of a certain structure.
 
 \begin{definition}[Endomorphism\index{Endomorphism}]
   A morphism whose domain equals its codomain is an
-  endomorphism~\parencite{riehl:category_theory_in_context}.
+  endomorphism~\parencite[p.~7]{riehl:category_theory_in_context}.
 \end{definition}
 
 \begin{definition}[Left Inverse\index{Left Inverse}]
@@ -201,12 +178,12 @@ A category can be thought of as the abstraction of a certain structure.
 
 \begin{definition}[Automorphism\index{Automorphism}]
   An endomorphism which is also an isomorphism is an
-  automorphism~\parencite{riehl:category_theory_in_context}.
+  automorphism~\parencite[p.~7]{riehl:category_theory_in_context}.
 \end{definition}
 
 \begin{definition}[Monomorphisms\index{Monomorphisms}]
   A morphism $f:c\to c'$ is monic or a monomorphism when it is left
-  cancellable~\parencite{lane:working_mathematician} i.e. when for any
+  cancellable~\parencite[p.~19]{lane:working_mathematician} i.e. when for any
   set-up of objects and morphisms:
   % https://q.uiver.app/?q=WzAsMyxbMSwwLCJjIl0sWzIsMCwiYyciXSxbMCwwLCJ4Il0sWzAsMSwiZiJdLFsyLDAsImciLDAseyJvZmZzZXQiOi0xfV0sWzIsMCwiaCIsMix7Im9mZnNldCI6MX1dXQ==
   \[\begin{tikzcd}[ampersand replacement=\&]
@@ -232,7 +209,7 @@ A category can be thought of as the abstraction of a certain structure.
   Monomorphisms are the dual of epimorphisms.
 \end{remark}
 
-\begin{theorem}\label{thm:right_inverse_implies_mono}
+\begin{theorem}\label{thm:left_inverse_implies_mono}
 
   If $f:C\to C'$ has a left inverse $f':C'\to C$, then it is a monomorphism.
 
@@ -263,12 +240,12 @@ A category can be thought of as the abstraction of a certain structure.
 \begin{definition}[Equivalent Monomorphisms]
   Two monomorphisms $f:A\mono C$ and $g:B\mono C$ are equivalent if there exists
   an isomorphism $h: A \overset{\cong}{\to} B$ such
-  that $g\circ h=f$~\parencite{lane_moerdijk:sheaves_geometry_logic}.
+  that $g\circ h=f$~\parencite[p.~11]{lane_moerdijk:sheaves_geometry_logic}.
 \end{definition}
 
 \begin{definition}[Epimorphism\index{Epimorphism}]
   A morphism $f:c\to c'$ is epic or an epimorphism when it is right
-  cancellable~\parencite{lane:working_mathematician} i.e. when for any set-up of
+  cancellable~\parencite[p.~19]{lane:working_mathematician} i.e. when for any set-up of
   objects and morphisms:
   % https://q.uiver.app/?q=WzAsMyxbMCwwLCJjIl0sWzEsMCwiYyciXSxbMiwwLCJ4Il0sWzEsMiwiaCIsMix7Im9mZnNldCI6MX1dLFswLDEsImYiXSxbMSwyLCJnIiwwLHsib2Zmc2V0IjotMX1dXQ==
   \[\begin{tikzcd}[ampersand replacement=\&]
@@ -290,11 +267,11 @@ A category can be thought of as the abstraction of a certain structure.
   Epimorphism are the dual of monomorphisms.
 \end{remark}
 
-\begin{theorem}
+\begin{theorem}\label{thm:right_inverse_implies_epi}
   If $f:C\to C'$ has a right inverse $f':C'\to C$, then it is a epimorphism.
 
   \begin{proof}
-    By duality with Theorem \ref{thm:right_inverse_implies_mono}.
+    By duality with Theorem \ref{thm:left_inverse_implies_mono}.
   \end{proof}
 \end{theorem}
 

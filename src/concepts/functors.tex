@@ -4,7 +4,8 @@ categories, or a way to identify one category inside another.
 
 \begin{definition}[Functor\index{Functor}]
   For categories $\C,\D$, a functor $F: \C \to \D$ consist of maps of objects
-  and morphisms, such that it preserves~\parencite{awodey:category_theory}:
+  and morphisms, such that it
+  preserves~\parencite[p.~8]{awodey:category_theory}:
   \begin{itemize}
     \item Domain and Codomain:
       \[\big(\forall (f:c\to c')\in \C_1\big)
@@ -63,7 +64,7 @@ categories, or a way to identify one category inside another.
 \begin{definition}[Identity Functor\index{Identity Functor}]\label{def:id_functor}
 
   For a category $\C$ there exists an identity functor $\id_\C: \C \to \C$ which
-  consists of maps of~\parencite{adamek_herrlich_strecker:joy_cats}:
+  consists of maps of~\parencite[p.~27]{adamek_herrlich_strecker:joy_cats}:
   \begin{itemize}
     \item Objects:
       \[(\forall c \in \C_0)
@@ -113,7 +114,7 @@ categories, or a way to identify one category inside another.
   Composition}]\label{def:functor_composition}
 
   For functors $F:\A\to \B$ and $G:\B\to \C$, the composite functor $G\circ F$
-  consists of maps of~\parencite{leinster:basic_category_theory}:
+  consists of maps of~\parencite[p.~17]{leinster:basic_category_theory}:
   \begin{itemize}
     \item Objects:
       \[(\forall a \in \A_0)
@@ -222,7 +223,7 @@ categories, or a way to identify one category inside another.
 \begin{definition}[Faithful Functor\index{Faithful Functor}]
   A functor $F:\C\to \D$ is faithful when for every morphism $(f: c\to c') \in
   \C_1$, the following function is
-  injective~\parencite{leinster:basic_category_theory}:
+  injective~\parencite[p.~25]{leinster:basic_category_theory}:
     \[
       \begin{aligned}
         F: \C(c, c') &\to \D(F(c), F(c'))\\
@@ -234,7 +235,7 @@ categories, or a way to identify one category inside another.
 \begin{definition}[Full Functor\index{Full Functor}]
   A functor $F:\C\to \D$ is full when for every morphism $(f: c\to c') \in
   \C_1$, the following function is
-  surjective~\parencite{leinster:basic_category_theory}:
+  surjective~\parencite[p.~25]{leinster:basic_category_theory}:
   \[
     \begin{aligned}
       F: \C(c, c') &\to \D(F(c), F(c'))\\
@@ -245,17 +246,17 @@ categories, or a way to identify one category inside another.
 
 \begin{definition}[Endofunctor\index{Endofunctor}]
   A functor whose domain equals its codomain is an
-  endofunctor~\parencite{adamek_herrlich_strecker:joy_cats}.
+  endofunctor~\parencite[p.~30]{adamek_herrlich_strecker:joy_cats}.
 \end{definition}
 
 \begin{definition}[Bifunctor\index{Bifunctor}]
   A functor $F:\A\times \B \to \C$ (one with $2$ parameters) is said to be a
-  bifunctor~\parencite{lane:working_mathematician}.
+  bifunctor~\parencite[p.~37]{lane:working_mathematician}.
 \end{definition}
 
 \begin{definition}[Presheaf\index{Presheaf}]
   A functor $\C^\op \to \Set$ is a presheaf on
-  $\C$~\parencite{leinster:basic_category_theory}.
+  $\C$~\parencite[p.~24]{leinster:basic_category_theory}.
 \end{definition}
 
 \begin{theorem}[Fully Faithful Isomorphism]\label{thm:full_faithful_isomorphism}
