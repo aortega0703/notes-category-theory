@@ -11,29 +11,32 @@
 \end{remark}
 
 \begin{theorem}[Uniqueness of Initial Objects\label{thm:initial_object_iso}]
-  If there are multiple terminal objects in a category, then they are all
-  isomorphic.
+  Initial objects in a category are unique up to unique isomorphism.
 
   \begin{proof}
-    Consider two initial objects $c$ and $c'$, the following diagrams must
+    To proof uniqueness up to isomorphism, consider two initial objects $c$ and $c'$, the following diagrams must
     commute :
-    % https://q.uiver.app/?q=WzAsMyxbMCwwLCJjIl0sWzEsMCwiYyciXSxbMSwxLCJjIl0sWzAsMiwiXFxpZF9jIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsMSwiZiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDIsImciLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
-    \[\begin{tikzcd}
-      c & {c'} \\
-      & c
-      \arrow["{\id_c}"', dashed, from=1-1, to=2-2]
-      \arrow["f", dashed, from=1-1, to=1-2]
-      \arrow["g", dashed, from=1-2, to=2-2]
+    % https://q.uiver.app/#q=WzAsMyxbMCwwLCJjIl0sWzEsMCwiYyciXSxbMSwxLCJjIl0sWzAsMiwiXFxpZF9jIiwyXSxbMCwxLCJmIl0sWzEsMiwiZyJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+    \[\begin{tikzcd}[ampersand replacement=\&]
+      c \& {c'} \\
+      \& c
+      \arrow["{\id_c}"', from=1-1, to=2-2]
+      \arrow["f", from=1-1, to=1-2]
+      \arrow["g", from=1-2, to=2-2]
     \end{tikzcd}
     \quad
-    % https://q.uiver.app/?q=WzAsMyxbMCwwLCJjJyJdLFsxLDAsImMiXSxbMSwxLCJjJyJdLFswLDIsIlxcaWRfYyIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDEsImciLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwyLCJmIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
-    \begin{tikzcd}
-      {c'} & c \\
-      & {c'}
-      \arrow["{\id_c}"', dashed, from=1-1, to=2-2]
-      \arrow["g", dashed, from=1-1, to=1-2]
-      \arrow["f", dashed, from=1-2, to=2-2]
+    % https://q.uiver.app/#q=WzAsMyxbMCwwLCJjJyJdLFsxLDAsImMiXSxbMSwxLCJjJyJdLFswLDIsIlxcaWRfYyIsMl0sWzAsMSwiZyJdLFsxLDIsImYiXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+    \begin{tikzcd}[ampersand replacement=\&]
+      {c'} \& c \\
+      \& {c'}
+      \arrow["{\id_c}"', from=1-1, to=2-2]
+      \arrow["g", from=1-1, to=1-2]
+      \arrow["f", from=1-2, to=2-2]
     \end{tikzcd}\]
+
+    To proof this isomorphism is unique, consider two isomorphisms $f, g:
+    u\overset{\cong}{\to}v$ between initial objects. As $u$ is unique, then $f$
+    and $g$ must be equal.
   \end{proof}
 \end{theorem}
 
@@ -47,13 +50,13 @@
 
     \begin{description}
       \item[Existence:]
-        % https://q.uiver.app/?q=WzAsMyxbMCwxLCIxIl0sWzEsMSwiYyJdLFswLDAsImMnIl0sWzAsMSwiZiIsMCx7Im9mZnNldCI6LTEsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDAsImZeey0xfSIsMCx7Im9mZnNldCI6LTF9XSxbMCwyLCJnIiwwLHsib2Zmc2V0IjoxLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwyLCJnXFxjaXJjIGZeey0xfSIsMl1d
+        % https://q.uiver.app/#q=WzAsMyxbMCwxLCIxIl0sWzEsMSwiYyJdLFswLDAsImMnIl0sWzAsMSwiZiIsMCx7Im9mZnNldCI6LTF9XSxbMSwwLCJmXnstMX0iLDAseyJvZmZzZXQiOi0xLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwyLCJnIiwwLHsib2Zmc2V0IjoxfV0sWzEsMiwiZ1xcY2lyYyBmXnstMX0iLDJdXQ==
         \[\begin{tikzcd}[ampersand replacement=\&]
           {c'} \\
           1 \& c
-          \arrow["f", shift left=1, dashed, from=2-1, to=2-2]
-          \arrow["{f^{-1}}", shift left=1, from=2-2, to=2-1]
-          \arrow["g", shift right=1, dashed, from=2-1, to=1-1]
+          \arrow["f", shift left=1, from=2-1, to=2-2]
+          \arrow["{f^{-1}}", shift left=1, dashed, from=2-2, to=2-1]
+          \arrow["g", shift right=1, from=2-1, to=1-1]
           \arrow["{g\circ f^{-1}}"', from=2-2, to=1-1]
         \end{tikzcd}\]
       \item[Uniqueness:] Consider an arrow $h:c\to c'$, then by the initiality
@@ -79,13 +82,12 @@
 \end{remark}
 
 \begin{theorem}[Uniqueness of Terminal Objects\label{thm:terminal_object_iso}]
-  If there are multiple terminal objects in a category, then they are all
-  isomorphic.
+  Initial objects in a category are unique up to unique isomorphism.
 
   \begin{proof}
     By Theorem \ref{thm:initial_object_iso} initial objects are unique up to
-    isomorphism. Then by duality of initial and terminal objects, the statement
-    holds.
+    unique isomorphism. Then by duality of initial and terminal objects, the
+    statement holds.
   \end{proof}
 \end{theorem}
 
