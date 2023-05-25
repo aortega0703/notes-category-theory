@@ -91,8 +91,8 @@ A category can be thought of as the abstraction of a certain structure.
 
 \begin{definition}[Discrete Category\index{Discrete Category}]
   A category $\C$ is discrete when $\C_1$ is composed entirely out of identity
-  morphisms~\parencite[p.~11]{awodey:category_theory}. Discrete categories are going to
-  be denoted by $\underline{n}$, with $n=|\C_0|$.
+  morphisms~\parencite[p.~11]{awodey:category_theory}. Discrete categories are
+  going to be denoted by $\underline{n}$, with $n=|\C_0|$.
 \end{definition}
 
 \subsection{Morphism Properties}
@@ -102,10 +102,36 @@ A category can be thought of as the abstraction of a certain structure.
   endomorphism~\parencite[p.~7]{riehl:category_theory_in_context}.
 \end{definition}
 
-\begin{definition}[Left Inverse\index{Left Inverse}]
-  A morphism $f: c\to c'$ has a left inverse $g: c'\to c$ if $g\circ f =
-  \id_c$~\parencite[p.~19]{lane:working_mathematician} i.e. the following
-  diagram commutes:
+\begin{definition}[Idempotent\index{Idempotent}]
+  An endomorphism $f:C\to C$ is idempotent if $f\circ f =
+  f$~\parencite[p.~20]{lane:working_mathematician}.
+\end{definition}
+
+\begin{definition}[Split\index{Split}]
+  An endomorphism $f:C\to C$ is split if there exists arrows $g:C\to C'$ and
+  $h:C'\to C$ such that $f=h\circ g$ and $g\circ h=
+  \id_{C'}$~\parencite[p.~20]{lane:working_mathematician}.
+\end{definition}
+
+\begin{theorem}
+  Any split endomorphism is idempotent.
+
+  \begin{proof}
+    Consider an split endomorphism $f=h\circ g:C\to C$, then:
+    \[
+      \begin{aligned}
+        f\circ f &= h\circ g \circ h\circ g\\
+        &= h\circ g\\
+        &= f
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
+
+\begin{definition}[Left Inverse\index{Left Inverse}\index{Retraction!see Left Inverse}]
+  A morphism $f: c\to c'$ has a left inverse or a retraction $g: c'\to c$ if
+  $g\circ f = \id_c$~\parencite[p.~19]{lane:working_mathematician} i.e. the
+  following diagram commutes:
   % https://q.uiver.app/#q=WzAsMyxbMCwwLCJDIl0sWzEsMCwiQyciXSxbMSwxLCJDIl0sWzAsMSwiZiJdLFsxLDIsImciXSxbMCwyLCJcXGlkX0MiLDJdXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb46a955b6b1f06908105b870088e59a10049fc60%2Fmacros.tex
   \[\begin{tikzcd}[ampersand replacement=\&]
     C \& {C'} \\
@@ -118,10 +144,10 @@ A category can be thought of as the abstraction of a certain structure.
 
 \remark{Left inverse is the dual of right inverse.}
 
-\begin{definition}[Right Inverse\index{Right Inverse}]
-  A morphism $f: c\to c'$ has a right inverse $g: c'\to c$ if $f\circ g =
-  \id_{c'}$~\parencite[p.~19]{lane:working_mathematician} i.e. the following
-  diagram commutes:
+\begin{definition}[Right Inverse\index{Right Inverse}\index{Section!see Right Inverse}]
+  A morphism $f: c\to c'$ has a right inverse or a section $g: c'\to c$ if
+  $f\circ g = \id_{c'}$~\parencite[p.~19]{lane:working_mathematician} i.e. the
+  following diagram commutes:
   % https://q.uiver.app/#q=WzAsMyxbMCwxLCJDIl0sWzEsMSwiQyciXSxbMCwwLCJDJyJdLFswLDEsImYiLDJdLFsyLDAsImciLDJdLFsyLDEsIlxcaWRfe0MnfSJdXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb46a955b6b1f06908105b870088e59a10049fc60%2Fmacros.tex
   \[\begin{tikzcd}[ampersand replacement=\&]
     {C'} \\
