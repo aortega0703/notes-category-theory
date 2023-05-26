@@ -15,7 +15,7 @@
     \end{itemize}
   \end{definition}
 
-  \begin{theorem}[Left Adjoint of $\times$]
+  \begin{theorem}[Left Adjoint of Product]
     For a category $\C$, the left adjoint of the product functor $\times:
     \C\times \C\to \C$ is the diagonal functor $\Delta:\C\to \C\times \C$.
 
@@ -24,13 +24,13 @@
     \end{proof}
   \end{theorem}
 
-  \begin{theorem}[Right Adjoint of $\times$\label{thm:product_right_adjoint}]
+  \begin{theorem}[Right Adjoint of Product]\label{thm:product_right_adjoint}
+
     For a category $\C$, the right adjoint of the product functor $\hole \times
-    A: \C\to \C$ is the exponential functor $(\hole)^A:\C\to \C$.
+    A: \C\to \C$ is the exponential functor $[A, \hole]:\C\to \C$.
 
     \begin{proof}
-      Using Definition \ref{def:adjunction_terminal} of adjunctions we obtain
-      that for any $c,d\in \C_0$:
+      Using Definition \ref{def:adjunction_terminal} of adjunctions, for any $c,d\in \C_0$:
       % https://q.uiver.app/?q=WzAsNSxbMCwwLCJjIl0sWzAsMSwiUihkKSJdLFsxLDAsImNcXHRpbWVzIEEiXSxbMSwxLCJSKGQpXFx0aW1lcyBBIl0sWzIsMSwiZCJdLFswLDEsIlxcb3ZlcmxpbmV7dX0iLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiwzLCJcXG92ZXJsaW5le3V9XFx0aW1lcyBcXGlkX0EiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiw0LCJ1Il0sWzMsNCwiXFx2YXJlcHNpbG9uX3tkfSIsMl0sWzAsMiwiIiwwLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsMywiIiwyLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzUsNiwiIiwyLHsic2hvcnRlbiI6eyJzb3VyY2UiOjEwLCJ0YXJnZXQiOjcwfSwibGV2ZWwiOjEsImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
       \[\begin{tikzcd}[ampersand replacement=\&]
         c \& {c\times A} \\

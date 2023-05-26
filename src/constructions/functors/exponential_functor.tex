@@ -1,0 +1,73 @@
+\subsection{Exponential Functor}
+\begin{definition}[Exponential Functor\index{Exponential Functor}]
+  For a cartesian closed category $\C$, the exponential functor
+  $(\hole)^{(\hole)}:\C^\op\times \C \to \C$ is defined as
+  maps of~\parencite[p.~44]{lane:working_mathematician}:
+
+  \begin{itemize}
+    \item Objects:
+      \[\big(\forall C, D \in \C_0\big)
+        \big((\hole)^{(\hole)}(C, D) = D^C\big)\]
+    \item Morphisms:
+      \[
+        \begin{gathered}
+          \big(\forall (f: C\to D),(g: C' \to C), (h: D\to D') \in \C_1\big)\\
+          \left(
+            \begin{aligned}
+              h^g : \C(C, D) &\to \C(C', D')\\
+              f&\mapsto h\circ f\circ g
+            \end{aligned}
+          \right)
+        \end{gathered}
+      \]
+  \end{itemize}
+\end{definition}
+
+\begin{theorem}[Left Adjoint of Exponential]
+  The left adjoint of the exponential functor $(\hole)^A$ is the product functor
+  $\hole\times A$.
+
+  \begin{proof}
+    By Theorem \ref{thm:product_right_adjoint}
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[Naturality of Exponential]
+  For a categories $\C$ the natural isomorphism $\phi:\C(A\times B, C)
+  \overset{\cong}{\to}\C(A, C^B)$ is natural on $A$, $B$, and $C$.
+
+  \begin{proof}
+    By Theorem \ref{thm:product_right_adjoint} $\phi$ is natural on both $A$ and
+    $C$. To prove naturality on $B$ consider $f:B' \to B$:
+    % https://q.uiver.app/#q=WzAsNCxbMSwwLCJcXEMoQSwgQ15CKSJdLFsxLDEsIlxcQyhBLCBDXntCJ30pIl0sWzAsMCwiXFxDKEFcXHRpbWVzIEIsIEMpIl0sWzAsMSwiXFxDKEFcXHRpbWVzIEInLEMpIl0sWzAsMSwiXFxDKEEsIChcXGlkX0MpXmYpIl0sWzIsMCwiXFxwaGkiXSxbMiwzLCJcXEMoXFxpZF9BXFx0aW1lcyBmLCBDKSIsMl0sWzMsMSwiXFxwaGkiLDJdXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb46a955b6b1f06908105b870088e59a10049fc60%2Fmacros.tex
+    \[\begin{tikzcd}[ampersand replacement=\&]
+      {\C(A\times B, C)} \& {\C(A, C^B)} \\
+      {\C(A\times B',C)} \& {\C(A, C^{B'})}
+      \arrow["{\C(A, (\id_C)^f)}", from=1-2, to=2-2]
+      \arrow["\phi", from=1-1, to=1-2]
+      \arrow["{\C(\id_A\times f, C)}"', from=1-1, to=2-1]
+      \arrow["\phi"', from=2-1, to=2-2]
+    \end{tikzcd}\]
+
+    For the diagram to commute, for any $g:A\times B\to C$ the following
+    equality must hold:
+    \[(\id_C)^f\circ\phi(g) = \phi(g\circ (\id_A\times f))\]
+
+    By defining $(\phi(g))(a) = g(a\times\hole)$:
+    \[
+      \begin{aligned}[t]
+        &\big((\id_C)^f\circ\phi(g)\big)(a)\\
+        =& (\id_C)^f(g(a\times\hole))\\
+        =& g(a\times\hole) \circ f\\
+        =& g(a\times f(\hole))
+      \end{aligned}
+      \qquad
+      \begin{aligned}[t]
+        &\big(\phi(g\circ (\id_A\times f))\big)(a)\\
+        =& (g\circ (\id_A\times f))(a\times \hole)\\
+        =& g (a\times f(\hole))\\
+      \end{aligned}
+    \]
+  \end{proof}
+  \vspace{-\baselineskip}
+\end{theorem}
