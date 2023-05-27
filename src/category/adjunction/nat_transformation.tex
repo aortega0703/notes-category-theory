@@ -1,0 +1,178 @@
+\section{Via Natural Isomorphism}
+
+\begin{definition}[Adjunction\index{Adjunction!via Natural Isomorphism}\label{def:adjunction_isomorphism}]
+  The pair of functors $\<L: \C\to \D$, $R: \D\to \C\>$ is said to be left/right
+  adjoint of each other when there is a natural isomorphism between the
+  functors~\parencite[p.~41]{leinster:basic_category_theory}:
+  \[
+    \begin{aligned}
+      \D(L(\hole), \hole)
+        &: \C^\op \times \D \to \Set\\
+      \C(\hole, R(\hole))
+        &: \C^\op \times \D \to \Set\\
+    \end{aligned}
+  \]
+
+  \begin{itemize}
+    \item $(c', d)$-Components:
+      \[
+        \alpha_{c', d}
+          = \D(L(c), d) \overset{\cong}{\to} \C(c, R(d))\\
+      \]
+    \item Naturality Condition:\\
+      For every $f = \<g, h\>: \<c', d\> \to \<c, d'\>$, the following commutes:
+      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXEQoTChjKSwgZCkiXSxbMSwwLCJcXEMoYywgUihkKSkiXSxbMCwxLCJcXEQoTChjJyksZCcpIl0sWzEsMSwiXFxDKGMnLFIoZCcpKSJdLFswLDIsIlxcRChMKGcpLCBoKSIsMl0sWzEsMywiXFxDKGcsIFIoaCkpIl0sWzAsMSwiXFxhbHBoYV97YywgZH0iXSxbMiwzLCJcXGFscGhhX3tjJyxkJ30iLDJdLFswLDEsIlxcY29uZyIsMl0sWzIsMywiXFxjb25nIl1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+      \[\begin{tikzcd}[ampersand replacement=\&]
+        {\D(L(c), d)} \& {\C(c, R(d))} \\
+        {\D(L(c'),d')} \& {\C(c',R(d'))}
+        \arrow["{\D(L(g), h)}"', from=1-1, to=2-1]
+        \arrow["{\C(g, R(h))}", from=1-2, to=2-2]
+        \arrow["{\alpha_{c, d}}", from=1-1, to=1-2]
+        \arrow["{\alpha_{c',d'}}"', from=2-1, to=2-2]
+        \arrow["\cong"', from=1-1, to=1-2]
+        \arrow["\cong", from=2-1, to=2-2]
+      \end{tikzcd}\]
+  \end{itemize}
+\end{definition}
+
+\begin{remark}
+  In diagram a pair of left/right adjoints $\<L, R\>$ is indicated by a double
+  arrow ($\Rightarrow$) going in the same direction as the left adjoint, or as a
+  turnstile ($\vdash$) pointing towards the left adjoint as follows:
+  % https://q.uiver.app/?q=WzAsMixbMSwwLCJcXEQiXSxbMCwwLCJcXEMiXSxbMSwwLCJMIiwwLHsiY3VydmUiOi0zfV0sWzAsMSwiUiIsMCx7ImN1cnZlIjotM31dLFsxLDAsIiIsMSx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH0sImxldmVsIjoyfV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    \C \& \D
+    \arrow["L", curve={height=-18pt}, from=1-1, to=1-2]
+    \arrow["R", curve={height=-18pt}, from=1-2, to=1-1]
+    \arrow[shorten <=3pt, shorten >=3pt, Rightarrow, from=1-1, to=1-2]
+  \end{tikzcd}
+    \text{or}
+  % https://q.uiver.app/?q=WzAsMixbMSwwLCJcXEQiXSxbMCwwLCJcXEMiXSxbMSwwLCJMIiwwLHsiY3VydmUiOi0zfV0sWzAsMSwiUiIsMCx7ImN1cnZlIjotM31dLFsyLDMsIiIsMCx7ImxldmVsIjoxLCJzdHlsZSI6eyJuYW1lIjoiYWRqdW5jdGlvbiJ9fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+  \begin{tikzcd}[ampersand replacement=\&]
+    \C \& \D
+    \arrow[""{name=0, anchor=center, inner sep=0}, "L", curve={height=-18pt}, from=1-1, to=1-2]
+    \arrow[""{name=1, anchor=center, inner sep=0}, "R", curve={height=-18pt}, from=1-2, to=1-1]
+    \arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=1]
+  \end{tikzcd}\]
+\end{remark}
+
+\begin{definition}[Transpose\index{Transpose}\label{def:transpose}]
+  For an adjunction $(L:\C\to \D, R:\D\to \C)$, the transpose $\overline{f}$ of a
+  morphism $f$ is given by the following isomorphisms of Definition
+  \ref{def:adjunction_isomorphism}:
+  \[
+    \begin{aligned}
+      \phi_{(c, d)}: \D(L(c), d) &\to \C(c, R(d))\\
+      u &\mapsto \overline{u}\\
+      \psi_{(c, d)}: \C(c, R(d)) &\to \D(L(c), d)\\
+      v &\mapsto \overline{v}
+    \end{aligned}
+  \]
+\end{definition}
+
+\begin{theorem}[General Tranpose\label{thm:transpose}]
+  For an adjunction $\<L: \C\to \D, R:\D\to \C\>$, the naturality condition is
+  equivalent to stating that for any $u\in \D(L(\hole), \hole)$, $g \in \C_1$,
+  $h\in \D_1$:
+  \begin{align*}
+    \overline{h\circ u \circ L(g)} = R(h) \circ \overline{u} \circ g
+  \end{align*}
+
+  \begin{proof}
+    It follows from equating both paths in the naturality condition, that:
+    \[
+      \begin{aligned}
+      \big(\alpha_{c', d'} \circ \D(L(g), h)\big)(u)
+        &= \big(\C(g, R(h)) \circ \alpha_{c, d}\big)(u)\\
+      \alpha_{c', d'}(h\circ u \circ L(g))
+        &= \C(g, R(h))(\overline{u})\\
+      \overline{h\circ u \circ L(g)}
+        &= R(h) \circ \overline{u} \circ g
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
+
+\begin{remark}
+  As $\phi_{(c, d)}$ and $\psi_{(c, d)}$ are inverses, in Theorem
+  \ref{thm:transpose} the overline goes in either side of the equation.
+\end{remark}
+
+\begin{theorem}[Alternative Transposes\label{thm:transpose2}]
+  Theorem \ref{thm:transpose} is equivalent to stating that the following two
+  equations hold for any $u\in \D(L(\hole), \hole)$, $v\in \C(\hole, R(\hole))$,
+  $g \in \C_1$, $h\in \D_1$:
+  \begin{align*}
+    \overline{h\circ u} &= R(h) \circ \overline{u}\\
+    \overline{v\circ g} &= \overline{v} \circ L(g)
+  \end{align*}
+
+  \begin{proof}
+    The proof consists of two parts:
+    \begin{description}
+      \item[$(\implies)$] By setting either $g=\id_c$ or $h=\id_d$:
+        \[
+          \begin{aligned}
+            \overline{h\circ u}
+              &= \overline{h\circ u \circ L(\id_c)}\\
+              &= R(h) \circ \overline{u} \circ \id_c\\
+              &= R(h) \circ \overline{u}
+          \end{aligned}
+          \qquad
+          \begin{aligned}
+            \overline{v\circ g}
+              &= \overline{R(\id_d)\circ v\circ g}\\
+              &= \id_d \circ \overline{v} \circ L(g)\\
+              &= \overline{v} \circ L(g)
+          \end{aligned}
+        \]
+      \item[$(\impliedby)$] Consider the following:
+        \[
+          \begin{aligned}
+            \overline{h \circ u\circ L(g)}
+              &= \overline{(h \circ u)\circ L(g)}\\
+              &= \overline{h\circ u} \circ g\\
+              &= R(h) \circ \overline{u} \circ g
+          \end{aligned}
+        \]
+    \end{description}
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[Existence of a unit $\eta$\label{thm:unit_exists}]
+  For a pair of left/right adjoints $\<L: \C \to \D$, $R:\D\to \C\>$
+  there exists a morphism $\eta_c: c\to (R\circ L)(c)$ that corresponds to
+  $\overline{\id_{L(c)}}$ for every $c\in \C_0$.
+
+  \begin{proof}
+    Consider definition \ref{def:adjunction_isomorphism} of adjunction:
+    \[
+      \begin{aligned}
+        \D(L(c), d) &\ \:\cong\ \: \C(c, R(d))\\
+        \D(L(c), L(c)) &\ \:\cong\ \: \C(c, (R\circ L)(c))\\
+        \big(\id_{L(c)}: L(c) \to L(c)\big) \in \D_1
+        &\implies \big(\eta_c : c \to (R\circ L)(c)\big)\in \C_1\\
+        \overline{\id_{L(c)}} &\ \:=\ \:\eta_c
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[Existence of a counit $\epsilon$\label{thm:counit_exists}]
+  For an adjunction $\<L: \C \to \D$, $R:\D\to \C\>$
+  there exists a morphism $\epsilon_d: (L\circ R)(d)\to d$ that corresponds to
+  $\overline{\id_{R(d)}}$ for every $d\in \D_0$.
+
+  \begin{proof}
+    Consider Definition \ref{def:adjunction_isomorphism} of adjunction:
+    \[
+      \begin{aligned}
+        \D(L(c), d) &\ \:\cong\ \: \C(c, R(d))\\
+        \D((L\circ R)(d), d) &\ \:\cong\ \: \C(R(d), R(d))\\
+        \big(\epsilon:(L\circ R)(d)\to d\big)\in D_1 &\impliedby
+          \big(\id_{R(d)}: R(d) \to R(d)\big)\\
+        \epsilon_d &\ \:=\ \:\overline{\id_{R(d)}}
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}

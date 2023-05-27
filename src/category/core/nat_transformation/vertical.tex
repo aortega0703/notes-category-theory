@@ -1,0 +1,117 @@
+\subsection{Vertical Composition}
+
+\begin{definition}[Vertical Composition\index{Vertical Composition}]
+  For a set-up of categories, functors, and natural transformations:
+  % https://q.uiver.app/?q=WzAsMixbMCwwLCJcXEMiXSxbMSwwLCJcXEQiXSxbMCwxLCJGIiwwLHsiY3VydmUiOi00fV0sWzAsMSwiSCIsMix7ImN1cnZlIjo0fV0sWzAsMSwiRyIsMV0sWzIsNCwiXFxhbHBoYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNCwzLCJcXGJldGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    \C \& \D
+    \arrow[""{name=0, anchor=center, inner sep=0}, "F", curve={height=-24pt}, from=1-1, to=1-2]
+    \arrow[""{name=1, anchor=center, inner sep=0}, "H"', curve={height=24pt}, from=1-1, to=1-2]
+    \arrow[""{name=2, anchor=center, inner sep=0}, "G"{description}, from=1-1, to=1-2]
+    \arrow["\alpha", shorten <=3pt, shorten >=3pt, Rightarrow, from=0, to=2]
+    \arrow["\beta", shorten <=3pt, shorten >=3pt, Rightarrow, from=2, to=1]
+  \end{tikzcd}\]
+
+  The vertical composition $\beta\circ \alpha:F\to H$ consists
+  of~\parencite[p.~30]{leinster:basic_category_theory}:
+
+  \begin{itemize}
+    \item $c$-Components:
+      \[(\forall c\in \C_0)
+        \big((\beta\circ\alpha)_c = \beta_c \circ \alpha_c\big)\]
+    \item Naturality Condition:
+      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJIKGMpIl0sWzEsMSwiSChjJykiXSxbMCwxLCJGKGYpIl0sWzIsMywiSChmKSIsMl0sWzAsMiwiKFxcYmV0YVxcY2lyY1xcYWxwaGEpX2MiLDJdLFsxLDMsIihcXGJldGFcXGNpcmNcXGFscGhhKV97Yyd9Il1d
+      \[\begin{tikzcd}[ampersand replacement=\&]
+        {F(c)} \& {F(c')} \\
+        {H(c)} \& {H(c')}
+        \arrow["{F(f)}", from=1-1, to=1-2]
+        \arrow["{H(f)}"', from=2-1, to=2-2]
+        \arrow["{(\beta\circ\alpha)_c}"', from=1-1, to=2-1]
+        \arrow["{(\beta\circ\alpha)_{c'}}", from=1-2, to=2-2]
+      \end{tikzcd}\]
+  \end{itemize}
+\end{definition}
+
+\begin{theorem}[Naturality of Vertical Composition]
+  The naturality condition of vertical composition holds.
+  \begin{proof}
+    % https://q.uiver.app/?q=WzAsNixbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJHKGMpIl0sWzAsMiwiSChjKSJdLFsxLDEsIkcoYycpIl0sWzEsMiwiSChjJykiXSxbMCwxLCJGKGYpIl0sWzIsNCwiRyhmKSJdLFszLDUsIkgoZikiLDJdLFswLDIsIlxcYWxwaGFfYyIsMl0sWzIsMywiXFxiZXRhX2MiLDJdLFsxLDQsIlxcYWxwaGFfe2MnfSJdLFs0LDUsIlxcYmV0YV97Yyd9Il1d
+    \[\begin{tikzcd}
+      {F(c)} & {F(c')} \\
+      {G(c)} & {G(c')} \\
+      {H(c)} & {H(c')}
+      \arrow["{F(f)}", from=1-1, to=1-2]
+      \arrow["{G(f)}", from=2-1, to=2-2]
+      \arrow["{H(f)}"', from=3-1, to=3-2]
+      \arrow["{\alpha_c}"', from=1-1, to=2-1]
+      \arrow["{\beta_c}"', from=2-1, to=3-1]
+      \arrow["{\alpha_{c'}}", from=1-2, to=2-2]
+      \arrow["{\beta_{c'}}", from=2-2, to=3-2]
+    \end{tikzcd}\]
+
+    \[
+      \begin{aligned}
+        (\beta \circ \alpha)_{c'} \circ F(f)
+        &= \beta_{c'} \circ \alpha_{c'} \circ F(f)\\
+        &= \beta_{c'} \circ G(f) \circ \alpha_c\\
+        &= H(f) \circ \beta_c \circ \alpha_c\\
+        &= H(f) \circ (\alpha \circ \beta)_c
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[Unitality of Vertical Composition]
+  For functors $F,G:\C\to \D$ and a natural transformation $\alpha:F\to G$, the
+  following holds:
+  \[\alpha \circ \id_F = \id_G \circ \alpha = \alpha\]
+
+  \begin{proof}
+    \[
+      \begin{aligned}
+        (\alpha \circ \id_F)_C
+        &= \alpha_c \circ (\id_F)_c\\
+        &= \alpha_c \circ \id_{F(c)}\\
+        &= \alpha_c
+      \end{aligned}
+      \quad
+      \begin{aligned}
+        (\id_G \circ \alpha)_c
+        &= (\id_G)_c \circ \alpha_c\\
+        &= \id_{G(c)} \circ \alpha_c\\
+        &= \alpha_c
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[Associativity of Vertical Composition]
+  For a set-up of categories, functors, and natural transformations:
+  % https://q.uiver.app/?q=WzAsMixbMCwwLCJcXEMiXSxbMiwwLCJcXEQiXSxbMCwxLCJGIiwwLHsiY3VydmUiOi01fV0sWzAsMSwiSSIsMix7ImN1cnZlIjo1fV0sWzAsMSwiRyIsMSx7ImN1cnZlIjotMn1dLFswLDEsIkgiLDEseyJjdXJ2ZSI6Mn1dLFsyLDQsIlxcYWxwaGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV0sWzQsNSwiXFxiZXRhIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dLFs1LDMsIlxcZ2FtbWEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    \C \&\& \D
+    \arrow[""{name=0, anchor=center, inner sep=0}, "F", curve={height=-30pt}, from=1-1, to=1-3]
+    \arrow[""{name=1, anchor=center, inner sep=0}, "I"', curve={height=30pt}, from=1-1, to=1-3]
+    \arrow[""{name=2, anchor=center, inner sep=0}, "G"{description}, curve={height=-12pt}, from=1-1, to=1-3]
+    \arrow[""{name=3, anchor=center, inner sep=0}, "H"{description}, curve={height=12pt}, from=1-1, to=1-3]
+    \arrow["\alpha", shorten <=2pt, shorten >=2pt, Rightarrow, from=0, to=2]
+    \arrow["\beta", shorten <=3pt, shorten >=3pt, Rightarrow, from=2, to=3]
+    \arrow["\gamma", shorten <=2pt, shorten >=2pt, Rightarrow, from=3, to=1]
+  \end{tikzcd}\]
+
+  The following holds:
+  \[(\gamma \circ \beta) \circ \alpha = \gamma \circ (\beta \circ \alpha)\]
+
+  \begin{proof}
+    \[
+      \begin{aligned}
+        ((\gamma \circ \beta) \circ \alpha)_c
+        &= (\gamma \circ \beta)_c \circ \alpha_c\\
+        &= (\gamma_c \circ \beta_c) \circ \alpha_c\\
+        &= \gamma_c \circ (\beta_c \circ \alpha_c)\\
+        &= \gamma_c \circ (\beta \circ \alpha)_c\\
+        &= (\gamma \circ (\beta \circ \alpha))_c\\
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}

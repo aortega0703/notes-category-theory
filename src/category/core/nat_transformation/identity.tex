@@ -1,0 +1,32 @@
+\subsection{Identity}
+
+\begin{definition}[Identity Natural Transformation\index{Identity Natural Transformation}]
+  For a functor $F:\C\to \D$, there exists a natural transformation $\id_F:
+  F\Rightarrow F$ which consists
+  of~\parencite[p.~30]{leinster:basic_category_theory}:
+
+  \begin{itemize}
+    \item $c$-Components:
+      \[(\forall c\in \C_0)
+        \big((\id_F)_c = \id_{F(c)}\big)\]
+    \item Naturality Condition:
+      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJGKGMpIl0sWzEsMSwiRihjJykiXSxbMCwxLCJGKGYpIl0sWzAsMiwiXFxtYXRocm17aWR9X3tGKGMpfSIsMl0sWzIsMywiRihmKSIsMl0sWzEsMywiXFxtYXRocm17aWR9X3tGKGMnKX0iXV0=
+      \[\begin{tikzcd}
+        {F(c)} & {F(c')} \\
+        {F(c)} & {F(c')}
+        \arrow["{F(f)}", from=1-1, to=1-2]
+        \arrow["{\mathrm{id}_{F(c)}}"', from=1-1, to=2-1]
+        \arrow["{F(f)}"', from=2-1, to=2-2]
+        \arrow["{\mathrm{id}_{F(c')}}", from=1-2, to=2-2]
+      \end{tikzcd}\]
+  \end{itemize}
+\end{definition}
+
+\begin{theorem}[Naturality of Identity Natural Transformation]
+  The naturality condition of the identity natural transformation holds.
+
+  \begin{proof}
+    By unitality it follows that $F(f) \circ \id_{F(c)} = \id_{F(c')} \circ
+    F(f)$.
+  \end{proof}
+\end{theorem}

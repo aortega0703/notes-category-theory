@@ -1,0 +1,23 @@
+\subsubsection{Coproduct Functor}
+  \begin{definition}[Coproduct Functor]
+    For a category $\C$ with all binary coproducts, it is possible to define a
+    functor $+:\C\times \C \to \C$ composed by maps
+    of~\parencite[p.~61]{awodey:category_theory}:
+    \begin{itemize}
+      \item Objects:
+        \[\big(\forall (c,c')\in (C\times C)_0\big)
+          \big(+(c, c') = c+ c'\big)\]
+      \item Morphisms:
+        \[\big(\forall (f, f')\in (C\times C)_1\big)
+          \big(+(f, f') = f+ f'\big)\]
+    \end{itemize}
+  \end{definition}
+
+  \begin{theorem}[Right Adjoint of $+$]
+    For a category $C$, the right adjoint of the coproduct functor $+: \C\times
+    \C\to \C$ is the diagonal functor $\Delta:\C\to \C\times \C$.
+
+    \begin{proof}
+      See proof of Theorem \ref{thm:diagonal_left}
+    \end{proof}
+  \end{theorem}

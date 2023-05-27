@@ -1,0 +1,76 @@
+\subsection{Coproduct}
+
+\begin{definition}[Coproduct\index{Coproduct}\label{def:coproduct}]
+
+	For a pair of objects $\<a, b\>$, a coproduct or sum candidate consists of an
+	object $P$ together with morphisms $p_1: a\to p$ and
+	$p_2:b\to p$:
+	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzIsMCwiYiJdLFsxLDAsInAiXSxbMCwyLCJwXzEiXSxbMSwyLCJwXzIiLDJdXQ==
+	\[\begin{tikzcd}[ampersand replacement=\&]
+		a \& p \& b
+		\arrow["{p_1}", from=1-1, to=1-2]
+		\arrow["{p_2}"', from=1-3, to=1-2]
+	\end{tikzcd}\]
+
+	A coproduct $(a + b, \mathrm{left}, \mathrm{right})$ is a candidate such that
+	for any candidate $(p, p_1, p_2)$ there exists a unique $h: a+b\to p$ that
+	makes the following
+	commute~\parencite[p.~127]{leinster:basic_category_theory}:
+	% https://q.uiver.app/?q=WzAsNCxbMCwwLCJhIl0sWzIsMCwiYiJdLFsxLDAsImErYiJdLFsxLDEsInAiXSxbMCwyLCJcXG1hdGhybXtsZWZ0fSJdLFsxLDIsIlxcbWF0aHJte3JpZ2h0fSIsMl0sWzAsMywicF8xIiwyXSxbMSwzLCJwXzIiXSxbMiwzLCJoIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+	\[\begin{tikzcd}[ampersand replacement=\&]
+		a \& {a+b} \& b \\
+		\& p
+		\arrow["{\mathrm{left}}", from=1-1, to=1-2]
+		\arrow["{\mathrm{right}}"', from=1-3, to=1-2]
+		\arrow["{p_1}"', from=1-1, to=2-2]
+		\arrow["{p_2}", from=1-3, to=2-2]
+		\arrow["h"', dashed, from=1-2, to=2-2]
+	\end{tikzcd}\]
+\end{definition}
+
+\begin{remark}
+	Coproducts are the dual of products.
+\end{remark}
+
+\begin{definition}[Coproduct as Initial Morphism\index{Coproduct!as Initial Morphism}]
+	Equivalently to Definition \ref{def:coproduct}, the coproduct $\<a+b,
+	\mathrm{left}, \mathrm{right}\>$ can be expressed as an initial morphism from
+	$(a,b)$ to the diagonal functor $\Delta: \C \to \C\times \C$:
+	% https://q.uiver.app/?q=WzAsNSxbMCwxLCJwIl0sWzAsMCwiYStiIl0sWzEsMSwiXFxEZWx0YShwKSJdLFsxLDAsIlxcRGVsdGEoYStiKSJdLFsyLDAsIlxcPGEsYlxcPiJdLFsxLDAsImgiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMywyLCJcXERlbHRhKGgpIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMywiXFw8XFxtYXRocm17bGVmdH0sIFxcbWF0aHJte3JpZ2h0fVxcPiIsMl0sWzQsMiwicF8qIl1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+	\[\begin{tikzcd}[ampersand replacement=\&]
+		{a+b} \& {\Delta(a+b)} \& {\<a,b\>} \\
+		p \& {\Delta(p)}
+		\arrow["h"', dashed, from=1-1, to=2-1]
+		\arrow["{\Delta(h)}"', dashed, from=1-2, to=2-2]
+		\arrow["{\<\mathrm{left}, \mathrm{right}\>}"', from=1-3, to=1-2]
+		\arrow["{p_*}", from=1-3, to=2-2]
+	\end{tikzcd}\]
+\end{definition}
+
+\begin{definition}[Coproduct as Colimit\index{Coproduct!as Colimit}\label{def:coproduct_limit}]
+	More generally, for a discrete category $\I$, the functor $F:\I\to \C$ is an
+	$\I$-indexed family of objects $(F(i))_{i\in \I_0}$ in $\C$. The coproduct or
+	sum $\sum\limits_{i\in \I_0} F(i)$ is the colimit of such a functor $F$.
+\end{definition}
+
+\begin{remark}
+	In the case where $\I=\underline{0}$ the product is denoted as $0$ and
+	corresponds to an initial object.
+\end{remark}
+
+\begin{remark}
+	In the case where $\I=\underline{2}$, Definitions \ref{def:coproduct} and
+	\ref{def:coproduct_limit} are equivalent.
+\end{remark}
+
+\begin{theorem}[Uniqueness of Coproduct]
+	The coproduct of a collection of objects is unique up to isomorphism.
+
+	\begin{proof}
+		As the product of objects is a colimit, and by Theorem \ref{thm:colimit_iso}
+		colimits are unique up to isomorphism, then coproducts are also unique up to
+		isomorphism.
+	\end{proof}
+\end{theorem}
+
+\input{functor.tex}

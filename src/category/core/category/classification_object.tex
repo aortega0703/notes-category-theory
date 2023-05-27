@@ -1,0 +1,94 @@
+\subsection{Classification of Objects}
+
+\begin{definition}[Terminal Object\index{Terminal Object}]
+  For a category $\C$, an object $1$ is said to be terminal when there exists a
+  unique morphism $f: c\to 1$ for every object $c\in
+  C$~\parencite[p.~48]{leinster:basic_category_theory}.
+\end{definition}
+
+\begin{theorem}[Uniqueness of Terminal Objects\label{thm:terminal_object_iso}]
+  Initial objects in a category are unique up to unique isomorphism.
+
+  \begin{proof}
+    By Theorem \ref{thm:initial_object_iso} initial objects are unique up to
+    unique isomorphism. Then by duality of initial and terminal objects, the
+    statement holds.
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[Isomorphism to Terminal Objects]
+  If an object is isomorphic to a terminal object, then it is terminal.
+
+  \begin{proof}
+    By Theorem \ref{thm:iso_initial_object} objects isomorphic to an initial
+    object are initial. Then by duality of initial and terminal objects, the
+    statement holds.
+  \end{proof}
+\end{theorem}
+
+\begin{definition}[Initial Object\index{Initial Object}]
+  For a category $\C$, an object $0$ is said to be initial when there exists a
+  unique morphism $f: 0\to c$ for every $c\in
+  \C_0$~\parencite[p.~48]{leinster:basic_category_theory}.
+\end{definition}
+
+\begin{theorem}[Uniqueness of Initial Objects\label{thm:initial_object_iso}]
+  Initial objects in a category are unique up to unique isomorphism.
+
+  \begin{proof}
+    To proof uniqueness up to isomorphism, consider two initial objects $c$ and $c'$, the following diagrams must
+    commute :
+    % https://q.uiver.app/#q=WzAsMyxbMCwwLCJjIl0sWzEsMCwiYyciXSxbMSwxLCJjIl0sWzAsMiwiXFxpZF9jIiwyXSxbMCwxLCJmIl0sWzEsMiwiZyJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+    \[\begin{tikzcd}[ampersand replacement=\&]
+      c \& {c'} \\
+      \& c
+      \arrow["{\id_c}"', from=1-1, to=2-2]
+      \arrow["f", from=1-1, to=1-2]
+      \arrow["g", from=1-2, to=2-2]
+    \end{tikzcd}
+    \quad
+    % https://q.uiver.app/#q=WzAsMyxbMCwwLCJjJyJdLFsxLDAsImMiXSxbMSwxLCJjJyJdLFswLDIsIlxcaWRfYyIsMl0sWzAsMSwiZyJdLFsxLDIsImYiXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+    \begin{tikzcd}[ampersand replacement=\&]
+      {c'} \& c \\
+      \& {c'}
+      \arrow["{\id_c}"', from=1-1, to=2-2]
+      \arrow["g", from=1-1, to=1-2]
+      \arrow["f", from=1-2, to=2-2]
+    \end{tikzcd}\]
+
+    To proof this isomorphism is unique, consider two isomorphisms $f, g:
+    u\overset{\cong}{\to}v$ between initial objects. As $u$ is unique, then $f$
+    and $g$ must be equal.
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[Isomorphism to an Initial Object\label{thm:iso_initial_object}]
+  If an object is isomorphic to an initial object, it is also initial.
+
+  \begin{proof}
+    Consider an initial object $1$ isomorphic to an object $c$ with an arrow
+    $f:1\to c$. The proof consists on proving the existence and uniqueness of an
+    arrow from $c$ into an arbitrary object $c'$.
+
+    \begin{description}
+      \item[Existence:]
+        % https://q.uiver.app/#q=WzAsMyxbMCwxLCIxIl0sWzEsMSwiYyJdLFswLDAsImMnIl0sWzAsMSwiZiIsMCx7Im9mZnNldCI6LTF9XSxbMSwwLCJmXnstMX0iLDAseyJvZmZzZXQiOi0xLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwyLCJnIiwwLHsib2Zmc2V0IjoxfV0sWzEsMiwiZ1xcY2lyYyBmXnstMX0iLDJdXQ==
+        \[\begin{tikzcd}[ampersand replacement=\&]
+          {c'} \\
+          1 \& c
+          \arrow["f", shift left=1, from=2-1, to=2-2]
+          \arrow["{f^{-1}}", shift left=1, dashed, from=2-2, to=2-1]
+          \arrow["g", shift right=1, from=2-1, to=1-1]
+          \arrow["{g\circ f^{-1}}"', from=2-2, to=1-1]
+        \end{tikzcd}\]
+      \item[Uniqueness:] Consider an arrow $h:c\to c'$, then by the initiality
+        of $1$:
+        \[
+          \begin{aligned}
+            g &= h\circ f\\
+            g\circ f^{-1} &= h
+          \end{aligned}
+        \]
+    \end{description}
+  \end{proof}
+\end{theorem}

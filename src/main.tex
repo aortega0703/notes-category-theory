@@ -1,5 +1,4 @@
-\documentclass[a4paper, draft]{article}
-
+\documentclass[a4paper, oneside]{book}
 \usepackage[utf8]{inputenc}
 
 % To use hiragana yo
@@ -18,21 +17,22 @@
 \tikzcdset{scale cd/.style={every label/.append style={scale=#1},
     cells={nodes={scale=#1}}}}
 \usepackage{quiver} % Easy commutative diagrams https://q.uiver.app/
-%\usepackage[margin=1in]{geometry} % Set margins
+%\usepackage[margin=1.5in]{geometry} % Set margins
 \usepackage[textsize=tiny]{todonotes} % Margin notes of pendings
 \usepackage[style=ieee]{biblatex} % References
 \bibliography{references.bib} % References file
 \usepackage{xcolor} % Colors text
 \usepackage{microtype} % Magic agains overfull boxes
 \usepackage{adjustbox} % Resizes things
-\usepackage{imakeidx}
+\usepackage{imakeidx} % Manages the index
 \usepackage{hyperref} % Hyperlinks to sections of the document
 \hypersetup{final} % Set up links even in draft mode
 \usepackage{float} % Controls where figures are placed
+\usepackage{import} % Controls input commands
 
 \input{macros.tex}
 
-\title{Notes on Category Theory}
+\title{Notes on Categories}
 \author{Andrés Felipe Ortega Montoya}
 \date{}
 \makeindex[title=Index of Definitions, intoc]
@@ -41,11 +41,9 @@
 \maketitle
 \tableofcontents
 
-\newpage
-\input{concepts.tex}
+\subimport{category}{category.tex}
 
-\newpage
-\input{constructions.tex}
+%\subimport{topos}{main.tex}
 
 \printindex
 \printbibliography

@@ -1,0 +1,52 @@
+\subsection{Coequalizer}
+
+\begin{definition}[Coequalizer\index{Coequalizer}\label{def:coequalizer}]
+  For a set-up in an arbitrary
+  category~\parencite[p.~128]{leinster:basic_category_theory}:
+  % https://q.uiver.app/?q=WzAsMixbMCwwLCJ4Il0sWzEsMCwieSJdLFswLDEsImYiLDAseyJvZmZzZXQiOi0xfV0sWzAsMSwiZyIsMix7Im9mZnNldCI6MX1dXQ==
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    x \& y
+    \arrow["f", shift left=1, from=1-1, to=1-2]
+    \arrow["g"', shift right=1, from=1-1, to=1-2]
+  \end{tikzcd}\]
+
+  A co-equalizer candidate of $f$ and $g$ consists of an object $a$ together
+  with a morphism $j:y\to e$ such that $j\circ f = j\circ g$, i.e. the following
+  commutes:
+  % https://q.uiver.app/?q=WzAsNCxbMCwwLCJ4Il0sWzEsMCwieSJdLFswLDEsInkiXSxbMSwxLCJhIl0sWzIsMywiaiIsMl0sWzAsMiwiZyIsMl0sWzAsMSwiZiJdLFsxLDMsImoiXV0=
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    x \& y \\
+    y \& a
+    \arrow["j"', from=2-1, to=2-2]
+    \arrow["g"', from=1-1, to=2-1]
+    \arrow["f", from=1-1, to=1-2]
+    \arrow["j", from=1-2, to=2-2]
+  \end{tikzcd}\]
+
+  A co-equalizer is a candidate $\<e, i\>$ such that for any candidate $\<a,
+  j\>$ there exists a unique $h: e\to a$ that makes the following commute:
+  % https://q.uiver.app/?q=WzAsNSxbMCwwLCJ4Il0sWzEsMCwieSJdLFswLDEsInkiXSxbMSwxLCJlIl0sWzIsMiwiYSJdLFsxLDMsImkiXSxbMiwzLCJpIiwyXSxbMCwyLCJnIiwyXSxbMCwxLCJmIl0sWzIsNCwiaiIsMl0sWzEsNCwiaiJdLFszLDQsImgiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    x \& y \\
+    y \& e \\
+    \&\& a
+    \arrow["i", from=1-2, to=2-2]
+    \arrow["i"', from=2-1, to=2-2]
+    \arrow["g"', from=1-1, to=2-1]
+    \arrow["f", from=1-1, to=1-2]
+    \arrow["j"', from=2-1, to=3-3]
+    \arrow["j", from=1-2, to=3-3]
+    \arrow["h"{description}, dashed, from=2-2, to=3-3]
+  \end{tikzcd}\]
+\end{definition}
+
+\begin{definition}[Coequalizer as Colimit\index{Coequalizer!as Colimit}]
+  Definition \ref{def:coequalizer} is equivalent to saying that a coequalizer is
+  the colimit of a diagram:
+  % https://q.uiver.app/?q=WzAsMixbMCwwLCJ4Il0sWzEsMCwieSJdLFswLDEsImYiLDAseyJvZmZzZXQiOi0xfV0sWzAsMSwiZyIsMix7Im9mZnNldCI6MX1dXQ==
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    x \& y
+    \arrow["f", shift left=1, from=1-1, to=1-2]
+    \arrow["g"', shift right=1, from=1-1, to=1-2]
+  \end{tikzcd}\]
+\end{definition}

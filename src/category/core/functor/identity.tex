@@ -1,0 +1,50 @@
+\subsection{Identity}
+
+\begin{definition}[Identity Functor\index{Identity Functor}]\label{def:id_functor}
+
+  For a category $\C$ there exists an identity functor $\id_\C: \C \to \C$ which
+  consists of maps of~\parencite[p.~27]{adamek_herrlich_strecker:joy_cats}:
+  \begin{itemize}
+    \item Objects:
+      \[(\forall c \in \C_0)
+        (\id_\C(c) = c)\]
+    \item Morphisms:
+      \[\big(\forall (f: c\to c') \in \C_1\big)
+        (\id_C(f) = f)\]
+  \end{itemize}
+\end{definition}
+
+\begin{theorem}[$\id_\C$ Preserves Identity\label{thm:id_functor_identity}]
+  For a category $\C$, the identity functor $\id_\C: \C \to \C$ preserves
+  identity.
+
+  \begin{proof}
+    For all objects $c\in \C$, $\id_\C(\id_c) = \id_c$ by definition.
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[$\id_\C$ Preserves Composition]\label{thm:id_functor_composition}
+
+  For a category $\C$, the identity functor $\id_\C: \C \to \C$ preserves
+  composition.
+
+  \begin{proof}
+    For all morphisms $f,g\in \C$ with $g$ composable after $f$:
+    \[
+      \begin{aligned}
+        \id_\C(g\circ f)
+        &= g\circ f\\
+        &= \id_\C(g) \circ \id_\C(f)
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}[$\id_\C$ is a Functor]
+  For a category $\C$, the identity functor $\id_\C$ is a functor.
+
+  \begin{proof}
+    By Theorems \ref{thm:id_functor_identity} and
+    \ref{thm:id_functor_composition} the identity functor is a functor.
+  \end{proof}
+\end{theorem}

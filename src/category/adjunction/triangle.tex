@@ -1,0 +1,141 @@
+\section{Via Triangle Identities}
+
+\begin{definition}[Adjunction\index{Adjunction!via Triangle Identities}\label{def:adjunction_triangle}]
+  The pair of functors $\<L: \C\to \D$, $R: \D\to \C\>$ is left/right adjoint
+  of each other when there exists a unit ($\eta$)
+  and counit ($\epsilon$)~\parencite[p.~53]{leinster:basic_category_theory}:
+  \[
+    \begin{gathered}
+      \eta: \id_\C \Rightarrow R \circ L
+    \end{gathered}
+    \qquad
+    \begin{gathered}
+      \epsilon: L \circ R \Rightarrow \id_\D
+    \end{gathered}
+  \]
+  Such that the triangular identities are satisfied (the following diagrams
+  commute):
+
+  % https://q.uiver.app/?q=WzAsMyxbMCwwLCJSKGQpIl0sWzEsMCwiKFJcXGNpcmMgTFxcY2lyYyBSKShkKSJdLFswLDEsIlIoZCkiXSxbMCwxLCJcXGV0YV97UihkKX0iXSxbMSwyLCJSKFxcdmFyZXBzaWxvbl9kKSJdLFswLDIsIlxcaWRfe1IoZCl9IiwyXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    {R(d)} \& {(R\circ L\circ R)(d)} \\
+    {R(d)}
+    \arrow["{\eta_{R(d)}}", from=1-1, to=1-2]
+    \arrow["{R(\varepsilon_d)}", from=1-2, to=2-1]
+    \arrow["{\id_{R(d)}}"', from=1-1, to=2-1]
+  \end{tikzcd}
+  % https://q.uiver.app/?q=WzAsMyxbMSwwLCJMKGMpIl0sWzAsMSwiKExcXGNpcmMgUlxcY2lyYyBMKShjKSJdLFsxLDEsIkwoYykiXSxbMCwxLCJMKFxcZXRhX2MpIiwyXSxbMSwyLCJcXHZhcmVwc2lsb25fe0woYyl9IiwyXSxbMCwyLCJcXGlkX3tMKGMpfSJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+  \begin{tikzcd}[ampersand replacement=\&]
+    \& {L(c)} \\
+    {(L\circ R\circ L)(c)} \& {L(c)}
+    \arrow["{L(\eta_c)}"', from=1-2, to=2-1]
+    \arrow["{\varepsilon_{L(c)}}"', from=2-1, to=2-2]
+    \arrow["{\id_{L(c)}}", from=1-2, to=2-2]
+  \end{tikzcd}
+  \]
+\end{definition}
+
+\begin{theorem}[Adjunctions Definitions]
+  Definitions \ref{def:adjunction_isomorphism} and \ref{def:adjunction_triangle}
+  of adjoint functors are equivalent.
+
+  \begin{proof}
+    The proof consists of two parts:
+    \begin{description}
+      \item[($\implies$)] Theorems \ref{thm:unit_exists} and
+        \ref{thm:counit_exists} provide the existence of $\eta: \id_\C \to
+        R\circ L$ and $\epsilon: L\circ R \to \id_\D$. Now to obtain the
+        triangle identities consider:
+        \[
+          \begin{aligned}
+            \id_{L(c)} &= \overline{\eta_c}\\
+              &= \overline{R(\id_{L(c)})\circ R(\id_{L(c)})\circ \eta_c}\\
+              &= \id_{L(c)} \circ \epsilon_{L(c)}\circ L(\eta_c)\\
+              &= \epsilon_{L(c)}\circ L(\eta_c)
+          \end{aligned}
+          \qquad
+          \begin{aligned}
+            \id_{R(d)} &= \overline{\epsilon_d}\\
+              &= \overline{\epsilon_d
+                \circ L(\id_{R(d)})\circ L(\id_{R(d)})}\\
+              &= R(\epsilon_d) \circ \eta_{R(d)} \circ \id_{R(d)}\\
+              &= R(\epsilon_d) \circ \eta_{R(d)}
+          \end{aligned}
+        \]
+      \item[($\impliedby$)] For a pair of left/right adjoints $L:\C\to \D$,
+        $R:\D\to \C$, consider two functions:
+        \[
+          \begin{aligned}
+            \phi: \D(L(c), d) &\to \C(c, R(d))\\
+            u &\mapsto R(u)\circ \eta_c
+          \end{aligned}
+          \qquad
+          \begin{aligned}
+            \psi: \C(c, R(d)) &\to \D(L(c), d)\\
+            v &\mapsto \epsilon_d \circ L(v)
+          \end{aligned}
+        \]
+        By combining the triangle identities, and the naturality condition of $\eta$ and $\epsilon$:
+
+        % https://q.uiver.app/?q=WzAsNSxbMCwxLCJSKGQpIl0sWzEsMSwiKFJcXGNpcmMgTFxcY2lyYyBSKShkKSJdLFswLDIsIlIoZCkiXSxbMSwwLCIoTFxcY2lyYyBSKShjKSJdLFswLDAsImMiXSxbMCwyLCJcXGlkX3tSKGQpfSIsMl0sWzAsMSwiXFxldGFfe1IoZCl9Il0sWzEsMiwiUihcXHZhcmVwc2lsb25fZCkiXSxbMywxLCIoTFxcY2lyYyBSKSh2KSJdLFs0LDAsInYiLDJdLFs0LDMsIlxcZXRhX3giXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+        \[\begin{tikzcd}[ampersand replacement=\&]
+          c \& {(L\circ R)(c)} \\
+          {R(d)} \& {(R\circ L\circ R)(d)} \\
+          {R(d)}
+          \arrow["{\id_{R(d)}}"', from=2-1, to=3-1]
+          \arrow["{\eta_{R(d)}}", from=2-1, to=2-2]
+          \arrow["{R(\varepsilon_d)}", from=2-2, to=3-1]
+          \arrow["{(L\circ R)(v)}", from=1-2, to=2-2]
+          \arrow["v"', from=1-1, to=2-1]
+          \arrow["{\eta_x}", from=1-1, to=1-2]
+        \end{tikzcd}
+        \quad
+        \begin{aligned}
+          (\phi\circ\psi)(v)
+            &= R(\epsilon_y)\circ (R\circ L)(v) \circ \eta_x\\
+            &= R(\epsilon_y) \circ \eta_{R(d)} \circ v\\
+            &= \id_{R(d)} \circ v\\
+            &= v
+        \end{aligned}
+        \]
+        % https://q.uiver.app/?q=WzAsNSxbMSwwLCJMKGMpIl0sWzAsMSwiKExcXGNpcmMgUlxcY2lyYyBMKShjKSJdLFsxLDEsIkwoYykiXSxbMCwyLCIoTFxcY2lyYyBSKShkKSJdLFsxLDIsImQiXSxbMCwyLCJcXGlkX3tMKGMpfSJdLFswLDEsIkwoXFxldGFfYykiLDJdLFsxLDIsIlxcdmFyZXBzaWxvbl97TCh4KX0iXSxbMiw0LCJ1Il0sWzEsMywiKExcXGNpcmMgUikodSkiLDJdLFszLDQsIlxcdmFyZXBzaWxvbl9kIiwyXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+        \[\begin{tikzcd}[ampersand replacement=\&]
+          \& {L(c)} \\
+          {(L\circ R\circ L)(c)} \& {L(c)} \\
+          {(L\circ R)(d)} \& d
+          \arrow["{\id_{L(c)}}", from=1-2, to=2-2]
+          \arrow["{L(\eta_c)}"', from=1-2, to=2-1]
+          \arrow["{\varepsilon_{L(x)}}", from=2-1, to=2-2]
+          \arrow["u", from=2-2, to=3-2]
+          \arrow["{(L\circ R)(u)}"', from=2-1, to=3-1]
+          \arrow["{\varepsilon_d}"', from=3-1, to=3-2]
+        \end{tikzcd}
+        \quad
+        \begin{aligned}
+          (\psi\circ \phi)(u)
+          &= \epsilon_d \circ (L\circ R)(u) \circ L(\eta_c)\\
+          &= u \circ \epsilon_{L(c)} \circ L(\eta_c)\\
+          &= u \circ \id_{L(c)}\\
+          &= u
+        \end{aligned}
+        \] In order to prove naturality it is sufficient to prove that for
+        morphisms $g:c'\to c$ and $h:d\to d'$ Theorem \ref{thm:transpose2}
+        holds:
+        \[
+          \begin{aligned}
+            \phi(h\circ u)
+              &= R(h\circ u) \circ \eta_c\\
+              &= R(h) \circ R(u) \circ \eta_c\\
+              &= R(h) \circ \phi(u)
+          \end{aligned}
+          \qquad
+          \begin{aligned}
+            \psi(v\circ g)
+              &= \epsilon_d \circ L(v\circ g)\\
+              &= \epsilon_d \circ L(v) \circ L(g)\\
+              &= \psi(v) \circ L(g)
+          \end{aligned}
+        \]
+    \end{description}
+  \end{proof}
+\end{theorem}

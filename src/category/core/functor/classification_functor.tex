@@ -1,0 +1,73 @@
+\subsection{Classification of Functors}
+
+\begin{definition}[Faithful Functor\index{Faithful Functor}]
+  A functor $F:\C\to \D$ is faithful when for every morphism $(f: c\to c') \in
+  \C_1$, the following function is
+  injective~\parencite[p.~25]{leinster:basic_category_theory}:
+    \[
+      \begin{aligned}
+        F: \C(c, c') &\to \D(F(c), F(c'))\\
+        f &\mapsto F(f)
+      \end{aligned}
+    \]
+\end{definition}
+
+\begin{definition}[Full Functor\index{Full Functor}]
+  A functor $F:\C\to \D$ is full when for every morphism $(f: c\to c') \in
+  \C_1$, the following function is
+  surjective~\parencite[p.~25]{leinster:basic_category_theory}:
+  \[
+    \begin{aligned}
+      F: \C(c, c') &\to \D(F(c), F(c'))\\
+      f &\mapsto F(f)
+    \end{aligned}
+  \]
+\end{definition}
+
+\begin{definition}[Endofunctor\index{Endofunctor}]
+  A functor whose domain equals its codomain is an
+  endofunctor~\parencite[p.~30]{adamek_herrlich_strecker:joy_cats}.
+\end{definition}
+
+\begin{definition}[Bifunctor\index{Bifunctor}]
+  A functor $F:\A\times \B \to \C$ (one with $2$ parameters) is said to be a
+  bifunctor~\parencite[p.~37]{lane:working_mathematician}.
+\end{definition}
+
+\begin{definition}[Presheaf\index{Presheaf}]
+  A functor $\C^\op \to \Set$ is a presheaf on
+  $\C$~\parencite[p.~24]{leinster:basic_category_theory}.
+\end{definition}
+
+\begin{theorem}[Fully Faithful Isomorphism]\label{thm:full_faithful_isomorphism}
+
+  For any full and faithful functor $F:\C\to \D$ it follows that $c \cong c'
+  \iff F(c) \cong F(c')$ for objects $c, c'\in \C_0$.
+
+  \begin{proof}
+    The $(\implies)$ holds via Theorem \ref{thm:isomorphism_functor}. For the
+    $(\impliedby)$ part, consider the isomorphism $Ff: F(c) \overset{\cong}{\to}
+    F(c')$. As $F$ is fully faithful, morphisms $c\to c'$ are in bijection
+    with morphisms $F(c)\to F(c')$, therefore there exists unique arrows $f:c\to c'$ $g:c'\to c$ such that $F(f) = Ff$ and $F(g) = Ff^{-1}$, then:
+    \[
+      \begin{aligned}
+        &F(\id_c)\\
+        =& \id_{F(c)}\\
+        =& Ff^{-1} \circ Ff\\
+        =& F(g) \circ F(f)\\
+        =& F(g\circ f)
+      \end{aligned}
+      \qquad
+      \begin{aligned}
+        &F(\id_{c'})\\
+        =& \id_{F(c')}\\
+        =& Ff \circ Ff^{-1}\\
+        =& F(f) \circ F(g)\\
+        =& F(f\circ g)
+      \end{aligned}
+    \]
+
+    As $F$ is faithful and $F(\id_c) = F(g\circ f)$, then $g\circ f = \id_c$.
+    Similarly, $f\circ g = \id_{c'}$.
+  \end{proof}
+\end{theorem}

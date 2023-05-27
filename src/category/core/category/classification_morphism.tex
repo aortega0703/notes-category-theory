@@ -1,0 +1,155 @@
+\subsection{Classification Morphisms}
+
+\begin{definition}[Endomorphism\index{Endomorphism}]
+  A morphism whose domain equals its codomain is an
+  endomorphism~\parencite[p.~7]{riehl:category_theory_in_context}.
+\end{definition}
+
+\begin{definition}[Idempotent\index{Idempotent}]
+  An endomorphism $f:C\to C$ is idempotent if $f\circ f =
+  f$~\parencite[p.~20]{lane:working_mathematician}.
+\end{definition}
+
+\begin{definition}[Split\index{Split}]
+  An endomorphism $f:C\to C$ is split if there exists arrows $g:C\to C'$ and
+  $h:C'\to C$ such that $f=h\circ g$ and $g\circ h=
+  \id_{C'}$~\parencite[p.~20]{lane:working_mathematician}.
+\end{definition}
+
+\begin{theorem}
+  Any split endomorphism is idempotent.
+
+  \begin{proof}
+    Consider an split endomorphism $f=h\circ g:C\to C$, then:
+    \[
+      \begin{aligned}
+        f\circ f &= h\circ g \circ h\circ g\\
+        &= h\circ g\\
+        &= f
+      \end{aligned}
+    \]
+  \end{proof}
+  \vspace{-\baselineskip}
+\end{theorem}
+
+\begin{definition}[Left Inverse\index{Left Inverse}\index{Retraction!see Left Inverse}]
+  A morphism $f: c\to c'$ has a left inverse or a retraction $g: c'\to c$ if
+  $g\circ f = \id_c$~\parencite[p.~19]{lane:working_mathematician}.
+\end{definition}
+
+\begin{definition}[Right Inverse\index{Right Inverse}\index{Section!see Right Inverse}]
+  A morphism $f: c\to c'$ has a right inverse or a section $g: c'\to c$ if
+  $f\circ g = \id_{c'}$~\parencite[p.~19]{lane:working_mathematician}.
+\end{definition}
+
+\begin{definition}[Isomorphism\index{Isomorphism}]
+  A morphism $f: C\to C'$ is invertible or an isomorphism when it has a left and
+  right inverce, and both are
+  equal~\parencite[p.~19]{lane:working_mathematician}.
+\end{definition}
+
+\begin{remark}
+  Two objects are said to be isomorphic (written $a\cong b$) if there exists is
+  an isomorphism between them.
+\end{remark}
+
+\begin{theorem}[Uniqueness of Inverse]
+  If $f: c\to c'$ is an isomorphism, then it has a unique inverse $f^{-1}:c'\to
+  c$:
+  \begin{proof}
+    Consider two inverses of $f$, $f^{-1}_1$ and $f^{-1}_2$, then:
+    \[
+      \begin{aligned}
+        \id_c &= \id_c\\
+        f\circ f^{-1}_1 &= f\circ f^{-1}_2\\
+        f^{-1}_1 \circ f \circ f^{-1}_1 &= f^{-1}_1 \circ f \circ f^{-1}_2\\
+        f^{-1}_1 &= f^{-1}_2
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
+
+\begin{definition}[Automorphism\index{Automorphism}]
+  An endomorphism which is also an isomorphism is an
+  automorphism~\parencite[p.~7]{riehl:category_theory_in_context}.
+\end{definition}
+
+\begin{definition}[Monomorphisms\index{Monomorphisms}]
+  A morphism $f:c\to c'$ is monic or a monomorphism when it is left
+  cancellable~\parencite[p.~19]{lane:working_mathematician} i.e. when for any
+  set-up of objects and morphisms:
+  % https://q.uiver.app/?q=WzAsMyxbMSwwLCJjIl0sWzIsMCwiYyciXSxbMCwwLCJ4Il0sWzAsMSwiZiJdLFsyLDAsImciLDAseyJvZmZzZXQiOi0xfV0sWzIsMCwiaCIsMix7Im9mZnNldCI6MX1dXQ==
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    x \& c \& {c'}
+    \arrow["f", from=1-2, to=1-3]
+    \arrow["g", shift left=1, from=1-1, to=1-2]
+    \arrow["h"', shift right=1, from=1-1, to=1-2]
+  \end{tikzcd}\]
+
+  The following holds:
+  \[f \circ g = f \circ h \implies g = h\]
+\end{definition}
+
+\begin{remark}
+  $f:b\mono c$ will be used to denote monomorphisms.
+\end{remark}
+
+\begin{remark}
+  $f:b\sub c$ will be used instead when $f$ represents inclusions.
+\end{remark}
+
+\begin{theorem}[Left Inverses are Monomorphisms]\label{thm:left_inverse_implies_mono}
+
+  If $f:C\to C'$ has a left inverse $f':C'\to C$, then it is a monomorphism.
+
+  \begin{proof}
+    Consider the following set-up of objects and morphisms:
+    % https://q.uiver.app/#q=WzAsMyxbMSwwLCJDIl0sWzIsMCwiQyciXSxbMCwwLCJYIl0sWzAsMSwiZiIsMCx7Im9mZnNldCI6LTF9XSxbMiwwLCJnIiwwLHsib2Zmc2V0IjotMX1dLFsyLDAsImgiLDIseyJvZmZzZXQiOjF9XSxbMSwwLCJmJyIsMCx7Im9mZnNldCI6LTF9XV0=
+    \[
+      \begin{tikzcd}[ampersand replacement=\&]
+        X \& C \& {C'}
+        \arrow["f", shift left=1, from=1-2, to=1-3]
+        \arrow["g", shift left=1, from=1-1, to=1-2]
+        \arrow["h"', shift right=1, from=1-1, to=1-2]
+        \arrow["{f'}", shift left=1, from=1-3, to=1-2]
+      \end{tikzcd}
+    \]
+    If $f\circ g = f\circ h$ then:
+    \[
+      \begin{aligned}
+        f\circ g &= f\circ h\\
+        f'\circ f \circ g &= f'\circ f\circ h\\
+        g &= h
+      \end{aligned}
+    \]
+  \end{proof}
+  \vspace{-\baselineskip}
+\end{theorem}
+
+\begin{definition}[Epimorphism\index{Epimorphism}]
+  A morphism $f:c\to c'$ is epic or an epimorphism when it is right
+  cancellable~\parencite[p.~19]{lane:working_mathematician} i.e. when for any set-up of
+  objects and morphisms:
+  % https://q.uiver.app/?q=WzAsMyxbMCwwLCJjIl0sWzEsMCwiYyciXSxbMiwwLCJ4Il0sWzEsMiwiaCIsMix7Im9mZnNldCI6MX1dLFswLDEsImYiXSxbMSwyLCJnIiwwLHsib2Zmc2V0IjotMX1dXQ==
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    c \& {c'} \& x
+    \arrow["h"', shift right=1, from=1-2, to=1-3]
+    \arrow["f", from=1-1, to=1-2]
+    \arrow["g", shift left=1, from=1-2, to=1-3]
+  \end{tikzcd}\]
+
+  The following holds:
+  \[g \circ f = h \circ f \implies g = h\]
+\end{definition}
+
+\begin{remark}
+  $f:a\epi b$ will be used to denote epimorphisms.
+\end{remark}
+
+\begin{theorem}[Right Inverses are Epimorphisms]\label{thm:right_inverse_implies_epi}
+  If $f:C\to C'$ has a right inverse $f':C'\to C$, then it is a epimorphism.
+
+  \begin{proof}
+    By duality with Theorem \ref{thm:left_inverse_implies_mono}.
+  \end{proof}
+\end{theorem}
