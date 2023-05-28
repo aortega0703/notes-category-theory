@@ -1,73 +1,17 @@
 \subsection{Product}
 
-\begin{definition}[Product\index{Product}\label{def:product}]
+\begin{definition}[Product]\index{Product}\label{def:product_limit}
 
-	For a pair of objects $a, b$, a product candidate consists of an object $p$
-	together with morphisms $p_1: P\to a$ and $p_2:P\to b$:
-	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJhIl0sWzIsMCwiYiJdLFsxLDAsInAiXSxbMiwwLCJwXzEiLDJdLFsyLDEsInBfMiJdXQ==
-	\[\begin{tikzcd}[ampersand replacement=\&]
-		a \& p \& b
-		\arrow["{p_1}"', from=1-2, to=1-1]
-		\arrow["{p_2}", from=1-2, to=1-3]
-	\end{tikzcd}\]
-
-	A product $\<a\times b, \mathrm{fst}, \mathrm{snd}\>$ is a candidate such that
-	for any candidate $(p, p_1, p_2)$ there exists a unique $h: p\to a\times b$
-	that makes the following
-	commute~\parencite[p.~108]{leinster:basic_category_theory}:
-	% https://q.uiver.app/?q=WzAsNCxbMCwxLCJhIl0sWzIsMSwiYiJdLFsxLDEsImFcXHRpbWVzIGIiXSxbMSwwLCJwIl0sWzIsMCwiXFxtYXRocm17ZnN0fSJdLFsyLDEsIlxcbWF0aHJte3NuZH0iLDJdLFszLDAsInBfMSIsMl0sWzMsMSwicF8yIl0sWzMsMiwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
-	\[\begin{tikzcd}[ampersand replacement=\&]
-		\& p \\
-		a \& {a\times b} \& b
-		\arrow["{\mathrm{fst}}", from=2-2, to=2-1]
-		\arrow["{\mathrm{snd}}"', from=2-2, to=2-3]
-		\arrow["{p_1}"', from=1-2, to=2-1]
-		\arrow["{p_2}", from=1-2, to=2-3]
-		\arrow["h"', dashed, from=1-2, to=2-2]
-	\end{tikzcd}\]
-\end{definition}
-
-\begin{definition}[Product as Terminal Morphism\index{Product! as Terminal Morphism}]
-	Equivalently to Definition \ref{def:product}, the product $\<a\times b,
-	\mathrm{fst}, \mathrm{snd}\>$ can be expressed as a terminal morphism from the diagonal functor $\Delta: \C \to \C\times \C$ to $\<a, b\>$:
-	% https://q.uiver.app/?q=WzAsNSxbMCwwLCJwIl0sWzAsMSwiYVxcdGltZXMgYiJdLFsxLDAsIlxcRGVsdGEocCkiXSxbMSwxLCJcXERlbHRhKGFcXHRpbWVzIGIpIl0sWzIsMSwiKGEsYikiXSxbMCwxLCJoIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsMywiXFxEZWx0YShoKSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDQsInBfKiJdLFszLDQsIihcXG1hdGhybXtmc3R9LCBcXG1hdGhybXtzbmR9KSIsMl1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
-	\[\begin{tikzcd}[ampersand replacement=\&]
-		p \& {\Delta(p)} \\
-		{a\times b} \& {\Delta(a\times b)} \& {(a,b)}
-		\arrow["h"', dashed, from=1-1, to=2-1]
-		\arrow["{\Delta(h)}"', dashed, from=1-2, to=2-2]
-		\arrow["{p_*}", from=1-2, to=2-3]
-		\arrow["{(\mathrm{fst}, \mathrm{snd})}"', from=2-2, to=2-3]
-	\end{tikzcd}\]
-
-\end{definition}
-
-\begin{definition}[Product as Limit\index{Product!as Limit}\label{def:product_limit}]
-
-	More generally, for a discrete category $\I$, the functor $F:\I\to \C$ is an
-	$\I$-indexed family of objects $(F(i))_{i\in \I_0}$ in $\C$. The product
-	$\prod\limits_{i\in \I_0} F(i)$ is the limit of such a functor $F$.
+	For a discrete category $\underline{n}$, the functor $F:\underline{n}\to \C$
+	is a family of objects $(F(n))_{n\in \underline{n}_0}$ in $\C$. The product
+	$\prod\limits_{n\in \underline{n}_0} F(n)$ is the limit of such a functor
+	$F$~\parencite[p.~108]{leinster:basic_category_theory}.
 \end{definition}
 
 \begin{remark}
 	In the case where $\I=\underline{0}$ the product is denoted as $1$ and
 	corresponds to a terminal object.
 \end{remark}
-
-\begin{remark}
-	In the case where $\I=\underline{2}$, Definitions \ref{def:product} and
-	\ref{def:product_limit} are equivalent.
-\end{remark}
-
-\begin{theorem}[Uniqueness of Product]
-	The product of a collection of objects is unique up to isomorphism.
-
-	\begin{proof}
-		As the product of objects is a limit, and by Theorem \ref{thm:limit_iso}
-		limits are unique up to isomorphism, then products are also unique up to
-		isomorphism.
-	\end{proof}
-\end{theorem}
 
 \input{category.tex}
 

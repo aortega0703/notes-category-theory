@@ -1,28 +1,12 @@
 \section{Cones}
 
-\begin{definition}[\index{Cone}]\label{def:cone}
-
-  For a functor $F:\C\to \D$ and an object $D\in \D$, a cone from $D$ to $F$
-	consists of the vertex $D$ and a family of morphisms $\big(d_C: D \to
-	F(C)\big)_{C\in \C_0}$ such that for each $f\in \C(C, C')$ the following
-	commutes~\parencite[p.~118]{leinster:basic_category_theory}:
-	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJEIl0sWzAsMSwiRihDKSJdLFsxLDEsIkYoQycpIl0sWzAsMiwiRF97Qyd9Il0sWzAsMSwiRF9jIiwyXSxbMSwyLCJGKGYpIiwyXV0=
-	\[\begin{tikzcd}[ampersand replacement=\&]
-		D \\
-		{F(C)} \& {F(C')}
-		\arrow["{D_{C'}}", from=1-1, to=2-2]
-		\arrow["{D_c}"', from=1-1, to=2-1]
-		\arrow["{F(f)}"', from=2-1, to=2-2]
-	\end{tikzcd}\]
+\begin{definition}[Cone]\index{Cone}
+  A cone is a natural transformation $\alpha: \Delta_d \Rightarrow F$ from the
+	constant functor $\Delta_d:\C\to \D$, where $d$ is the apex of the
+	cone~\parencite[p.~118]{leinster:basic_category_theory}.
 \end{definition}
 
-\begin{definition}[Cone as Natural Transformation\index{Cone!as Natural Transformation}]
-	Equivalenty to Definition \ref{def:cone}, a cone is a natural transformation
-	$\alpha: \Delta_d \Rightarrow F$ from the constant functor $\Delta_d:\C\to
-	\D$, where $d$ is the apex of the cone.
-\end{definition}
-
-\begin{definition}[Cone Category\index{Cone!Category}]
+\begin{definition}[Cone Category]\index{Cone!Category}
   For a functor $F:\C\to \D$, the cone category $\mathrm{Cone}(F)$ consists
   of~\parencite[p.~75]{riehl:category_theory_in_context}:
   \begin{itemize}

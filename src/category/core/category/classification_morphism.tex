@@ -1,22 +1,22 @@
 \subsection{Classification Morphisms}
 
-\begin{definition}[Endomorphism\index{Endomorphism}]
+\begin{definition}[Endomorphism]\index{Endomorphism}
   A morphism whose domain equals its codomain is an
   endomorphism~\parencite[p.~7]{riehl:category_theory_in_context}.
 \end{definition}
 
-\begin{definition}[Idempotent\index{Idempotent}]
+\begin{definition}[Idempotent]\index{Idempotent}
   An endomorphism $f:C\to C$ is idempotent if $f\circ f =
   f$~\parencite[p.~20]{lane:working_mathematician}.
 \end{definition}
 
-\begin{definition}[Split\index{Split}]
+\begin{definition}[Split]\index{Split}
   An endomorphism $f:C\to C$ is split if there exists arrows $g:C\to C'$ and
   $h:C'\to C$ such that $f=h\circ g$ and $g\circ h=
   \id_{C'}$~\parencite[p.~20]{lane:working_mathematician}.
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[Splits are Idempotent]
   Any split endomorphism is idempotent.
 
   \begin{proof}
@@ -32,17 +32,19 @@
   \vspace{-\baselineskip}
 \end{theorem}
 
-\begin{definition}[Left Inverse\index{Left Inverse}\index{Retraction!see Left Inverse}]
+\begin{definition}[Left Inverse]\index{Left Inverse}\index{Retraction!see Left
+  Inverse}
   A morphism $f: c\to c'$ has a left inverse or a retraction $g: c'\to c$ if
   $g\circ f = \id_c$~\parencite[p.~19]{lane:working_mathematician}.
 \end{definition}
 
-\begin{definition}[Right Inverse\index{Right Inverse}\index{Section!see Right Inverse}]
+\begin{definition}[Right Inverse]\index{Right Inverse}\index{Section!see Right
+  Inverse}
   A morphism $f: c\to c'$ has a right inverse or a section $g: c'\to c$ if
   $f\circ g = \id_{c'}$~\parencite[p.~19]{lane:working_mathematician}.
 \end{definition}
 
-\begin{definition}[Isomorphism\index{Isomorphism}]
+\begin{definition}[Isomorphism]\index{Isomorphism}
   A morphism $f: C\to C'$ is invertible or an isomorphism when it has a left and
   right inverce, and both are
   equal~\parencite[p.~19]{lane:working_mathematician}.
@@ -69,12 +71,12 @@
   \end{proof}
 \end{theorem}
 
-\begin{definition}[Automorphism\index{Automorphism}]
+\begin{definition}[Automorphism]\index{Automorphism}
   An endomorphism which is also an isomorphism is an
   automorphism~\parencite[p.~7]{riehl:category_theory_in_context}.
 \end{definition}
 
-\begin{definition}[Monomorphisms\index{Monomorphisms}]
+\begin{definition}[Monomorphisms]\index{Monomorphisms}
   A morphism $f:c\to c'$ is monic or a monomorphism when it is left
   cancellable~\parencite[p.~19]{lane:working_mathematician} i.e. when for any
   set-up of objects and morphisms:
@@ -114,7 +116,7 @@
         \arrow["{f'}", shift left=1, from=1-3, to=1-2]
       \end{tikzcd}
     \]
-    If $f\circ g = f\circ h$ then:
+    If $f'$ is left inverse of $f$ and $f\circ g = f\circ h$, then:
     \[
       \begin{aligned}
         f\circ g &= f\circ h\\
@@ -126,10 +128,10 @@
   \vspace{-\baselineskip}
 \end{theorem}
 
-\begin{definition}[Epimorphism\index{Epimorphism}]
+\begin{definition}[Epimorphism]\index{Epimorphism}
   A morphism $f:c\to c'$ is epic or an epimorphism when it is right
-  cancellable~\parencite[p.~19]{lane:working_mathematician} i.e. when for any set-up of
-  objects and morphisms:
+  cancellable~\parencite[p.~19]{lane:working_mathematician} i.e. when for any
+  set-up of objects and morphisms:
   % https://q.uiver.app/?q=WzAsMyxbMCwwLCJjIl0sWzEsMCwiYyciXSxbMiwwLCJ4Il0sWzEsMiwiaCIsMix7Im9mZnNldCI6MX1dLFswLDEsImYiXSxbMSwyLCJnIiwwLHsib2Zmc2V0IjotMX1dXQ==
   \[\begin{tikzcd}[ampersand replacement=\&]
     c \& {c'} \& x

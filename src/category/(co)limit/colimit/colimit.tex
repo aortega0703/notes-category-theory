@@ -1,50 +1,17 @@
 \section{Colimits}
 
-\begin{definition}[Colimit\index{Colimit}\label{def:colimit}]
-	The colimit of a functor $F:\C\to \D$ is a cocone with vertex $d\in \D_0$ and
-	morphisms $\big(\alpha_c: F(c)\to d\big)_{c\in \C_0}$ such that for any other
-	cone with vertex $d'\in \D_0$ and morphisms $\big(\beta_c: F(c)\to
-	d'\big)_{c\in \C_0}$ there exists a unique map $f:d\to d'$ such that the
-	following diagram commutes for all $c\in
-	\C_0$~\parencite[p.~126]{leinster:basic_category_theory}:
-	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJkIl0sWzAsMSwiZCciXSxbMSwwLCJGKGMpIl0sWzIsMCwiXFxhbHBoYV9jIiwyXSxbMiwxLCJcXGJldGFfYyJdLFswLDEsImYiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
-	\[\begin{tikzcd}[ampersand replacement=\&]
-		d \& {F(c)} \\
-		{d'}
-		\arrow["{\alpha_c}"', from=1-2, to=1-1]
-		\arrow["{\beta_c}", from=1-2, to=2-1]
-		\arrow["f"', dashed, from=1-1, to=2-1]
-	\end{tikzcd}\]
+\begin{definition}[Colimit]\index{Colimit}
+	The colimit of a functor $F:\I\to \C$ is an initial object in the category
+	$\mathrm{cocone}(F)$~\parencite[p.~126]{leinster:basic_category_theory}.
 \end{definition}
 
-\begin{definition}[Colimit as an Initial Object\index{Colimit!as an Initial Object}]
-	Equivalently to Definition \ref{def:limit}, the colimit of a functor $F:\I\to
-	\C$ can be expressed as an initial object in the category
-	$\mathrm{cocone}(F)$.
-\end{definition}
-
-\begin{definition}[Colimit as an Initial Morphism\index{Colimit!as an Initial Morphism}]
-	Equivalently to Definition \ref{def:limit}, the colimit of a functor $F:\I\to
-	\C$ can be expressed as an initial morphism from $F$ (thought of as an object in $\C^\I$) to the diagonal functor $\Delta:\C\to\C^\I$:
-	% https://q.uiver.app/?q=WzAsNSxbMCwwLCJjIl0sWzAsMSwiYyciXSxbMSwwLCJcXERlbHRhX2MiXSxbMSwxLCJcXERlbHRhX3tjJ30iXSxbMiwwLCJGIl0sWzAsMSwiaCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDMsIlxcRGVsdGEoaCkiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCwzLCJcXGJldGEiXSxbNCwyLCJcXGFscGhhIiwyXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
-	\[\begin{tikzcd}[ampersand replacement=\&]
-		c \& {\Delta_c} \& F \\
-		{c'} \& {\Delta_{c'}}
-		\arrow["h"', dashed, from=1-1, to=2-1]
-		\arrow["{\Delta(h)}"', dashed, from=1-2, to=2-2]
-		\arrow["\beta", from=1-3, to=2-2]
-		\arrow["\alpha"', from=1-3, to=1-2]
-	\end{tikzcd}\]
-\end{definition}
-
-\begin{theorem}[Uniqueness of Colimits\label{thm:colimit_iso}]
+\begin{theorem}[Uniqueness of Colimits]\label{thm:colimit_iso}
 	If there exists multiple colimits for the same functor, then they are all
 	isomorphic.
 
 	\begin{proof}
-		A colimit can be seen as an initial morphism, which are unique up to
-		Isomorphism (Theorem \ref{thm:initial_morphism_iso}), therefore colimits are
-		also unique up to isomorphism.
+		Colimits are an initial object in the cocone category, therefore by Theorem
+		\ref{thm:initial_object_iso} they are also unique up to isomorphism.
 	\end{proof}
 \end{theorem}
 

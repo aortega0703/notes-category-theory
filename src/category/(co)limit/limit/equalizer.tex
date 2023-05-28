@@ -1,47 +1,9 @@
 \subsection{Equalizer}
 
-\begin{definition}[Equalizer\index{Equalizer}\label{def:equalizer}]
-  For a set-up in an arbitrary
-  category~\parencite[p.~112]{leinster:basic_category_theory}:
-  % https://q.uiver.app/?q=WzAsMixbMCwwLCJ4Il0sWzEsMCwieSJdLFswLDEsImYiLDAseyJvZmZzZXQiOi0xfV0sWzAsMSwiZyIsMix7Im9mZnNldCI6MX1dXQ==
-  \[\begin{tikzcd}[ampersand replacement=\&]
-    x \& y
-    \arrow["f", shift left=1, from=1-1, to=1-2]
-    \arrow["g"', shift right=1, from=1-1, to=1-2]
-  \end{tikzcd}\]
+\begin{definition}[Equalizer]\index{Equalizer}
 
-  An equalizer candidate of $f$ and $g$ consists of an object $a$ together with
-  a morphism $j:a\to x$ such that $f\circ j = g\circ j$, i.e. the following commutes:
-  % https://q.uiver.app/?q=WzAsNCxbMCwwLCJhIl0sWzEsMCwieCJdLFswLDEsIngiXSxbMSwxLCJ5Il0sWzEsMywiZiJdLFsyLDMsImciLDJdLFswLDIsImoiLDJdLFswLDEsImoiXV0=
-  \[\begin{tikzcd}[ampersand replacement=\&]
-    a \& x \\
-    x \& y
-    \arrow["f", from=1-2, to=2-2]
-    \arrow["g"', from=2-1, to=2-2]
-    \arrow["j"', from=1-1, to=2-1]
-    \arrow["j", from=1-1, to=1-2]
-  \end{tikzcd}\]
-
-  An equalizer is a candidate $\<e, i\>$ such that for any candidate $\<a, j\>$
-  there exists a unique $h:a\to e$ that makes the following commute:
-  % https://q.uiver.app/?q=WzAsNSxbMSwxLCJlIl0sWzIsMSwieCJdLFsxLDIsIngiXSxbMiwyLCJ5Il0sWzAsMCwiYSJdLFswLDIsImkiLDJdLFswLDEsImkiXSxbMSwzLCJmIl0sWzIsMywiZyIsMl0sWzQsMiwiaiIsMl0sWzQsMSwiaiJdLFs0LDAsImgiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
-  \[\begin{tikzcd}[ampersand replacement=\&]
-    a \\
-    \& e \& x \\
-    \& x \& y
-    \arrow["i"', from=2-2, to=3-2]
-    \arrow["i", from=2-2, to=2-3]
-    \arrow["f", from=2-3, to=3-3]
-    \arrow["g"', from=3-2, to=3-3]
-    \arrow["j"', from=1-1, to=3-2]
-    \arrow["j", from=1-1, to=2-3]
-    \arrow["h"{description}, dashed, from=1-1, to=2-2]
-  \end{tikzcd}\]
-\end{definition}
-
-\begin{definition}[Equalizer as Limit\index{Equalizer!as Limit}]
-  Definition \ref{def:equalizer} is equivalent to saying that an equalizer is
-  the limit of a diagram:
+  An equalizer is the limit of a
+  diagram~\parencite[p.~112]{leinster:basic_category_theory}:
   % https://q.uiver.app/?q=WzAsMixbMCwwLCJ4Il0sWzEsMCwieSJdLFswLDEsImYiLDAseyJvZmZzZXQiOi0xfV0sWzAsMSwiZyIsMix7Im9mZnNldCI6MX1dXQ==
   \[\begin{tikzcd}[ampersand replacement=\&]
     x \& y
