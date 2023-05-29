@@ -4,18 +4,16 @@
   For functors $F, G:\C \to \D$, a natural transformation $\alpha : F
   \Rightarrow G$ consists of~\parencite[p.~28]{leinster:basic_category_theory}:
   \begin{itemize}
-    \item $c$-Components:
-      \[(\forall c\in \C_0)(\alpha_c : F(c) \to G(c))\]
-      If every $c$-component is an isomorphism the natural transformation is
-      then called a natural isomorphism.
+    \item $C$-Components:
+      \[(\forall C\in \C_0)(\alpha_C : F(C) \to G(C))\]
     \item Naturality Condition: The following diagram must commute for all
-      $c,c'\in \C_0$ and $f \in \C(c, c')$:
-      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJHKGMpIl0sWzEsMSwiRyhjJykiXSxbMCwyLCJcXGFscGhhX2MiLDJdLFsxLDMsIlxcYWxwaGFfe2MnfSJdLFswLDEsIkYoZikiXSxbMiwzLCJHKGYpIiwyXV0=
+      $C,D\in \C_0$ and $f \in \C(C, D)$:
+      % https://q.uiver.app/#q=WzAsNCxbMCwwLCJGKEMpIl0sWzEsMCwiRihEKSJdLFswLDEsIkcoQykiXSxbMSwxLCJHKEQpIl0sWzAsMiwiXFxhbHBoYV9DIiwyXSxbMSwzLCJcXGFscGhhX3tEfSJdLFswLDEsIkYoZikiXSxbMiwzLCJHKGYpIiwyXV0=
       \[\begin{tikzcd}[ampersand replacement=\&]
-        {F(c)} \& {F(c')} \\
-        {G(c)} \& {G(c')}
-        \arrow["{\alpha_c}"', from=1-1, to=2-1]
-        \arrow["{\alpha_{c'}}", from=1-2, to=2-2]
+        {F(C)} \& {F(D)} \\
+        {G(C)} \& {G(D)}
+        \arrow["{\alpha_C}"', from=1-1, to=2-1]
+        \arrow["{\alpha_{D}}", from=1-2, to=2-2]
         \arrow["{F(f)}", from=1-1, to=1-2]
         \arrow["{G(f)}"', from=2-1, to=2-2]
       \end{tikzcd}\]
@@ -23,23 +21,25 @@
 \end{definition}
 
 \begin{example}
-  Observe the following consiguration of categories, with functors $F,G:C\to D$
-  and a natural tranformation $\alpha$ between them:
-  % https://q.uiver.app/?q=WzAsOCxbMCwxLCJGKGEpIl0sWzEsMSwiRihiKSJdLFswLDIsIkcoYSkiXSxbMSwyLCJHKGIpIl0sWzAsMCwiYSJdLFsxLDAsImIiXSxbMiwxLCJGKGMpPUcoYykiXSxbMiwwLCJjIl0sWzAsMiwiXFxhbHBoYV9hIiwyXSxbMSwzLCJcXGFscGhhX2IiXSxbMCwxLCJGKGYpIl0sWzIsMywiRyhmKSIsMl0sWzQsNSwiZiJdLFs1LDcsImciXSxbMSw2LCJGKGcpIl0sWzMsNiwiRyhnKSIsMl1d
+  % https://q.uiver.app/#q=WzAsOCxbMywwLCJGKGEpIl0sWzQsMCwiRihiKSJdLFszLDEsIkcoYSkiXSxbNCwxLCJHKGIpIl0sWzAsMCwiYSJdLFsxLDAsImIiXSxbNSwwLCJGKGMpPUcoaCkiXSxbMiwwLCJjIl0sWzAsMiwiXFxhbHBoYV9hIiwyXSxbMSwzLCJcXGFscGhhX2IiXSxbMCwxLCJGKGYpIl0sWzIsMywiRyhmKSIsMl0sWzQsNSwiZiJdLFs1LDcsImciXSxbMSw2LCJGKGcpIl0sWzMsNiwiRyhnKSIsMl1d
   \[\begin{tikzcd}[ampersand replacement=\&]
-    a \& b \& c \\
-    {F(a)} \& {F(b)} \& {F(c)=G(c)} \\
-    {G(a)} \& {G(b)}
-    \arrow["{\alpha_a}"', from=2-1, to=3-1]
-    \arrow["{\alpha_b}", from=2-2, to=3-2]
-    \arrow["{F(f)}", from=2-1, to=2-2]
-    \arrow["{G(f)}"', from=3-1, to=3-2]
+    a \& b \& c \& {F(a)} \& {F(b)} \& {F(c)=G(h)} \\
+    \&\&\& {G(a)} \& {G(b)}
+    \arrow["{\alpha_a}"', from=1-4, to=2-4]
+    \arrow["{\alpha_b}", from=1-5, to=2-5]
+    \arrow["{F(f)}", from=1-4, to=1-5]
+    \arrow["{G(f)}"', from=2-4, to=2-5]
     \arrow["f", from=1-1, to=1-2]
     \arrow["g", from=1-2, to=1-3]
-    \arrow["{F(g)}", from=2-2, to=2-3]
-    \arrow["{G(g)}"', from=3-2, to=2-3]
+    \arrow["{F(g)}", from=1-5, to=1-6]
+    \arrow["{G(g)}"', from=2-5, to=1-6]
   \end{tikzcd}\]
 \end{example}
+
+\begin{remark}
+  A natural transformation where every $C$-component is an isomorphism is a
+  natural isomorphism.
+\end{remark}
 
 \input{identity.tex}
 

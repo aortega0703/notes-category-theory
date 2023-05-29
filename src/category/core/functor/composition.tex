@@ -7,8 +7,8 @@
   consists of maps of~\parencite[p.~17]{leinster:basic_category_theory}:
   \begin{itemize}
     \item Objects:
-      \[(\forall a \in \A_0)
-        \big((G\circ F)(a) = G(F(a))\big)\]
+      \[(\forall A \in \A_0)
+        \big((G\circ F)(A) = G(F(A))\big)\]
     \item Morphisms:
       \[(\forall f\in \A_1)
         \big((G\circ F)(f) = G(F(f))\big)\]
@@ -20,13 +20,13 @@
   preserves indentity.
 
   \begin{proof}
-    For all objects $a\in \A_0$:
+    For all objects $A\in \A_0$:
     \[
       \begin{aligned}
-        (G\circ F)(\id_a)
-        &= G(F(\id_a))\\
-        &= G(\id_{F(a)})\\
-        &= \id_{(G\circ F)(a)}
+        (G\circ F)(\id_A)
+        &= G(F(\id_A))\\
+        &= G(\id_{F(A)})\\
+        &= \id_{(G\circ F)(A)}
       \end{aligned}
     \]
   \end{proof}
@@ -40,7 +40,7 @@
     For all morphisms $f,g\in \A_1$ with $g$ composable after $f$:
     \[
       \begin{aligned}
-        (G\circ F)(g\circ F)
+        (G\circ F)(g\circ f)
         &= G(F(g\circ f))\\
         &= G(F(g)\circ F(f))\\
         &= G(F(g))\circ G(F(f))\\
@@ -51,7 +51,7 @@
 \end{theorem}
 
 \begin{theorem}[Functor Composition is a Functor]
-  For functors $F, G$, the composition $G\circ F$ is a functor.
+  For functors $F: \A \to \B,\ G: \B\to \C$, the composition $G\circ F$ is a functor.
 
   \begin{proof}
     By Theorems \ref{thm:functor_cmp_id} and \ref{thm:functor_cmp_cmp} functor
@@ -61,21 +61,21 @@
 
 \begin{theorem}[Unitality of Functor Composition\label{thm:unitality_functor}]
   For a functor $F:\C\to \D$ the following holds:
-  \[F \circ \id_C = \id_D \circ F = F\]
+  \[F \circ \id_\C = \id_\D \circ F = F\]
 
   \begin{proof}
-    Let either $c\in \C_0$ or $c\in \C_1$, then:
+    Let either $C\in \C_0$ or $C\in \C_1$, then:
     \[
       \begin{aligned}
-        (F \circ \id_C)(c)
-          &= F(\id_C(c))\\
-          &= F (c)
+        (F \circ \id_\C)(C)
+          &= F(\id_\C(C))\\
+          &= F (C)
       \end{aligned}
-      \quad
+      \qquad
       \begin{aligned}
-        (\id_D \circ F)(c)
-          &= \id_D (F (c))\\
-          &= F (c)
+        (\id_\D \circ F)(C)
+          &= \id_\D (F (C))\\
+          &= F (C)
       \end{aligned}
     \]
   \end{proof}
@@ -95,15 +95,24 @@
   \[(H \circ G) \circ F = H\circ(G\circ F)\]
 
   \begin{proof}
-    Let either $c\in \C_0$ or $c\in \C_1$, then:
+    Let either $C\in \C_0$ or $C\in \C_1$, then:
     \[
       \begin{aligned}
-        ((H \circ G) \circ F) (c)
-          &= (H\circ G) (F (c))\\
-          &= H(G(F(c)))\\
-          &= H((G\circ F)(c))\\
-          &= (H\circ(G\circ F)) (c)
+        ((H \circ G) \circ F) (C)
+          &= (H\circ G) (F (C))\\
+          &= H(G(F(C)))\\
+          &= H((G\circ F)(C))\\
+          &= (H\circ(G\circ F)) (C)
       \end{aligned}
     \]
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}
+  There is a category with (small) categories as objects and functors as
+  morphisms. It is called Cat.
+
+  \begin{proof}
+    By Definitions \ref{def:id_functor}, \ref{def:functor_composition} and Theorems \ref{thm:unitality_functor}, \ref{thm:assoc_functor}.
   \end{proof}
 \end{theorem}

@@ -48,3 +48,41 @@
     \mathrm{eval}\>$.
   \end{proof}
 \end{theorem}
+
+\begin{theorem}
+  For a category $\C$, the left adjoint of the product functor $\times:\C\times
+  \C\to \C$ is the diagonal functor $\Delta: \C\to \C\times \C$.
+
+  \begin{proof}
+    Using Definition \ref{def:adjunction_terminal} of adjunctions we obtain that
+    for any $X\in \C_0$ and $\<C,D\>\in \C\times \C$:
+    % https://q.uiver.app/#q=WzAsMixbMCwxLCJSKFxcbGFuZyBDLCBEXFxyYW5nKSJdLFswLDAsIlgiXSxbMSwwLCJcXG92ZXJsaW5le3V9IiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+    \[\begin{tikzcd}[ampersand replacement=\&]
+      X \\
+      {R(\lang C, D\rang)}
+      \arrow["{\overline{u}}"', dashed, from=1-1, to=2-1]
+    \end{tikzcd}
+    % https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXERlbHRhKFgpIl0sWzAsMSwiKFxcRGVsdGFcXGNpcmMgUikoXFxsYW5nIEMsIERcXHJhbmcpIl0sWzEsMSwiXFxsYW5nIEMsIERcXHJhbmciXSxbMCwxLCJcXERlbHRhKFxcb3ZlcmxpbmV7dX0pIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsMiwidSJdLFsxLDIsIlxcdmFyZXBzaWxvbl97XFxsYW5nIEMsIERcXHJhbmd9IiwyXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+    \begin{tikzcd}[ampersand replacement=\&]
+      {\Delta(X)} \\
+      {(\Delta\circ R)(\lang C, D\rang)} \& {\lang C, D\rang}
+      \arrow["{\Delta(\overline{u})}"', dashed, from=1-1, to=2-1]
+      \arrow["u", from=1-1, to=2-2]
+      \arrow["{\varepsilon_{\lang C, D\rang}}"', from=2-1, to=2-2]
+    \end{tikzcd}
+    =
+    % https://q.uiver.app/#q=WzAsNCxbMSwwLCJYIl0sWzEsMSwiUihcXGxhbmcgQywgRFxccmFuZykiXSxbMiwxLCJEIl0sWzAsMSwiQyJdLFswLDEsIlxcb3ZlcmxpbmV7dX0iLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwyLCJ1XzEiXSxbMSwyLCIoXFx2YXJlcHNpbG9uX3tcXGxhbmcgQywgRFxccmFuZ30pXzEiLDJdLFswLDMsInVfMCIsMl0sWzEsMywiKFxcdmFyZXBzaWxvbl97XFxsYW5nIEMsIERcXHJhbmd9KV8wIl1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+    \begin{tikzcd}[ampersand replacement=\&]
+      \& X \\
+      C \& {R(\lang C, D\rang)} \& D
+      \arrow["{\overline{u}}"', dashed, from=1-2, to=2-2]
+      \arrow["{u_1}", from=1-2, to=2-3]
+      \arrow["{(\varepsilon_{\lang C, D\rang})_1}"', from=2-2, to=2-3]
+      \arrow["{u_0}"', from=1-2, to=2-1]
+      \arrow["{(\varepsilon_{\lang C, D\rang})_0}", from=2-2, to=2-1]
+    \end{tikzcd}\]
+
+    Which is precisely the definition of the product $\<C\times D,\mathrm{fst},
+    \mathrm{snd}\>$
+  \end{proof}
+\end{theorem}

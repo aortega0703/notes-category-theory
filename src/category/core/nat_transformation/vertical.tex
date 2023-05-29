@@ -1,6 +1,6 @@
 \subsection{Vertical Composition}
 
-\begin{definition}[Vertical Composition]\index{Vertical Composition}
+\begin{definition}[Vertical Composition]\index{Vertical Composition}\label{def:nat_transformation_cmp}
   For a set-up of categories, functors, and natural transformations:
   % https://q.uiver.app/?q=WzAsMixbMCwwLCJcXEMiXSxbMSwwLCJcXEQiXSxbMCwxLCJGIiwwLHsiY3VydmUiOi00fV0sWzAsMSwiSCIsMix7ImN1cnZlIjo0fV0sWzAsMSwiRyIsMV0sWzIsNCwiXFxhbHBoYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNCwzLCJcXGJldGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
   \[\begin{tikzcd}[ampersand replacement=\&]
@@ -16,52 +16,51 @@
   of~\parencite[p.~30]{leinster:basic_category_theory}:
 
   \begin{itemize}
-    \item $c$-Components:
-      \[(\forall c\in \C_0)
-        \big((\beta\circ\alpha)_c = \beta_c \circ \alpha_c\big)\]
+    \item $C$-Components:
+      \[(\forall C\in \C_0)
+        \big((\beta\circ\alpha)_C = \beta_C \circ \alpha_C\big)\]
     \item Naturality Condition:
-      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJIKGMpIl0sWzEsMSwiSChjJykiXSxbMCwxLCJGKGYpIl0sWzIsMywiSChmKSIsMl0sWzAsMiwiKFxcYmV0YVxcY2lyY1xcYWxwaGEpX2MiLDJdLFsxLDMsIihcXGJldGFcXGNpcmNcXGFscGhhKV97Yyd9Il1d
+      % https://q.uiver.app/#q=WzAsNCxbMCwwLCJGKEMpIl0sWzEsMCwiRihEKSJdLFswLDEsIkgoQykiXSxbMSwxLCJIKEQpIl0sWzAsMSwiRihmKSJdLFsyLDMsIkgoZikiLDJdLFswLDIsIihcXGJldGFcXGNpcmNcXGFscGhhKV9DIiwyXSxbMSwzLCIoXFxiZXRhXFxjaXJjXFxhbHBoYSlfe0R9Il1d
       \[\begin{tikzcd}[ampersand replacement=\&]
-        {F(c)} \& {F(c')} \\
-        {H(c)} \& {H(c')}
+        {F(C)} \& {F(D)} \\
+        {H(C)} \& {H(D)}
         \arrow["{F(f)}", from=1-1, to=1-2]
         \arrow["{H(f)}"', from=2-1, to=2-2]
-        \arrow["{(\beta\circ\alpha)_c}"', from=1-1, to=2-1]
-        \arrow["{(\beta\circ\alpha)_{c'}}", from=1-2, to=2-2]
+        \arrow["{(\beta\circ\alpha)_C}"', from=1-1, to=2-1]
+        \arrow["{(\beta\circ\alpha)_{D}}", from=1-2, to=2-2]
       \end{tikzcd}\]
   \end{itemize}
 \end{definition}
 
-\begin{theorem}[Naturality of Vertical Composition]
-  The naturality condition of vertical composition holds.
+\begin{theorem}
+  The naturality condition for vertical composition holds, therefore it is a
+  natural transformation.
   \begin{proof}
-    % https://q.uiver.app/?q=WzAsNixbMCwwLCJGKGMpIl0sWzEsMCwiRihjJykiXSxbMCwxLCJHKGMpIl0sWzAsMiwiSChjKSJdLFsxLDEsIkcoYycpIl0sWzEsMiwiSChjJykiXSxbMCwxLCJGKGYpIl0sWzIsNCwiRyhmKSJdLFszLDUsIkgoZikiLDJdLFswLDIsIlxcYWxwaGFfYyIsMl0sWzIsMywiXFxiZXRhX2MiLDJdLFsxLDQsIlxcYWxwaGFfe2MnfSJdLFs0LDUsIlxcYmV0YV97Yyd9Il1d
-    \[\begin{tikzcd}
-      {F(c)} & {F(c')} \\
-      {G(c)} & {G(c')} \\
-      {H(c)} & {H(c')}
+    % https://q.uiver.app/#q=WzAsNixbMCwwLCJGKEMpIl0sWzEsMCwiRihEKSJdLFswLDEsIkcoQykiXSxbMCwyLCJIKEMpIl0sWzEsMSwiRyhEKSJdLFsxLDIsIkgoRCkiXSxbMCwxLCJGKGYpIl0sWzIsNCwiRyhmKSJdLFszLDUsIkgoZikiLDJdLFswLDIsIlxcYWxwaGFfQyIsMl0sWzIsMywiXFxiZXRhX0MiLDJdLFsxLDQsIlxcYWxwaGFfRCJdLFs0LDUsIlxcYmV0YV9EIl1d
+    \[\begin{tikzcd}[ampersand replacement=\&]
+      {F(C)} \& {F(D)} \\
+      {G(C)} \& {G(D)} \\
+      {H(C)} \& {H(D)}
       \arrow["{F(f)}", from=1-1, to=1-2]
       \arrow["{G(f)}", from=2-1, to=2-2]
       \arrow["{H(f)}"', from=3-1, to=3-2]
-      \arrow["{\alpha_c}"', from=1-1, to=2-1]
-      \arrow["{\beta_c}"', from=2-1, to=3-1]
-      \arrow["{\alpha_{c'}}", from=1-2, to=2-2]
-      \arrow["{\beta_{c'}}", from=2-2, to=3-2]
-    \end{tikzcd}\]
-
-    \[
-      \begin{aligned}
-        (\beta \circ \alpha)_{c'} \circ F(f)
-        &= \beta_{c'} \circ \alpha_{c'} \circ F(f)\\
-        &= \beta_{c'} \circ G(f) \circ \alpha_c\\
-        &= H(f) \circ \beta_c \circ \alpha_c\\
-        &= H(f) \circ (\alpha \circ \beta)_c
-      \end{aligned}
-    \]
+      \arrow["{\alpha_C}"', from=1-1, to=2-1]
+      \arrow["{\beta_C}"', from=2-1, to=3-1]
+      \arrow["{\alpha_D}", from=1-2, to=2-2]
+      \arrow["{\beta_D}", from=2-2, to=3-2]
+    \end{tikzcd}
+    \qquad
+    \begin{aligned}
+      (\beta \circ \alpha)_{c'} \circ F(f)
+      &= \beta_{c'} \circ \alpha_{c'} \circ F(f)\\
+      &= \beta_{c'} \circ G(f) \circ \alpha_c\\
+      &= H(f) \circ \beta_c \circ \alpha_c\\
+      &= H(f) \circ (\alpha \circ \beta)_c
+    \end{aligned}\]
   \end{proof}
 \end{theorem}
 
-\begin{theorem}[Unitality of Vertical Composition]
+\begin{theorem}[Unitality of Vertical Composition]\label{thm:unitality_vertical}
   For functors $F,G:\C\to \D$ and a natural transformation $\alpha:F\to G$, the
   following holds:
   \[\alpha \circ \id_F = \id_G \circ \alpha = \alpha\]
@@ -70,22 +69,22 @@
     \[
       \begin{aligned}
         (\alpha \circ \id_F)_C
-        &= \alpha_c \circ (\id_F)_c\\
-        &= \alpha_c \circ \id_{F(c)}\\
-        &= \alpha_c
+        &= \alpha_C \circ (\id_F)_C\\
+        &= \alpha_C \circ \id_{F(C)}\\
+        &= \alpha_C
       \end{aligned}
-      \quad
+      \qquad
       \begin{aligned}
-        (\id_G \circ \alpha)_c
-        &= (\id_G)_c \circ \alpha_c\\
-        &= \id_{G(c)} \circ \alpha_c\\
-        &= \alpha_c
+        (\id_G \circ \alpha)_C
+        &= (\id_G)_C \circ \alpha_C\\
+        &= \id_{G(C)} \circ \alpha_C\\
+        &= \alpha_C
       \end{aligned}
     \]
   \end{proof}
 \end{theorem}
 
-\begin{theorem}[Associativity of Vertical Composition]
+\begin{theorem}[Associativity of Vertical Composition]\label{thm:assoc_vertical}
   For a set-up of categories, functors, and natural transformations:
   % https://q.uiver.app/?q=WzAsMixbMCwwLCJcXEMiXSxbMiwwLCJcXEQiXSxbMCwxLCJGIiwwLHsiY3VydmUiOi01fV0sWzAsMSwiSSIsMix7ImN1cnZlIjo1fV0sWzAsMSwiRyIsMSx7ImN1cnZlIjotMn1dLFswLDEsIkgiLDEseyJjdXJ2ZSI6Mn1dLFsyLDQsIlxcYWxwaGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV0sWzQsNSwiXFxiZXRhIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dLFs1LDMsIlxcZ2FtbWEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
   \[\begin{tikzcd}[ampersand replacement=\&]
@@ -105,13 +104,25 @@
   \begin{proof}
     \[
       \begin{aligned}
-        ((\gamma \circ \beta) \circ \alpha)_c
-        &= (\gamma \circ \beta)_c \circ \alpha_c\\
-        &= (\gamma_c \circ \beta_c) \circ \alpha_c\\
-        &= \gamma_c \circ (\beta_c \circ \alpha_c)\\
-        &= \gamma_c \circ (\beta \circ \alpha)_c\\
-        &= (\gamma \circ (\beta \circ \alpha))_c\\
+        ((\gamma \circ \beta) \circ \alpha)_C
+        &= (\gamma \circ \beta)_C \circ \alpha_C\\
+        &= (\gamma_C \circ \beta_C) \circ \alpha_C\\
+        &= \gamma_C \circ (\beta_C \circ \alpha_C)\\
+        &= \gamma_C \circ (\beta \circ \alpha)_C\\
+        &= (\gamma \circ (\beta \circ \alpha))_C\\
       \end{aligned}
     \]
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}
+  For any categories $\C,\D$ there is a category with functors $\C\to\D$ as
+  objects and natural transformations as morphisms. It is called the
+  exponential category.
+
+  \begin{proof}
+    By Definition \ref{def:id_nat_transformation},
+    \ref{def:nat_transformation_cmp} and Theorems \ref{thm:unitality_vertical},
+    \ref{thm:assoc_vertical}.
   \end{proof}
 \end{theorem}

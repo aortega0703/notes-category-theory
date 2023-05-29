@@ -1,24 +1,24 @@
 \subsection{Classification of Functors}
 
 \begin{definition}[Faithful Functor]\index{Faithful Functor}
-  A functor $F:\C\to \D$ is faithful when for every morphism $(f: c\to c') \in
+  A functor $F:\C\to \D$ is faithful when for every morphism $(f: C\to D) \in
   \C_1$, the following function is
   injective~\parencite[p.~25]{leinster:basic_category_theory}:
     \[
       \begin{aligned}
-        F: \C(c, c') &\to \D(F(c), F(c'))\\
+        F: \C(C, D) &\to \D(F(C), F(D))\\
         f &\mapsto F(f)
       \end{aligned}
     \]
 \end{definition}
 
 \begin{definition}[Full Functor]\index{Full Functor}
-  A functor $F:\C\to \D$ is full when for every morphism $(f: c\to c') \in
+  A functor $F:\C\to \D$ is full when for every morphism $(f: C\to D) \in
   \C_1$, the following function is
   surjective~\parencite[p.~25]{leinster:basic_category_theory}:
   \[
     \begin{aligned}
-      F: \C(c, c') &\to \D(F(c), F(c'))\\
+      F: \C(C, D) &\to \D(F(C), F(D))\\
       f &\mapsto F(f)
     \end{aligned}
   \]
@@ -30,44 +30,43 @@
 \end{definition}
 
 \begin{definition}[Bifunctor]\index{Bifunctor}
-  A functor $F:\A\times \B \to \C$ (one with $2$ parameters) is said to be a
+  A functor $F:\A\times \B \to \C$ from a product category is said to be a
   bifunctor~\parencite[p.~37]{lane:working_mathematician}.
 \end{definition}
 
 \begin{definition}[Presheaf]\index{Presheaf}
-  A functor $\C^\op \to \Set$ is a presheaf on
+  A functor $\C^\op \to \Set$ from an opposite category is a presheaf on
   $\C$~\parencite[p.~24]{leinster:basic_category_theory}.
 \end{definition}
 
-\begin{theorem}[Fully Faithful Isomorphism]\label{thm:full_faithful_isomorphism}
-
-  For any full and faithful functor $F:\C\to \D$ it follows that $c \cong c'
-  \iff F(c) \cong F(c')$ for objects $c, c'\in \C_0$.
+\begin{theorem}\label{thm:full_faithful_isomorphism}
+  For any full and faithful functor $F:\C\to \D$ it follows that $C \cong D
+  \iff F(C) \cong F(D)$ for objects $C, D\in \C_0$.
 
   \begin{proof}
     The $(\implies)$ holds via Theorem \ref{thm:isomorphism_functor}. For the
-    $(\impliedby)$ part, consider the isomorphism $Ff: F(c) \overset{\cong}{\to}
-    F(c')$. As $F$ is fully faithful, morphisms $c\to c'$ are in bijection
-    with morphisms $F(c)\to F(c')$, therefore there exists unique arrows $f:c\to c'$ $g:c'\to c$ such that $F(f) = Ff$ and $F(g) = Ff^{-1}$, then:
+    $(\impliedby)$ part, consider the isomorphism $f: F(C) \overset{\cong}{\to}
+    F(D)$. As $F$ is full, there exists morphisms $g:C\to D$, $h:D\to C$
+    such that $F(g) = f$ and $F(h) = f^{-1}$, then:
     \[
       \begin{aligned}
-        &F(\id_c)\\
-        =& \id_{F(c)}\\
-        =& Ff^{-1} \circ Ff\\
-        =& F(g) \circ F(f)\\
-        =& F(g\circ f)
+        F(\id_C)
+        &= \id_{F(C)}\\
+        &= f^{-1} \circ f\\
+        &= F(h) \circ F(g)\\
+        &= F(h\circ g)
       \end{aligned}
       \qquad
       \begin{aligned}
-        &F(\id_{c'})\\
-        =& \id_{F(c')}\\
-        =& Ff \circ Ff^{-1}\\
-        =& F(f) \circ F(g)\\
-        =& F(f\circ g)
+        F(\id_{D})
+        &= \id_{F(D)}\\
+        &= f \circ f^{-1}\\
+        &= F(g) \circ F(h)\\
+        &= F(g\circ h)
       \end{aligned}
     \]
 
-    As $F$ is faithful and $F(\id_c) = F(g\circ f)$, then $g\circ f = \id_c$.
-    Similarly, $f\circ g = \id_{c'}$.
+    As $F$ is faithful and $F(\id_C) = F(h\circ g)$, they must share the same
+    preimage $h\circ g = \id_C$. Similarly, $g\circ h = \id_{D}$.
   \end{proof}
 \end{theorem}

@@ -2,33 +2,77 @@
 
 \begin{definition}[Terminal Object]\index{Terminal Object}
   For a category $\C$, an object $1$ is said to be terminal when there exists a
-  unique morphism $f: c\to 1$ for every object $c\in
-  C$~\parencite[p.~48]{leinster:basic_category_theory}.
+  unique morphism $f: C\to 1$ for every object $C\in
+  \C_0$~\parencite[p.~48]{leinster:basic_category_theory}.
 \end{definition}
 
-\begin{theorem}[Uniqueness of Terminal Objects\label{thm:terminal_object_iso}]
+\begin{theorem}[Uniqueness of Terminal Objects]\label{thm:terminal_object_iso}
   Initial objects in a category are unique up to unique isomorphism.
 
   \begin{proof}
-    By Theorem \ref{thm:initial_object_iso} initial objects are unique up to
-    unique isomorphism. Then by duality of initial and terminal objects, the
-    statement holds.
+    To proof uniqueness up to isomorphism, consider two terminal objects $C$ and
+    $D$, the following diagram must commute as every arrow is unique:
+    % https://q.uiver.app/#q=WzAsNCxbMSwwLCJEIl0sWzAsMCwiQyJdLFsyLDEsIkQiXSxbMSwxLCJDIl0sWzAsMiwiXFxpZF9EIl0sWzEsMywiXFxpZF9DIiwyXSxbMSwwLCJmIl0sWzAsMywiZyIsMl0sWzMsMiwiZiIsMl1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+    \[\begin{tikzcd}[ampersand replacement=\&]
+      C \& D \\
+      \& C \& D
+      \arrow["{\id_D}", from=1-2, to=2-3]
+      \arrow["{\id_C}"', from=1-1, to=2-2]
+      \arrow["f", from=1-1, to=1-2]
+      \arrow["g"', from=1-2, to=2-2]
+      \arrow["f"', from=2-2, to=2-3]
+    \end{tikzcd}\]
+
+    To proof this isomorphism is unique, consider two isomorphisms $f, g:
+    C\overset{\cong}{\to}D$ between terminal objects. As there must be only one arrow $u$ is unique, then
+    $f$ and $g$ must be equal.
   \end{proof}
 \end{theorem}
 
-\begin{theorem}[Isomorphism to Terminal Objects]
+\begin{theorem}\label{thm:iso_then_terminal}
   If an object is isomorphic to a terminal object, then it is terminal.
 
   \begin{proof}
-    By Theorem \ref{thm:iso_initial_object} objects isomorphic to an initial
-    object are initial. Then by duality of initial and terminal objects, the
-    statement holds.
+    Consider a terminal object $1$ and an object $C$ together with an
+    isomorphism $f:C\overset{\cong}{\to} 1$. It is necesary to proof the existence and uniqueness of an arrow from any object $D$ into $C$.
+
+    \begin{description}
+      \item[Existence:]
+        Consider a morphism $g:C'\to 1$ given by the terminality of $1$, then:
+        % https://q.uiver.app/#q=WzAsMyxbMCwxLCIxIl0sWzEsMSwiQyJdLFswLDAsIkQiXSxbMSwwLCJmIiwyLHsib2Zmc2V0IjoxfV0sWzAsMSwiZl57LTF9IiwyLHsib2Zmc2V0IjoxLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiwwLCJnIiwyLHsib2Zmc2V0IjotMX1dLFsyLDEsImZeey0xfVxcY2lyYyBnIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+        \[\begin{tikzcd}[ampersand replacement=\&]
+          D \\
+          1 \& C
+          \arrow["f"', shift right=1, from=2-2, to=2-1]
+          \arrow["{f^{-1}}"', shift right=1, dashed, from=2-1, to=2-2]
+          \arrow["g"', shift left=1, from=1-1, to=2-1]
+          \arrow["{f^{-1}\circ g}", dashed, from=1-1, to=2-2]
+        \end{tikzcd}\]
+      \item[Uniqueness:]
+        Consider a morphism $h:D \to C$, then by terminality of $1$:
+        \[
+          \begin{aligned}
+            g &= f \circ h\\
+            f^{-1} \circ g &= h
+          \end{aligned}
+        \]
+    \end{description}
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}\label{thm:terminal_object_mono}
+  Every arrow coming from a terminal object is a monomorphism.
+
+  \begin{proof}
+    Consider objects $X,C,D$ with $C$ terminal and morphisms $f:C\to D$,
+    $g,h:X\to C$ with $f\circ g = f\circ h$. As $C$ is terminal there must be a
+    unique morphism from any object into it, then $g=h$.
   \end{proof}
 \end{theorem}
 
 \begin{definition}[Initial Object]\index{Initial Object}
   For a category $\C$, an object $0$ is said to be initial when there exists a
-  unique morphism $f: 0\to c$ for every $c\in
+  unique morphism $f: 0\to C$ for every $C\in
   \C_0$~\parencite[p.~48]{leinster:basic_category_theory}.
 \end{definition}
 
@@ -36,59 +80,22 @@
   Initial objects in a category are unique up to unique isomorphism.
 
   \begin{proof}
-    To proof uniqueness up to isomorphism, consider two initial objects $c$ and $c'$, the following diagrams must
-    commute :
-    % https://q.uiver.app/#q=WzAsMyxbMCwwLCJjIl0sWzEsMCwiYyciXSxbMSwxLCJjIl0sWzAsMiwiXFxpZF9jIiwyXSxbMCwxLCJmIl0sWzEsMiwiZyJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
-    \[\begin{tikzcd}[ampersand replacement=\&]
-      c \& {c'} \\
-      \& c
-      \arrow["{\id_c}"', from=1-1, to=2-2]
-      \arrow["f", from=1-1, to=1-2]
-      \arrow["g", from=1-2, to=2-2]
-    \end{tikzcd}
-    \quad
-    % https://q.uiver.app/#q=WzAsMyxbMCwwLCJjJyJdLFsxLDAsImMiXSxbMSwxLCJjJyJdLFswLDIsIlxcaWRfYyIsMl0sWzAsMSwiZyJdLFsxLDIsImYiXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
-    \begin{tikzcd}[ampersand replacement=\&]
-      {c'} \& c \\
-      \& {c'}
-      \arrow["{\id_c}"', from=1-1, to=2-2]
-      \arrow["g", from=1-1, to=1-2]
-      \arrow["f", from=1-2, to=2-2]
-    \end{tikzcd}\]
-
-    To proof this isomorphism is unique, consider two isomorphisms $f, g:
-    u\overset{\cong}{\to}v$ between initial objects. As $u$ is unique, then $f$
-    and $g$ must be equal.
+    By duality of Theorem \ref{thm:terminal_object_iso}.
   \end{proof}
 \end{theorem}
 
-\begin{theorem}[Isomorphism to an Initial Object\label{thm:iso_initial_object}]
+\begin{theorem}\label{thm:iso_initial_object}
   If an object is isomorphic to an initial object, it is also initial.
 
   \begin{proof}
-    Consider an initial object $1$ isomorphic to an object $c$ with an arrow
-    $f:1\to c$. The proof consists on proving the existence and uniqueness of an
-    arrow from $c$ into an arbitrary object $c'$.
+    By duality of Theorem \ref{thm:iso_then_terminal}.
+  \end{proof}
+\end{theorem}
 
-    \begin{description}
-      \item[Existence:]
-        % https://q.uiver.app/#q=WzAsMyxbMCwxLCIxIl0sWzEsMSwiYyJdLFswLDAsImMnIl0sWzAsMSwiZiIsMCx7Im9mZnNldCI6LTF9XSxbMSwwLCJmXnstMX0iLDAseyJvZmZzZXQiOi0xLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwyLCJnIiwwLHsib2Zmc2V0IjoxfV0sWzEsMiwiZ1xcY2lyYyBmXnstMX0iLDJdXQ==
-        \[\begin{tikzcd}[ampersand replacement=\&]
-          {c'} \\
-          1 \& c
-          \arrow["f", shift left=1, from=2-1, to=2-2]
-          \arrow["{f^{-1}}", shift left=1, dashed, from=2-2, to=2-1]
-          \arrow["g", shift right=1, from=2-1, to=1-1]
-          \arrow["{g\circ f^{-1}}"', from=2-2, to=1-1]
-        \end{tikzcd}\]
-      \item[Uniqueness:] Consider an arrow $h:c\to c'$, then by the initiality
-        of $1$:
-        \[
-          \begin{aligned}
-            g &= h\circ f\\
-            g\circ f^{-1} &= h
-          \end{aligned}
-        \]
-    \end{description}
+\begin{theorem}
+  Every arrow coming into an initial object is an epimorphism.
+
+  \begin{proof}
+    By duality of Theorem \ref{thm:terminal_object_mono}.
   \end{proof}
 \end{theorem}

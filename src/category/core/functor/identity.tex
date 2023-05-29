@@ -6,10 +6,10 @@
   consists of maps of~\parencite[p.~27]{adamek_herrlich_strecker:joy_cats}:
   \begin{itemize}
     \item Objects:
-      \[(\forall c \in \C_0)
-        (\id_\C(c) = c)\]
+      \[(\forall C \in \C_0)
+        (\id_\C(C) = C)\]
     \item Morphisms:
-      \[\big(\forall (f: c\to c') \in \C_1\big)
+      \[\big(\forall f \in \C_1\big)
         (\id_C(f) = f)\]
   \end{itemize}
 \end{definition}
@@ -19,7 +19,7 @@
   identity.
 
   \begin{proof}
-    For all objects $c\in \C$, $\id_\C(\id_c) = \id_c$ by definition.
+    For all objects $C\in \C$, $\id_\C(\id_C) = \id_C$ by definition.
   \end{proof}
 \end{theorem}
 
@@ -29,7 +29,7 @@
   composition.
 
   \begin{proof}
-    For all morphisms $f,g\in \C$ with $g$ composable after $f$:
+    For all morphisms $f,g\in \C_1$ with $g$ composable after $f$:
     \[
       \begin{aligned}
         \id_\C(g\circ f)

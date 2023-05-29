@@ -10,29 +10,53 @@ A category can be thought of as the abstraction of a certain structure.
       ($\mathrm{Cod}: \C_1 \to \C_0$).
       \[
         \begin{gathered}
-          (f : c\to c')
-          \coloneqq \mathrm{Dom}(f) = c \land \mathrm{Cod}(f) = c'\\
-          \C(c, c') \coloneqq \{f\ |\ f : c \to c'\}\subseteq \C_1
+          (f : C\to D)
+          \coloneqq (\mathrm{Dom}(f) = C) \land (\mathrm{Cod}(f) = D)\\
+          \C(C, D) \coloneqq \{f\ |\ f : C \to D\}\subseteq \C_1
         \end{gathered}
       \]
     \item Identity morphisms:
-      \[\big(\forall c \in \C_0\big)
-        \big((\id_c : c\to c)\in \C_1\big)\]
+      \[\big(\forall C \in \C_0\big)
+        \big((\id_C : C\to C)\in \C_1\big)\]
     \item Composition of Morphisms:
-      \[\big(\forall (f :a \to b),\ (g : b\to c) \in \C_1\big)
-        \big((g\circ f :a\to c) \in \C_1\big)\]
+      \[\big(\forall (f:A \to B),\ (g : B\to C) \in \C_1\big)
+        \big((g\circ f:A\to C) \in \C_1\big)\]
   \end{itemize}
 
   Such that the following are satisfied:
   \begin{itemize}
     \item Unitality:
-      \[\big(\forall (f:a\to b)\in \C_1\big)
-        \big(f \circ \id_a = \id_b \circ f = f\big)\]
+      \[\big(\forall (f:C\to D)\in \C_1\big)
+        \big(f \circ \id_C = \id_D \circ f = f\big)\]
     \item Associativity:
-      \[\big(\forall (f : a\to b),\ (g: b\to c),\ (h: c\to d)\in\C_1\big)
-        \big((h \circ g) \circ f = h \circ (g \circ f)\big)\]
+      \[
+        \begin{gathered}
+          \big(\forall (f : A\to B),\ (g: B\to C),\ (h: C\to D)\in\C_1\big)\\
+          \big((h \circ g) \circ f = h \circ (g \circ f)\big)
+        \end{gathered}
+      \]
   \end{itemize}
 \end{definition}
+
+\begin{remark}
+  For the sake of simplicity, identity and composite arrows are usually not
+  drawn.
+\end{remark}
+
+\begin{example}
+  % https://q.uiver.app/#q=WzAsNCxbMCwwLCJBIl0sWzIsMSwiQiJdLFsyLDIsIkMiXSxbNCwwLCJEIl0sWzAsMSwiZiIsMV0sWzEsMiwiZyIsMV0sWzIsMywiaCIsMl0sWzAsMiwiZ1xcY2lyYyBmIiwyXSxbMSwzLCJoXFxjaXJjIGciLDFdLFswLDMsImhcXGNpcmMgZ1xcY2lyYyBmIl1d
+  \[\begin{tikzcd}[ampersand replacement=\&,column sep=scriptsize]
+    A \&\&\&\& D \\
+    \&\& B \\
+    \&\& C
+    \arrow["f"{description}, from=1-1, to=2-3]
+    \arrow["g"{description}, from=2-3, to=3-3]
+    \arrow["h"', from=3-3, to=1-5]
+    \arrow["{g\circ f}"', from=1-1, to=3-3]
+    \arrow["{h\circ g}"{description}, from=2-3, to=1-5]
+    \arrow["{h\circ g\circ f}", from=1-1, to=1-5]
+  \end{tikzcd}\]
+\end{example}
 
 \begin{definition}[Opposite category]\index{Opposite category}
 
@@ -41,11 +65,11 @@ A category can be thought of as the abstraction of a certain structure.
 
   \begin{itemize}
     \item Objects:
-      \[(\forall c \in \C_0)
-        (c\in \C^\op_0)\]
+      \[(\forall C \in \C_0)
+        (C\in \C^\op_0)\]
     \item Morphisms:
-      \[\big(\forall (f: c\to c') \in \C_1\big)
-        \big((f^\op : c'\to c)\in \C^\op_1\big)\]
+      \[\big(\forall (f: C\to D) \in \C_1\big)
+        \big((f^\op : D\to C)\in \C^\op_1\big)\]
   \end{itemize}
 \end{definition}
 
