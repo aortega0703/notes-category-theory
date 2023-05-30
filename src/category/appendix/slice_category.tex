@@ -1,0 +1,30 @@
+\chapter{Slice Category}
+
+\begin{definition}[Slice Category]\index{Slice Category}
+  For a category $\A$ and an object $A\in\A_0$, the slice category $\A/A$ is
+  composed by:
+  \begin{itemize}
+    \item Objects:
+      \[\big(\forall (f: B \to A)\in \A_1\big)
+        \big(\<B, f\>\in (\A/A)_0\big)\]
+    \item Morphisms:
+      \[
+        \big(\forall (f: B \to A), (g: C\to A), (h: B\to C)\in \A_1\big)
+        \big((h: \<B,f\> \to \<C, g\>)\big)
+      \]
+      Such that the followin commutes:
+      % https://q.uiver.app/#q=WzAsMyxbMSwxLCJBIl0sWzAsMCwiQiJdLFsxLDAsIkMiXSxbMSwwLCJmIiwyXSxbMiwwLCJnIl0sWzEsMiwiaCJdXQ==
+      \[\begin{tikzcd}[ampersand replacement=\&]
+        B \& C \\
+        \& A
+        \arrow["f"', from=1-1, to=2-2]
+        \arrow["g", from=1-2, to=2-2]
+        \arrow["h", from=1-1, to=1-2]
+      \end{tikzcd}\]
+  \end{itemize}
+\end{definition}
+
+\begin{remark}
+  Note that for a category $\A$ and an object $A\in \A_0$ the slice category
+  $\A/A$ is the comma category $\id_\A \downarrow \Delta_A$.
+\end{remark}
