@@ -18,23 +18,22 @@
   Such that the triangular identities are satisfied (the following diagrams
   commute):
 
-  % https://q.uiver.app/?q=WzAsMyxbMCwwLCJSKGQpIl0sWzEsMCwiKFJcXGNpcmMgTFxcY2lyYyBSKShkKSJdLFswLDEsIlIoZCkiXSxbMCwxLCJcXGV0YV97UihkKX0iXSxbMSwyLCJSKFxcdmFyZXBzaWxvbl9kKSJdLFswLDIsIlxcaWRfe1IoZCl9IiwyXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+  % https://q.uiver.app/#q=WzAsMyxbMCwwLCJSKEQpIl0sWzEsMCwiKFJcXGNpcmMgTFxcY2lyYyBSKShEKSJdLFswLDEsIlIoRCkiXSxbMCwxLCJcXGV0YV97UihEKX0iXSxbMSwyLCJSKFxcdmFyZXBzaWxvbl9EKSJdLFswLDIsIlxcaWRfe1IoRCl9IiwyXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
   \[\begin{tikzcd}[ampersand replacement=\&]
-    {R(d)} \& {(R\circ L\circ R)(d)} \\
-    {R(d)}
-    \arrow["{\eta_{R(d)}}", from=1-1, to=1-2]
-    \arrow["{R(\varepsilon_d)}", from=1-2, to=2-1]
-    \arrow["{\id_{R(d)}}"', from=1-1, to=2-1]
+    {R(D)} \& {(R\circ L\circ R)(D)} \\
+    {R(D)}
+    \arrow["{\eta_{R(D)}}", from=1-1, to=1-2]
+    \arrow["{R(\varepsilon_D)}", from=1-2, to=2-1]
+    \arrow["{\id_{R(D)}}"', from=1-1, to=2-1]
   \end{tikzcd}
-  % https://q.uiver.app/?q=WzAsMyxbMSwwLCJMKGMpIl0sWzAsMSwiKExcXGNpcmMgUlxcY2lyYyBMKShjKSJdLFsxLDEsIkwoYykiXSxbMCwxLCJMKFxcZXRhX2MpIiwyXSxbMSwyLCJcXHZhcmVwc2lsb25fe0woYyl9IiwyXSxbMCwyLCJcXGlkX3tMKGMpfSJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+  % https://q.uiver.app/#q=WzAsMyxbMSwwLCJMKEMpIl0sWzAsMSwiKExcXGNpcmMgUlxcY2lyYyBMKShDKSJdLFsxLDEsIkwoQykiXSxbMCwxLCJMKFxcZXRhX0MpIiwyXSxbMSwyLCJcXHZhcmVwc2lsb25fe0woQyl9IiwyXSxbMCwyLCJcXGlkX3tMKEMpfSJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
   \begin{tikzcd}[ampersand replacement=\&]
-    \& {L(c)} \\
-    {(L\circ R\circ L)(c)} \& {L(c)}
-    \arrow["{L(\eta_c)}"', from=1-2, to=2-1]
-    \arrow["{\varepsilon_{L(c)}}"', from=2-1, to=2-2]
-    \arrow["{\id_{L(c)}}", from=1-2, to=2-2]
-  \end{tikzcd}
-  \]
+    \& {L(C)} \\
+    {(L\circ R\circ L)(C)} \& {L(C)}
+    \arrow["{L(\eta_C)}"', from=1-2, to=2-1]
+    \arrow["{\varepsilon_{L(C)}}"', from=2-1, to=2-2]
+    \arrow["{\id_{L(C)}}", from=1-2, to=2-2]
+  \end{tikzcd}\]
 \end{definition}
 
 \begin{theorem}[Adjunctions Definitions]
@@ -50,91 +49,94 @@
         triangle identities consider:
         \[
           \begin{aligned}
-            \id_{L(c)} &= \overline{\eta_c}\\
-              &= \overline{R(\id_{L(c)})\circ R(\id_{L(c)})\circ \eta_c}\\
-              &= \id_{L(c)} \circ \epsilon_{L(c)}\circ L(\eta_c)\\
-              &= \epsilon_{L(c)}\circ L(\eta_c)
+              &\phantom{=\ }\id_{L(C)}\\
+              &= \overline{\eta_C}\\
+              &= \overline{R(\id_{L(C)})\circ R(\id_{L(C)})\circ \eta_C}\\
+              &= \id_{L(C)} \circ \epsilon_{L(C)}\circ L(\eta_C)\\
+              &= \epsilon_{L(C)}\circ L(\eta_C)
           \end{aligned}
           \qquad
           \begin{aligned}
-            \id_{R(d)} &= \overline{\epsilon_d}\\
-              &= \overline{\epsilon_d
-                \circ L(\id_{R(d)})\circ L(\id_{R(d)})}\\
-              &= R(\epsilon_d) \circ \eta_{R(d)} \circ \id_{R(d)}\\
-              &= R(\epsilon_d) \circ \eta_{R(d)}
+              &\phantom{=\ }\id_{R(D)}\\
+              &= \overline{\epsilon_D}\\
+              &= \overline{\epsilon_D
+                \circ L(\id_{R(D)})\circ L(\id_{R(D)})}\\
+              &= R(\epsilon_D) \circ \eta_{R(D)} \circ \id_{R(D)}\\
+              &= R(\epsilon_D) \circ \eta_{R(D)}
           \end{aligned}
         \]
       \item[($\impliedby$)] For a pair of left/right adjoints $L:\C\to \D$,
         $R:\D\to \C$, consider two functions:
         \[
           \begin{aligned}
-            \phi: \D(L(c), d) &\to \C(c, R(d))\\
-            u &\mapsto R(u)\circ \eta_c
+            \phi: \D(L(C), D) &\to \C(C, R(D))\\
+            u &\mapsto R(u)\circ \eta_C
           \end{aligned}
           \qquad
           \begin{aligned}
-            \psi: \C(c, R(d)) &\to \D(L(c), d)\\
-            v &\mapsto \epsilon_d \circ L(v)
+            \psi: \C(C, R(D)) &\to \D(L(C), D)\\
+            v &\mapsto \epsilon_D \circ L(v)
           \end{aligned}
         \]
-        By combining the triangle identities, and the naturality condition of $\eta$ and $\epsilon$:
+        By using the triangle identities, and the naturality condition of $\eta$
+        and $\epsilon$:
 
-        % https://q.uiver.app/?q=WzAsNSxbMCwxLCJSKGQpIl0sWzEsMSwiKFJcXGNpcmMgTFxcY2lyYyBSKShkKSJdLFswLDIsIlIoZCkiXSxbMSwwLCIoTFxcY2lyYyBSKShjKSJdLFswLDAsImMiXSxbMCwyLCJcXGlkX3tSKGQpfSIsMl0sWzAsMSwiXFxldGFfe1IoZCl9Il0sWzEsMiwiUihcXHZhcmVwc2lsb25fZCkiXSxbMywxLCIoTFxcY2lyYyBSKSh2KSJdLFs0LDAsInYiLDJdLFs0LDMsIlxcZXRhX3giXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+        % https://q.uiver.app/#q=WzAsNSxbMCwxLCJSKEQpIl0sWzEsMSwiKFJcXGNpcmMgTFxcY2lyYyBSKShEKSJdLFswLDIsIlIoRCkiXSxbMSwwLCIoTFxcY2lyYyBSKShDKSJdLFswLDAsIkMiXSxbMCwyLCJcXGlkX3tSKEQpfSIsMl0sWzAsMSwiXFxldGFfe1IoRCl9Il0sWzEsMiwiUihcXHZhcmVwc2lsb25fRCkiXSxbMywxLCIoTFxcY2lyYyBSKSh2KSJdLFs0LDAsInYiLDJdLFs0LDMsIlxcZXRhX0MiXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
         \[\begin{tikzcd}[ampersand replacement=\&]
-          c \& {(L\circ R)(c)} \\
-          {R(d)} \& {(R\circ L\circ R)(d)} \\
-          {R(d)}
-          \arrow["{\id_{R(d)}}"', from=2-1, to=3-1]
-          \arrow["{\eta_{R(d)}}", from=2-1, to=2-2]
-          \arrow["{R(\varepsilon_d)}", from=2-2, to=3-1]
+          C \& {(L\circ R)(C)} \\
+          {R(D)} \& {(R\circ L\circ R)(D)} \\
+          {R(D)}
+          \arrow["{\id_{R(D)}}"', from=2-1, to=3-1]
+          \arrow["{\eta_{R(D)}}", from=2-1, to=2-2]
+          \arrow["{R(\varepsilon_D)}", from=2-2, to=3-1]
           \arrow["{(L\circ R)(v)}", from=1-2, to=2-2]
           \arrow["v"', from=1-1, to=2-1]
-          \arrow["{\eta_x}", from=1-1, to=1-2]
+          \arrow["{\eta_C}", from=1-1, to=1-2]
         \end{tikzcd}
         \quad
         \begin{aligned}
           (\phi\circ\psi)(v)
-            &= R(\epsilon_y)\circ (R\circ L)(v) \circ \eta_x\\
-            &= R(\epsilon_y) \circ \eta_{R(d)} \circ v\\
-            &= \id_{R(d)} \circ v\\
+            &= R(\epsilon_D)\circ (R\circ L)(v) \circ \eta_C\\
+            &= R(\epsilon_D) \circ \eta_{R(D)} \circ v\\
+            &= \id_{R(D)} \circ v\\
             &= v
         \end{aligned}
         \]
-        % https://q.uiver.app/?q=WzAsNSxbMSwwLCJMKGMpIl0sWzAsMSwiKExcXGNpcmMgUlxcY2lyYyBMKShjKSJdLFsxLDEsIkwoYykiXSxbMCwyLCIoTFxcY2lyYyBSKShkKSJdLFsxLDIsImQiXSxbMCwyLCJcXGlkX3tMKGMpfSJdLFswLDEsIkwoXFxldGFfYykiLDJdLFsxLDIsIlxcdmFyZXBzaWxvbl97TCh4KX0iXSxbMiw0LCJ1Il0sWzEsMywiKExcXGNpcmMgUikodSkiLDJdLFszLDQsIlxcdmFyZXBzaWxvbl9kIiwyXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+        % https://q.uiver.app/#q=WzAsNSxbMSwwLCJMKEMpIl0sWzAsMSwiKExcXGNpcmMgUlxcY2lyYyBMKShDKSJdLFsxLDEsIkwoQykiXSxbMCwyLCIoTFxcY2lyYyBSKShkKSJdLFsxLDIsImQiXSxbMCwyLCJcXGlkX3tMKEMpfSJdLFswLDEsIkwoXFxldGFfQykiLDJdLFsxLDIsIlxcdmFyZXBzaWxvbl97TChDKX0iXSxbMiw0LCJ1Il0sWzEsMywiKExcXGNpcmMgUikodSkiLDJdLFszLDQsIlxcdmFyZXBzaWxvbl9EIiwyXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
         \[\begin{tikzcd}[ampersand replacement=\&]
-          \& {L(c)} \\
-          {(L\circ R\circ L)(c)} \& {L(c)} \\
+          \& {L(C)} \\
+          {(L\circ R\circ L)(C)} \& {L(C)} \\
           {(L\circ R)(d)} \& d
-          \arrow["{\id_{L(c)}}", from=1-2, to=2-2]
-          \arrow["{L(\eta_c)}"', from=1-2, to=2-1]
-          \arrow["{\varepsilon_{L(x)}}", from=2-1, to=2-2]
+          \arrow["{\id_{L(C)}}", from=1-2, to=2-2]
+          \arrow["{L(\eta_C)}"', from=1-2, to=2-1]
+          \arrow["{\varepsilon_{L(C)}}", from=2-1, to=2-2]
           \arrow["u", from=2-2, to=3-2]
           \arrow["{(L\circ R)(u)}"', from=2-1, to=3-1]
-          \arrow["{\varepsilon_d}"', from=3-1, to=3-2]
+          \arrow["{\varepsilon_D}"', from=3-1, to=3-2]
         \end{tikzcd}
         \quad
         \begin{aligned}
           (\psi\circ \phi)(u)
-          &= \epsilon_d \circ (L\circ R)(u) \circ L(\eta_c)\\
-          &= u \circ \epsilon_{L(c)} \circ L(\eta_c)\\
-          &= u \circ \id_{L(c)}\\
+          &= \epsilon_D \circ (L\circ R)(u) \circ L(\eta_C)\\
+          &= u \circ \epsilon_{L(C)} \circ L(\eta_C)\\
+          &= u \circ \id_{L(C)}\\
           &= u
         \end{aligned}
         \] In order to prove naturality it is sufficient to prove that for
-        morphisms $g:c'\to c$ and $h:d\to d'$ Theorem \ref{thm:transpose2}
+        morphisms $g:C'\to C$ and $h:D\to D'$ Theorem \ref{thm:transpose2}
         holds:
         \[
           \begin{aligned}
             \phi(h\circ u)
-              &= R(h\circ u) \circ \eta_c\\
-              &= R(h) \circ R(u) \circ \eta_c\\
+              &= R(h\circ u) \circ \eta_C\\
+              &= R(h) \circ R(u) \circ \eta_C\\
               &= R(h) \circ \phi(u)
           \end{aligned}
           \qquad
           \begin{aligned}
             \psi(v\circ g)
-              &= \epsilon_d \circ L(v\circ g)\\
-              &= \epsilon_d \circ L(v) \circ L(g)\\
+              &= \epsilon_D \circ L(v\circ g)\\
+              &= \epsilon_D \circ L(v) \circ L(g)\\
               &= \psi(v) \circ L(g)
           \end{aligned}
         \]

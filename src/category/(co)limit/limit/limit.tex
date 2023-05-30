@@ -2,14 +2,12 @@
 
 \begin{definition}[Limit]\index{Limit}
 
-	The limit of a functor $F:\I\to \C$ is a terminal object in
-	the category
+	The limit of a functor $F$ is a terminal object in
 	$\mathrm{cone}(F)$~\parencite[p.~118]{leinster:basic_category_theory}.
 \end{definition}
 
 \begin{theorem}[Uniqueness of Limits\label{thm:limit_iso}]
-	If there exists multiple limits for the same functor, then they are all
-	isomorphic.
+	The limit of a functor is unique up to isomorphism.
 
 	\begin{proof}
 		A limit can be seen as a terminal morphism, which are unique up to
@@ -17,6 +15,8 @@
 		also unique up to isomorphism.
 	\end{proof}
 \end{theorem}
+
+\newpage
 
 \subimport{product/}{product.tex}
 

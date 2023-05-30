@@ -4,40 +4,41 @@
   Morphism}\label{def:adjunction_terminal}
 
   The pair of functors $\<L: \C\to \D$, $R: \D\to \C\>$, is left/right adjoint
-  of each other when there exists a terminal morphism $(R(d), \epsilon_d:
-  (L\circ R)(d) \to d)$ from every $d\in \D_0$ to
+  of each other when there exists a terminal morphism $(R(D), \epsilon_D:
+  (L\circ R)(D) \to D)$ from every $D\in \D_0$ to
   $L$~\parencite[p.~214]{awodey:category_theory}:
-  % https://q.uiver.app/?q=WzAsNSxbMCwxLCJSKGQpIl0sWzAsMCwiYyJdLFsxLDAsIkwoYykiXSxbMSwxLCIoTFxcY2lyYyBSKShkKSJdLFsyLDEsImQiXSxbMSwwLCJcXG92ZXJsaW5le3V9IiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsMywiTChcXG92ZXJsaW5le3V9KSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDQsIlxcdmFyZXBzaWxvbl9kIiwyXSxbMiw0LCJ1Il1d
+  % https://q.uiver.app/#q=WzAsNSxbMCwxLCJSKEQpIl0sWzAsMCwiQyJdLFsxLDAsIkwoQykiXSxbMSwxLCIoTFxcY2lyYyBSKShEKSJdLFsyLDEsIkQiXSxbMSwwLCJcXG92ZXJsaW5le3V9IiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsMywiTChcXG92ZXJsaW5le3V9KSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDQsIlxcdmFyZXBzaWxvbl9EIiwyXSxbMiw0LCJ1Il1d
   \[\begin{tikzcd}[ampersand replacement=\&]
-    c \& {L(c)} \\
-    {R(d)} \& {(L\circ R)(d)} \& d
+    C \& {L(C)} \\
+    {R(D)} \& {(L\circ R)(D)} \& D
     \arrow["{\overline{u}}"', dashed, from=1-1, to=2-1]
     \arrow["{L(\overline{u})}"', dashed, from=1-2, to=2-2]
-    \arrow["{\varepsilon_d}"', from=2-2, to=2-3]
+    \arrow["{\varepsilon_D}"', from=2-2, to=2-3]
     \arrow["u", from=1-2, to=2-3]
   \end{tikzcd}\]
 \end{definition}
 
 \begin{theorem}[Naturality of $\epsilon$]
-  In Definition \ref{def:adjunction_terminal}, $\epsilon: L\circ R \to \id_d$
+  In Definition \ref{def:adjunction_terminal}, $\epsilon: L\circ R \to \id_D$
   is a natural transformation.
 
   \begin{proof}
-    Take two objects $d,d'\in \D_0$ with a morphism $h:d\to d'$. Then by the
-    definition of $\varepsilon_{d}$ it follows that $\eta_c\circ h = (R\circ
-    L)(c)\circ \eta_{c'}$, fulfilling the naturality condition in:
-    % https://q.uiver.app/?q=WzAsNixbMiwwLCJkIl0sWzIsMSwiZCciXSxbMSwwLCIoTFxcY2lyYyBSKShkKSJdLFswLDAsIlIoZCkiXSxbMCwxLCJSKGQnKSJdLFsxLDEsIihMXFxjaXJjIFIpKGQnKSJdLFswLDEsImgiXSxbMyw0LCJSKGgpIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsMCwiXFxlcHNpbG9uX2QiXSxbNSwxLCJcXGVwc2lsb25fe2QnfSIsMl0sWzIsMSwiaFxcY2lyY1xcZXBzaWxvbl9kIiwxXSxbMiw1LCIoTFxcY2lyYyBSKShoKSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+    Take two objects $D,D'\in \D_0$ with a morphism $h:D\to D'$. Then by the
+    definition of $\varepsilon_{D}$ it follows that $\eta_C\circ h = (R\circ
+    L)(C)\circ \eta_{C'}$, fulfilling the naturality condition in:
+    % https://q.uiver.app/#q=WzAsNixbMiwwLCJEIl0sWzIsMSwiRCciXSxbMSwwLCIoTFxcY2lyYyBSKShEKSJdLFswLDAsIlIoRCkiXSxbMCwxLCJSKEQnKSJdLFsxLDEsIihMXFxjaXJjIFIpKEQnKSJdLFswLDEsImgiXSxbMyw0LCJSKGgpIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsMCwiXFxlcHNpbG9uX0QiXSxbNSwxLCJcXGVwc2lsb25fe0QnfSIsMl0sWzIsMSwiaFxcY2lyY1xcZXBzaWxvbl9EIiwxXSxbMiw1LCIoTFxcY2lyYyBSKShoKSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
     \[\begin{tikzcd}[ampersand replacement=\&]
-      {R(d)} \& {(L\circ R)(d)} \& d \\
-      {R(d')} \& {(L\circ R)(d')} \& {d'}
+      {R(D)} \& {(L\circ R)(D)} \& D \\
+      {R(D')} \& {(L\circ R)(D')} \& {D'}
       \arrow["h", from=1-3, to=2-3]
       \arrow["{R(h)}"', dashed, from=1-1, to=2-1]
-      \arrow["{\epsilon_d}", from=1-2, to=1-3]
-      \arrow["{\epsilon_{d'}}"', from=2-2, to=2-3]
-      \arrow["{h\circ\epsilon_d}"{description}, from=1-2, to=2-3]
+      \arrow["{\epsilon_D}", from=1-2, to=1-3]
+      \arrow["{\epsilon_{D'}}"', from=2-2, to=2-3]
+      \arrow["{h\circ\epsilon_D}"{description}, from=1-2, to=2-3]
       \arrow["{(L\circ R)(h)}"', dashed, from=1-2, to=2-2]
     \end{tikzcd}\]
   \end{proof}
+  \vspace{-\baselineskip}
 \end{theorem}
 
 \begin{theorem}[Adjunction Definitions]
@@ -48,54 +49,55 @@
     The proof consists of two parts:
     \begin{description}
       \item[$(\implies)$] By Theorem \ref{thm:counit_exists} $\epsilon:(L\circ
-        R) \to \id_\D$ exists. As $\overline{u}$ is unique for every $u$, then for
-        any $d\in\D_0$ the terminal morphism from $L$ to $d$ can be constructed
-        in the following manner:
-        % https://q.uiver.app/?q=WzAsNixbMiwwLCJkIl0sWzIsMSwiZCciXSxbMCwwLCJSKGQpIl0sWzAsMSwiUihkJykiXSxbMSwwLCIoTFxcY2lyYyBSKShkKSJdLFsxLDEsIihMXFxjaXJjIFIpKGQnKSJdLFs0LDAsIlxcZXBzaWxvbl9kIl0sWzUsMSwiXFxlcHNpbG9uX3tkJ30iLDJdLFswLDEsImciXSxbMiwzLCJSKGcpIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMSwiZ1xcY2lyYyBcXGVwc2lsb25fZCIsMV0sWzQsNSwiKExcXGNpcmMgUikoZykiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
-        \[\begin{tikzcd}[ampersand replacement=\&] {R(d)} \& {(L\circ R)(d)} \&
-          d \\
-          {R(d')} \& {(L\circ R)(d')} \& {d'}
-          \arrow["{\epsilon_d}", from=1-2, to=1-3]
-          \arrow["{\epsilon_{d'}}"', from=2-2, to=2-3]
+        R) \to \id_\D$ exists. As $\overline{u}$ is unique for every $u$, then
+        for any $D\in\D_0$ the terminal morphism from $L$ to $D$ can be
+        constructed in the following manner:
+        % https://q.uiver.app/#q=WzAsNixbMiwwLCJEIl0sWzIsMSwiRCciXSxbMCwwLCJSKEQpIl0sWzAsMSwiUihEJykiXSxbMSwwLCIoTFxcY2lyYyBSKShEKSJdLFsxLDEsIihMXFxjaXJjIFIpKEQnKSJdLFs0LDAsIlxcZXBzaWxvbl9EIl0sWzUsMSwiXFxlcHNpbG9uX3tEJ30iLDJdLFswLDEsImciXSxbMiwzLCJSKGcpIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMSwiZ1xcY2lyYyBcXGVwc2lsb25fRCIsMV0sWzQsNSwiKExcXGNpcmMgUikoZykiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+        \[\begin{tikzcd}[ampersand replacement=\&]
+          {R(D)} \& {(L\circ R)(D)} \& D \\
+          {R(D')} \& {(L\circ R)(D')} \& {D'}
+          \arrow["{\epsilon_D}", from=1-2, to=1-3]
+          \arrow["{\epsilon_{D'}}"', from=2-2, to=2-3]
           \arrow["g", from=1-3, to=2-3]
           \arrow["{R(g)}"', dashed, from=1-1, to=2-1]
-          \arrow["{g\circ \epsilon_d}"{description}, from=1-2, to=2-3]
+          \arrow["{g\circ \epsilon_D}"{description}, from=1-2, to=2-3]
           \arrow["{(L\circ R)(g)}"', dashed, from=1-2, to=2-2]
         \end{tikzcd}\]
       \item[$(\impliedby)$] Consider the function:
         \[
           \begin{aligned}
-            \psi:&&\C(c, R(d)) &\to \D(L(c), d)\\
-            &&v&\mapsto \epsilon_d\circ L(v)
+            \psi:&&\C(C, R(D)) &\to \D(L(C), D)\\
+            &&v&\mapsto \epsilon_D\circ L(v)
           \end{aligned}
         \]
-        By Definition \ref{def:adjunction_terminal} every $u:L(c)\to d$ can be
-        expressed as $\psi(\overline{u})$ for a unique $\overline{u}:c\to R(d)$,
+        By Definition \ref{def:adjunction_terminal} every $u:L(C)\to D$ can be
+        expressed as $\psi(\overline{u})$ for a unique $\overline{u}:C\to R(D)$,
         which makes $\psi$ a bijection and therefore an isomorphism. To prove
-        naturality of $\psi$ consider $g:c'\to c$ and $h:d\to d'$:
-        % https://q.uiver.app/?q=WzAsNCxbMSwwLCJcXG1hdGhjYWx7RH0oTChjKSwgZCkiXSxbMCwwLCJcXG1hdGhjYWx7Q30oYywgUihkKSkiXSxbMSwxLCJcXG1hdGhjYWx7RH0oTChjJyksIGQnKSJdLFswLDEsIlxcbWF0aGNhbHtDfShjJywgUihkJykpIl0sWzEsMCwiXFxwc2lfe2MsZH0iXSxbMCwyLCJcXG1hdGhjYWx7RH0oTChnKSxoKSJdLFszLDIsIlxccHNpX3tjJyxkJ30iLDJdLFsxLDMsIlxcbWF0aGNhbHtDfShnLFIoaCkpIiwyXSxbMSwwLCJcXGNvbmciLDJdLFszLDIsIlxcY29uZyJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+        naturality of $\psi$ consider $g:C'\to C$ and $h:D\to D'$:
+        % https://q.uiver.app/#q=WzAsNCxbMSwwLCJcXG1hdGhjYWx7RH0oTChDKSwgRCkiXSxbMCwwLCJcXG1hdGhjYWx7Q30oQywgUihEKSkiXSxbMSwxLCJcXG1hdGhjYWx7RH0oTChDJyksIEQnKSJdLFswLDEsIlxcbWF0aGNhbHtDfShDJywgUihEJykpIl0sWzEsMCwiXFxwc2lfe1xcbGFuZ2xlIEMsRFxccmFuZ2xlfSJdLFswLDIsIlxcbWF0aGNhbHtEfShMKGcpLGgpIl0sWzMsMiwiXFxwc2lfe1xcbGFuZ2xlIEMnLEQnXFxyYW5nbGV9IiwyXSxbMSwzLCJcXG1hdGhjYWx7Q30oZyxSKGgpKSIsMl0sWzMsMiwiXFxjb25nIl0sWzEsMCwiXFxjb25nIiwyXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
         \[\begin{tikzcd}[ampersand replacement=\&]
-          {\mathcal{C}(c, R(d))} \& {\mathcal{D}(L(c), d)} \\
-          {\mathcal{C}(c', R(d'))} \& {\mathcal{D}(L(c'), d')}
-          \arrow["{\psi_{c,d}}", from=1-1, to=1-2]
+          {\mathcal{C}(C, R(D))} \& {\mathcal{D}(L(C), D)} \\
+          {\mathcal{C}(C', R(D'))} \& {\mathcal{D}(L(C'), D')}
+          \arrow["{\psi_{\langle C,D\rangle}}", from=1-1, to=1-2]
           \arrow["{\mathcal{D}(L(g),h)}", from=1-2, to=2-2]
-          \arrow["{\psi_{c',d'}}"', from=2-1, to=2-2]
+          \arrow["{\psi_{\langle C',D'\rangle}}"', from=2-1, to=2-2]
           \arrow["{\mathcal{C}(g,R(h))}"', from=1-1, to=2-1]
-          \arrow["\cong"', from=1-1, to=1-2]
           \arrow["\cong", from=2-1, to=2-2]
+          \arrow["\cong"', from=1-1, to=1-2]
         \end{tikzcd}\]
         \[
           \begin{aligned}
-            \big(\D(L(g), h)\circ \psi_{c, d}\big)(v)
-            &= \D(L(g), h) (\epsilon_d \circ L(v))\\
+            \big(\D(L(g), h)\circ \psi_{C, D}\big)(v)
+            &= \D(L(g), h) (\epsilon_D \circ L(v))\\
             &= h \circ \epsilon_d \circ L(v) \circ L(g)\\
-            &= \epsilon_{d'}\circ (L\circ R)(h) \circ L(v) \circ L(g)\\
-            &= \epsilon_{d'}\circ L(R(h) \circ v \circ g)\\
-            &= \psi_{c', d'} (R(h) \circ v \circ g)\\
-            &= \psi_{c', d'} (\C(g, R(h))(v))\\
-            &= \big(\psi_{c', d'} \circ \C(g, R(h))\big)(v)
+            &= \epsilon_{D'}\circ (L\circ R)(h) \circ L(v) \circ L(g)\\
+            &= \epsilon_{D'}\circ L(R(h) \circ v \circ g)\\
+            &= \psi_{C', D'} (R(h) \circ v \circ g)\\
+            &= \psi_{C', D'} (\C(g, R(h))(v))\\
+            &= \big(\psi_{C', D'} \circ \C(g, R(h))\big)(v)
           \end{aligned}
         \]
     \end{description}
+    \vspace{-\baselineskip}
   \end{proof}
 \end{theorem}

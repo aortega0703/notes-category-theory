@@ -1,8 +1,8 @@
 \section{Cocones}
 
 \begin{definition}[Cocone]\index{Cocone}
-  A cocone is a natural transformation $\alpha: F \Rightarrow \Delta_d$ to the
-	constant functor $\Delta_d:\C\to \D$, where $d$ is the apex of the
+  A cocone is a natural transformation $\alpha: F \Rightarrow \Delta_D$ to the
+	constant functor $\Delta_D:\C\to \D$, where $D$ is the apex of the
 	cone~\parencite[p.~126]{leinster:basic_category_theory}.
 \end{definition}
 
@@ -12,19 +12,19 @@
 
   \begin{itemize}
     \item Objects:
-      \[\big(d, \big(d_c: F(c) \to d\big)_{c\in \C_0}\big)\in
+      \[\big(D, \big(D_C: F(C) \to D\big)_{C\in \C_0}\big)\in
         \mathrm{cone}(F)_0\]
     \item Morphisms:
-      \[\big(\forall (f : d\to d')\in \D_1\big)
-        \big((f:\<d, d_*\>\to \<d', d'_*\>)\in \mathrm{cocone}(F)_1\big)\]
+      \[\big(\forall (f : D\to D')\in \D_1\big)
+        \big((f:\<D, D_*\>\to \<D', D'_*\>)\in \mathrm{cocone}(F)_1\big)\]
 
-      Such that for every $c\in C$ the following commutes:
-      % https://q.uiver.app/?q=WzAsMyxbMCwxLCJkIl0sWzEsMSwiZCciXSxbMCwwLCJGKGMpIl0sWzIsMCwiZF9jIiwyXSxbMiwxLCJkJ19jIl0sWzAsMSwiZiIsMl1d
+      Such that for every $C\in \C_0$ the following commutes:
+      % https://q.uiver.app/#q=WzAsMyxbMCwxLCJEIl0sWzEsMSwiRCciXSxbMCwwLCJGKEMpIl0sWzIsMCwiRF9DIiwyXSxbMiwxLCJEJ19DIl0sWzAsMSwiZiIsMl1d
       \[\begin{tikzcd}[ampersand replacement=\&]
-        {F(c)} \\
-        d \& {d'}
-        \arrow["{d_c}"', from=1-1, to=2-1]
-        \arrow["{d'_c}", from=1-1, to=2-2]
+        {F(C)} \\
+        D \& {D'}
+        \arrow["{D_C}"', from=1-1, to=2-1]
+        \arrow["{D'_C}", from=1-1, to=2-2]
         \arrow["f"', from=2-1, to=2-2]
       \end{tikzcd}\]
   \end{itemize}

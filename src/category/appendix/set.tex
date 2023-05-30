@@ -33,7 +33,7 @@
 
   For sets $A,B$, a function $f:A\to B$ is said to be injective if the following
   holds:
-  \[f(a)=f(b) \implies a=b,\ (\forall a\in A,\ b\in B)\]
+  \[\big(\forall a\in A,\ b\in B\big)\big(f(a)=f(b) \implies a=b\big)\]
 \end{definition}
 
 \begin{theorem}[Monomorphisms in Set]\label{thm:mono_iff_inj}
@@ -102,7 +102,7 @@
             g:B &\to B \cup \{B\}\\
             b &\mapsto b
           \end{aligned}
-          \quad
+          \qquad
           \begin{aligned}[t]
             h:B &\to B \cup \{B\}\\
             b &\mapsto
@@ -128,8 +128,8 @@
             g\circ f &\neq h\circ f
           \end{aligned}
         \]
-        Then, by contrapositive $g\circ f = h\circ f \implies g=h$, implying
-        that $f$ is epic.
+        Then, by contrapositive $g\circ f = h\circ f \implies g=h$, therefore
+        $f$ is epic.
     \end{description}
   \end{proof}
 \end{theorem}
@@ -162,7 +162,7 @@
         \[
           \begin{aligned}
             (f^{-1}\circ f)(a)
-            = f^{-1}(b)\\
+            &= f^{-1}(b)\\
             &= a\\
             f^{-1}\circ f &= \id_A
           \end{aligned}

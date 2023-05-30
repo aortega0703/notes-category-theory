@@ -16,21 +16,21 @@ Isomorphism}\label{def:adjunction_isomorphism}
   \]
 
   \begin{itemize}
-    \item $(c', d)$-Components:
+    \item $\<C, D\>$-Components:
       \[
-        \alpha_{c', d}
-          = \D(L(c), d) \overset{\cong}{\to} \C(c, R(d))\\
+        \alpha_{C, D}
+          = \D(L(C), D) \overset{\cong}{\to} \C(C, R(D))\\
       \]
     \item Naturality Condition:\\
-      For every $f = \<g, h\>: \<c', d\> \to \<c, d'\>$, the following commutes:
-      % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXEQoTChjKSwgZCkiXSxbMSwwLCJcXEMoYywgUihkKSkiXSxbMCwxLCJcXEQoTChjJyksZCcpIl0sWzEsMSwiXFxDKGMnLFIoZCcpKSJdLFswLDIsIlxcRChMKGcpLCBoKSIsMl0sWzEsMywiXFxDKGcsIFIoaCkpIl0sWzAsMSwiXFxhbHBoYV97YywgZH0iXSxbMiwzLCJcXGFscGhhX3tjJyxkJ30iLDJdLFswLDEsIlxcY29uZyIsMl0sWzIsMywiXFxjb25nIl1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+      For every $f = \<g, h\>: \<C', D\> \to \<C, D'\>$, the following commutes:
+      % https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXEQoTChDKSwgRCkiXSxbMSwwLCJcXEMoQywgUihEKSkiXSxbMCwxLCJcXEQoTChDJyksRCcpIl0sWzEsMSwiXFxDKEMnLFIoRCcpKSJdLFswLDIsIlxcRChMKGcpLCBoKSIsMl0sWzEsMywiXFxDKGcsIFIoaCkpIl0sWzAsMSwiXFxhbHBoYV97XFxsYW5nbGUgQywgRFxccmFuZ2xlfSJdLFsyLDMsIlxcYWxwaGFfe1xcbGFuZ2xlIEMnLEQnXFxyYW5nbGV9IiwyXSxbMCwxLCJcXGNvbmciLDJdLFsyLDMsIlxcY29uZyJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
       \[\begin{tikzcd}[ampersand replacement=\&]
-        {\D(L(c), d)} \& {\C(c, R(d))} \\
-        {\D(L(c'),d')} \& {\C(c',R(d'))}
+        {\D(L(C), D)} \& {\C(C, R(D))} \\
+        {\D(L(C'),D')} \& {\C(C',R(D'))}
         \arrow["{\D(L(g), h)}"', from=1-1, to=2-1]
         \arrow["{\C(g, R(h))}", from=1-2, to=2-2]
-        \arrow["{\alpha_{c, d}}", from=1-1, to=1-2]
-        \arrow["{\alpha_{c',d'}}"', from=2-1, to=2-2]
+        \arrow["{\alpha_{\langle C, D\rangle}}", from=1-1, to=1-2]
+        \arrow["{\alpha_{\langle C',D'\rangle}}"', from=2-1, to=2-2]
         \arrow["\cong"', from=1-1, to=1-2]
         \arrow["\cong", from=2-1, to=2-2]
       \end{tikzcd}\]
@@ -65,9 +65,9 @@ Isomorphism}\label{def:adjunction_isomorphism}
   \ref{def:adjunction_isomorphism}:
   \[
     \begin{aligned}
-      \phi_{(c, d)}: \D(L(c), d) &\to \C(c, R(d))\\
+      \phi_{\<C, D\>}: \D(L(C), D) &\to \C(C, R(D))\\
       u &\mapsto \overline{u}\\
-      \psi_{(c, d)}: \C(c, R(d)) &\to \D(L(c), d)\\
+      \psi_{\<C, D\>}: \C(C, R(D)) &\to \D(L(C), D)\\
       v &\mapsto \overline{v}
     \end{aligned}
   \]
@@ -75,7 +75,7 @@ Isomorphism}\label{def:adjunction_isomorphism}
 
 \begin{theorem}[General Tranpose\label{thm:transpose}]
   For an adjunction $\<L: \C\to \D, R:\D\to \C\>$, the naturality condition is
-  equivalent to stating that for any $u\in \D(L(\hole), \hole)$, $g \in \C_1$,
+  equivalent to stating that for any $u\in \D(L(C), D)$, $g \in \C_1$,
   $h\in \D_1$:
   \begin{align*}
     \overline{h\circ u \circ L(g)} = R(h) \circ \overline{u} \circ g
@@ -85,25 +85,26 @@ Isomorphism}\label{def:adjunction_isomorphism}
     It follows from equating both paths in the naturality condition, that:
     \[
       \begin{aligned}
-      \big(\alpha_{c', d'} \circ \D(L(g), h)\big)(u)
-        &= \big(\C(g, R(h)) \circ \alpha_{c, d}\big)(u)\\
-      \alpha_{c', d'}(h\circ u \circ L(g))
+      \big(\alpha_{\<C', D'\>} \circ \D(L(g), h)\big)(u)
+        &= \big(\C(g, R(h)) \circ \alpha_{\<C, D\>}\big)(u)\\
+      \alpha_{\<C', D'\>}(h\circ u \circ L(g))
         &= \C(g, R(h))(\overline{u})\\
       \overline{h\circ u \circ L(g)}
         &= R(h) \circ \overline{u} \circ g
       \end{aligned}
     \]
   \end{proof}
+  \vspace{-1.5\baselineskip}
 \end{theorem}
 
 \begin{remark}
-  As $\phi_{(c, d)}$ and $\psi_{(c, d)}$ are inverses, in Theorem
+  As $\phi_{\<C, D\>}$ and $\psi_{\<C, D\>}$ are inverses, in Theorem
   \ref{thm:transpose} the overline goes in either side of the equation.
 \end{remark}
 
 \begin{theorem}[Alternative Transposes\label{thm:transpose2}]
   Theorem \ref{thm:transpose} is equivalent to stating that the following two
-  equations hold for any $u\in \D(L(\hole), \hole)$, $v\in \C(\hole, R(\hole))$,
+  equations hold for any $u\in \D(L(C), D)$, $v\in \C(C, R(D))$,
   $g \in \C_1$, $h\in \D_1$:
   \begin{align*}
     \overline{h\circ u} &= R(h) \circ \overline{u}\\
@@ -113,19 +114,19 @@ Isomorphism}\label{def:adjunction_isomorphism}
   \begin{proof}
     The proof consists of two parts:
     \begin{description}
-      \item[$(\implies)$] By setting either $g=\id_c$ or $h=\id_d$:
+      \item[$(\implies)$] By setting either $g=\id_C$ or $h=\id_D$:
         \[
           \begin{aligned}
             \overline{h\circ u}
-              &= \overline{h\circ u \circ L(\id_c)}\\
-              &= R(h) \circ \overline{u} \circ \id_c\\
+              &= \overline{h\circ u \circ L(\id_C)}\\
+              &= R(h) \circ \overline{u} \circ \id_C\\
               &= R(h) \circ \overline{u}
           \end{aligned}
           \qquad
           \begin{aligned}
             \overline{v\circ g}
-              &= \overline{R(\id_d)\circ v\circ g}\\
-              &= \id_d \circ \overline{v} \circ L(g)\\
+              &= \overline{R(\id_D)\circ v\circ g}\\
+              &= \id_D \circ \overline{v} \circ L(g)\\
               &= \overline{v} \circ L(g)
           \end{aligned}
         \]
@@ -143,39 +144,41 @@ Isomorphism}\label{def:adjunction_isomorphism}
 \end{theorem}
 
 \begin{theorem}[Existence of a unit $\eta$\label{thm:unit_exists}]
-  For a pair of left/right adjoints $\<L: \C \to \D$, $R:\D\to \C\>$
-  there exists a morphism $\eta_c: c\to (R\circ L)(c)$ that corresponds to
-  $\overline{\id_{L(c)}}$ for every $c\in \C_0$.
+  For an adjunction of functors $\<L: \C \to \D$, $R:\D\to \C\>$
+  there exists a morphism ${\eta_C: C\to (R\circ L)(C)}$ that corresponds to
+  $\overline{\id_{L(C)}}$ for every $C\in \C_0$.
 
   \begin{proof}
     Consider definition \ref{def:adjunction_isomorphism} of adjunction:
     \[
       \begin{aligned}
-        \D(L(c), d) &\ \:\cong\ \: \C(c, R(d))\\
-        \D(L(c), L(c)) &\ \:\cong\ \: \C(c, (R\circ L)(c))\\
-        \big(\id_{L(c)}: L(c) \to L(c)\big) \in \D_1
-        &\implies \big(\eta_c : c \to (R\circ L)(c)\big)\in \C_1\\
-        \overline{\id_{L(c)}} &\ \:=\ \:\eta_c
+        \D(L(C), D) &\ \:\cong\ \: \C(C, R(D))\\
+        \D(L(C), L(C)) &\ \:\cong\ \: \C(C, (R\circ L)(C))\\
+        \big(\id_{L(C)}: L(C) \to L(C)\big) \in \D_1
+        &\implies \big(\eta_C : C \to (R\circ L)(C)\big)\in \C_1\\
+        \overline{\id_{L(C)}} &\ \:=\ \:\eta_C
       \end{aligned}
     \]
   \end{proof}
+  \vspace{-1.5\baselineskip}
 \end{theorem}
 
 \begin{theorem}[Existence of a counit $\epsilon$\label{thm:counit_exists}]
-  For an adjunction $\<L: \C \to \D$, $R:\D\to \C\>$
-  there exists a morphism $\epsilon_d: (L\circ R)(d)\to d$ that corresponds to
-  $\overline{\id_{R(d)}}$ for every $d\in \D_0$.
+  For an adjunction of functors $\<L: \C \to \D$, $R:\D\to \C\>$
+  there exists a morphism ${\epsilon_D: (L\circ R)(D)\to D}$ that corresponds to
+  $\overline{\id_{R(D)}}$ for every $D\in \D_0$.
 
   \begin{proof}
     Consider Definition \ref{def:adjunction_isomorphism} of adjunction:
     \[
       \begin{aligned}
-        \D(L(c), d) &\ \:\cong\ \: \C(c, R(d))\\
-        \D((L\circ R)(d), d) &\ \:\cong\ \: \C(R(d), R(d))\\
-        \big(\epsilon:(L\circ R)(d)\to d\big)\in D_1 &\impliedby
-          \big(\id_{R(d)}: R(d) \to R(d)\big)\\
-        \epsilon_d &\ \:=\ \:\overline{\id_{R(d)}}
+        \D(L(C), D) &\ \:\cong\ \: \C(C, R(D))\\
+        \D((L\circ R)(D), D) &\ \:\cong\ \: \C(R(D), R(D))\\
+        \big(\epsilon:(L\circ R)(D)\to D\big)\in D_1 &\impliedby
+          \big(\id_{R(D)}: R(D) \to R(D)\big)\\
+        \epsilon_D &\ \:=\ \:\overline{\id_{R(D)}}
       \end{aligned}
     \]
   \end{proof}
+  \vspace{-1.5\baselineskip}
 \end{theorem}

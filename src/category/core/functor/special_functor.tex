@@ -38,15 +38,15 @@
   \begin{itemize}
     \item Objects:
       \[\big(\forall C\in \C_0\big)
-        \big(\Delta(C) = \Delta_c : \C \to \D\big)\]
+        \big(\Delta(C) = \Delta_C : \C \to \D\big)\]
       Where $\Delta_C$ is the constant functor.
     \item Morphisms:
       \[\big(\forall C\in C_0,\ f\in \C_1\big)
-        \big(\Delta(f)_C: f \big)\]
+        \big((\Delta(f))_C= f \big)\]
       The naturality condition of $\Delta(f)$ is given by:
-      % https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXERlbHRhX0MoQykiXSxbMSwwLCJcXERlbHRhX2MoRCkiXSxbMCwxLCJcXERlbHRhX3tEfShDKSJdLFsxLDEsIlxcRGVsdGFfe0R9KEQpIl0sWzAsMSwiXFxEZWx0YV9DKGYpIl0sWzAsMiwiXFxEZWx0YShmKV9DIiwyXSxbMiwzLCJcXERlbHRhX3tEfShmKSIsMl0sWzEsMywiXFxEZWx0YShmKV97RH0iXV0=
+      % https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXERlbHRhX0MoQykiXSxbMSwwLCJcXERlbHRhX0MoRCkiXSxbMCwxLCJcXERlbHRhX3tEfShDKSJdLFsxLDEsIlxcRGVsdGFfe0R9KEQpIl0sWzAsMSwiXFxEZWx0YV9DKGYpIl0sWzAsMiwiXFxEZWx0YShmKV9DIiwyXSxbMiwzLCJcXERlbHRhX3tEfShmKSIsMl0sWzEsMywiXFxEZWx0YShmKV97RH0iXV0=
       \[\begin{tikzcd}[ampersand replacement=\&]
-        {\Delta_C(C)} \& {\Delta_c(D)} \\
+        {\Delta_C(C)} \& {\Delta_C(D)} \\
         {\Delta_{D}(C)} \& {\Delta_{D}(D)}
         \arrow["{\Delta_C(f)}", from=1-1, to=1-2]
         \arrow["{\Delta(f)_C}"', from=1-1, to=2-1]

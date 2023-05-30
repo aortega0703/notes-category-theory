@@ -1,6 +1,7 @@
 \subsection{Horizontal Composition}
 
-\begin{definition}[Horizontal Composition]\index{Horizontal Composition}
+\begin{definition}[Horizontal Composition]\index{Horizontal
+  Composition}\label{def:nat_transformation_cmp2}
   For a set-up of categories, functors, and natural transformations:
   % https://q.uiver.app/?q=WzAsMyxbMCwwLCJcXEEiXSxbMiwwLCJcXEIiXSxbNCwwLCJcXEMiXSxbMCwxLCJGIiwxLHsiY3VydmUiOi00fV0sWzAsMSwiRiciLDEseyJjdXJ2ZSI6NH1dLFsxLDIsIkciLDEseyJjdXJ2ZSI6LTR9XSxbMSwyLCJHJyIsMSx7ImN1cnZlIjo0fV0sWzMsNCwiXFxhbHBoYSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbNSw2LCJcXGJldGEiLDAseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9fV1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
   \[\begin{tikzcd}[ampersand replacement=\&]
@@ -16,60 +17,59 @@
   The horizontal composition $\beta * \alpha: (G\circ F) \to (G' \circ F')$
   consists of~\parencite[p.~37]{leinster:basic_category_theory}:
   \begin{itemize}
-    \item $c$-Components:
-      \[(\forall c\in\C_0)
-        \big((\beta * \alpha)_c
-        =\beta_{F'(c)} \circ G(\alpha_c)
-        = G'(\alpha_c) \circ \beta_{F(c)}\big)
+    \item $C$-Components:
+      \[(\forall C\in\C_0)
+        \big((\beta * \alpha)_C
+        =\beta_{F'(C)} \circ G(\alpha_C)
+        = G'(\alpha_C) \circ \beta_{F(C)}\big)
       \]
     \item Naturality Condition:
-      The following diagram commutes:
-      % https://q.uiver.app/?q=WzAsNCxbMCwwLCIoR1xcY2lyYyBGKShjKSJdLFswLDIsIihHJ1xcY2lyYyBGJykoYykiXSxbMiwwLCIoR1xcY2lyYyBGKShjJykiXSxbMiwyLCIoRydcXGNpcmMgRicpKGMnKSJdLFswLDIsIihHXFxjaXJjIEYpKGYpIl0sWzEsMywiKEcnXFxjaXJjIEYnKShmKSIsMl0sWzAsMSwiKFxcYmV0YSAqXFxhbHBoYSlfYyIsMV0sWzIsMywiKFxcYmV0YSAqXFxhbHBoYSlfe2MnfSIsMV1d
-      \[\begin{tikzcd}
-        {(G\circ F)(c)} && {(G\circ F)(c')} \\
+      % https://q.uiver.app/#q=WzAsNCxbMCwwLCIoR1xcY2lyYyBGKShDKSJdLFswLDIsIihHJ1xcY2lyYyBGJykoQykiXSxbMiwwLCIoR1xcY2lyYyBGKShEKSJdLFsyLDIsIihHJ1xcY2lyYyBGJykoRCkiXSxbMCwyLCIoR1xcY2lyYyBGKShmKSJdLFsxLDMsIihHJ1xcY2lyYyBGJykoZikiLDJdLFswLDEsIihcXGJldGEgKlxcYWxwaGEpX0MiLDFdLFsyLDMsIihcXGJldGEgKlxcYWxwaGEpX3tEfSIsMV1d
+      \[\begin{tikzcd}[ampersand replacement=\&]
+        {(G\circ F)(C)} \&\& {(G\circ F)(D)} \\
         \\
-        {(G'\circ F')(c)} && {(G'\circ F')(c')}
+        {(G'\circ F')(C)} \&\& {(G'\circ F')(D)}
         \arrow["{(G\circ F)(f)}", from=1-1, to=1-3]
         \arrow["{(G'\circ F')(f)}"', from=3-1, to=3-3]
-        \arrow["{(\beta *\alpha)_c}"{description}, from=1-1, to=3-1]
-        \arrow["{(\beta *\alpha)_{c'}}"{description}, from=1-3, to=3-3]
+        \arrow["{(\beta *\alpha)_C}"{description}, from=1-1, to=3-1]
+        \arrow["{(\beta *\alpha)_{D}}"{description}, from=1-3, to=3-3]
       \end{tikzcd}\]
   \end{itemize}
 \end{definition}
 
 \begin{remark}
-  The definition of the $c$-components for horizontal composition is motivated
+  The definition of the $C$-components for horizontal composition is motivated
   by the following diagram, where the equality of both definitions is given by
   the naturality condition of $\beta$.
 
-  % https://q.uiver.app/?q=WzAsNyxbMCwwLCJjIl0sWzEsMCwiRihjKSJdLFsxLDIsIkYnKGMpIl0sWzIsMSwiKEdcXGNpcmMgRikoYykiXSxbMywwLCIoRydcXGNpcmMgRikoYykiXSxbMiwzLCIoR1xcY2lyYyBGJykoYykiXSxbMywyLCIoRydcXGNpcmMgRicpKGMpIl0sWzAsMSwiIiwwLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzAsMiwiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxLDIsIlxcYWxwaGFfYyIsMV0sWzEsMywiIiwwLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsNCwiIiwwLHsiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDUsIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDYsIiIsMCx7ImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMyw0LCJcXGJldGFfe0YoYyl9IiwxXSxbNSw2LCJcXGJldGFfe0YnKGMpfSIsMV0sWzQsNiwiRycoXFxhbHBoYV9jKSIsMV0sWzMsNSwiRyhcXGFscGhhX2MpIiwxXSxbMyw2LCJcXGJldGEqXFxhbHBoYSIsMV1d
+  % https://q.uiver.app/#q=WzAsNyxbMCwwLCJDIl0sWzEsMCwiRihDKSJdLFsxLDIsIkYnKEMpIl0sWzIsMSwiKEdcXGNpcmMgRikoQykiXSxbMywwLCIoRydcXGNpcmMgRikoQykiXSxbMiwzLCIoR1xcY2lyYyBGJykoQykiXSxbMywyLCIoRydcXGNpcmMgRicpKEMpIl0sWzAsMSwiIiwwLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzAsMiwiIiwyLHsiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsxLDIsIlxcYWxwaGFfQyIsMV0sWzEsMywiIiwwLHsiY29sb3VyIjpbMjQwLDYwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzEsNCwiIiwwLHsiY29sb3VyIjpbMCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDUsIiIsMCx7ImNvbG91ciI6WzI0MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDYsIiIsMCx7ImNvbG91ciI6WzAsNjAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMyw0LCJcXGJldGFfe0YoQyl9IiwxXSxbNSw2LCJcXGJldGFfe0YnKEMpfSIsMV0sWzQsNiwiRycoXFxhbHBoYV9DKSIsMV0sWzMsNSwiRyhcXGFscGhhX0MpIiwxXSxbMyw2LCIoXFxiZXRhKlxcYWxwaGEpX0MiLDFdXQ==
   \[\begin{tikzcd}[ampersand replacement=\&]
-    c \& {F(c)} \&\& {(G'\circ F)(c)} \\
-    \&\& {(G\circ F)(c)} \\
-    \& {F'(c)} \&\& {(G'\circ F')(c)} \\
-    \&\& {(G\circ F')(c)}
+    C \& {F(C)} \&\& {(G'\circ F)(C)} \\
+    \&\& {(G\circ F)(C)} \\
+    \& {F'(C)} \&\& {(G'\circ F')(C)} \\
+    \&\& {(G\circ F')(C)}
     \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-1, to=1-2]
     \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=1-1, to=3-2]
-    \arrow["{\alpha_c}"{description}, from=1-2, to=3-2]
+    \arrow["{\alpha_C}"{description}, from=1-2, to=3-2]
     \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=1-2, to=2-3]
     \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=1-2, to=1-4]
     \arrow[draw={rgb,255:red,92;green,92;blue,214}, dotted, from=3-2, to=4-3]
     \arrow[draw={rgb,255:red,214;green,92;blue,92}, dotted, from=3-2, to=3-4]
-    \arrow["{\beta_{F(c)}}"{description}, from=2-3, to=1-4]
-    \arrow["{\beta_{F'(c)}}"{description}, from=4-3, to=3-4]
-    \arrow["{G'(\alpha_c)}"{description}, from=1-4, to=3-4]
-    \arrow["{G(\alpha_c)}"{description}, from=2-3, to=4-3]
-    \arrow["{\beta*\alpha}"{description}, from=2-3, to=3-4]
+    \arrow["{\beta_{F(C)}}"{description}, from=2-3, to=1-4]
+    \arrow["{\beta_{F'(C)}}"{description}, from=4-3, to=3-4]
+    \arrow["{G'(\alpha_C)}"{description}, from=1-4, to=3-4]
+    \arrow["{G(\alpha_C)}"{description}, from=2-3, to=4-3]
+    \arrow["{(\beta*\alpha)_C}"{description}, from=2-3, to=3-4]
   \end{tikzcd}\]
 \end{remark}
 
-\begin{theorem}[Naturality of Horizontal Composition]
-  The naturality condition of horizontal composition (in \textcolor{blue}{blue})
-  holds.
+\begin{theorem}
+  The naturality condition of horizontal composition holds, therefore it is a
+  natural transformation.
 
   \begin{proof}
     % https://q.uiver.app/?q=WzAsOCxbMSwwLCIoR1xcY2lyYyBGKShjKSJdLFszLDAsIihHJ1xcY2lyYyBGKShjKSJdLFsxLDIsIihHXFxjaXJjIEYnKShjKSJdLFszLDIsIihHJ1xcY2lyYyBGJykoYykiXSxbMiw0LCIoRydcXGNpcmMgRikoYycpIl0sWzAsNCwiKEdcXGNpcmMgRikoYycpIl0sWzAsNiwiKEdcXGNpcmMgRicpKGMnKSJdLFsyLDYsIihHJ1xcY2lyYyBGJykoYycpIl0sWzAsMiwiRyhcXGFscGhhX2MpIiwxXSxbMiwzLCJcXGJldGFfe0YnKGMpfSIsMV0sWzAsMSwiXFxiZXRhX3tGKGMpfSIsMV0sWzEsMywiRycoXFxhbHBoYV9jKSIsMV0sWzAsNSwiKEdcXGNpcmMgRikoZikiLDEseyJsYWJlbF9wb3NpdGlvbiI6NjAsImNvbG91ciI6WzI0MCw2MCw2MF19XSxbMiw2LCIoR1xcY2lyYyBGJykoZikiLDEseyJsYWJlbF9wb3NpdGlvbiI6MzB9XSxbMSw0LCIoRydcXGNpcmMgRikoZikiLDEseyJsYWJlbF9wb3NpdGlvbiI6NzB9XSxbMyw3LCIoRydcXGNpcmMgRicpKGYpIiwxLHsibGFiZWxfcG9zaXRpb24iOjQwLCJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzUsNCwiXFxiZXRhX3tGKGMnKX0iLDFdLFs0LDcsIkcnKFxcYWxwaGFfe2MnfSkiLDFdLFs1LDYsIkcoXFxhbHBoYV97Yyd9KSIsMV0sWzYsNywiXFxiZXRhX3tGJyhjKX0iLDFdLFswLDMsIihcXGJldGEgKlxcYWxwaGEpX2MiLDEseyJjb2xvdXIiOlsyNDAsNjAsNjBdfV0sWzUsNywiKFxcYmV0YSAqXFxhbHBoYSlfe2MnfSIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF19XV0=
-    \[\begin{tikzcd}[scale cd=0.9]
+    \[\begin{tikzcd}[scale cd=0.8,column sep=tiny,row sep=scriptsize]
       & {(G\circ F)(c)} && {(G'\circ F)(c)} \\
       \\
       & {(G\circ F')(c)} && {(G'\circ F')(c)} \\
@@ -91,8 +91,7 @@
       \arrow["{\beta_{F'(c)}}"{description}, from=7-1, to=7-3]
       \arrow["{(\beta *\alpha)_c}"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-2, to=3-4]
       \arrow["{(\beta *\alpha)_{c'}}"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=5-1, to=7-3]
-    \end{tikzcd}\]
-    \[
+    \end{tikzcd}
     \begin{aligned}
       &(G'\circ F')(f) \circ (\beta * \alpha)_c\\
       =& (G'\circ F')(f) \circ G'(\alpha_c)\circ\beta_{F(c)}\\
@@ -102,11 +101,13 @@
       =& G'(\alpha_{c'}) \circ \beta_{F(c')} \circ (G \circ F)(f)\\
       =& (\beta * \alpha)_{c'}\circ (G \circ F)(f)
     \end{aligned}
-  \]
+    \]
   \end{proof}
+  \vspace{-\baselineskip}
 \end{theorem}
 
-\begin{theorem}[Unitality of Horizontal Composition]
+\begin{theorem}[Unitality of Horizontal
+  Composition]\label{thm:unitality_horizontal}
   For functors $F, G:\C\to \D$ and a natural transformations
   $\alpha:F\Rightarrow G$, the following holds:
   \[\alpha * \id_{\id_\C} = \id_{\id_\D} * \alpha = \alpha\]
@@ -114,26 +115,28 @@
   \begin{proof}
     \[
     \begin{aligned}[t]
-      (\alpha * \id_{\id_\C})_c
-      &= \alpha_{\id_\C(c)} \circ F\big((\id_{\id_\C})_c\big)\\
-      &= \alpha_{c} \circ F(\id_{\id_\C(c)})\\
-      &= \alpha_{c} \circ F(\id_{c})\\
-      &= \alpha_{c} \circ \id_{F(c)}\\
-      &= \alpha_{c}
+      (\alpha * \id_{\id_\C})_C
+      &= \alpha_{\id_\C(C)} \circ F\big((\id_{\id_\C})_C\big)\\
+      &= \alpha_{C} \circ F(\id_{\id_\C(C)})\\
+      &= \alpha_{C} \circ F(\id_{C})\\
+      &= \alpha_{C} \circ \id_{F(C)}\\
+      &= \alpha_{C}
     \end{aligned}
     \quad
     \begin{aligned}[t]
-      (\id_{\id_\D} * \alpha)_c
-      &= (\id_{\id_\D})_{G(c)} \circ \id_\D(\alpha_c)\\
-      &= \id_{\id_\D(G(c))} \circ \alpha_c\\
-      &= \id_{G(c)} \circ \alpha_c\\
-      &= \alpha_c
+      (\id_{\id_\D} * \alpha)_C
+      &= (\id_{\id_\D})_{G(C)} \circ \id_\D(\alpha_C)\\
+      &= \id_{\id_\D(G(C))} \circ \alpha_C\\
+      &= \id_{G(C)} \circ \alpha_C\\
+      &= \alpha_C
     \end{aligned}
   \]
   \end{proof}
+  \vspace{-\baselineskip}
 \end{theorem}
 
-\begin{theorem}[Associativity of Horizontal Composition]
+\begin{theorem}[Associativity of Horizontal
+  Composition]\label{thm:assoc_horizontal}
   For a set-up of categories, functors, and natural transformations:
   % https://q.uiver.app/?q=WzAsNCxbNCwwLCJcXEMiXSxbMiwwLCJcXEIiXSxbMCwwLCJcXEEiXSxbNiwwLCJcXEQiXSxbMSwwLCJHIiwwLHsiY3VydmUiOi00fV0sWzEsMCwiRyciLDIseyJjdXJ2ZSI6NH1dLFsyLDEsIkYiLDAseyJjdXJ2ZSI6LTR9XSxbMiwxLCJGJyIsMix7ImN1cnZlIjo0fV0sWzAsMywiSCIsMCx7ImN1cnZlIjotNH1dLFswLDMsIkgnIiwyLHsiY3VydmUiOjR9XSxbNiw3LCJcXGFscGhhIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dLFs0LDUsIlxcYmV0YSIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XSxbOCw5LCJcXGdhbW1hIiwwLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfX1dXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
   \[\begin{tikzcd}[ampersand replacement=\&]
@@ -153,20 +156,53 @@
   \[(\gamma * \beta) * \alpha = \gamma * (\beta * \alpha)\]
 
   \begin{proof}
+    % https://q.uiver.app/#q=WzAsOCxbMSwwLCIoSFxcY2lyYyBHXFxjaXJjIEYpKEEpIl0sWzAsMywiKEhcXGNpcmMgR1xcY2lyYyBGJykoQSkiXSxbMywwLCIoSFxcY2lyYyBHJ1xcY2lyYyBGKShBKSJdLFsyLDMsIihIXFxjaXJjIEcnXFxjaXJjIEYnKShBKSJdLFszLDIsIihIJ1xcY2lyYyBHJ1xcY2lyYyBGKShBKSJdLFsxLDIsIihIJ1xcY2lyYyBHXFxjaXJjIEYpKEEpIl0sWzIsNSwiKEgnXFxjaXJjIEcnXFxjaXJjIEYnKShBKSJdLFswLDUsIihIJ1xcY2lyYyBHXFxjaXJjIEYnKShBKSJdLFsyLDQsIlxcZ2FtbWFfeyhHJ1xcY2lyYyBGKShBKX0iLDFdLFswLDUsIlxcZ2FtbWFfeyhHXFxjaXJjIEYpKEEpfSIsMV0sWzMsNiwiXFxnYW1tYV97KEcnXFxjaXJjIEYnKShBKX0iLDFdLFsxLDcsIlxcZ2FtbWFfeyhHXFxjaXJjIEYnKShBKX0iLDFdLFswLDIsIkgoXFxiZXRhX3tGKEEpfSkiLDFdLFs1LDQsIkgnKFxcYmV0YV97RihBKX0pIiwxXSxbMSwzLCJIKFxcYmV0YV97RicoQSl9KSIsMV0sWzcsNiwiSCcoXFxiZXRhX3tGJyhBKX0pIiwxXSxbMiwzLCIoSFxcY2lyYyBHJykoXFxhbHBoYV9BKSIsMV0sWzQsNiwiKEgnXFxjaXJjIEcnKShcXGFscGhhX0EpIiwxXSxbMCwxLCIoSFxcY2lyYyBHKShcXGFscGhhX0EpIiwxXSxbNSw3LCIoSCdcXGNpcmMgRykoXFxhbHBoYV9BKSIsMV0sWzAsMywiSCgoXFxiZXRhKlxcYWxwaGEpX0EpIiwxLHsiY29sb3VyIjpbMjQwLDYwLDYwXX1dLFsxLDYsIihcXGdhbW1hKlxcYmV0YSlfe0YnKEEpfSIsMSx7ImNvbG91ciI6WzI0MCw2MCw2MF19XV0=
+    \[\begin{tikzcd}[ampersand replacement=\&,column sep=tiny]
+      \& {(H\circ G\circ F)(A)} \&\& {(H\circ G'\circ F)(A)} \\
+      \\
+      \& {(H'\circ G\circ F)(A)} \&\& {(H'\circ G'\circ F)(A)} \\
+      {(H\circ G\circ F')(A)} \&\& {(H\circ G'\circ F')(A)} \\
+      \\
+      {(H'\circ G\circ F')(A)} \&\& {(H'\circ G'\circ F')(A)}
+      \arrow["{\gamma_{(G'\circ F)(A)}}"{description}, from=1-4, to=3-4]
+      \arrow["{\gamma_{(G\circ F)(A)}}"{description}, from=1-2, to=3-2]
+      \arrow["{\gamma_{(G'\circ F')(A)}}"{description}, from=4-3, to=6-3]
+      \arrow["{\gamma_{(G\circ F')(A)}}"{description}, from=4-1, to=6-1]
+      \arrow["{H(\beta_{F(A)})}"{description}, from=1-2, to=1-4]
+      \arrow["{H'(\beta_{F(A)})}"{description}, from=3-2, to=3-4]
+      \arrow["{H(\beta_{F'(A)})}"{description}, from=4-1, to=4-3]
+      \arrow["{H'(\beta_{F'(A)})}"{description}, from=6-1, to=6-3]
+      \arrow["{(H\circ G')(\alpha_A)}"{description}, from=1-4, to=4-3]
+      \arrow["{(H'\circ G')(\alpha_A)}"{description}, from=3-4, to=6-3]
+      \arrow["{(H\circ G)(\alpha_A)}"{description}, from=1-2, to=4-1]
+      \arrow["{(H'\circ G)(\alpha_A)}"{description}, from=3-2, to=6-1]
+      \arrow["{H((\beta*\alpha)_A)}"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=1-2, to=4-3]
+      \arrow["{(\gamma*\beta)_{F'(A)}}"{description}, draw={rgb,255:red,92;green,92;blue,214}, from=4-1, to=6-3]
+    \end{tikzcd}\]
     \[
       \begin{aligned}
-        & ((\gamma * \beta) * \alpha)_a\\
+        & ((\gamma * \beta) * \alpha)a\\
         =& (\gamma * \beta)_{F'(a)} \circ (H\circ G)(\alpha_a)\\
         =& \left(\gamma_{(G'\circ F')(a)}\circ H(\beta_{F'(a)})\right)
         \circ (H\circ G)(\alpha_a)\\
         =& \gamma_{(G'\circ F')(a)} \circ
         \left(H(\beta_{F'(a)}) \circ (H\circ G)(\alpha_a)\right)\\
-        =& \gamma_{(G'\circ F')(a)}\circ
-        H\left((\beta_{F'(a)}) \circ G(\alpha_a)\right)\\
         =& \gamma_{(G'\circ F')(a)} \circ H( (\beta *\alpha)_a)\\
         =& (\gamma * (\beta * \alpha))_a
       \end{aligned}
     \]
+  \end{proof}
+  \vspace{-\baselineskip}
+\end{theorem}
+
+\begin{theorem}
+  There is a category with categories as objects and natural transformations as
+  morphisms.\
+
+  \begin{proof}
+    By Definitions \ref{def:id_nat_transformation},
+    \ref{def:nat_transformation_cmp2} and Theorems \ref{thm:assoc_horizontal},
+    \ref{thm:unitality_horizontal}
   \end{proof}
 \end{theorem}
 
@@ -198,29 +234,27 @@
 \begin{remark}
   The definition of whiskering is motivated by considering the horizontal
   compositions with functor identities:
-  \[
-    % https://q.uiver.app/?q=WzAsNCxbMCwwLCIoR1xcY2lyYyBGKShhKSJdLFsxLDEsIihHJ1xcY2lyYyBGKShhKSJdLFsxLDAsIihHJ1xcY2lyYyBGKShhKSJdLFswLDEsIihHXFxjaXJjIEYpKGEpIl0sWzAsMiwiXFxiZXRhX3tGKGEpfSJdLFswLDMsIkcoXFxpZF97RihhKX0pIiwyXSxbMCwxLCJcXGJldGEqXFxpZF9GIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZG90dGVkIn19fV0sWzMsMSwiXFxiZXRhX3tGKGEpfSIsMl0sWzIsMSwiRycoXFxpZF97RihhKX0pIl1d&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
-    \begin{tikzcd}
-      {(G\circ F)(a)} & {(G'\circ F)(a)} \\
-      {(G\circ F)(a)} & {(G'\circ F)(a)}
-      \arrow["{\beta_{F(a)}}", from=1-1, to=1-2]
-      \arrow["{G(\id_{F(a)})}"', from=1-1, to=2-1]
-      \arrow["{\beta*\id_F}"{description}, dotted, from=1-1, to=2-2]
-      \arrow["{\beta_{F(a)}}"', from=2-1, to=2-2]
-      \arrow["{G'(\id_{F(a)})}", from=1-2, to=2-2]
-    \end{tikzcd}
-    \quad
-    % https://q.uiver.app/?q=WzAsNCxbMCwwLCIoR1xcY2lyYyBGKShhKSJdLFsxLDEsIihHXFxjaXJjIEYnKShhKSJdLFsxLDAsIihHXFxjaXJjIEYpKGEpIl0sWzAsMSwiKEdcXGNpcmMgRicpKGEpIl0sWzAsMiwiKFxcaWRfRylfe0YoYSl9Il0sWzIsMSwiRyhcXGFscGhhX2EpIl0sWzAsMywiRyhcXGFscGhhX2EpIiwyXSxbMywxLCIoXFxpZF9HKV97RihhKX0iLDJdLFswLDEsIlxcaWRfRyAqIFxcYWxwaGEiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XV0=&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
-    \begin{tikzcd}
-      {(G\circ F)(a)} & {(G\circ F)(a)} \\
-      {(G\circ F')(a)} & {(G\circ F')(a)}
-      \arrow["{(\id_G)_{F(a)}}", from=1-1, to=1-2]
-      \arrow["{G(\alpha_a)}", from=1-2, to=2-2]
-      \arrow["{G(\alpha_a)}"', from=1-1, to=2-1]
-      \arrow["{(\id_G)_{F(a)}}"', from=2-1, to=2-2]
-      \arrow["{\id_G * \alpha}"{description}, dotted, from=1-1, to=2-2]
-    \end{tikzcd}
-  \]
+  %% https://q.uiver.app/#q=WzAsNCxbMCwwLCIoR1xcY2lyYyBGKShhKSJdLFsxLDEsIihHJ1xcY2lyYyBGKShhKSJdLFsxLDAsIihHJ1xcY2lyYyBGKShhKSJdLFswLDEsIihHXFxjaXJjIEYpKGEpIl0sWzAsMiwiXFxiZXRhX3tGKGEpfSJdLFswLDMsIkcoXFxpZF97RihhKX0pIiwyXSxbMCwxLCJcXGJldGEqXFxpZF9GIiwxXSxbMywxLCJcXGJldGFfe0YoYSl9IiwyXSxbMiwxLCJHJyhcXGlkX3tGKGEpfSkiXV0=&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    {(G\circ F)(a)} \& {(G'\circ F)(a)} \\
+    {(G\circ F)(a)} \& {(G'\circ F)(a)}
+    \arrow["{\beta_{F(a)}}", from=1-1, to=1-2]
+    \arrow["{G(\id_{F(a)})}"', from=1-1, to=2-1]
+    \arrow["{\beta*\id_F}"{description}, from=1-1, to=2-2]
+    \arrow["{\beta_{F(a)}}"', from=2-1, to=2-2]
+    \arrow["{G'(\id_{F(a)})}", from=1-2, to=2-2]
+  \end{tikzcd}
+  \quad
+  % https://q.uiver.app/#q=WzAsNCxbMCwwLCIoR1xcY2lyYyBGKShhKSJdLFsxLDEsIihHXFxjaXJjIEYnKShhKSJdLFsxLDAsIihHXFxjaXJjIEYpKGEpIl0sWzAsMSwiKEdcXGNpcmMgRicpKGEpIl0sWzAsMiwiKFxcaWRfRylfe0YoYSl9Il0sWzIsMSwiRyhcXGFscGhhX2EpIl0sWzAsMywiRyhcXGFscGhhX2EpIiwyXSxbMywxLCIoXFxpZF9HKV97RihhKX0iLDJdLFswLDEsIlxcaWRfRyAqIFxcYWxwaGEiLDFdXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fe6ec84fda0ef3d3ac45c61c03814b7a3a1c30dff%2Fmacros.tex
+  \begin{tikzcd}[ampersand replacement=\&]
+    {(G\circ F)(a)} \& {(G\circ F)(a)} \\
+    {(G\circ F')(a)} \& {(G\circ F')(a)}
+    \arrow["{(\id_G)_{F(a)}}", from=1-1, to=1-2]
+    \arrow["{G(\alpha_a)}", from=1-2, to=2-2]
+    \arrow["{G(\alpha_a)}"', from=1-1, to=2-1]
+    \arrow["{(\id_G)_{F(a)}}"', from=2-1, to=2-2]
+    \arrow["{\id_G * \alpha}"{description}, from=1-1, to=2-2]
+  \end{tikzcd}\]
 \end{remark}
 
 \begin{theorem}[Interchange Law]
@@ -283,4 +317,5 @@
       \end{aligned}
     \]
   \end{proof}
+  \vspace{-1.5\baselineskip}
 \end{theorem}

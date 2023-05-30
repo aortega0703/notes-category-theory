@@ -6,13 +6,13 @@
 
   \begin{itemize}
     \item Objects:
-      \[\big(\forall c \in \C_0,\ d \in \D_0\big)
-        \big(\<c, d\>\in (\C\times \D)_0)\]
+      \[\big(\forall C \in \C_0,\ D \in \D_0\big)
+        \big(\<C, D\>\in (\C\times \D)_0)\]
     \item Morphisms:
       \[
         \begin{gathered}
-          \big(\forall (f: c \to c')\in \C_1,\ (g:d \to d')\in \D_1\big)\\
-          \big((\<f,g\> : \<c,d\> \to \<c', d'\>)\in (\C\times \D)_1\big)
+          \big(\forall (f: C \to C')\in \C_1,\ (g:D \to D')\in \D_1\big)\\
+          \big((\<f,g\> : \<C,D\> \to \<C', D'\>)\in (\C\times \D)_1\big)
         \end{gathered}
       \]
   \end{itemize}
@@ -24,28 +24,28 @@
 
 \begin{example}
   \[
-    % https://q.uiver.app/?q=WzAsMixbMCwwLCIxIl0sWzAsMSwiMiJdLFswLDEsImYiLDJdXQ==
+    % https://q.uiver.app/#q=WzAsMixbMCwwLCJBIl0sWzAsMSwiQiJdLFswLDEsImYiLDJdXQ==
     \begin{tikzcd}[ampersand replacement=\&]
-      1 \\
-      2
+      A \\
+      B
       \arrow["f"', from=1-1, to=2-1]
     \end{tikzcd}
     \times
-    % https://q.uiver.app/?q=WzAsMixbMCwwLCJhIl0sWzAsMSwiYiJdLFswLDEsImciXV0=
-    \begin{tikzcd}
-      a \\
-      b
+    % https://q.uiver.app/#q=WzAsMixbMCwwLCJDIl0sWzAsMSwiRCJdLFswLDEsImciXV0=
+    \begin{tikzcd}[ampersand replacement=\&]
+      C \\
+      D
       \arrow["g", from=1-1, to=2-1]
     \end{tikzcd}
     =
-    % https://q.uiver.app/?q=WzAsNCxbMCwwLCJcXGxhbmdsZTEsYVxccmFuZ2xlIl0sWzEsMCwiXFxsYW5nbGUxLGJcXHJhbmdsZSJdLFswLDEsIlxcbGFuZ2xlMixhXFxyYW5nbGUiXSxbMSwxLCJcXGxhbmdsZTIsYlxccmFuZ2xlIl0sWzAsMSwiXFxsYW5nbGUgXFxpZF8xLGdcXHJhbmdsZSJdLFswLDIsIlxcbGFuZ2xlIGYsaWRfYVxccmFuZ2xlIiwyXSxbMiwzLCJcXGxhbmdsZSBcXGlkXzIsZ1xccmFuZ2xlIiwyXSxbMSwzLCJcXGxhbmdsZSBmLGlkX2JcXHJhbmdsZSJdLFswLDMsIlxcbGFuZ2xlIGYsZ1xccmFuZ2xlIiwxXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXGxhbmdsZSBBLCBDXFxyYW5nbGUiXSxbMSwwLCJcXGxhbmdsZSBBLERcXHJhbmdsZSJdLFswLDEsIlxcbGFuZ2xlIEIsQ1xccmFuZ2xlIl0sWzEsMSwiXFxsYW5nbGUgQixEXFxyYW5nbGUiXSxbMCwxLCJcXGxhbmdsZSBcXGlkX0EsZ1xccmFuZ2xlIl0sWzAsMiwiXFxsYW5nbGUgZixcXGlkX0NcXHJhbmdsZSIsMl0sWzIsMywiXFxsYW5nbGUgXFxpZF9CLGdcXHJhbmdsZSIsMl0sWzEsMywiXFxsYW5nbGUgZixcXGlkX0RcXHJhbmdsZSJdLFswLDMsIlxcbGFuZ2xlIGYsZ1xccmFuZ2xlIiwxXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
     \begin{tikzcd}[ampersand replacement=\&]
-      {\langle1,a\rangle} \& {\langle1,b\rangle} \\
-      {\langle2,a\rangle} \& {\langle2,b\rangle}
-      \arrow["{\langle \id_1,g\rangle}", from=1-1, to=1-2]
-      \arrow["{\langle f,id_a\rangle}"', from=1-1, to=2-1]
-      \arrow["{\langle \id_2,g\rangle}"', from=2-1, to=2-2]
-      \arrow["{\langle f,id_b\rangle}", from=1-2, to=2-2]
+      {\langle A, C\rangle} \& {\langle A,D\rangle} \\
+      {\langle B,C\rangle} \& {\langle B,D\rangle}
+      \arrow["{\langle \id_A,g\rangle}", from=1-1, to=1-2]
+      \arrow["{\langle f,\id_C\rangle}"', from=1-1, to=2-1]
+      \arrow["{\langle \id_B,g\rangle}"', from=2-1, to=2-2]
+      \arrow["{\langle f,\id_D\rangle}", from=1-2, to=2-2]
       \arrow["{\langle f,g\rangle}"{description}, from=1-1, to=2-2]
     \end{tikzcd}
   \]
@@ -60,57 +60,55 @@
     The proof consists of two parts:
 
     \begin{description}
-      \item[$(\implies)$] By taking naturality on both variables simultaneously,
-        one can derive naturality on each variable separately by considering the
-        functions $\< \id_a, g \>: \<a, b\> \to \<a, b'\>$ and $\< f, \id_b \>:
-        \<a, b\> \to \<a', b\>$:
-        % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGEsYikiXSxbMSwwLCJGKGEsIGInKSJdLFswLDEsIkcoYSwgYikiXSxbMSwxLCJHKGEsYicpIl0sWzAsMSwiRihcXGlkX2EsIGcpIl0sWzAsMiwiXFxhbHBoYV97YSxifSIsMl0sWzIsMywiRyhcXGlkX2EsIGcpIiwyXSxbMSwzLCJcXGFscGhhX3thLCBiJ30iLDJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+      \item[$(\implies)$] Consider the functions ${\< \id_a, g \>: \<a, b\>
+        \to \<a, b'\>}$, ${\< f, \id_b \>: \<a, b\> \to \<a', b\>}$:
+        % https://q.uiver.app/#q=WzAsNCxbMCwwLCJGKEEsQikiXSxbMSwwLCJGKEEsIEInKSJdLFswLDEsIkcoQSwgQikiXSxbMSwxLCJHKEEsQicpIl0sWzAsMSwiRihcXGlkX0EsIGcpIl0sWzAsMiwiXFxhbHBoYV97QSxCfSIsMl0sWzIsMywiRyhcXGlkX0EsIGcpIiwyXSxbMSwzLCJcXGFscGhhX3tBLCBCJ30iXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
         \[\begin{tikzcd}[ampersand replacement=\&]
-          {F(a,b)} \& {F(a, b')} \\
-          {G(a, b)} \& {G(a,b')}
-          \arrow["{F(\id_a, g)}", from=1-1, to=1-2]
-          \arrow["{\alpha_{a,b}}"', from=1-1, to=2-1]
-          \arrow["{G(\id_a, g)}"', from=2-1, to=2-2]
-          \arrow["{\alpha_{a, b'}}"', from=1-2, to=2-2]
+          {F(A,B)} \& {F(A, B')} \\
+          {G(A, B)} \& {G(A,B')}
+          \arrow["{F(\id_A, g)}", from=1-1, to=1-2]
+          \arrow["{\alpha_{A,B}}"', from=1-1, to=2-1]
+          \arrow["{G(\id_A, g)}"', from=2-1, to=2-2]
+          \arrow["{\alpha_{A, B'}}", from=1-2, to=2-2]
         \end{tikzcd}
         \qquad
-        % https://q.uiver.app/?q=WzAsNCxbMCwwLCJGKGEsIGIpIl0sWzAsMSwiRyhhLGIpIl0sWzEsMSwiRyhhJyxiKSJdLFsxLDAsIkYoYScsIGIpIl0sWzAsMSwiXFxhbHBoYV97YSwgYn0iLDJdLFsxLDIsIkcoZiwgXFxpZF97Yn0pIiwyXSxbMywyLCJcXGFscGhhX3thJywgYn0iXSxbMCwzLCJGKGYsIFxcaWRfe2J9KSJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+        % https://q.uiver.app/#q=WzAsNCxbMCwwLCJGKEEsIEIpIl0sWzAsMSwiRyhBLEIpIl0sWzEsMSwiRyhBJyxCKSJdLFsxLDAsIkYoQScsIEIpIl0sWzAsMSwiXFxhbHBoYV97QSwgQn0iLDJdLFsxLDIsIkcoZiwgXFxpZF97Qn0pIiwyXSxbMywyLCJcXGFscGhhX3tBJywgQn0iXSxbMCwzLCJGKGYsIFxcaWRfe0J9KSJdXQ==&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
         \begin{tikzcd}[ampersand replacement=\&]
-          {F(a, b)} \& {F(a', b)} \\
-          {G(a,b)} \& {G(a',b)}
-          \arrow["{\alpha_{a, b}}"', from=1-1, to=2-1]
-          \arrow["{G(f, \id_{b})}"', from=2-1, to=2-2]
-          \arrow["{\alpha_{a', b}}", from=1-2, to=2-2]
-          \arrow["{F(f, \id_{b})}", from=1-1, to=1-2]
+          {F(A, B)} \& {F(A', B)} \\
+          {G(A,B)} \& {G(A',B)}
+          \arrow["{\alpha_{A, B}}"', from=1-1, to=2-1]
+          \arrow["{G(f, \id_{B})}"', from=2-1, to=2-2]
+          \arrow["{\alpha_{A', B}}", from=1-2, to=2-2]
+          \arrow["{F(f, \id_{B})}", from=1-1, to=1-2]
         \end{tikzcd}\]
       \item[$(\impliedby)$] By taking naturality on each variable and
         considering functions $f:a \to a',\ g:b\to b'$ it is possible to form
         the following commutative diagram:
-        % https://q.uiver.app/?q=WzAsNixbMCwwLCJGKGEsYikiXSxbMSwwLCJGKGEsIGInKSJdLFsyLDAsIkYoYScsIGInKSJdLFswLDEsIkcoYSwgYikiXSxbMSwxLCJHKGEsYicpIl0sWzIsMSwiRyhhJyxiJykiXSxbMCwxLCJGKFxcaWRfYSwgZykiXSxbMSwyLCJGKGYsIFxcaWRfe2InfSkiXSxbMCwzLCJcXGFscGhhX3thLGJ9IiwyXSxbMyw0LCJHKFxcaWRfYSwgZykiLDJdLFsxLDQsIlxcYWxwaGFfe2EsIGInfSIsMl0sWzQsNSwiRyhmLCBcXGlkX3tiJ30pIiwyXSxbMiw1LCJcXGFscGhhX3thJywgYid9Il1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
+        % https://q.uiver.app/#q=WzAsNixbMCwwLCJGKEEsIEIpIl0sWzEsMCwiRihBLCBCJykiXSxbMiwwLCJGKEEnLCBCJykiXSxbMCwxLCJHKEEsIEIpIl0sWzEsMSwiRyhBLEInKSJdLFsyLDEsIkcoQScsQicpIl0sWzAsMSwiRihcXGlkX0EsIGcpIl0sWzEsMiwiRihmLCBcXGlkX3tCJ30pIl0sWzAsMywiXFxhbHBoYV97QSwgQn0iLDJdLFszLDQsIkcoXFxpZF9BLCBnKSIsMl0sWzEsNCwiXFxhbHBoYV97QSwgQid9IiwxXSxbNCw1LCJHKGYsIFxcaWRfe0InfSkiLDJdLFsyLDUsIlxcYWxwaGFfe0EnLCBCJ30iXV0=&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
         \[\begin{tikzcd}[ampersand replacement=\&]
-          {F(a,b)} \& {F(a, b')} \& {F(a', b')} \\
-          {G(a, b)} \& {G(a,b')} \& {G(a',b')}
-          \arrow["{F(\id_a, g)}", from=1-1, to=1-2]
-          \arrow["{F(f, \id_{b'})}", from=1-2, to=1-3]
-          \arrow["{\alpha_{a,b}}"', from=1-1, to=2-1]
-          \arrow["{G(\id_a, g)}"', from=2-1, to=2-2]
-          \arrow["{\alpha_{a, b'}}"', from=1-2, to=2-2]
-          \arrow["{G(f, \id_{b'})}"', from=2-2, to=2-3]
-          \arrow["{\alpha_{a', b'}}", from=1-3, to=2-3]
+          {F(A, B)} \& {F(A, B')} \& {F(A', B')} \\
+          {G(A, B)} \& {G(A,B')} \& {G(A',B')}
+          \arrow["{F(\id_A, g)}", from=1-1, to=1-2]
+          \arrow["{F(f, \id_{B'})}", from=1-2, to=1-3]
+          \arrow["{\alpha_{A, B}}"', from=1-1, to=2-1]
+          \arrow["{G(\id_A, g)}"', from=2-1, to=2-2]
+          \arrow["{\alpha_{A, B'}}"{description}, from=1-2, to=2-2]
+          \arrow["{G(f, \id_{B'})}"', from=2-2, to=2-3]
+          \arrow["{\alpha_{A', B'}}", from=1-3, to=2-3]
         \end{tikzcd}\]
 
         \[
           \begin{aligned}
-            \alpha_{a', b'} \circ F(f, g)
-            &= \alpha_{a', b'} \circ F(\langle f, \id_{b'}\rangle \circ \langle\id_a, g\rangle)\\
-            &= \alpha_{a', b'} \circ F(f, \id_{b'}) \circ F(\id_a, g)\\
-            &= G(f, \id_{b'}) \circ \alpha_{a, b'} \circ F(\id_a, g)\\
-            &= G(f, \id_{b'}) \circ G(\id_a, g) \circ \alpha_{a, b}\\
-            &= G(\langle f, \id_{b'}\rangle \circ \langle \id_a,g \rangle) \circ \alpha_{a, b}\\
-            &= G(f, g) \circ \alpha_{a, b}
+            \alpha_{A', B'} \circ F(f, g)
+            &= \alpha_{A', B'} \circ F(\< f, \id_{B'}\> \circ \<\id_A, g\>)\\
+            &= \alpha_{A', B'} \circ F(f, \id_{B'}) \circ F(\id_A, g)\\
+            &= G(f, \id_{B'}) \circ \alpha_{A, b'} \circ F(\id_A, g)\\
+            &= G(f, \id_{B'}) \circ G(\id_A, g) \circ \alpha_{A, b}\\
+            &= G(\< f, \id_{B'}\> \circ \< \id_A,g \>) \circ \alpha_{A, b}\\
+            &= G(f, g) \circ \alpha_{A, b}
           \end{aligned}
         \]
     \end{description}
   \end{proof}
-  \vspace{-\baselineskip}
+  \vspace{-1.5\baselineskip}
 \end{theorem}
