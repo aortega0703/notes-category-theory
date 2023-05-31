@@ -19,6 +19,72 @@
 	and corresponds to a terminal object.
 \end{remark}
 
+\begin{theorem}\label{thm:ternary_product}
+	For objects $A,B,C$ it holds that $A\times(B\times C)\cong A\times B\times C$.
+
+	\begin{proof}
+		% https://q.uiver.app/% https://q.uiver.app/#q=WzAsNixbMCwxLCJYXzAiXSxbMSwxLCJYXzEiXSxbMiwxLCJYXzIiXSxbMSwyLCJCXFx0aW1lcyBDIl0sWzEsMywiQVxcdGltZXMoQlxcdGltZXMgQykiXSxbMSwwLCJTIl0sWzMsMSwicl8wIl0sWzMsMiwicl8xIiwyXSxbNCwwLCJcXHBpXzAiXSxbNCwzLCJcXHBpXzEiLDJdLFs1LDAsIlxccmhvXzAiLDJdLFs1LDEsIlxccmhvXzEiLDJdLFs1LDIsIlxccmhvXzIiXV0=
+		\[\begin{tikzcd}[ampersand replacement=\&]
+			\& S \\
+			{X_0} \& {X_1} \& {X_2} \\
+			\& {B\times C} \\
+			\& {A\times(B\times C)}
+			\arrow["{r_0}", from=3-2, to=2-2]
+			\arrow["{r_1}"', from=3-2, to=2-3]
+			\arrow["{\pi_0}", from=4-2, to=2-1]
+			\arrow["{\pi_1}"', from=4-2, to=3-2]
+			\arrow["{\rho_0}"', from=1-2, to=2-1]
+			\arrow["{\rho_1}"', from=1-2, to=2-2]
+			\arrow["{\rho_2}", from=1-2, to=2-3]
+		\end{tikzcd}\]
+
+		Consider an object $S$ with morphisms $x_i: S\to X_i$. There exists
+		morphisms from $S$ to $X_1$ and $X_2$, therefore by the universal property
+		of the product there exists a unique morphism $u: S\to X_1 \times X_2$ such
+		that:
+		\[
+			r_0 \circ u = \rho_1
+			\qquad
+			r_1 \circ u = \rho_2
+		\]
+
+		Now, as there exists morphisms from $S$ to $X_0$ and $X_1\times X_2$, by the
+		universal property of the product there exists a unique morphism $v: S \to
+		X_0 \times(X_1 \times X_2)$ such that:
+		\[
+			\pi_0 \circ v = \rho_0
+			\qquad
+			\pi_1 \circ v = u
+		\]
+
+		Then, $\rho_i$ is factorized via $v$ by:
+		\[
+			\rho_0 = \pi_0 \circ v
+			\qquad
+			\rho_1 = r_0 \circ \pi_1 \circ v
+			\qquad
+			\rho_2 = r_1 \circ \pi_1 \circ v
+		\]
+
+		Finally by the uniqueness of $u$ and $v$ this factorization is unique, and
+		as $X_0 \times(X_1 \times X_2)$ has the same universal property as $X_0
+		\times X_1 \times X_2$ both are isomorphic.
+	\end{proof}
+\end{theorem}
+
+\begin{proposition}
+	For objects $A,B,C$ it holds that $(A\times B)\times C\cong A\times B\times
+	C$, making products weakly associative. The proof is similar to that of Theorem \ref{thm:ternary_product}.
+\end{proposition}
+
+\begin{proposition}
+	A category has all finite limits if it has a terminal object and all binary
+	products. The proof relies on using theorem \ref{thm:ternary_product}
+	inductively.
+\end{proposition}
+
+\newpage
+
 \input{category.tex}
 
 \input{functor.tex}

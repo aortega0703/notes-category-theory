@@ -60,3 +60,58 @@
     h$, implying that $p=q=h$.
   \end{proof}
 \end{theorem}
+
+\begin{theorem}
+  The following set-up of pullback squares implies that the outter rectangle
+  is another pullback:
+  % https://q.uiver.app/#q=WzAsNixbMiwxLCJEIl0sWzEsMSwiQiJdLFsyLDAsIkMiXSxbMCwxLCJBIl0sWzEsMCwiQlxcdGltZXNfRCBDIl0sWzAsMCwiQVxcdGltZXNfQihCXFx0aW1lc19EIEMpIl0sWzQsMSwiXFxwaV8wIiwyXSxbNCwyLCJcXHBpXzEiXSxbMSwwLCJmIiwyXSxbMiwwLCJnIl0sWzMsMSwiaCIsMl0sWzUsMywiXFxyaG9fMCIsMl0sWzUsNCwiXFxyaG9fMSJdLFs0LDAsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dLFs1LDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    {A\times_B(B\times_D C)} \& {B\times_D C} \& C \\
+    A \& B \& D
+    \arrow["{\pi_0}"', from=1-2, to=2-2]
+    \arrow["{\pi_1}", from=1-2, to=1-3]
+    \arrow["f"', from=2-2, to=2-3]
+    \arrow["g", from=1-3, to=2-3]
+    \arrow["h"', from=2-1, to=2-2]
+    \arrow["{\rho_0}"', from=1-1, to=2-1]
+    \arrow["{\rho_1}", from=1-1, to=1-2]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-2, to=2-3]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+  \end{tikzcd}\]
+
+  Put another way, $A\times_B (B\times_D C) \cong A\times_D C$.
+  \begin{proof}
+    Consider an object $X$ with morphisms $p: X\to A$ and $q:X\to C$. As there
+    are morphism from $X$ to $B$ and $C$ namely $h\circ p$ and $q$, there must
+    be a unique morphism $\delta: X\to A\times_C B$ such that:
+    \[
+      \begin{gathered}
+        h\circ p = \pi_0 \circ \delta
+      \end{gathered}
+      \qquad
+      \begin{gathered}
+        q = \pi_1 \circ \delta
+      \end{gathered}
+    \]
+
+    Now, as there are morphisms from $X$ to $A$ and $B\times_D C$ namely $p$ and
+    $\delta$, there must exist a unique morphism $\varepsilon: X\to
+    A\times_B(B\times_D C)$ such that:
+    \[
+      \begin{gathered}
+        p = \rho_0 \circ \varepsilon
+      \end{gathered}
+      \qquad
+      \begin{gathered}
+        \delta = \rho_1 \circ \varepsilon
+      \end{gathered}
+    \]
+
+    Therefore, for any object $X$ with morphisms $p:X\to A$ and $q:X\to C$ there
+    is a unique morphism $\epsilon: X\to A\times_B(B\times_D C)$ that factors
+    them as $p=\rho_0 \circ \varepsilon$ and $q=\pi_1\circ \rho_1\circ
+    \varepsilon$ making $A\times_B(B\times_D C)$ the pullback of $A$ and $C$.
+    Finally by Theorem \ref{thm:limit_iso} $A\times_B(B\times_D C) \cong
+    A\times_D C$.
+  \end{proof}
+\end{theorem}
