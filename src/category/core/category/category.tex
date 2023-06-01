@@ -2,7 +2,6 @@
 A category can be thought of as the abstraction of a certain structure.
 
 \begin{definition}[Category]\index{Category}
-
   A category $\C$ is composed of~\parencite[p.~4]{awodey:category_theory}:
   \begin{itemize}
     \item Collections of Objects ($\C_0$) and Morphisms ($\C_1$).
@@ -56,8 +55,24 @@ A category can be thought of as the abstraction of a certain structure.
     \arrow["{h\circ g}"{description}, from=2-3, to=1-5]
     \arrow["{h\circ g\circ f}", from=1-1, to=1-5]
   \end{tikzcd}\]
-  \vspace{-1.5\baselineskip}
+  \vspace{-\baselineskip}
 \end{example}
+
+\begin{theorem}
+  Identity arrows are unique.
+
+  \begin{proof}
+    Suppose an object $A$ with two identity arrows $\id_{A_0}: A\to A$ and
+    $\id_{A_1}:A\to A$, then by unitality of both:
+    \[
+      \begin{aligned}
+        \id_{A_0} &= \id_{A_0}\\
+        &= \id_{A_0} \circ \id_{A_1}\\
+        &= \id_{A_1}
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
 
 \begin{definition}[Opposite category]\index{Opposite category}
 
