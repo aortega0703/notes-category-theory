@@ -1,7 +1,6 @@
 \subsection{Equalizer}
 
 \begin{definition}[Equalizer]\index{Equalizer}
-
   An equalizer is the limit of a
   diagram~\parencite[p.~112]{leinster:basic_category_theory}:
   % https://q.uiver.app/#q=WzAsMixbMCwwLCJYIl0sWzEsMCwiWSJdLFswLDEsImYiLDAseyJvZmZzZXQiOi0xfV0sWzAsMSwiZyIsMix7Im9mZnNldCI6MX1dXQ==
@@ -11,3 +10,29 @@
     \arrow["g"', shift right=1, from=1-1, to=1-2]
   \end{tikzcd}\]
 \end{definition}
+
+\begin{remark}
+  An equalizer of objects $A, B$ and morphisms $f, g: A\to B$ is composed by an
+  object $E$ together with a morphism $i:E\to A$.
+\end{remark}
+
+\begin{theorem}
+  Every equalizer morphism is a monomorphism.
+
+  \begin{proof}
+    Consider objects $A, B$ and morphisms $f, g: A\to B$ with their respective
+    equalizer $\<E, i\>$. Now consider an object $X$ with morphisms $x_0, x_1: X
+    \to E$ such that $i\circ x_0 = i\circ x_1$, then:
+    \[
+      \begin{aligned}
+        f \circ i \circ x_0
+        &= f \circ i \circ x_1\\
+        &= g \circ i \circ x_1
+      \end{aligned}
+    \]
+
+    Finally by the universal property of equalizers $i\circ x_0$ (and $i\circ
+    x_1$) must be uniquely factorized as $i\circ k$ for some $k$. As this
+    factorization is unique, it must be the case that $x_0 = x_1 = k$.
+  \end{proof}
+\end{theorem}
