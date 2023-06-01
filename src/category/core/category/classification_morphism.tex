@@ -29,7 +29,7 @@
       \end{aligned}
     \]
   \end{proof}
-  \vspace{-1.5\baselineskip}
+  \vspace{-\baselineskip}
 \end{theorem}
 
 \begin{definition}[Left Inverse]\index{Left Inverse}\index{Retraction!see Left
@@ -68,7 +68,15 @@
       \end{aligned}
     \]
   \end{proof}
-  \vspace{-1.5\baselineskip}
+  \vspace{-\baselineskip}
+\end{theorem}
+
+\begin{theorem}
+  Every identity is an isomorphism.
+
+  \begin{proof}
+    By unitality, every identity is its own inverse.
+  \end{proof}
 \end{theorem}
 
 \begin{definition}[Automorphism]\index{Automorphism}
@@ -78,7 +86,7 @@
 
 \begin{definition}[Monomorphisms]\index{Monomorphisms}
   A morphism $f:C\to D$ is monic or a monomorphism when it is left
-  cancellable~\parencite[p.~19]{lane:working_mathematician} i.e. when for any
+  cancellable~\parencite[p.~19]{lane:working_mathematician}, i.e. when for any
   set-up of objects and morphisms:
   % https://q.uiver.app/#q=WzAsMyxbMSwwLCJDIl0sWzIsMCwiRCJdLFswLDAsIlgiXSxbMCwxLCJmIl0sWzIsMCwiZyIsMCx7Im9mZnNldCI6LTF9XSxbMiwwLCJoIiwyLHsib2Zmc2V0IjoxfV1d
   \[\begin{tikzcd}[ampersand replacement=\&]
@@ -123,12 +131,29 @@
       \end{aligned}
     \]
   \end{proof}
-  \vspace{-1.5\baselineskip}
+  \vspace{-\baselineskip}
+\end{theorem}
+
+\begin{theorem}
+  If $g\circ f: A\mono C$ is a monomorphism then so is $f$.
+
+  \begin{proof}
+    Consider an object $X$ with two morphisms $x_0, x_1:X\to A$ such that
+    $f\circ x_0 = f\circ x_1$, then:
+    \[
+      \begin{aligned}
+        f\circ x_0 &= f\circ x_1\\
+        g\circ f \circ x_0 &= g \circ f \circ x_1\\
+        x_0 &= x_1
+      \end{aligned}
+    \]
+  \end{proof}
+  \vspace{-\baselineskip}
 \end{theorem}
 
 \begin{definition}[Epimorphism]\index{Epimorphism}
   A morphism $f:C\to D$ is epic or an epimorphism when it is right
-  cancellable~\parencite[p.~19]{lane:working_mathematician} i.e. when for any
+  cancellable~\parencite[p.~19]{lane:working_mathematician}, i.e. when for any
   set-up of objects and morphisms:
   % https://q.uiver.app/#q=WzAsMyxbMCwwLCJDIl0sWzEsMCwiRCJdLFsyLDAsIlgiXSxbMSwyLCJoIiwyLHsib2Zmc2V0IjoxfV0sWzAsMSwiZiJdLFsxLDIsImciLDAseyJvZmZzZXQiOi0xfV1d
   \[\begin{tikzcd}[ampersand replacement=\&]
