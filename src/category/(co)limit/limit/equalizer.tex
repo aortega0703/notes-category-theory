@@ -12,8 +12,21 @@
 \end{definition}
 
 \begin{remark}
-  An equalizer of objects $A, B$ and morphisms $f, g: A\to B$ is composed by an
-  object $E$ together with a morphism $i:E\to A$.
+  An equalizer candidate of objects $A, B$ and morphisms $f, g: A\to B$ is
+  composed by an object $X$ together with a morphism $x:X\to A$ such that
+  $f\circ x = g\circ x$. An equalizer is a candidate $\<E, e\>$ such that for
+  any candidate $\<X, x\>$ there exists a unique arrow $h: X\to E$ that makes
+  $e\circ h= x$ hold.
+  % https://q.uiver.app/#q=WzAsNCxbMSwxLCJBIl0sWzIsMSwiQiJdLFswLDEsIkUiXSxbMCwwLCJYIl0sWzAsMSwiZiIsMCx7Im9mZnNldCI6LTF9XSxbMCwxLCJnIiwyLHsib2Zmc2V0IjoxfV0sWzIsMCwiZSJdLFszLDIsImgiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMywwLCJ4Il1d&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb46a955b6b1f06908105b870088e59a10049fc60%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    X \\
+    E \& A \& B
+    \arrow["f", shift left=1, from=2-2, to=2-3]
+    \arrow["g"', shift right=1, from=2-2, to=2-3]
+    \arrow["e", from=2-1, to=2-2]
+    \arrow["h"', dashed, from=1-1, to=2-1]
+    \arrow["x", from=1-1, to=2-2]
+  \end{tikzcd}\]
 \end{remark}
 
 \begin{theorem}\label{thm:equalizer_mono}
@@ -41,15 +54,15 @@
   Every epic equalizer is an isomorphism.
 
   \begin{proof}
-    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJFIl0sWzEsMCwiQSJdLFsyLDAsIkIiXSxbMSwxLCJBIl0sWzEsMiwiZiIsMCx7Im9mZnNldCI6LTF9XSxbMSwyLCJnIiwyLHsib2Zmc2V0IjoxfV0sWzMsMSwiXFxpZF9BIiwyXSxbMywwLCJrIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsMSwiaSJdXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb46a955b6b1f06908105b870088e59a10049fc60%2Fmacros.tex
+    % https://q.uiver.app/#q=WzAsNCxbMCwxLCJFIl0sWzEsMSwiQSJdLFsyLDEsIkIiXSxbMCwwLCJBIl0sWzEsMiwiZiIsMCx7Im9mZnNldCI6LTF9XSxbMSwyLCJnIiwyLHsib2Zmc2V0IjoxfV0sWzMsMSwiXFxpZF9BIl0sWzMsMCwiayIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDEsImkiLDJdXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb46a955b6b1f06908105b870088e59a10049fc60%2Fmacros.tex
     \[\begin{tikzcd}[ampersand replacement=\&]
-      E \& A \& B \\
-      \& A
-      \arrow["f", shift left=1, from=1-2, to=1-3]
-      \arrow["g"', shift right=1, from=1-2, to=1-3]
-      \arrow["{\id_A}"', from=2-2, to=1-2]
-      \arrow["k", dashed, from=2-2, to=1-1]
-      \arrow["i", from=1-1, to=1-2]
+      A \\
+      E \& A \& B
+      \arrow["f", shift left=1, from=2-2, to=2-3]
+      \arrow["g"', shift right=1, from=2-2, to=2-3]
+      \arrow["{\id_A}", from=1-1, to=2-2]
+      \arrow["k"', dashed, from=1-1, to=2-1]
+      \arrow["i"', from=2-1, to=2-2]
     \end{tikzcd}\]
 
     Consider an epic equalizer $i:E\to A$, then as $f\circ i = g\circ i$ it
@@ -61,8 +74,88 @@
       \begin{aligned}
         i\circ k &= \id_A\\
         i\circ k \circ i &= i\\
-        k\circ i = \id_E
+        k\circ i &= \id_E
       \end{aligned}
     \]
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}
+  Any category with all products and all equalizers is complete.
+
+  \begin{proof}
+    % https://q.uiver.app/#q=WzAsOCxbMiwxLCJcXHByb2RcXGxpbWl0c197SVxcaW4gXFxJXzB9IEYoSSkiXSxbMiwyLCJGKFxcbWF0aHJte2RvbX1cXCB1KSJdLFszLDEsIlxccHJvZFxcbGltaXRzX3t1XFxpbiBcXElfMX1GKFxcbWF0aHJte2NvZH1cXCB1KSJdLFszLDIsIkYoXFxtYXRocm17Y29kfVxcIHUpIl0sWzAsMCwiRSJdLFsxLDEsIkYoSSkiXSxbMCwyLCJYIl0sWzMsMCwiRihcXG1hdGhybXtjb2R9XFwgdSkiXSxbMCwxLCJcXHBpX3tcXG1hdGhybXtkb219XFwgdX0iLDJdLFswLDIsImYiLDAseyJvZmZzZXQiOi0xLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwyLCJnIiwyLHsib2Zmc2V0IjoxLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCwwLCJlIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsNSwiXFxwaV9JIiwyXSxbNCw1LCJcXG11X0kiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNiw1LCJ4X0kiXSxbNiw0LCJoJyIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs2LDAsImgiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwzLCJGKHUpIiwyXSxbMCw3LCJcXHBpX3tcXG1hdGhybXtjb2R9XFwgdX0iXSxbMiw3LCJcXHBpX3t1fSIsMl0sWzIsMywiXFxwaV97dX0iLDJdXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb46a955b6b1f06908105b870088e59a10049fc60%2Fmacros.tex
+    \[\begin{tikzcd}[ampersand replacement=\&]
+      E \&\&\& {F(\mathrm{cod}\ u)} \\
+      \& {F(I)} \& {\prod\limits_{I\in \I_0} F(I)} \& {\prod\limits_{u\in \I_1}F(\mathrm{cod}\ u)} \\
+      X \&\& {F(\mathrm{dom}\ u)} \& {F(\mathrm{cod}\ u)}
+      \arrow["{\pi_{\mathrm{dom}\ u}}"', from=2-3, to=3-3]
+      \arrow["f", shift left=1, dashed, from=2-3, to=2-4]
+      \arrow["g"', shift right=1, dashed, from=2-3, to=2-4]
+      \arrow["e", dashed, from=1-1, to=2-3]
+      \arrow["{\pi_I}"', from=2-3, to=2-2]
+      \arrow["{\mu_I}"', dashed, from=1-1, to=2-2]
+      \arrow["{x_I}", from=3-1, to=2-2]
+      \arrow["{h'}", dashed, from=3-1, to=1-1]
+      \arrow["h"', dashed, from=3-1, to=2-3]
+      \arrow["{F(u)}"', from=3-3, to=3-4]
+      \arrow["{\pi_{\mathrm{cod}\ u}}", from=2-3, to=1-4]
+      \arrow["{\pi_{u}}"', from=2-4, to=1-4]
+      \arrow["{\pi_{u}}"', from=2-4, to=3-4]
+    \end{tikzcd}\]
+
+    Consider a category $\C$ with all products and all equalizers, and a functor
+    $F:\I\to \C$. It is possible to construct the products $A=\prod\limits_{I\in
+    \I_0} F(I)$ and $B=\prod\limits_{u\in \I_1} F(\mathrm{cod}\ u)$. As $A$ has
+    morphisms into $F(\mathrm{cod}\ u)$ for all $u$ (namely $\pi_{\mathrm{cod}\
+    u}$ and $F(u) \circ \pi_{\mathrm{dom}\ u}$), then by the universal property
+    of $B$ there exists unique morphisms $f, g: A \to B$ such that:
+    \[
+      \begin{aligned}
+        \pi_u \circ f &= {\mathrm{cod}\ u}\\
+        \pi_u \circ g &= F(u) \circ \pi_{\mathrm{dom}\ u}
+      \end{aligned}
+    \]
+
+    Then, it is possible to construct the equalizer $\<E, e\>$ of $f,g$ which
+    has morphisms into $F(I)$ for all $I$ (namely $\mu_I=\pi_I \circ i$). Then
+    take $(u:J\to K)\in \I_1$:
+    \[
+      \begin{aligned}
+        F(u) \circ \mu_J
+        &= F(u) \circ \pi_J \circ e\\
+        &= \pi_u \circ g \circ e\\
+        &= \pi_u \circ f \circ e\\
+        &= \pi_K \circ i\\
+        &= \mu_K
+      \end{aligned}
+    \]
+
+    This makes $\<E, \mu_*\>$ a cone over $F$. Consider a cone $\<X, x_*\>$, it
+    has morphisms into $F(I)$ for all $I$, therefore by the universal property
+    of $A$ there exists a unique morphism $h: X\to A$ such that $x_I = \pi_I
+    \circ h$. Then, as $\<X, x_*\>$ is a cone, for any $u: j \to k\in \I_1$:
+    \[
+      \begin{aligned}
+        F(u) \circ x_J &= x_K\\
+        F(u) \circ \pi_J \circ h &= \pi_K \circ h\\
+        F(u)\circ\pi_{\mathrm{dom}\ u}\circ h &= \pi_{\mathrm{cod}\ u} \circ h\\
+        \pi_u \circ g \circ h &= \pi_u \circ f \circ h
+      \end{aligned}
+    \]
+
+    By Theorem \ref{thm:proj_jointly_monic} $g\circ h = f \circ h$. As $h$
+    equalizes $f$ and $g$ there exists a unique arrow $h': X\to E$ that makes
+    $e\circ h' = h$, then:
+    \[
+      \begin{aligned}
+        x_I &= \pi_I \circ h\\
+        &= \pi_I \circ e \circ h'\\
+        &= \mu_I \circ h'
+      \end{aligned}
+    \]
+
+    As $x_I$ factors uniquely through $\mu_I$, $\<E, \mu_*\>$ corresponds to the
+    limit of $F$.
   \end{proof}
 \end{theorem}

@@ -11,7 +11,7 @@
 
   \begin{proof}
     To proof uniqueness up to isomorphism, consider two terminal objects $C$ and
-    $D$, the following diagram must commute as every arrow is unique:
+    $D$, the following diagram must commute as every morphism is unique:
     % https://q.uiver.app/#q=WzAsNCxbMSwwLCJEIl0sWzAsMCwiQyJdLFsyLDEsIkQiXSxbMSwxLCJDIl0sWzAsMiwiXFxpZF9EIl0sWzEsMywiXFxpZF9DIiwyXSxbMSwwLCJmIl0sWzAsMywiZyIsMl0sWzMsMiwiZiIsMl1d&macro_url=https%3A%2F%2Fraw.githubusercontent.com%2Faortega0703%2Fnotes-category-theory%2Fmain%2Fsrc%2Fmacros.tex
     \[\begin{tikzcd}[ampersand replacement=\&]
       C \& D \\
@@ -25,7 +25,7 @@
 
     To proof this isomorphism is unique, consider two isomorphisms $f, g:
     C\overset{\cong}{\to}D$ between terminal objects. As there must be only one
-    arrow $u$ is unique, then $f$ and $g$ must be equal.
+    morphism $u$ is unique, then $f$ and $g$ must be equal.
   \end{proof}
 \end{theorem}
 
@@ -34,7 +34,7 @@
 
   \begin{proof}
     Consider a terminal object $1$ and an object $C$ together with an
-    isomorphism $f:C\overset{\cong}{\to} 1$. It is necesary to proof the existence and uniqueness of an arrow from any object $D$ into $C$.
+    isomorphism $f:C\overset{\cong}{\to} 1$. It is necesary to proof the existence and uniqueness of a morphism from any object $D$ into $C$.
 
     \begin{description}
       \item[Existence:]
@@ -63,7 +63,7 @@
 \end{theorem}
 
 \begin{theorem}\label{thm:terminal_object_mono}
-  Every arrow coming from a terminal object is a monomorphism.
+  Every morphism coming from a terminal object is a monomorphism.
 
   \begin{proof}
     Consider objects $X,C,D$ with $C$ terminal and morphisms $f:C\to D$,
@@ -95,7 +95,7 @@
 \end{theorem}
 
 \begin{theorem}
-  Every arrow coming into an initial object is an epimorphism.
+  Every morphism coming into an initial object is an epimorphism.
 
   \begin{proof}
     By duality of Theorem \ref{thm:terminal_object_mono}.

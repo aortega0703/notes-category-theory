@@ -1,7 +1,6 @@
 \subsection{Product}
 
 \begin{definition}[Product]\index{Product}\label{def:product_limit}
-
 	For a discrete category $\underline{n}$, the functor $F:\underline{n}\to \C$
 	is a family of objects $(F(n))_{n\in \underline{n}_0}$ in $\C$. The product
 	$\prod\limits_{n\in \underline{n}_0} F(n)$ is the limit of such an
@@ -9,9 +8,19 @@
 \end{definition}
 
 \begin{remark}
-	In the case $\underline{n}=\underline{2}$, the product of objects $A$ and $B$
-	is comformed by an object $A\times B$ with morphisms $\pi_0:A\times B\to A$,
-	$\pi_1: A\times B \to B$.
+	A product candidate of an $I$-indexed collection of objects $(A_i)_{i\in I}$
+	is composed by an object $X$ and morphisms $x_i: X \to A_i$. A product is a
+	candidate $\<\prod\limits_{i\in I} A_i, \pi_*\>$ such that for any candidate
+	$\<X, x_*\>$ there exists a unique morphism $h:X\to \prod\limits_{i\in I} A_i$
+	that makes $\pi_i \circ h = x_i$ hold.
+	% https://q.uiver.app/#q=WzAsMyxbMCwxLCJcXHByb2RcXGxpbWl0c197aVxcaW4gSX0gQV9pIl0sWzEsMSwiQV9pIl0sWzAsMCwiWCJdLFsyLDAsImgiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwxLCJcXHBpX2kiLDJdLFsyLDEsInhfaSJdXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb46a955b6b1f06908105b870088e59a10049fc60%2Fmacros.tex
+	\[\begin{tikzcd}[ampersand replacement=\&]
+		X \\
+		{\prod\limits_{i\in I} A_i} \& {A_i}
+		\arrow["h"', dashed, from=1-1, to=2-1]
+		\arrow["{\pi_i}"', from=2-1, to=2-2]
+		\arrow["{x_i}", from=1-1, to=2-2]
+	\end{tikzcd}\]
 \end{remark}
 
 \begin{remark}
@@ -83,7 +92,7 @@
 	inductively.
 \end{proposition}
 
-\begin{theorem}
+\begin{theorem}\label{thm:proj_jointly_monic}
 	Product projections are jointly monic, i.e. for a collection of $I$-indexed
 	objects $(A_i)_{i\in I}$, their product $A$ with projections $\pi_i: A \to
 	A_i$, and an object $B$ with morphisms $f, g: B \to A$, it follows that:
@@ -119,8 +128,6 @@
 		therefore $f=g$.
 	\end{proof}
 \end{theorem}
-
-\newpage
 
 \input{category.tex}
 

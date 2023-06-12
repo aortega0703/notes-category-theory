@@ -1,7 +1,6 @@
 \subsection{Pullbacks}
 
 \begin{definition}[Pullback]\index{Pullback}
-
   A pullback is the limit of a
   diagram~\parencite[p.~114]{leinster:basic_category_theory}:
   % https://q.uiver.app/#q=WzAsMyxbMiwwLCJCIl0sWzAsMCwiQSJdLFsxLDAsIkMiXSxbMCwyLCJnIiwyXSxbMSwyLCJmIl1d
@@ -13,19 +12,31 @@
 \end{definition}
 
 \begin{remark}
-  A pullback of objects and morphism $A\overset{f}{\to} C \overset{g}{\from} B$
-  is composed by the object $A \times_C B$ and morphisms $\pi_0:A \times_C B$,
-  $\pi_1: A \times_C B\to B$ which form a commutative square:
-  % https://q.uiver.app/#q=WzAsNCxbMSwwLCJCIl0sWzAsMSwiQSJdLFsxLDEsIkMiXSxbMCwwLCJBXFx0aW1lc19DQiJdLFswLDIsImciXSxbMSwyLCJmIiwyXSxbMywxLCJcXHBpXzAiLDJdLFszLDAsIlxccGlfMSJdLFszLDIsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==
+  A pullback candidate of objects and morphisms $A\overset{f}{\to} C
+  \overset{g}{\from} B$ is composed of an object $X$ with morphisms
+  $A\overset{x_0}{\from} X \overset{x_1}{\to} B$ such that $f \circ \pi_0 =
+  g\circ \pi_1$. A pullback is a candidate $\<A\times_C B, \pi_*\>$ such that
+  for any candidate $\<X, x_*\>$ there exists a unique morphism $h:X\to
+  A\times_C B$ that makes $\pi_0 \circ h = x_0$ and $\pi_1 \circ h = x_1$ hold.
+  % https://q.uiver.app/#q=WzAsNSxbMCwwLCJYIl0sWzEsMiwiQSJdLFsyLDEsIkIiXSxbMiwyLCJDIl0sWzEsMSwiQVxcdGltZXNfQyBCIl0sWzQsMSwiXFxwaV8wIiwyXSxbNCwyLCJcXHBpXzEiXSxbMSwzLCJmIiwyXSxbMiwzLCJnIl0sWzAsNCwiaCIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDEsInhfMCIsMix7ImN1cnZlIjoyfV0sWzAsMiwieF8xIiwwLHsiY3VydmUiOi0yfV0sWzQsMywiIiwwLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lciJ9fV1d&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb46a955b6b1f06908105b870088e59a10049fc60%2Fmacros.tex
   \[\begin{tikzcd}[ampersand replacement=\&]
-    {A\times_CB} \& B \\
-    A \& C
-    \arrow["g", from=1-2, to=2-2]
-    \arrow["f"', from=2-1, to=2-2]
-    \arrow["{\pi_0}"', from=1-1, to=2-1]
-    \arrow["{\pi_1}", from=1-1, to=1-2]
-    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+    X \\
+    \& {A\times_C B} \& B \\
+    \& A \& C
+    \arrow["{\pi_0}"', from=2-2, to=3-2]
+    \arrow["{\pi_1}", from=2-2, to=2-3]
+    \arrow["f"', from=3-2, to=3-3]
+    \arrow["g", from=2-3, to=3-3]
+    \arrow["h", dashed, from=1-1, to=2-2]
+    \arrow["{x_0}"', curve={height=12pt}, from=1-1, to=3-2]
+    \arrow["{x_1}", curve={height=-12pt}, from=1-1, to=2-3]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=2-2, to=3-3]
   \end{tikzcd}\]
+
+  Here $\lrcorner$ is used to indicate the object that makes
+  that is completing the pullback square. Also, $\pi_0$ is sometimes called
+  ``the pullback of $g$ along $f$'' and similarly $\pi_1$ is ``the pullback of
+  $f$ along $g$''. Pullbacks are sometimes called fibred products.
 \end{remark}
 
 \begin{theorem}
