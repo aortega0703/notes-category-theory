@@ -83,6 +83,43 @@
 	inductively.
 \end{proposition}
 
+\begin{theorem}
+	Product projections are jointly monic, i.e. for a collection of $I$-indexed
+	objects $(A_i)_{i\in I}$, their product $A$ with projections $\pi_i: A \to
+	A_i$, and an object $B$ with morphisms $f, g: B \to A$, it follows that:
+	\[
+		f = g \iff \big(\forall i\in I\big)\big(\pi_i \circ f = \pi_i \circ g\big)
+	\]
+
+	\begin{proof}
+		% https://q.uiver.app/#q=WzAsMyxbMSwwLCJBIl0sWzEsMSwiQV9pIl0sWzAsMCwiQiJdLFsyLDAsImciLDIseyJvZmZzZXQiOjF9XSxbMiwwLCJmIiwwLHsib2Zmc2V0IjotMX1dLFswLDEsIlxccGlfaSJdLFsyLDEsIlxccGlfaVxcY2lyYyBmIiwxXSxbMiwxLCJcXHBpX2lcXGNpcmMgZyIsMSx7ImN1cnZlIjozfV1d&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb46a955b6b1f06908105b870088e59a10049fc60%2Fmacros.tex
+		\[\begin{tikzcd}[ampersand replacement=\&]
+			B \& A \\
+			\& {A_i}
+			\arrow["g"', shift right=1, from=1-1, to=1-2]
+			\arrow["f", shift left=1, from=1-1, to=1-2]
+			\arrow["{\pi_i}", from=1-2, to=2-2]
+			\arrow["{\pi_i\circ f}"{description}, from=1-1, to=2-2]
+			\arrow["{\pi_i\circ g}"{description}, curve={height=18pt}, from=1-1, to=2-2]
+		\end{tikzcd}\]
+
+		Now, by making $\pi_i \circ f = \pi_i \circ g$ we obtain the following:
+		% https://q.uiver.app/#q=WzAsMyxbMSwwLCJBIl0sWzEsMSwiQV9pIl0sWzAsMCwiQiJdLFsyLDAsImciLDIseyJvZmZzZXQiOjF9XSxbMiwwLCJmIiwwLHsib2Zmc2V0IjotMX1dLFswLDEsIlxccGlfaSJdLFsyLDEsIlxccGlfaVxcY2lyYyBmPVxccGlfaVxcY2lyYyBnIiwyXV0=&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb46a955b6b1f06908105b870088e59a10049fc60%2Fmacros.tex
+		\[\begin{tikzcd}[ampersand replacement=\&]
+			B \& A \\
+			\& {A_i}
+			\arrow["g"', shift right=1, from=1-1, to=1-2]
+			\arrow["f", shift left=1, from=1-1, to=1-2]
+			\arrow["{\pi_i}", from=1-2, to=2-2]
+			\arrow["{\pi_i\circ f=\pi_i\circ g}"', from=1-1, to=2-2]
+		\end{tikzcd}\]
+
+		Clearly both $f$ and $g$ make the triangles commute. Then by the universal
+		property of products, there exists a unique arrow that makes them commute,
+		therefore $f=g$.
+	\end{proof}
+\end{theorem}
+
 \newpage
 
 \input{category.tex}
