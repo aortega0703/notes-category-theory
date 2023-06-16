@@ -126,3 +126,88 @@
     A\times_D C$.
   \end{proof}
 \end{theorem}
+
+\begin{theorem}\label{thm:product_from_pullback}
+  For a category with a terminal object $1$, the product of objects $A, B$ can
+  be constructed using pullbacks.
+
+  \begin{proof}
+    % https://q.uiver.app/#q=WzAsNSxbMSwyLCJBIl0sWzIsMSwiQiJdLFsyLDIsIjEiXSxbMSwxLCJBXFx0aW1lc18xIEIiXSxbMCwwLCJYIl0sWzAsMiwiZiIsMl0sWzEsMiwiZyJdLFszLDAsIlxccGlfMCIsMl0sWzMsMSwiXFxwaV8xIl0sWzQsMywiaCIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs0LDAsInhfMCIsMix7ImN1cnZlIjoxfV0sWzQsMSwieF8xIiwwLHsiY3VydmUiOi0xfV0sWzMsMiwiIiwwLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lciJ9fV1d
+    \[\begin{tikzcd}[ampersand replacement=\&]
+      X \\
+      \& {A\times_1 B} \& B \\
+      \& A \& 1
+      \arrow["f"', from=3-2, to=3-3]
+      \arrow["g", from=2-3, to=3-3]
+      \arrow["{\pi_0}"', from=2-2, to=3-2]
+      \arrow["{\pi_1}", from=2-2, to=2-3]
+      \arrow["h", dashed, from=1-1, to=2-2]
+      \arrow["{x_0}"', curve={height=6pt}, from=1-1, to=3-2]
+      \arrow["{x_1}", curve={height=-6pt}, from=1-1, to=2-3]
+      \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=2-2, to=3-3]
+    \end{tikzcd}\]
+
+    Consider the pullback $A\times_1 B$. As there are morphisms $\pi_0, \pi_1$
+    from it to $A$ and $B$, it is a product candidate. Consider another product
+    candidate $\<X, x_*\>$ as shown in the diagram. There is a unique morphism
+    $X\to 1$, therefore $f\circ x_0 = g\circ x_1$ making it a pullback
+    candidate. Then by the universal property of pullbacks there exists a unique
+    morphism $h:X\to A\times_1 B$ such that $x_0 = \pi_0\circ h$ and $x_1 =
+    \pi_1\circ h$.
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}\label{thm:equalizer_from_pullback}
+  The equalizer of arrows $f,g:A\to B$ can be constructed using pullbacks and
+  products.
+
+  \begin{proof}
+    % https://q.uiver.app/#q=WzAsNSxbMSwyLCJBIl0sWzIsMiwiQVxcdGltZXMgQiJdLFsyLDEsIkEiXSxbMSwxLCJDIl0sWzAsMCwiWCJdLFswLDEsIlxcbGFuZ2xlIFxcaWRfQSwgZlxccmFuZ2xlIiwyXSxbMiwxLCJcXGxhbmdsZSBcXGlkX0EsIGdcXHJhbmdsZSJdLFszLDIsIlxccGlfMSJdLFszLDAsIlxccGlfMCIsMl0sWzQsMywiaCIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs0LDAsInhfMCIsMix7ImN1cnZlIjoxfV0sWzQsMiwieF8xIiwwLHsiY3VydmUiOi0xfV0sWzMsMSwiIiwwLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lciJ9fV1d&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb46a955b6b1f06908105b870088e59a10049fc60%2Fmacros.tex
+    \[\begin{tikzcd}[ampersand replacement=\&]
+      X \\
+      \& C \& A \\
+      \& A \& {A\times B}
+      \arrow["{\langle \id_A, f\rangle}"', from=3-2, to=3-3]
+      \arrow["{\langle \id_A, g\rangle}", from=2-3, to=3-3]
+      \arrow["{\pi_1}", from=2-2, to=2-3]
+      \arrow["{\pi_0}"', from=2-2, to=3-2]
+      \arrow["h", dashed, from=1-1, to=2-2]
+      \arrow["{x_0}"', curve={height=6pt}, from=1-1, to=3-2]
+      \arrow["{x_1}", curve={height=-6pt}, from=1-1, to=2-3]
+      \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=2-2, to=3-3]
+    \end{tikzcd}\]
+
+    Consider a pullback $\<C, \pi_*\>$ as shown in the diagram, then:
+    \[
+      \begin{aligned}
+        \<\id_A, f\> \circ \pi_0 &= \<\id_A, g\> \circ \pi_1\\
+        \<\id_A\circ\pi_0,f\circ\pi_0\> &= \<\id_A\circ\pi_0, g\circ\pi_0\>\\
+        \pi_0 = \pi_1 \qquad&\phantom{=}\qquad f\circ \pi_0 = g\circ \pi_1
+      \end{aligned}
+    \]
+
+    Therefore $\<C, \pi_*\>$ is an equalizer candidate for $f,g$. Consider
+    another equalizer candidate $\<X, x\>$ such that $\<\id_A, f\> \circ x =
+    \<\id_A, g\> \circ x$, then:
+    \[
+      \begin{aligned}
+        \id_A \circ x = \id_A \circ x \qquad&\phantom{=}\qquad f\circ x = g\circ x\\
+        \<\id_A \circ x, f\circ x\> &= \<\id_A \circ x, g\circ x\>\\
+        \<\id_A, f\> \circ x &= \<\id_A, g\> \circ x
+      \end{aligned}
+    \]
+
+    Making $\<X, x\>$ also a pullback candidate. By the universal property of
+    pullbacks, there exists a unique morphism $h: X\to C$ such that $x =
+    \pi_*\circ h$.
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}
+  A category with a terminal object and all pullbacks is complete.
+
+  \begin{proof}
+    By Theorems \ref{thm:complete_product_equalizer},
+    \ref{thm:product_from_pullback}, \ref{thm:equalizer_from_pullback}
+  \end{proof}
+\end{theorem}
