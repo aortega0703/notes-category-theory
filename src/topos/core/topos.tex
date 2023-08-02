@@ -1,0 +1,217 @@
+\section{Topos}
+
+\begin{definition}[Topos]\index{Topos}
+
+  An elementary topos is a category such that
+  \parencite[p.~84]{goldblatt:topoi}:
+
+  \begin{itemize}
+    \item It Cartesian Closed.
+    \item It has a subobject classifier.
+  \end{itemize}
+\end{definition}
+
+\begin{proposition}\label{prop:epicmono_factorization}\index{Epic-Mono Factorization}
+  In a topos, every arrow $f:A\to B$ can be factorized as monic after an epic as
+  folows \parencite[p.~110]{goldblatt:topoi}:
+  % https://q.uiver.app/#q=WzAsMyxbMCwwLCJBIl0sWzIsMCwiQiJdLFsxLDEsIlxcbWF0aHJte0ltfVxcIGYiXSxbMCwxLCJmIl0sWzAsMiwiZl4qIiwyLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzIsMSwiIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XV0=
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    A \&\& B \\
+    \& {f(A)}
+    \arrow["f", from=1-1, to=1-3]
+    \arrow["{f^*}"', two heads, from=1-1, to=2-2]
+    \arrow[hook, from=2-2, to=1-3]
+  \end{tikzcd}\]
+\end{proposition}
+
+\subsection{Algebra of Subobjects}
+
+\begin{remark}
+  The characteristic function of $!:0\to 1$ ($0 \subseteq 1$) being regarded as
+  false implies that the initial object $0$ should behave as empty-like.
+\end{remark}
+
+\subsubsection{Negation}
+
+\begin{definition}[False]\index{False}
+  The arrow $\bot: 1 \mono \Omega$ that represents false is the characteristic
+  function of $!: 0 \to 1$ or $0 \subseteq 1$
+  \parencite[p.~117]{goldblatt:topoi}:
+  % https://q.uiver.app/#q=WzAsNCxbMCwwLCIwIl0sWzEsMCwiMSJdLFswLDEsIjEiXSxbMSwxLCJcXE9tZWdhIl0sWzEsMywiXFxtYXRocm17XFx0b3B9IiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFswLDEsIiEiXSxbMCwyLCIhIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsyLDMsIlxcYm90IiwyXSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyIn19XV0=
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    0 \& 1 \\
+    1 \& \Omega
+    \arrow["{\mathrm{\top}}", tail, from=1-2, to=2-2]
+    \arrow["{!}", from=1-1, to=1-2]
+    \arrow["{!}"', tail, from=1-1, to=2-1]
+    \arrow["\bot"', from=2-1, to=2-2]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+  \end{tikzcd}\]
+\end{definition}
+
+\begin{definition}[Negation]\index{Negation}
+  The unary function $\bot: \Omega\to Omega$ that represents negation is given
+  by the characteristic function of $\bot: 1 \to \Omega$ or $0 \subseteq \Omega$
+  \parencite[p.~137]{goldblatt:topoi}:
+  % https://q.uiver.app/#q=WzAsNCxbMCwwLCIxIl0sWzEsMCwiMSJdLFswLDEsIlxcT21lZ2EiXSxbMSwxLCJcXE9tZWdhIl0sWzEsMywiXFx0b3AiXSxbMCwyLCJcXGJvdCIsMl0sWzIsMywiXFxuZWciLDJdLFswLDEsIiEiXSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyIn19XV0=
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    1 \& 1 \\
+    \Omega \& \Omega
+    \arrow["\top", from=1-2, to=2-2]
+    \arrow["\bot"', from=1-1, to=2-1]
+    \arrow["\neg"', from=2-1, to=2-2]
+    \arrow["{!}", from=1-1, to=1-2]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+  \end{tikzcd}\]
+\end{definition}
+
+\begin{definition}[Complement]\index{Complement}
+  For a subobject $a: A\mono B$, the characteristic function for its complement
+  $\neg a:B-A\mono B$ is given by \parencite[p.~146]{goldblatt:topoi}:
+  % https://q.uiver.app/#q=WzAsNSxbMCwwLCJCLUEiXSxbMiwwLCIxIl0sWzAsMSwiQiJdLFsyLDEsIlxcT21lZ2EiXSxbMSwxLCJcXE9tZWdhIl0sWzEsMywiXFx0b3AiXSxbMCwyLCJcXGJhcnthfSIsMl0sWzAsMSwiISJdLFsyLDQsIlxcY2hpX2EiLDJdLFs0LDMsIlxcbmVnIiwyXSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyIn19XV0=
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    {B-A} \&\& 1 \\
+    B \& \Omega \& \Omega
+    \arrow["\top", from=1-3, to=2-3]
+    \arrow["{\bar{a}}"', from=1-1, to=2-1]
+    \arrow["{!}", from=1-1, to=1-3]
+    \arrow["{\chi_a}"', from=2-1, to=2-2]
+    \arrow["\neg"', from=2-2, to=2-3]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-3]
+  \end{tikzcd}\]
+\end{definition}
+
+\subsubsection{Conjunction}
+
+\begin{definition}[Conjunction]\index{Conjunction}
+  Consider the arrow $f = \<\top,\top\>: 1\to \Omega$ constructed as follows:
+  % https://q.uiver.app/#q=WzAsNCxbMiwxLCJcXE9tZWdhXFx0aW1lc1xcT21lZ2EiXSxbMiwwLCJcXE9tZWdhIl0sWzIsMiwiXFxPbWVnYSJdLFswLDEsIjEiXSxbMCwxLCJcXHBpXzAiLDJdLFswLDIsIlxccGlfMSJdLFszLDEsIlxcdG9wIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFszLDIsIlxcdG9wIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFszLDAsImYiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    \&\& \Omega \\
+    1 \&\& \Omega\times\Omega \\
+    \&\& \Omega
+    \arrow["{\pi_0}"', from=2-3, to=1-3]
+    \arrow["{\pi_1}", from=2-3, to=3-3]
+    \arrow["\top", tail, from=2-1, to=1-3]
+    \arrow["\top"', tail, from=2-1, to=3-3]
+    \arrow["f"{description}, dashed, tail, from=2-1, to=2-3]
+  \end{tikzcd}\]
+
+  The binary function $\land$ that represents conjunction is given by the
+  characteristic function of the subobject $f$
+  \parencite[p.~137]{goldblatt:topoi}, which selects when both operands are
+  $\top$:
+  % https://q.uiver.app/#q=WzAsNCxbMCwwLCIxIl0sWzEsMCwiMSJdLFswLDEsIlxcT21lZ2FcXHRpbWVzIFxcT21lZ2EiXSxbMSwxLCJcXE9tZWdhIl0sWzEsMywiXFx0b3AiXSxbMCwyLCJmIiwyXSxbMiwzLCJcXGxhbmQiLDJdLFswLDEsIiEiXSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyIn19XV0=
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    1 \& 1 \\
+    {\Omega\times \Omega} \& \Omega
+    \arrow["\top", from=1-2, to=2-2]
+    \arrow["f"', from=1-1, to=2-1]
+    \arrow["\land"', from=2-1, to=2-2]
+    \arrow["{!}", from=1-1, to=1-2]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+  \end{tikzcd}\]
+\end{definition}
+
+\begin{definition}[Intersection]\index{Intersection}
+  For subobjects $a: A\mono C$ and $b: B\mono C$, the characteristic function of
+  their intersection $a\cap b:A\cap B \mono C$ is given by
+  \parencite[p.~147]{goldblatt:topoi}:
+  % https://q.uiver.app/#q=WzAsNSxbMCwwLCJBXFxjYXAgQiJdLFsyLDAsIjEiXSxbMCwxLCJDIl0sWzIsMSwiXFxPbWVnYSJdLFsxLDEsIlxcT21lZ2FcXHRpbWVzXFxPbWVnYSJdLFsxLDMsIlxcdG9wIl0sWzAsMiwiYVxcY2FwIGIiLDJdLFswLDEsIiEiXSxbMiw0LCJcXGxhbmdsZVxcY2hpX2EsXFxjaGlfYlxccmFuZ2xlIiwyXSxbNCwzLCJcXGxhbmQiLDJdLFswLDMsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    {A\cap B} \&\& 1 \\
+    C \& \Omega\times\Omega \& \Omega
+    \arrow["\top", from=1-3, to=2-3]
+    \arrow["{a\cap b}"', from=1-1, to=2-1]
+    \arrow["{!}", from=1-1, to=1-3]
+    \arrow["{\langle\chi_a,\chi_b\rangle}"', from=2-1, to=2-2]
+    \arrow["\land"', from=2-2, to=2-3]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-3]
+  \end{tikzcd}\]
+\end{definition}
+
+\subsubsection{Disjunction}
+
+\begin{definition}[Disjunction]\index{Disjunction}
+  Consider the arrow $f = [\<\top\circ\ !,\id_\Omega\>, \<\id_\Omega,\top\circ\
+  !\>]: \Omega + \Omega \to \Omega \times \Omega$ constructed as follows:
+  % https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXE9tZWdhIl0sWzIsMSwiXFxPbWVnYVxcdGltZXNcXE9tZWdhIl0sWzAsMiwiXFxPbWVnYSJdLFswLDEsIlxcT21lZ2ErXFxPbWVnYSJdLFswLDEsIlxcbGFuZ2xlXFx0b3BcXGNpcmNcXCAhLFxcaWRfXFxPbWVnYVxccmFuZ2xlIl0sWzIsMSwiXFxsYW5nbGVcXGlkX1xcT21lZ2EsXFx0b3BcXGNpcmNcXCAhXFxyYW5nbGUiLDJdLFswLDMsImlfMCIsMl0sWzIsMywiaV8xIl0sWzMsMSwiZiIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb46a955b6b1f06908105b870088e59a10049fc60%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    \Omega \\
+    {\Omega+\Omega} \&\& \Omega\times\Omega \\
+    \Omega
+    \arrow["{\langle\top\circ\ !,\id_\Omega\rangle}", from=1-1, to=2-3]
+    \arrow["{\langle\id_\Omega,\top\circ\ !\rangle}"', from=3-1, to=2-3]
+    \arrow["{i_0}"', from=1-1, to=2-1]
+    \arrow["{i_1}", from=3-1, to=2-1]
+    \arrow["f"{description}, dashed, from=2-1, to=2-3]
+  \end{tikzcd}\]
+
+  Factorizing $f$ using \ref{prop:epicmono_factorization} leads to a
+  subobject $i: f(\Omega+\Omega)\mono \Omega\times \Omega$ as follows:
+  % https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXE9tZWdhK1xcT21lZ2EiXSxbMiwwLCJcXE9tZWdhXFx0aW1lc1xcT21lZ2EiXSxbMSwxLCJcXG1hdGhybXtJbX1cXCBmIl0sWzAsMiwiZl4qIiwyLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzAsMSwiZiJdLFsyLDEsImkiLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV1d
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    {\Omega+\Omega} \&\& \Omega\times\Omega \\
+    \& {f(\Omega+\Omega)}
+    \arrow["{f^*}"', two heads, from=1-1, to=2-2]
+    \arrow["f", from=1-1, to=1-3]
+    \arrow["i"', tail, from=2-2, to=1-3]
+  \end{tikzcd}\]
+
+  The binary function $\lor$ that represents disjuction is given by the
+  characteristic function of $i$ \parencite[p.~138]{goldblatt:topoi}, which selects when either operand is $\top$:
+  % https://q.uiver.app/#q=WzAsNCxbMCwwLCJmKFxcT21lZ2ErXFxPbWVnYSkiXSxbMSwwLCIxIl0sWzEsMSwiXFxPbWVnYSJdLFswLDEsIlxcT21lZ2FcXHRpbWVzXFxPbWVnYSJdLFswLDEsIiEiXSxbMSwyLCJcXHRvcCJdLFszLDIsIlxcbG9yIiwyXSxbMCwyLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyIn19XSxbMCwzLCJpIiwyXV0=
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    {f(\Omega+\Omega)} \& 1 \\
+    \Omega\times\Omega \& \Omega
+    \arrow["{!}", from=1-1, to=1-2]
+    \arrow["\top", from=1-2, to=2-2]
+    \arrow["\lor"', from=2-1, to=2-2]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+    \arrow["i"', from=1-1, to=2-1]
+  \end{tikzcd}\]
+\end{definition}
+
+\begin{definition}[Union]\index{Union}
+  For subobjects $a:A\mono C$ and $b:B\mono C$, the characteristic function of
+  their union $a\cup b:A\cup B \mono C$ is given by
+  \parencite[p.~147]{goldblatt:topoi}:
+  % https://q.uiver.app/#q=WzAsNSxbMCwwLCJBXFxjdXAgQiJdLFsyLDAsIjEiXSxbMiwxLCJcXE9tZWdhIl0sWzEsMSwiXFxPbWVnYVxcdGltZXNcXE9tZWdhIl0sWzAsMSwiQyJdLFswLDEsIiEiXSxbMSwyLCJcXHRvcCJdLFszLDIsIlxcbG9yIiwyXSxbMCw0LCJhXFxjdXAgYiIsMl0sWzQsMywiXFxsYW5nbGVcXGNoaV9hLCBcXGNoaV9iXFxyYW5nbGUiLDJdLFswLDIsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    {A\cup B} \&\& 1 \\
+    C \& \Omega\times\Omega \& \Omega
+    \arrow["{!}", from=1-1, to=1-3]
+    \arrow["\top", from=1-3, to=2-3]
+    \arrow["\lor"', from=2-2, to=2-3]
+    \arrow["{a\cup b}"', from=1-1, to=2-1]
+    \arrow["{\langle\chi_a, \chi_b\rangle}"', from=2-1, to=2-2]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-3]
+  \end{tikzcd}\]
+\end{definition}
+
+\subsubsection{Implication}
+
+\begin{definition}[Implication]\index{Implication}
+  In any lattice $x \sqsubseteq y \iff x \sqcap y = x$. Therefore consider the
+  subobject $i: \leq\mono \Omega\times\Omega$ that equalizes $\land$ and
+  $\pi_0$:
+  % https://q.uiver.app/#q=WzAsMyxbMiwwLCJcXE9tZWdhIl0sWzEsMCwiXFxPbWVnYVxcdGltZXNcXE9tZWdhIl0sWzAsMCwiXFxsZXEiXSxbMSwwLCJcXGxhbmQiLDAseyJvZmZzZXQiOi0xfV0sWzEsMCwiXFxwaV8wIiwyLHsib2Zmc2V0IjoxfV0sWzIsMSwiaSIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XV0=
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    \leq \& \Omega\times\Omega \& \Omega
+    \arrow["\land", shift left=1, from=1-2, to=1-3]
+    \arrow["{\pi_0}"', shift right=1, from=1-2, to=1-3]
+    \arrow["i", tail, from=1-1, to=1-2]
+  \end{tikzcd}\]
+
+  The binary function $\implies$ that represents implication is given by the characteristic function of $i$ \parencite[p.~137]{goldblatt:topoi}:
+  % https://q.uiver.app/#q=WzAsNCxbMCwxLCJcXE9tZWdhXFx0aW1lc1xcT21lZ2EiXSxbMCwwLCJcXGxlcSJdLFsxLDEsIlxcT21lZ2EiXSxbMSwwLCIxIl0sWzEsMCwiaSIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMSwzLCIhIl0sWzMsMiwiXFx0b3AiXSxbMCwyLCJcXGltcGxpZXMiLDJdLFsxLDIsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    \leq \& 1 \\
+    \Omega\times\Omega \& \Omega
+    \arrow["i"', tail, from=1-1, to=2-1]
+    \arrow["{!}", from=1-1, to=1-2]
+    \arrow["\top", from=1-2, to=2-2]
+    \arrow["\implies"', from=2-1, to=2-2]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+  \end{tikzcd}\]
+\end{definition}

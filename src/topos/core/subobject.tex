@@ -1,0 +1,140 @@
+\section{Subobjects}
+
+\begin{definition}[Subobjects]\index{Subobjects}
+  A subobject of an object $B$ is a monomorphism $f:A\mono B$.
+  \parencite[p.~75]{goldblatt:topoi}
+\end{definition}
+
+\begin{definition}[Inclusion of Subobjects]\index{Subobject!Inclusion}
+  A subobject $f:A\mono C$ is included in another subobject $g:B\mono C$
+  (written $f \subseteq g$) when there is a morphism $h:A\to B$ such that $f=
+  g\circ h$ \parencite[p.~76]{goldblatt:topoi}.
+\end{definition}
+
+\begin{theorem}
+  For two subobjects $(f:A\mono C)\subseteq (g:B\mono C)$, the arrow $h:A\to B$
+  that makes $f= g\circ h$ hold is a subobject of $B$.
+
+  \begin{proof}
+    Consider an object $X$ with morphisms $x,y: X \to A$. If $h\circ x = h\circ
+    y$ then:
+    \[
+      \begin{aligned}
+        h\circ x &= h\circ y\\
+        g\circ h\circ x &= g\circ h\circ y\\
+        f\circ x&= f\circ y\\
+        x&= y
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}
+  The inclusion relation on subobjects is reflexive, i.e. for a subobject
+  $f:A\mono B$, if follows that $f\subseteq f$.
+
+  \begin{proof}
+    \[f = f \circ \id_A\]
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}
+  The inclusion relation on subobjects is transitive, i.e. for subobjects $f\subseteq g$ and $g\subseteq h$ it follows that $f\subseteq h$.
+
+  \begin{proof}
+    % https://q.uiver.app/#q=WzAsNCxbMCwyLCJBIl0sWzEsMSwiRCJdLFswLDEsIkIiXSxbMCwwLCJDIl0sWzAsMSwiZiIsMl0sWzIsMSwiZyJdLFswLDIsImkiXSxbMywxLCJoIl0sWzIsMywiaiJdXQ==
+    \[\begin{tikzcd}[ampersand replacement=\&]
+      C \\
+      B \& D \\
+      A
+      \arrow["f"', from=3-1, to=2-2]
+      \arrow["g", from=2-1, to=2-2]
+      \arrow["i", from=3-1, to=2-1]
+      \arrow["h", from=1-1, to=2-2]
+      \arrow["j", from=2-1, to=1-1]
+    \end{tikzcd}\]
+
+    The morphisms that factors $f$ through $h$ is $j\circ i$.
+  \end{proof}
+\end{theorem}
+
+\begin{definition}[Isomorphic Subobjects]\index{Subobject!Isomorphism}\label{def:iso_subobjects}
+  Two subobjects $f,g$ are isomorphic $written f\cong g$ when $f\subseteq g$ and
+  $g\subseteq f$ \parencite[p.~77]{goldblatt:topoi}.
+\end{definition}
+
+\begin{theorem}
+  For two subobjects $f:A\to C$ and $g:B\to C$, if $f\cong g$ then $A\cong B$.
+
+  \begin{proof}
+    Consider morphisms $i, j$ such that $f=g\circ i$ and $g=f\circ j$, then:
+    \[
+      \begin{aligned}
+        f &= g\circ i\\
+        f\circ j &= g \circ i \circ j\\
+        g &= g \circ i \circ j\\
+        \id_B &= i \circ j
+      \end{aligned}
+      \qquad
+      \begin{aligned}
+        g &= f\circ j\\
+        g\circ i &= f \circ j \circ i\\
+        f &= f \circ j \circ i\\
+        \id_A &= j \circ i
+      \end{aligned}
+    \]
+  \end{proof}
+\end{theorem}
+
+\begin{proposition}
+  Isomorphism of subobjects forms an equivalence relation, i.e. it is reflexive,
+  transitive, and symmetric \parencite[p.~77]{goldblatt:topoi}.
+\end{proposition}
+
+\begin{definition}[Equivalence Class of Subobjects]\index{Subobject!Equivalence Class}
+
+  For a subobject $f:A\mono B$, its equivalence class is defined as
+  \parencite[p.~77]{goldblatt:topoi}:
+  \[
+    [f] = \{g\ |\ f\cong g\}
+  \]
+\end{definition}
+
+\begin{definition}[Subobject Collection]\index{Subobject!Collection}
+  The collection of subobjects of an object $A$ is defined as
+  \parencite[p.~77]{goldblatt:topoi}:
+  \[
+    \mathrm{Sub}(A) = \{[f]\ |\ \text{$f$ is monic},\ \mathrm{cod}\ f = A\}
+  \]
+\end{definition}
+
+\begin{proposition}
+  For subobjects $f,g$, $f\cong g \iff [f] = [g]$
+\end{proposition}
+
+\subsection{Subobject Classifier}
+\begin{definition}[Subobject Classifier]\index{Subobject Classifier}
+  A subobject classifier $\Omega$ is an object such that for any monic $f:A\mono
+  B$ there exists a unique morphism $\chi_f$ such that the following is a
+  pullback square for some arrow $\top$ \parencite[p.~84]{goldblatt:topoi}:
+  % https://q.uiver.app/#q=WzAsNCxbMCwwLCJBIl0sWzEsMCwiMSJdLFswLDEsIkIiXSxbMSwxLCJcXE9tZWdhIl0sWzEsMywiXFxtYXRocm17XFx0b3B9IiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFswLDEsIiEiXSxbMCwyLCJmIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsyLDMsIlxcY2hpX2YiLDJdLFswLDMsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    A \& 1 \\
+    B \& \Omega
+    \arrow["{\mathrm{\top}}", tail, from=1-2, to=2-2]
+    \arrow["{!}", from=1-1, to=1-2]
+    \arrow["f"', tail, from=1-1, to=2-1]
+    \arrow["{\chi_f}"', from=2-1, to=2-2]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+  \end{tikzcd}\]
+\end{definition}
+
+\begin{remark}\index{Characteristic Arrow}
+  The morphism $\chi_f$ is called the characteristic arrow of the monomorphism
+  $f$.
+\end{remark}
+
+\begin{proposition}
+  The subobject classifier (if it exists) in a category is unique up to
+  isomorphism.
+\end{proposition}
