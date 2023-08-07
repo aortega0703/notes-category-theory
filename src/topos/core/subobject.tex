@@ -8,7 +8,15 @@
 \begin{definition}[Inclusion of Subobjects]\index{Subobject!Inclusion}
   A subobject $f:A\mono C$ is included in another subobject $g:B\mono C$
   (written $f \subseteq g$) when there is a morphism $h:A\to B$ such that $f=
-  g\circ h$ \parencite[p.~76]{goldblatt:topoi}.
+  g\circ h$ \parencite[p.~76]{goldblatt:topoi}:
+  % https://q.uiver.app/#q=WzAsMyxbMCwwLCJBIl0sWzEsMSwiQyJdLFsxLDAsIkIiXSxbMCwxLCJmIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsyLDEsImciLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzAsMiwiaCJdXQ==
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    A \& B \\
+    \& C
+    \arrow["f"', tail, from=1-1, to=2-2]
+    \arrow["g", tail, from=1-2, to=2-2]
+    \arrow["h", from=1-1, to=1-2]
+  \end{tikzcd}\]
 \end{definition}
 
 \begin{theorem}
@@ -138,3 +146,64 @@
   The subobject classifier (if it exists) in a category is unique up to
   isomorphism.
 \end{proposition}
+
+\begin{definition}[Power Objects]\index{Topos!Power Objects}
+  Since arrows $A\to \Omega$ classify subobjects of $A$, the exponential
+  $\Omega^A$ is the object of subobjects of $A$ (or its power object). It is
+  then possible to construct the subobject $\in_a: \in_A\to \Omega^A\times A$
+  such that \parencite[p.~124]{mclarty:elementary}:
+  % https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXGluX0EiXSxbMSwwLCIxIl0sWzEsMSwiXFxPbWVnYSJdLFswLDEsIlxcT21lZ2FeQVxcdGltZXMgQSJdLFsxLDIsIlxcdG9wIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFswLDEsIiEiXSxbMywyLCJcXG1hdGhybXtldmFsfV97XFxPbWVnYV5BfSIsMl0sWzAsMywiXFxpbl9hIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFswLDIsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    {\in_A} \& 1 \\
+    {\Omega^A\times A} \& \Omega
+    \arrow["\top", tail, from=1-2, to=2-2]
+    \arrow["{!}", from=1-1, to=1-2]
+    \arrow["{\mathrm{eval}_{\Omega^A}}"', from=2-1, to=2-2]
+    \arrow["{\in_a}"', tail, from=1-1, to=2-1]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+  \end{tikzcd}\]
+\end{definition}
+
+\begin{theorem}
+  For an element $x:1\mono A$ and a subobject $b: B\mono A$, $x\subseteq b \iff
+  \<\ulcorner \chi_b\urcorner, x\> \subseteq \in_A$ (or $x\in_A b$).
+
+  \begin{proof}
+    Let $x\subseteq b$, so that:
+    % https://q.uiver.app/#q=WzAsNixbMSwxLCIxIl0sWzMsMCwiMSJdLFszLDEsIlxcT21lZ2EiXSxbMiwwLCJCIl0sWzIsMSwiQSJdLFswLDEsIlxcT21lZ2FeQSJdLFs0LDIsIlxcY2hpX2IiLDJdLFszLDQsImIiLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzMsMSwiISJdLFsxLDIsIlxcdG9wIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFswLDMsIiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFswLDQsIngiLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzAsNSwiXFxuYW1le1xcY2hpX2J9IiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFszLDIsIiIsMCx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb08e21d744ff9df9903ede35f3944ad2f54020e7%2Fmacros.tex
+    \[\begin{tikzcd}[ampersand replacement=\&]
+      \&\& B \& 1 \\
+      {\Omega^A} \& 1 \& A \& \Omega
+      \arrow["{\chi_b}"', from=2-3, to=2-4]
+      \arrow["b"', tail, from=1-3, to=2-3]
+      \arrow["{!}", from=1-3, to=1-4]
+      \arrow["\top", tail, from=1-4, to=2-4]
+      \arrow[dotted, from=2-2, to=1-3]
+      \arrow["x"', tail, from=2-2, to=2-3]
+      \arrow["{\name{\chi_b}}", tail, from=2-2, to=2-1]
+      \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-3, to=2-4]
+    \end{tikzcd}\]
+
+    Construct then the arrow $\<\name{\chi_b},x \>:1\to \Omega^A\times A$ such
+    that $\mathrm{eval}_{\Omega^A}\circ\<\name{\chi_b},x\>=\chi_b\circ x$ with
+    is equal to $\top$. Finally, by the universal property of the pullback,
+    there exists a unique arrow such that
+    $\mathrm{eval}_{\Omega^A}\circ\<\name{\chi_b},x\> \subseteq \in_A$:
+    % https://q.uiver.app/#q=WzAsNSxbMSwyLCJcXE9tZWdhXkFcXHRpbWVzIEEiXSxbMSwxLCJcXGluX0EiXSxbMiwyLCJcXE9tZWdhIl0sWzIsMSwiMSJdLFswLDAsIjEiXSxbMCwyLCJlX3tcXE9tZWdhXkF9IiwyXSxbMywyLCJcXHRvcCIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMSwwLCJcXGluX2EiLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzEsMywiISJdLFsxLDIsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dLFs0LDMsIlxcaWRfMSIsMCx7ImN1cnZlIjotMn1dLFs0LDAsIlxcbGFuZ2xlIFxcdWxjb3JuZXIgXFxjaGlfYlxcdXJjb3JuZXIseFxccmFuZ2xlIiwyLHsiY3VydmUiOjIsInN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbNCwxLCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb46a955b6b1f06908105b870088e59a10049fc60%2Fmacros.tex
+    \[\begin{tikzcd}[ampersand replacement=\&]
+      1 \\
+      \& {\in_A} \& 1 \\
+      \& {\Omega^A\times A} \& \Omega
+      \arrow["{e_{\Omega^A}}"', from=3-2, to=3-3]
+      \arrow["\top", tail, from=2-3, to=3-3]
+      \arrow["{\in_a}"', tail, from=2-2, to=3-2]
+      \arrow["{!}", from=2-2, to=2-3]
+      \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=2-2, to=3-3]
+      \arrow["{\id_1}", curve={height=-12pt}, from=1-1, to=2-3]
+      \arrow["{\langle \ulcorner \chi_b\urcorner,x\rangle}"', curve={height=12pt}, tail, from=1-1, to=3-2]
+      \arrow[dashed, from=1-1, to=2-2]
+    \end{tikzcd}\]
+
+    Simmilarly, starting with $x\in_A b$ and using the universal property of pullbacks one can obtain a unique arrow such that $x\in b$.
+  \end{proof}
+\end{theorem}
