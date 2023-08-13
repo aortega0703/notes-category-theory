@@ -1,7 +1,6 @@
 \section{Topos}
 
 \begin{definition}[Topos]\index{Topos}
-
   An elementary topos is a category such that
   \parencite[p.~84]{goldblatt:topoi}:
 
@@ -26,11 +25,6 @@
 
 \subsection{Algebra of Subobjects}
 
-\begin{remark}
-  The characteristic function of $!:0\to 1$ ($0 \subseteq 1$) being regarded as
-  false implies that the initial object $0$ should behave as empty-like.
-\end{remark}
-
 \subsubsection{Negation}
 
 \begin{definition}[False]\index{False}
@@ -48,6 +42,11 @@
     \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
   \end{tikzcd}\]
 \end{definition}
+
+\begin{remark}
+  The characteristic function of $!:0\to 1$ ($0 \subseteq 1$) being regarded as
+  false implies that the initial object $0$ should behave as empty-like.
+\end{remark}
 
 \begin{definition}[Negation]\index{Negation}
   The unary function $\bot: \Omega\to Omega$ that represents negation is given
@@ -147,8 +146,8 @@
     \arrow["f"{description}, dashed, from=2-1, to=2-3]
   \end{tikzcd}\]
 
-  Factorizing $f$ using \ref{prop:epicmono_factorization} leads to a
-  subobject $i: f(\Omega+\Omega)\mono \Omega\times \Omega$ as follows:
+  Factorizing $f$ using \ref{prop:epicmono_factorization} leads to a subobject
+  $i: f(\Omega+\Omega)\mono \Omega\times \Omega$ as follows:
   % https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXE9tZWdhK1xcT21lZ2EiXSxbMiwwLCJcXE9tZWdhXFx0aW1lc1xcT21lZ2EiXSxbMSwxLCJcXG1hdGhybXtJbX1cXCBmIl0sWzAsMiwiZl4qIiwyLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzAsMSwiZiJdLFsyLDEsImkiLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV1d
   \[\begin{tikzcd}[ampersand replacement=\&]
     {\Omega+\Omega} \&\& \Omega\times\Omega \\
@@ -159,7 +158,8 @@
   \end{tikzcd}\]
 
   The binary function $\lor$ that represents disjuction is given by the
-  characteristic function of $i$ \parencite[p.~138]{goldblatt:topoi}, which selects when either operand is $\top$:
+  characteristic function of $i$ \parencite[p.~138]{goldblatt:topoi}, which
+  selects when either operand is $\top$:
   % https://q.uiver.app/#q=WzAsNCxbMCwwLCJmKFxcT21lZ2ErXFxPbWVnYSkiXSxbMSwwLCIxIl0sWzEsMSwiXFxPbWVnYSJdLFswLDEsIlxcT21lZ2FcXHRpbWVzXFxPbWVnYSJdLFswLDEsIiEiXSxbMSwyLCJcXHRvcCJdLFszLDIsIlxcbG9yIiwyXSxbMCwyLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyIn19XSxbMCwzLCJpIiwyXV0=
   \[\begin{tikzcd}[ampersand replacement=\&]
     {f(\Omega+\Omega)} \& 1 \\
@@ -203,7 +203,8 @@
     \arrow["i", tail, from=1-1, to=1-2]
   \end{tikzcd}\]
 
-  The binary function $\implies$ that represents implication is given by the characteristic function of $i$ \parencite[p.~137]{goldblatt:topoi}:
+  The binary function $\implies$ that represents implication is given by the
+  characteristic function of $i$ \parencite[p.~137]{goldblatt:topoi}:
   % https://q.uiver.app/#q=WzAsNCxbMCwxLCJcXE9tZWdhXFx0aW1lc1xcT21lZ2EiXSxbMCwwLCJcXGxlcSJdLFsxLDEsIlxcT21lZ2EiXSxbMSwwLCIxIl0sWzEsMCwiaSIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMSwzLCIhIl0sWzMsMiwiXFx0b3AiXSxbMCwyLCJcXGltcGxpZXMiLDJdLFsxLDIsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==
   \[\begin{tikzcd}[ampersand replacement=\&]
     \leq \& 1 \\
@@ -215,3 +216,121 @@
     \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
   \end{tikzcd}\]
 \end{definition}
+
+\begin{definition}[Universal Quantificator]\index{Topos!Universal
+Quantificator}
+  Consider the maximal subobject of $\id: A\to A$, the name of its
+  characteristic function is then given by:
+  % https://q.uiver.app/#q=WzAsNCxbMCwwLCJBIl0sWzAsMSwiQSJdLFsxLDAsIjEiXSxbMSwxLCJcXE9tZWdhIl0sWzAsMSwiXFxpZF9BIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFswLDIsIiEiXSxbMiwzLCJcXHRvcCIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMSwzLCJcXHRvcF9BIiwyXSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyIn19XV0=&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb08e21d744ff9df9903ede35f3944ad2f54020e7%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    A \& 1 \\
+    A \& \Omega
+    \arrow["{\id_A}"', tail, from=1-1, to=2-1]
+    \arrow["{!}", from=1-1, to=1-2]
+    \arrow["\top", tail, from=1-2, to=2-2]
+    \arrow["{\top_A}"', from=2-1, to=2-2]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+  \end{tikzcd}\]
+
+  Then, consider the element $\name{\top_A}: 1\to \Omega^A$ which selects the
+  maximal subobject from the power object $\Omega^A$. The characteristic
+  function of this element which will be called $\forall_A:\Omega^A\to\Omega$
+  \parencite[p.~121]{mclarty:elementary}:
+  % https://q.uiver.app/#q=WzAsNCxbMCwwLCIxIl0sWzAsMSwiXFxPbWVnYV5BIl0sWzEsMCwiMSJdLFsxLDEsIlxcT21lZ2EiXSxbMCwxLCJcXG5hbWV7XFx0b3BfQX0iLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzAsMiwiISJdLFsyLDMsIlxcdG9wIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsxLDMsIlxcZm9yYWxsX0EiLDJdLFswLDMsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb08e21d744ff9df9903ede35f3944ad2f54020e7%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    1 \& 1 \\
+    {\Omega^A} \& \Omega
+    \arrow["{\name{\top_A}}"', tail, from=1-1, to=2-1]
+    \arrow["{!}", from=1-1, to=1-2]
+    \arrow["\top", tail, from=1-2, to=2-2]
+    \arrow["{\forall_A}"', from=2-1, to=2-2]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+  \end{tikzcd}\]
+\end{definition}
+
+\begin{definition}[Universal Quantification]
+  Let the subobject $r: R\mono B\times A$ be a relation. The arrow
+  $\overline{\chi_r}: B \to \Omega^A$ sends every element in $B$ to the arrow
+  classifying the subobject of all whose are related to it. Then the composite
+  $\forall_A \circ \overline{\chi_r}$ classifies the largest subobject of $B$
+  whose elements are related to all of $A$
+  \parencite[p.~121]{mclarty:elementary}
+  % https://q.uiver.app/#q=WzAsNSxbMiwxLCJcXE9tZWdhIl0sWzAsMSwiQiJdLFsxLDEsIlxcT21lZ2FeQSJdLFsyLDAsIjEiXSxbMCwwLCJcXGZvcmFsbF9hLlIiXSxbMSwyLCJcXG92ZXJsaW5le1xcY2hpX3J9IiwyXSxbMiwwLCJcXGZvcmFsbF9BIiwyXSxbMywwLCJcXHRvcCIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbNCwxLCJcXGZvcmFsbCBhLnIiLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzQsMywiISJdLFs0LDAsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==&macro_url=https%3A%2F%2Fgist.githubusercontent.com%2Faortega0703%2Fa1fd97cb097b8142e63a6fbf0cdb0f76%2Fraw%2Fb08e21d744ff9df9903ede35f3944ad2f54020e7%2Fmacros.tex
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    {\forall_a.R} \&\& 1 \\
+    B \& {\Omega^A} \& \Omega
+    \arrow["{\overline{\chi_r}}"', from=2-1, to=2-2]
+    \arrow["{\forall_A}"', from=2-2, to=2-3]
+    \arrow["\top", tail, from=1-3, to=2-3]
+    \arrow["{\forall a.r}"', tail, from=1-1, to=2-1]
+    \arrow["{!}", from=1-1, to=1-3]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-3]
+  \end{tikzcd}\]
+\end{definition}
+
+\begin{definition}[Existential Quantificator]\index{Topos!Existential
+  Quantificator} Consider the inclusion subobject
+  $\in_a:\in_A\mono\Omega^A\times A$. The mono part of the epic-mono
+  factorization of $f=\pi_0\circ \in_a:\in_A\to \Omega^A$ selects all subobjects
+  which have a element in them. The characteristic function of such a subobject
+  is the existential quantificator $\exists_A:\Omega^A \to \Omega$
+  \parencite[p.~245]{goldblatt:topoi}:
+  % https://q.uiver.app/#q=WzAsNixbMCwxLCJcXE9tZWdhXkFcXHRpbWVzIEEiXSxbMSwxLCJcXE9tZWdhXkEiXSxbMCwwLCJcXGluX0EiXSxbMSwwLCJmKFxcaW5fQSkiXSxbMiwwLCIxIl0sWzIsMSwiXFxPbWVnYSJdLFswLDEsIlxccGlfMCIsMl0sWzIsMCwiXFxpbl9hIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsyLDMsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFszLDEsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbNCw1LCJcXHRvcCIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMyw0LCIhIl0sWzEsNSwiXFxleGlzdHNfQSIsMl0sWzMsNSwiIiwwLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lciJ9fV1d
+  \[\begin{tikzcd}[ampersand replacement=\&]
+    {\in_A} \& {f(\in_A)} \& 1 \\
+    {\Omega^A\times A} \& {\Omega^A} \& \Omega
+    \arrow["{\pi_0}"', from=2-1, to=2-2]
+    \arrow["{\in_a}"', tail, from=1-1, to=2-1]
+    \arrow[two heads, from=1-1, to=1-2]
+    \arrow[tail, from=1-2, to=2-2]
+    \arrow["\top", tail, from=1-3, to=2-3]
+    \arrow["{!}", from=1-2, to=1-3]
+    \arrow["{\exists_A}"', from=2-2, to=2-3]
+    \arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-2, to=2-3]
+  \end{tikzcd}\]
+\end{definition}
+
+\subsection{Classification}
+
+\begin{definition}[Bivalent Topos]\index{Topos!Bivalent}
+  A topos is bivalent if $\top$ and $\bot$ are the only elements of $\Omega$
+  \parencite[p.~118]{goldblatt:topoi}.
+\end{definition}
+
+\begin{definition}[Well-Pointed Topos]\index{Topos!Well-Pointed}
+  A topos is well pointed if it satisfies extensionality
+  \parencite[p.~116]{goldblatt:topoi}, i.e. for any pair of distinct arrows
+  $f,g:A\to B$ there exists an element $x:1\to A$ such that $f\circ x \neq
+  g\circ x$.
+\end{definition}
+
+\begin{proposition}
+  If a topos is well pointed, then it is bivalent
+  \parencite[p.~118]{goldblatt:topoi}
+\end{proposition}
+
+\begin{definition}[Classical Topos]\index{Topos!Classical}\index{Topos!Boolean}
+  A topos is Classical (or boolean) if $[\top, \bot]:1+1 \to \Omega$ is an
+  isomorphism \parencite[p.~118, p.~156]{goldblatt:topoi}
+\end{definition}
+
+\begin{definition}[Disjunctive Topos]
+  A topos is called disjunctive if for any truth values $x,y:1\to \Omega$,
+  \[\lor \circ \<x, y\> = \top \text{ iff } x=\top \text{ or } y=\top\]
+  \parencite[p.~171]{goldblatt:topoi}.
+\end{definition}
+
+\begin{proposition}
+  Every Bivalent topos is disjunctive.
+\end{proposition}
+
+\begin{definition}[Axiom of Choice]
+  Every epic $f:A\epi B$ has a section $s:B\to A$, i.e. $f\circ s= \id_B$
+  \parencite[p.~290]{goldblatt:topoi}.
+\end{definition}
+
+\begin{proposition}
+  If the axiom of choice holds for a topos, then it is boolean
+  \parencite[p.~163]{mclarty:elementary}.
+\end{proposition}
+
